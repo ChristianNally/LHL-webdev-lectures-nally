@@ -4,10 +4,13 @@ const port = 3000;
 // create an express app
 const app = express();
 
+// use the ejs template engine
+app.set('view engine','ejs');
+
 // routing
 app.get('/',(req,res)=>{
     console.log('Homepage Route called.');
-    res.write('Homepage!');
+    res.status(200).render('index'); // send views/index.ejs as the response
     res.end();
 });
 
