@@ -15,6 +15,8 @@
 const http = require('http');
 const fs = require('fs');
 const path = require('path');
+const db = require('./db/todos');
+
 const port = 3000;
 
 // create the web server
@@ -52,7 +54,10 @@ const server = http.createServer((req, res) => {
     break;
     case 'GET /todos':
       res.statusCode = 200; // 200 means OK
-      res.write("ToDos!");
+
+      // transform JSON into text string
+      const todoList = JSON.stringify(db);
+      res.write(todoList);
       res.end();
     break;
     default:
