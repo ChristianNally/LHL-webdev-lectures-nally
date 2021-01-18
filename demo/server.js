@@ -28,13 +28,15 @@ const server = http.createServer((req, res) => {
   // create route string
   const route = `${req.method} ${req.url}`;
 
+  let filePath = '';
+
   // depending on the response, build an appropriate response
   switch (route) {
     case 'GET /':
       res.statusCode = 200; // 200 means OK
 
       // read index.html from the views directory
-      const filePath = path.join(__dirname,'views','index.html');
+      filePath = path.join(__dirname,'views','index.html');
       console.log('retrieving view from:' + filePath);
       fs.readFile(filePath, 'utf8', (err, fileContent) => {
         if (err) {
@@ -55,8 +57,21 @@ const server = http.createServer((req, res) => {
     break;
     default:
       res.statusCode = 404; // 404 means Not Found
-      res.write("Cannot find this resource.");
-      res.end();
+
+      // read index.html from the views directory
+      filePath = path.join(__dirname,'views','404.html');
+      console.log('retrieving view from:' + filePath);
+      fs.readFile(filePath, 'utf8', (err, fileContent) => {
+        if (err) {
+          res.statusCode = 500; // 500 means fatal error
+          res.write(err.message);
+          res.end();
+        } else {
+          res.statusCode = 404; 
+          res.write(fileContent);
+          res.end();
+        }
+      });
     break;
   }
 });
