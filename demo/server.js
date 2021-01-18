@@ -13,6 +13,8 @@
 
 // define the constants used throughout this file
 const http = require('http');
+const fs = require('fs');
+const path = require('path');
 const port = 3000;
 
 // create the web server
@@ -30,8 +32,21 @@ const server = http.createServer((req, res) => {
   switch (route) {
     case 'GET /':
       res.statusCode = 200; // 200 means OK
-      res.write("Homepage!"); // use the .write method to output text into the response.
-      res.end(); // use .end to finish the response.
+
+      // read index.html from the views directory
+      const filePath = path.join(__dirname,'views','index.html');
+      console.log('retrieving view from:' + filePath);
+      fs.readFile(filePath, 'utf8', (err, fileContent) => {
+        if (err) {
+          res.statusCode = 500; // 500 means fatal error
+          res.write(err.message);
+          res.end();
+        } else {
+          res.statusCode = 200; 
+          res.write(fileContent);
+          res.end();
+        }
+      });
     break;
     case 'GET /todos':
       res.statusCode = 200; // 200 means OK
