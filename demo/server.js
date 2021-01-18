@@ -16,6 +16,7 @@ const http = require('http');
 const fs = require('fs');
 const path = require('path');
 const db = require('./db/todos');
+const todos = require('./db/todos');
 
 const port = 3000;
 
@@ -59,6 +60,33 @@ const server = http.createServer((req, res) => {
       const todoList = JSON.stringify(db);
       res.write(todoList);
       res.end();
+    break;
+    case 'POST /todos':
+      let body = '';
+      // extract the body of the request stream, which is broken into chunks
+      // content is caught in chunks, and the end event is called when finished
+
+      // receiving one chunk at a time
+      req.on('data',chunk => {
+        body += chunk;
+      });
+
+      // 'end' event is called when we know that the stream has ended.
+      req.on('end',()=>{
+        // create a new TODO object
+        const newTodo = JSON.parse(body);
+
+        // generate a random ID
+        newTodo.id = Math.random().toString(36).substring(2,8);
+
+        // add it to TODOs 'DB'
+        db.push(newTodo);
+
+        // send back a response
+        res.statusCode = 201; // 201 means Created: see https://http.cat/201
+        res.write('New TODO created.');
+        res.end();
+      });
     break;
     default:
       res.statusCode = 404; // 404 means Not Found
