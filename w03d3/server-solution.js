@@ -1,3 +1,8 @@
+//
+// DO NOT USE THIS CODE
+// IT HAS A SERIOUS SECURITY ISSUE, WHICH IS LEFT IN ON PURPOSE, FOR TEACHING PURPOSES
+//
+
 const express = require("express");
 const PORT = 8080;
 const bodyParser = require("body-parser");
@@ -59,8 +64,9 @@ app.post("/login", (req, res) => {
 app.get("/profile", (req, res) => {
   console.log("profile says:" + JSON.stringify(req.cookies));
   username = req.cookies.user;
+  password = users[username];
   if(users[username]){
-    const templateVars = {users: users};
+    const templateVars = {user: username, password: password};
     res.render("profile", templateVars);  
   } else {
     res.redirect('/');

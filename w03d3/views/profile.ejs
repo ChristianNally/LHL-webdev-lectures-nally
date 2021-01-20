@@ -1,17 +1,19 @@
 <html>
-<head>
-  <title>Authentication Server</title>
-</head>
-<body>
+  <head>
+    <title>Authentication Server</title>
+  </head>
+  <body>
+    <p>Welcome to the club. Here is all the super secret information.</p>
 
-<p>Welcome to the club. Here is all the super secret information.</p>
-
-<table border="1">
-    <th>Username</th><th>Password</th>
-        <% Object.keys(users).forEach(function(key) { %>
-    <tr><td><%= key %></td><td><%= users[key] %></td></tr>
- <% }); %>
-</table>
-
-</body>
+    <table border="1">
+      <tr>
+        <th>Username</th>
+        <th>Password</th>
+      </tr>
+      <tr>
+        <td><%= username %></td>
+        <td><%= password %></td>
+      </tr>
+    </table>
+  </body>
 </html>
