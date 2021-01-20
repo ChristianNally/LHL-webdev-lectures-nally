@@ -84,6 +84,12 @@ app.post("/logout", (req, res) => {
   res.redirect("/");
 });
 
+// 404
+app.get('*',(req,res)=>{
+  res.status(404);
+  res.render('404');
+});
+
 //
 // SET THE APP TO LISTENIN' AND EXIT THE MAIN THREAD
 //
