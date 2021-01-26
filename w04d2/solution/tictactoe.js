@@ -1,4 +1,4 @@
-$("document").ready(() => {
+$("document").ready(function(){
   let nextPlay = "X";
 
   //
@@ -74,7 +74,7 @@ $("document").ready(() => {
   $(".square").on("click", function (event) {
     $(this).addClass(nextPlay);
     if (checkForVictory(this)) {
-      $("#nextPlay").html(' not needed because we have a winner. <a href="">Play Again.</a>');
+      $("#nextPlay").html(' <a href="">Play Again.</a>');
       $(".square").off("click");
     } else {
       toggleNextPlay();
