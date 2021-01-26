@@ -5,34 +5,53 @@ $("document").ready(() => {
   // STEP THREE: is there a winner yet?
   //
   function checkForVictory(newSquare) {
-    // evidence of non-victory clobbers these fragile defaults
-    // the opposite method doesn't work
-    let rowVictory = true;
-    let columnVictory = true;
-    let diagonalVictory = true;
+    // each type of victory defaults to true
+    // any contrary evidence flips that fragile state
+    // so that the conclusion can be returned at the end
+    // after checking all possibilities
 
-    // check row this new square is in
+    let rowWin = true;
+    // only need to check the row this new square is in
     $(newSquare).siblings().each(function( index ){
       if (!$(this).hasClass(nextPlay)){
-        rowVictory = false;
+        rowWin = false;
       };
     });
 
-    // check column this new square is in
-    columnNum = $(newSquare).index() + 1;
+    let columnWin = true;
+    // only need to check the column this new square is in
+    let columnNum = $(newSquare).index() + 1;
     $(".row")
       .children(".square:nth-of-type(" + columnNum + ")")
       .each(function( index ){
       if (!$(this).hasClass(nextPlay)){
-        columnVictory = false;
+        columnWin = false;
       };
     });
 
-    // check any diagonal this news square is a part of
-    // this is left as an exercise to the curious
+    // check first diagonal
+    let firstDiagonalWin = true;
+    if ( !$(".row:nth-of-type(" + 1 + ")").children('.square:nth-of-type(' + 1 + ')').hasClass(nextPlay)
+    || !$(".row:nth-of-type(" + 2 + ")").children('.square:nth-of-type(' + 2 + ')').hasClass(nextPlay)
+    || !$(".row:nth-of-type(" + 3 + ")").children('.square:nth-of-type(' + 3 + ')').hasClass(nextPlay)
+    ){ // upper-left to lower-right lacks nextPlay
+      firstDiagonalWin = false;
+    }
+
+    let otherDiagonalWin = true;
+    if ( !$(".row:nth-of-type(" + 1 + ")").children('.square:nth-of-type(' + 3 + ')').hasClass(nextPlay)
+    || !$(".row:nth-of-type(" + 2 + ")").children('.square:nth-of-type(' + 2 + ')').hasClass(nextPlay)
+    || !$(".row:nth-of-type(" + 3 + ")").children('.square:nth-of-type(' + 1 + ')').hasClass(nextPlay)
+    ){ // upper-right to lower-left has any non-nextPlay
+      otherDiagonalWin = false;
+    }
 
     // if any victory type is true, return true
-    return ( rowVictory === true || columnVictory === true);
+    return ( rowWin === true 
+      || columnWin === true
+      || firstDiagonalWin === true
+      || otherDiagonalWin === true
+      );
   }
 
   //
