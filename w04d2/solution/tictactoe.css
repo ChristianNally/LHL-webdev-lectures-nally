@@ -1,0 +1,15 @@
+.square {
+    width: 75px;
+    height: 75px;
+    background-color: grey;
+}
+
+.X {
+    /* background-color: red; */
+    background-image: url('./img/tictacex.jpg');
+}
+
+.O {
+    /* background-color: blue; */
+    background-image: url('./img/tictacoh.jpg');
+}
