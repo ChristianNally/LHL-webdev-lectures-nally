@@ -30,7 +30,10 @@ switch (verb) {
 
   case 'read':
     id = process.argv[3];
-    client.query('SELECT * FROM objectives WHERE id = $1;', [id])
+    const query = 'SELECT * FROM objectives WHERE id = ' + id + ';'
+    console.log("Query",query);
+    client.query(query)
+//    client.query('SELECT * FROM objectives WHERE id = $1;', [id])
       .then((response) => {
         console.log(response.rows);
         client.end();
