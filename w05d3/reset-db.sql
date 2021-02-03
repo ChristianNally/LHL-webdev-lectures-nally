@@ -42,7 +42,7 @@ answer text,
 sort smallint,
 day_id integer NOT NULL,
 PRIMARY KEY(id)
-)
+);
 
 INSERT INTO objectives (day_id,type,description,answer,sort) VALUES ('21','learning', 'What is a table?','A table is a set of data collected as columns and rows.','1');
 INSERT INTO objectives (day_id,type,description,answer,sort) VALUES ('21','learning', 'What is a database?','A database is a collection of tables. The collection is typically used as a set. A connection to a database is granted via a username and password.','2');
