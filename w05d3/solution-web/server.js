@@ -4,14 +4,11 @@ const express = require('express');
 const app = express();
 app.set('view engine', 'ejs');
 
-// const router = require('./routes/router');
-// app.use('/objectives', router);
-
 const dbFns = require('./db/queries');
 
 app.get('/', (req, res) => {
-  dbFns.getAllObjectives((objectives) => {
-    const templateVars = {objectives: objectives};
+  dbFns.getAllObjectives((rows) => {
+    const templateVars = {objectives: rows};
     res.render('index',templateVars);
   });
 });
