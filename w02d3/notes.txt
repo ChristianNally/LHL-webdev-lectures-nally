@@ -1,0 +1,16 @@
+1. What is the Internet?
+1. TCP Introduction
+1. TCP Demo
+1. HTTP Fundamentals
+
+# What is the Internet?
+
+ARPANet, decentralized, global system of interconnected computers that communicate via TCP/IP.
+
+Q: How can a packet get lost?
+A: They can get dropped if a piece of equipment (router? etc.) get overloaded on the first attempted route.
+
+IP (Internet Protocol) is the addressing. IP addresses, etc. 192.168.1.1
+
+What other protocols are used on top of TCP/IP?
+
