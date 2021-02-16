@@ -8,7 +8,7 @@
 [] With EJS templates, the HTML is (built, compiled, created) dynamically on the back-end.
 [] If you only modify ejs files, you do not need to rerun your server.
 
-# CRUD
+# CRUD (vs. BREAD)
 
 [] Create
 [] Read
