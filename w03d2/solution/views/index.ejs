@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Learning Objectives</title>
+  </head>
+  <body>
+    <table>
+      <tr><th>Actions</th><th>Question</th><th>Answer</th></tr>
+      <% for (let objective in lo) { %> <!-- this is how to include JS in your template -->
+        <tr><td><form method="POST" action="/objectives/<%= objective %>/delete"><input type="submit" value="Delete"></form></td><td><%= lo[objective].question %></td><td><%= lo[objective].answer %></td></tr>
+      <% } %>  
+    </table>
+  </body>
+</html>
