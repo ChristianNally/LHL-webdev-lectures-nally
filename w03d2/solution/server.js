@@ -1,6 +1,7 @@
 const PORT = 8080;
 const express = require("express");
 const morgan = require("morgan");
+const bodyParser = require("body-parser");
 
 const app = express();
 app.set('view engine', 'ejs');
@@ -23,6 +24,7 @@ const objectives = {
 //
 
 app.use(morgan("dev"));
+app.use(bodyParser.urlencoded({extended: false}));
 
 //
 // ROUTES
@@ -30,6 +32,28 @@ app.use(morgan("dev"));
 
 app.get("/", (req, res) => {
   res.render('home');
+});
+
+//
+// CREATE
+//
+
+// this route must come first to avoid new = :id below
+app.get("/objectives/new",(req,res)=>{ 
+  res.render("new");
+});
+
+app.post("/objectives",(req,res)=>{
+  const keys = Object.keys(objectives).map(x=>+x);
+  let last_element = keys[keys.length - 1];
+  // console.log("keys",keys);
+  // console.log("last_element",last_element);
+  // console.log("req.body",req.body);
+  objectives[++last_element] = {
+    question: req.body.question,
+    answer: req.body.answer
+  }
+  res.redirect("/objectives");
 });
 
 //

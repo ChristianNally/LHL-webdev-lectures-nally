@@ -27,6 +27,7 @@ app.get('/index', (req,res) => {
 
 [] You can take a parameter on a route's URL via req.params where the path has a colon in it.
 [] Connect the index list of objectives to each individual objective detail page via a link.
+[] The order of the routes in your file matters. First matched -> First used.
 
 # REST
 
@@ -69,12 +70,6 @@ Verbs: GET, POST, PUT, PATCH, DELETE
 
 We used only GET and POST to achieve the CRUD routes.
 
-# Cookies
-
-We did a quick look on cookies.
-
-"an HTTP cookie is a small piece of data sent from a website and stored on the user's computer by the user's web browser while the user is browsing. Cookies were designed to be a reliable mechanism for websites to remember stateful information or to record the user's browsing activity." - WikiPedia
-
 # Middleware
 
 Middleware is a subset of chained functions called by the Express js routing layer before the user-defined handler is invoked. Middleware functions have full access to the request and response objects and can modify either of them.
@@ -88,28 +83,3 @@ Morgan - HTTP request logger middleware for node.js
 Nodemon - Restarts the node application when file changes in the directory are detected.
 
 Body-parser - Parse incoming request bodies in a middleware before your handlers, available under the req.body property
-
-Method-override - can overwrite, req-method, can add UPDATE, and DELETE requests to be handled.
-
-# How do we do cookies in express ( BONUS )
-
-In express we have built in function to set cookies,
-
-res.cookie('username', req.body.email); // sets a cookie username, with value from req.body.email
-The cookie will live on the client's browser until expiring, or until user clears its cookies. Remember even if the server turns off and on the cookie will still be on clients browser.
-
-To check your cookies go into Chrome Dev tools --> Application --> Storage ---> Cookies ---> localhost or any other website.
-
-You can edit and delete cookies there as well which makes this tool very powerful!!
-
-How do we parse Cookies when a client request comes in ( BONUS )
-We can write our own parser, that parses the headers, but that would be too much work. So there is a middleware from npm called cookie-parser
-
-const cookieParser = require('cookie-parser');
-///.... code
-
-
-app.use(cookieParser());
-//-- more code with routes
-
-req.cookies // has all cookies 
