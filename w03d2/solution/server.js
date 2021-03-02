@@ -31,7 +31,8 @@ app.use(bodyParser.urlencoded({extended: false}));
 //
 
 app.get("/", (req, res) => {
-  res.render('home');
+//  res.render('home');
+    res.redirect('/objectives');
 });
 
 //
