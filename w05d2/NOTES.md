@@ -46,7 +46,8 @@ It could be argued that there is really only one relationship type: One-to-Many 
 * Don't use calculated fields (a field that can be derived from one or more other fields, such as full_name is a combination of first_name and last_name)
 * Pull repeated values out to their own table and make reference to them with a foreign key
 * Try not to delete anything (use a boolean flag instead to mark a record as active or inactive)
-* Consider using a type field instead of using two (or more) tables to store very similar data (eg. create an orders table with an order_type field instead of a purchase_orders and a sales_orders table)
+* Consider using a type field instead of using two (or more) tables to store very similar data
+ (eg. create an orders table with an order_type field instead of a purchase_orders and a sales_orders table)
 
 # Entity Relationship Diagram (ERD)
 
