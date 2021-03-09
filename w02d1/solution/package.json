@@ -1,0 +1,23 @@
+{
+  "name": "w02d1",
+  "version": "1.0.0",
+  "description": "Code and notes for LHL W02D1",
+  "main": "hello-world.js",
+  "scripts": {
+    "test": "./node_modules/mocha/bin/mocha"
+  },
+  "keywords": [
+    "testing",
+    "mocha",
+    "chai",
+    "TDD"
+  ],
+  "author": "Christian Nally",
+  "license": "ISC",
+  "devDependencies": {
+    "mocha": "^8.3.1"
+  },
+  "dependencies": {
+    "chai": "^4.3.3"
+  }
+}
