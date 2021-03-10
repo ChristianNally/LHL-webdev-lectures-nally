@@ -1,15 +1,11 @@
-// const assert = require('assert');
-var assert = require('chai').assert;
-const sayHello = require('../hello-world.js');
+var assert = require('chai').assert
+const app = require('../hello-world');
 
-describe("tests for hello world",()=>{
-    it('should return "hello world" when given "world"',()=>{
-        const actual = sayHello('world');
-        const expected = 'hello world';
-        assert.equal(actual, expected);
+describe("making sure that we can say hello to the world", ()=>{
+    it('should return "hello world" when it is passed "world"', ()=>{
+        assert.strictEqual(app.sayHello("world"),"hello world");
     });
-    it('should return a string',()=>{
-        const actual = sayHello('world');
-        assert.typeOf(actual, 'string');
+    it('should return "goodbye world" when it is passed "world"', ()=>{
+        assert.strictEqual(app.sayGoodbye("world"),"goodbye world");
     });
 });

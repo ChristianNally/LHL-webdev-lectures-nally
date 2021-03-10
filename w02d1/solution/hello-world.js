@@ -1,6 +1,14 @@
-const sayHello = (name) => {
-  // console.log(`hello ${name}`);
-  return `hello ${name}`;
+const sayHello = (word)=>{
+    let output = `hello ${word}`;
+    return output;
 };
 
-module.exports = sayHello;
+const sayGoodbye = (word)=>{
+    let output = `goodbye ${word}`;
+    return output;
+};
+
+module.exports = {
+    sayHello: sayHello,
+    sayGoodbye: sayGoodbye
+};
