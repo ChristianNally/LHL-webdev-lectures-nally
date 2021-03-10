@@ -1,72 +1,59 @@
 const start = Date.now();
 
 //
-// utility function to write interesting information on standard output.
+// a doAction function which console logs the acts taken by the robot
+// by scheduling messages to appear when the action is finished
 //
-function doAction(message,duration,next){
-    setTimeout(
-        () => console.log((Date.now() - start) + ': Starting :' + message + ':: This will take ' + duration + ' seconds.'),
-        0
-    );
-    setTimeout(
-        () => { // THIS IS A MULTILINE ANONYMOUS FUNCTION
-          console.log('Ending :' + message + ':: This took ' + duration + ' seconds.');
-          if (next === null){
-            // do nothing
-          } else {
-            next();
-          }
-        },
-        duration*1000
-    );
+const doAction = function(name,time,next){
+  console.log((Date.now() - start) + ': Starting :' + name + ':: This will take ' + time + ' seconds.');
+  setTimeout(()=>{
+    if (next !== null){
+      next();
+    }
+    console.log('End : ' + name + ':: This took ' + time + ' seconds');
+  },time*1000);
+}
+
+//
+// Look
+//
+const look = ()=>{
+  doAction("look",1,null);
 };
-function flexArm(degrees){
-    // flex the arm a certain number of degrees
-    return "flexed " + degrees + " degrees";
+
+//
+// Get Up
+//
+const getUp = ()=>{
+  doAction("get up",5,walk);
+};
+
+//
+// Walk
+//
+const walk = ()=>{
+  doAction("walk",7,openTheDoor);
+};
+
+//
+// openTheDoor
+//
+const openTheDoor = ()=>{
+  doAction("open the door",3,walkThroughTheDoor);
+};
+
+//
+// walkThroughTheDoor
+//
+const walkThroughTheDoor = ()=>{
+  look();
+  doAction("walk through the door",4,null);
 }
 
-const flexLeg = function(degrees){
-    return "Flexed Leg " + degrees + " degrees";
-}
+setInterval(()=>{
+  look();
+},1500);
 
-const speak = (message, medium) => {
-    const output = 'Yo! Dude! I gots somethin\' to say yo!' + message;
-//    console.log(output);
-    medium(message);
-}
-function wait(seconds){
-    var waitTill = new Date(new Date().getTime() + seconds * 1000);
-    while(waitTill > new Date()){
-        // do nothing
-    };    
-}
+getUp();
 
-const standUp = () => {
-    doAction('standUp',6,walkToDoor);
-}
-
-const walkToDoor = function(){
-    doAction('walkToDoor',3,openDoor);
-}
-
-const openDoor = () => {
-    doAction('openDoor',10,walkThroughDoorWhileHoldingItOpen);
-}
-
-const walkThroughDoorWhileHoldingItOpen = () => doAction('walkThroughDoorWhileHoldingItOpen',9,null);
-
-const lookWithEyes = () => doAction('look with 👀 eyes',2,null);
-const listenWithEars = () => doAction('listening with 🎤 microphone',1,null);
-
-standUp();
-setInterval(lookWithEyes,3000);
-setInterval(listenWithEars,1500);
-
-// lookWithEyes();
-// listenWithEars();
-// walkToDoor();
-// openDoor();
-// walkThroughDoorWhileHoldingItOpen();
-
-
-
+console.log("I am done being programmed.");
