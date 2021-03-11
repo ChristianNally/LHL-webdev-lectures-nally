@@ -30,7 +30,8 @@ rlp.questionAsync('What do you think of Node.js? ')
   })
   .then((answer) => {
     answers.push(answer);
-    return rlp.questionAsync('Which sport is your absolute favourite? ');
+//    return rlp.questionAsync('Which sport is your absolute favourite? ');
+    throw "error!";
   })
   .then((answer) => {
     answers.push(answer);
@@ -45,4 +46,7 @@ rlp.questionAsync('What do you think of Node.js? ')
     console.log();
     console.log('Your profile is ready!!');
     console.log(`My name is ${name} and I really like ${activity}! I listen to ${music} while eating ${food} during ${meal} and playing ${sport}... and I think Node is ${node}!!`);
+  })
+  .catch((err)=>{
+    console.log(err);
   });

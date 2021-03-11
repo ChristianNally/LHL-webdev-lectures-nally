@@ -1,10 +1,20 @@
-const functions = require('./promise-generator');
+const monkeyfuzz = require('./promise-generator');
 
-const returnPromise = functions.returnPromise;
-const returnRejectedPromise = functions.returnRejectedPromise;
+const returnPromise = monkeyfuzz.returnPromise;
 
 const promise = returnPromise('first promise', 4444);
 console.log(promise);
+
+
+// Not the best way to do this
+
+// setTimeout(()=>{
+//   console.log(promise);
+// },5000);
+
+//
+// The RIGHT way to do this
+//
 
 promise
   .then((data) => {
@@ -12,5 +22,7 @@ promise
     return 'another thing';
   })
   .then((data) => {
-    console.log(data);
+    console.log("monkeyfuzz",data);
   });
+
+  
