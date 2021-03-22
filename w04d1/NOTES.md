@@ -46,3 +46,16 @@
 [] when working with flexbox, you have a MAIN AXIS and a CROSS AXIS
    (which is horizontal depends on flex-direction)
 [] play around with a jsFiddle https://jsfiddle.net/ChristianNally/6a7y8m0h/12/
+
+# CSS Specificity
+
+[] Rules that are more specific are more likely to be the rule that wins for any given element.
+[] For rules of equal specificity, the rule that comes later in the list wins.
+[] https://cssspecificity.com/ to see how the calculation is done.
+
+# GAMES !
+
+[] https://flexboxfroggy.com/
+[] http://www.flexboxdefense.com/
+[] https://flukeout.github.io/
+

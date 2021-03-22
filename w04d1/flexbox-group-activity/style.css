@@ -1,0 +1,38 @@
+.container {
+  width: 100%;
+  height: 90vh;
+  border: 2px dashed brown;
+  border-radius: 5px;
+  margin: 0.02em;
+  background-color: peru;
+}
+
+.row {
+  border: 1px dashed lightgreen;
+  border-radius: 5px;
+  margin: 0.2em;
+}
+
+.row-1 {}
+
+.row-2 {}
+
+.spot {
+  font-size: 3em;
+  border: 1px dashed gold;
+  border-radius: 5px;
+  margin: 0.02em;
+}
+
+.corn {}
+
+.tomato {}
+
+.mushroom {}
+
+.eggplant {}
+
+.strawberry {}
+
+.pepper {}
+
