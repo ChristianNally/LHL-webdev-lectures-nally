@@ -1,0 +1,26 @@
+html {
+  border: 5px dashed red;
+}
+
+.container {
+  background-color: grey;  
+}
+
+.smiley {
+  font-size: 4rem;
+  border: 1px dashed black;
+  width: 65px;
+/*   width: 100%; */
+/*   float: left; */
+}
+
+.smiley-1 {
+/*   float: right; */
+}
+
+/* .clearfix::after {
+  content: "";
+  clear: both;
+  display: table;
+} */
+

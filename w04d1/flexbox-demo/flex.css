@@ -1,0 +1,17 @@
+html {
+  border: 5px dashed red;
+  height: 80vh;
+  width: 100%;
+}
+
+.container {
+  background-color: grey;
+  height: 70vh;
+}
+
+.smiley {
+  font-size: 4rem;
+  border: 1px solid black;
+}
+
+
