@@ -51,6 +51,7 @@
 
 [] Rules that are more specific are more likely to be the rule that wins for any given element.
 [] For rules of equal specificity, the rule that comes later in the list wins.
+[] The formula: 1000 * Inline + 100 * IDs + 10 * Classes + 1 * Elements
 [] https://cssspecificity.com/ to see how the calculation is done.
 
 # GAMES !
@@ -58,4 +59,3 @@
 [] https://flexboxfroggy.com/
 [] http://www.flexboxdefense.com/
 [] https://flukeout.github.io/
-

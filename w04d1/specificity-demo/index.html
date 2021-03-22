@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<!-- You can paste this whole file into a jsFiddle to see how it styles. -->
+<!-- Notice how more specific CSS Rule are applied to each paragraph, even if they come first. -->
+<!-- The style tag below is here only so that this one file is self contained. -->
+<!-- Usually you could include a CSS file via a link rel tag in the head. -->
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Specificity Demo</title>
+  </head>
+  <style>
+    p#unique {
+      color: black;
+    }
+    p.majority {
+      color: red;
+    }
+    p {
+      color: green;
+    }
+  </style>
+  <body>
+    <p class="majority" id="unique">
+      Q: How do you catch a unique rabbit? A: Unique up on them.
+    </p>
+    <p class="majority">
+      Q: Why do you never see hippos hiding in trees? A: Because they're very good at it.
+    </p>
+    <p class="third">
+      I think the Rainforest Cafe takes the whole rainforest theme too far.
+      This one time I was sitting there eating my chicken tenders and they bulldozed 40% of the restaurant.
+    </p>
+  </body>
+</html>

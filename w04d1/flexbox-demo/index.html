@@ -1,6 +1,40 @@
-<main class="container">
-  <div class="smiley smiley-1">&#128512</div>
-  <div class="smiley smiley-2">&#128513</div>
-  <div class="smiley smiley-3">&#128514</div>
-</main>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+<style>
+html {
+  border: 5px dashed red;
+  height: 80vh;
+  width: 100%;
+}
 
+.container {
+  display: flex;
+  justify-content: space-between;
+  background-color: grey;
+  height: 70vh;
+}
+
+.smiley {
+  display: flex;
+  align-items: center;
+  font-size: 4rem;
+  border: 1px solid black;
+}
+
+.smiley-1 {
+  align-self: flex-start;
+}
+</style>
+</head>
+<body>
+  <main class="container">
+    <div class="smiley smiley-1">&#128512</div>
+    <div class="smiley smiley-2">&#128513</div>
+    <div class="smiley smiley-3">&#128514</div>
+  </main>
+</body>
+</html>

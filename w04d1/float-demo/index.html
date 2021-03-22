@@ -1,6 +1,42 @@
-<main class="container clearfix">
-  <div class="smiley smiley-1">&#128546</div>
-  <div class="smiley smiley-2">&#9785</div>
-  <div class="smiley smiley-3">&#128553</div>
-</main>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+<style>
+html {
+  border: 5px dashed red;
+}
 
+.container {
+  background-color: grey;  
+}
+
+.smiley {
+  font-size: 4rem;
+  border: 1px dashed black;
+  width: 65px;
+/*   width: 100%; */
+  float: left;
+}
+
+.smiley-1 {
+  float: right;
+}
+
+.clearfix::after {
+  content: "";
+  clear: both;
+  display: table;
+}
+</style>
+</head>
+<body>
+  <main class="container clearfix">
+    <div class="smiley smiley-1">&#128546</div>
+    <div class="smiley smiley-2">&#9785</div>
+    <div class="smiley smiley-3">&#128553</div>
+  </main>    
+</body>
+</html>
