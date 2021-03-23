@@ -30,6 +30,7 @@ $("document").ready(function(){
     });
 
     // check first diagonal
+    // TODO clean up with .children.eq(0).hasClass();
     let firstDiagonalWin = true;
     if ( !$(".row:nth-of-type(" + 1 + ")").children('.square:nth-of-type(' + 1 + ')').hasClass(nextPlay)
     || !$(".row:nth-of-type(" + 2 + ")").children('.square:nth-of-type(' + 2 + ')').hasClass(nextPlay)
