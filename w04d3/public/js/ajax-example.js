@@ -12,7 +12,7 @@ $(document).ready(function () {
       console.log('ajax callback called');
     }).catch(err => {
       console.log('ajax error caught');
-      console.log(err); // bum related error
+      console.log(err); // related error
     });
 
   });
