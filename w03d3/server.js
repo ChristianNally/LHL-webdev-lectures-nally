@@ -1,109 +1,90 @@
-//
-// DO NOT USE THIS CODE
-// IT WILL HAVE A SERIOUS SECURITY ISSUE, WHICH IS LEFT IN ON PURPOSE, FOR TEACHING PURPOSES
-//
-
 const express = require("express");
-const bodyParser = require("body-parser"); // for FORM values
-
-// why do we need cookies?
-// so that, after logging in, subsequent http requests can be associated 
-// with previous requests via the value stored on the browser
-// (http itself is 'stateless')
+const PORT = 8082;
+const bodyParser = require("body-parser");
 const cookieParser = require("cookie-parser");
 
-const PORT = 8080;
-
 const app = express();
-app.set("view engine", "ejs");
+
+app.set("view engine","ejs");
+
 
 //
-// Users object (i.e. a fake Database)
-//
-let users = {'nally': "qwerty"};
-
-//
-// MIDDLEWARE
+// Users Data
 //
 
-app.use(bodyParser.urlencoded({ extended: false }));
+const users = {'nally': "qwerty"};
+
+//
+// Middleware
+//
+
+app.use(bodyParser.urlencoded({ extended: false}));
 app.use(cookieParser());
 
 //
-// ROUTES
+// Routes
 //
 
-// homepage
-app.get("/", (req, res) => {
-  res.render("homepage");
+app.get('/',(req,res)=>{
+  res.render('homepage');
 });
 
-// register page
-app.get("/register", (req, res) => {
-  res.render("register");
-});
+// Login Routes
 
-// register submit handler
-app.post("/register", (req,res)=>{
-  console.log("req.body",req.body); // this contains FORM data
-  users[req.body.username] = req.body.password;
-  console.log(JSON.stringify(users));
-  res.cookie("user",req.body.username);
-  res.redirect("/profile");
-});
-
-// login
-app.get("/login", (req, res) => {
+app.get('/login',(req,res)=>{
   res.render("login");
 });
 
-// let users = {'nally': "qwerty"};
 // login submit handler
-app.post("/login", (req,res)=>{
-  console.log("req.body",req.body); // this contains FORM data
-
-  // the following two lines establish convenience variables from the form data.
-  let candidateName = req.body.username;
-  let candidatePassword = req.body.password;
-
-  if (users[candidateName] && users[candidateName] === candidatePassword){
-    console.log("success! login is nigh");
-    res.cookie("user",candidateName);
+app.post("/login",(req,res)=>{
+  console.log("login req.body:",req.body);
+  const testName = req.body.username;
+  const testPassword = req.body.password;
+  if (users[testName] && users[testName] === testPassword){ // the user is authentic
+    res.cookie("user",testName);
     res.redirect("/profile");
+    // res.end();
   } else {
     res.redirect("/login");
   }
 });
 
-// profile page
-app.get("/profile", (req, res) => {
-  // check to see whether the user is logged in
+// Registration Routes
+
+app.get('/register',(req,res)=>{
+  res.render("register");
+});
+
+// registeration submit handler
+app.post("/register",(req,res)=>{
+  console.log("register req.body:",req.body);
+  const newName = req.body.username;
+  const newPassword = req.body.password;
+
+  users[newName] = newPassword;
+  res.cookie("user",newName);
+
+  res.redirect("/profile");
+});
+
+
+// Profile Page
+app.get('/profile',(req,res)=>{
   console.log("req.cookies:",req.cookies);
-  let username = req.cookies.user;
-  let password = users[username];
-  if (users[username]){ // we will use this as the check of whether they are authenticated
-    console.log("Truth!");
-    const templateVars = {user: username, password: password};
-    res.render("profile",templateVars);
+  if (users[req.cookies.user]){
+    const templateVars = { password: users[req.cookies.user] };
+    res.render('profile', templateVars);
   } else {
-    res.redirect("/login");
+    res.redirect('/login');
   }
-
 });
 
-// logout page
-
-// logout submit handler
-
-// 404
-app.get('*',(req,res)=>{
-  res.status(404);
-  res.render('404');
+// Logout Route
+app.get("/logout",(req,res)=>{
+  res.clearCookie("user");
+  res.redirect("/");
 });
 
-//
-// SET THE APP TO LISTENIN' AND EXIT THE MAIN THREAD
-//
-app.listen(PORT, "localhost", () => {
-  console.log(`Server is listening on ${PORT}`);
+app.listen(PORT,"localhost", ()=>{
+  console.log(`Server is listening on port ${PORT}`);
 });
