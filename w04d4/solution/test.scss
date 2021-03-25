@@ -1,0 +1,21 @@
+$main-size: 2em;
+$background-color: purple;
+
+p {
+  width: 50%;
+}
+
+.first {
+  font-size: $main-size;
+}
+
+.second {
+  font-size: $main-size;
+}
+
+#main {
+  font-size: $main-size;
+  p {
+    background-color: $background-color;
+  }
+}
