@@ -13,11 +13,13 @@ body {
 
 #main > article {
   flex: 1;
+  min-width: 440px;
 }
 
 #main > nav,
 #main > aside {
   flex: 0 0 20vw;
+  /* width: 15%; */
   background: beige;
 }
 
@@ -39,19 +41,41 @@ footer {
   height: 20vh;
 }
 
+/* p.another {
+  background-color:red;
+}
+
+p {
+  background-color: green !important; 
+} */
+
 /* units - percent is relative to its parent container (for all properties, including font-size) */
 /* p {
   width: 50%;
 } */
 
-/* .first {
-  font-size: 2em;
-} */
+#main .first {
+  font-size: 2rem;
+}
 
 /* .second {
   font-size: 2em;
 } */
 
-/* #main {
+#main {
   font-size: 2em;
-} */
+}
+
+@media only screen and (max-width: 992px) {
+  body {
+    background-color: blue;
+  }
+}
+
+@media only screen and (max-width: 850px) {
+  /* these styles will be applied if the screen width is less than 500px */
+  #main > aside {
+    /* background-color: green; */
+    display: none;
+  }
+}
