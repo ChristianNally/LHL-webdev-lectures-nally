@@ -17,3 +17,8 @@ https://www.youtube.com/watch?v=F-gskSl4pwQ
 # Making a set of directories, oh, for say 12 directories each with 5 subdirectories inside
 
 mkdir -p {1..12}/{1..5}
+
+# 20 Bash Tricks in 5 Minutes
+
+https://www.youtube.com/watch?v=pEN4WnFNMx0
+
