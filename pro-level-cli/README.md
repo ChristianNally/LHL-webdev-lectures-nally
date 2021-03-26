@@ -6,9 +6,14 @@ Slides for this presentation are here:
 Sources and Resources
 =====================
 
-Some clever commands:
+# Some clever commands
+
 https://github.com/engineer-man/youtube/blob/master/058/commands.sh
 
-How to write bash scripts:
+# How to write bash scripts
+
 https://www.youtube.com/watch?v=F-gskSl4pwQ
 
+# Making a set of directories, oh, for say 12 directories each with 5 subdirectories inside
+
+mkdir -p {1..12}/{1..5}
