@@ -7,12 +7,12 @@
 - [x] `max-width` and `min-width`
 - [x] Viewport Height/Width `vh`/`vw`
 - [x] Based on Font-size `em`/`rem`
-- [x] Media Queries
-- [x] CSS Preprocessors
-- [x] Intro to Sass/SCSS
+- [] Media Queries
+- [] CSS Preprocessors
+- [] Intro to Sass/SCSS
 
 ### A typical 'brochure site' template
-- [x] See https://www.quackit.com/html/templates/css_flexbox_templates.cfm
+- [] See https://www.quackit.com/html/templates/css_flexbox_templates.cfm
 
 ### Responsive Design
 * From [Wikipedia](https://en.wikipedia.org/wiki/Responsive_web_design):
@@ -121,11 +121,17 @@ p.relative {
 ```scss
 // variables
 $font-color: lightblue;
+$header-color: #0000aa;
 $font-size: 1.2rem;
 
 p {
-  color: $font-color;
+  color: $font-color; 
 }
+
+h2 {
+  color: $header-color; 
+}
+
 h1 {
   font-size: $font-size;
 }
