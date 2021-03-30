@@ -37,13 +37,13 @@ Why Databases?
 
 Two Types of "Queries": DDL vs DML
 
-RDBMS Systems (postgres, MysQL, Oracle)
+RDBMS Systems (postgres, MySQL, Oracle)
 
 Why Postgres?
 
 SQLite
 
-Tools: psql vs. pgAdmin
+Tools: psql vs. pgAdmin (phpMyAdmin)
 
 ## Basic SQL Selection Queries
 
