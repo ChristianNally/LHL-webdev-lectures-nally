@@ -1,0 +1,30 @@
+exhibits (id (SERIAL), title, text_description_of_opening_hours, cost, ... )
+ - 1, planetarium
+ - 2, garden
+ - 3, sculpture art
+ - 4, other culture including music
+
+visitors (id, type, name, list of attended events, fave_exhibit_id, least_fave_exhibit_id, exhibit_winner_id, ... )
+ - 1, visitor, Jane Doe, {1,2,4}, 1, 3, 1
+ - 2, visitor, John Smith, {}   , 2, 2, 2
+ - 3, staff, Etc Yaddayadda,{}, 4, 1, 3 
+ - 4, visitor, Etc Lambda, {}   , 4, 2, 4
+
+visitor_event (visitor_id, event_id)
+ - 1, 5
+ - 2, 5
+ - 3, 5
+ - 4, 5
+ - 2, 4
+ - 3, 4
+
+SELECT vistors.name, visitor_event.event_id, events.name 
+FROM visitors 
+INNER JOIN visitor_event ON visitors.id = visitor_event.visitor_id;
+INNER JOIN events ON visitor_event.event_id = events.id;
+
+events (id, name, exhibit_id, ... )
+ - 1, Valentine's Day, 2
+ - 2, Lady Gaga's Birthday, 3
+ - 4, Angus Young's Birthday, 3
+ - 5, A Star is Born, 1
