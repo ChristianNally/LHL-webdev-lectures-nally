@@ -43,7 +43,7 @@ switch (verb) {
   case 'edit':
     id = process.argv[3];
     const newQuestion = process.argv[4];
-    client.query('UPDATE objectives SET description = $1 WHERE id = $2;', [newQuestion, id])
+    client.query('UPDATE objectives SET question = $1 WHERE id = $2;', [newQuestion, id])
       .then(() => {
         console.log('question updated successfully');
         client.end();
@@ -51,9 +51,9 @@ switch (verb) {
     break;
 
   case 'add':
-    const newDescription = process.argv[3];
+    const newQuestion = process.argv[3];
     const newAnswer = process.argv[4];
-    client.query(`INSERT INTO objectives(type,description, answer) VALUES('knowledge',$1, $2);`, [newDescription, newAnswer])
+    client.query(`INSERT INTO objectives(type,question, answer) VALUES('knowledge',$1, $2);`, [newQuestion, newAnswer])
       .then(() => {
         console.log('added new objective');
         client.end();
