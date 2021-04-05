@@ -1,0 +1,7 @@
+<h1>Homepage!</h1>
+<%= @secretstuff %>
+
+<% @cats.each do |cat| %>
+    <h3><%= cat.title %></h3>
+    <p><%= cat.body %></p>
+<% end %>

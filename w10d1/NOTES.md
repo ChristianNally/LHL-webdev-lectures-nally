@@ -2,6 +2,8 @@
 
 [] routes
 [] migrations
+[] Model has_many: etc.
+[] routes for multiple related models
 
 # Steps
 
@@ -61,7 +63,6 @@ Running via Spring preloader in process 81808
       create      test/models/cat_test.rb
       create      test/fixtures/cats.yml
 
-
 # Now... about that Database
 
 cat config/database.yml
@@ -102,4 +103,4 @@ psql -d cats
 # Further
 
 1. Adding bootstrap classes to your form code? 35:10 of this video... https://www.youtube.com/watch?v=pPy0GQJLZUM
-1. Adding validation? 36:30 of this video... https://www.youtube.com/watch?v=pPy0GQJLZUM
+1. Adding validation to your create forms? 36:30 of this video... https://www.youtube.com/watch?v=pPy0GQJLZUM

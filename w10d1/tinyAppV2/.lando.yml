@@ -1,0 +1,40 @@
+name: lando-rails
+proxy:
+  appserver:
+    - rails.lndo.site:3000
+services:
+  appserver:
+    type: compose
+    services:
+      image: ruby:rails
+      # Running "rails server" only works for existing Rails apps.
+      # command: bundle exec rails server -b 0.0.0.0
+      command: "tail -f /dev/null"
+      ports:
+        - '3000'
+      environment:
+        DATABASE_USER: postgres
+        DATABASE_PASS: ''
+        RAILS_ENV: development
+    overrides:
+      build: ./lando/appserver
+    build:
+      - bundle install --gemfile=/app/Gemfile
+  database:
+    type: postgres:12
+    portforward: true
+    creds:
+      database: ror_development
+      user: postgres
+      password: NO PASSWORD
+tooling:
+  rails:
+    service: appserver
+    cmd: bundle exec rails
+  rails-server:
+    service: appserver
+    cmd: bundle exec rails server -d -b 0.0.0.0
+  bundle:
+    service: appserver
+  rake:
+    service: appserver
