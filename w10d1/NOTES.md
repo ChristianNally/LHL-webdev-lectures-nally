@@ -1,9 +1,7 @@
 # All About Rails
 
-nested routes
-name spacing
-migrations
-rails api
+[] routes
+[] migrations
 
 # Steps
 
@@ -78,6 +76,7 @@ psql -d cats
 
 # ForbiddenAttributesError ... we need the following in our controller
 
+```
     def create
 #        render plain: params[:cat].inspect
         @cat = Cat.new(cat_params)
@@ -86,14 +85,21 @@ psql -d cats
     private def cat_params
         params.require(:cat).permit(:title, :body)
     end
+```
 
 # migrations error
 
+```
 ./bin/rails db:migrate RAILS_ENV=development
+```
 
 # Include bootstrap from CDN? ... in views/layouts/application.html.erb
 
+```
 <%= stylesheet_link_tag  'https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css' %>
+```
 
-# Adding bootstrap classes to your form code? 35:10 of this video... https://www.youtube.com/watch?v=pPy0GQJLZUM
+# Further
 
+1. Adding bootstrap classes to your form code? 35:10 of this video... https://www.youtube.com/watch?v=pPy0GQJLZUM
+1. Adding validation? 36:30 of this video... https://www.youtube.com/watch?v=pPy0GQJLZUM
