@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Objectives</title>
+</head>
+<body>
+<table>
+  <tr>
+    <th>id</th>
+    <th>type</th>
+    <th>question</th>
+    <th>answer</th>
+    <th>sort</th>
+    <th>day_id</th>
+  </tr>
+  <% for(var i=0; i<objectives.length; i++) { %>
+    <tr>
+      <td><%= objectives[i].id %></td>
+      <td><%= objectives[i].type %></td>
+      <td><%= objectives[i].question %></td>
+      <td><%= objectives[i].answer %></td>
+      <td><%= objectives[i].sort %></td>
+      <td><%= objectives[i].day_id %></td>
+    </tr>
+  <% } %>
+</table>
+
+<br/>
+Enter a new objective <a href="/new">here</a>.
+
+</body>
+</html>
