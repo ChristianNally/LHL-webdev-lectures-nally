@@ -30,15 +30,18 @@ switch (verb) {
 
   case 'read':
     id = process.argv[3];
-    const query = 'SELECT * FROM objectives WHERE id = ' + id + ';'
-    console.log("Query",query);
-    client.query(query)
-//    client.query('SELECT * FROM objectives WHERE id = $1;', [id])
+  //  const query = 'SELECT * FROM objectives WHERE id = ' + id + ';'
+  //  console.log("Query:",query);
+  // //  client.query(query)
+      client.query('SELECT * FROM objectives WHERE id = $1;', [id])
       .then((response) => {
         console.log(response.rows);
         client.end();
       });
-    break;
+
+
+
+      break;
 
   case 'edit':
     id = process.argv[3];
@@ -51,13 +54,13 @@ switch (verb) {
     break;
 
   case 'add':
-    const newQuestion = process.argv[3];
-    const newAnswer = process.argv[4];
-    client.query(`INSERT INTO objectives(type,question, answer) VALUES('knowledge',$1, $2);`, [newQuestion, newAnswer])
-      .then(() => {
-        console.log('added new objective');
-        client.end();
-      });
+    // const newQuestion = process.argv[3];
+    // const newAnswer = process.argv[4];
+    // client.query(`INSERT INTO objectives(type,question, answer) VALUES('knowledge',$1, $2);`, [newQuestion, newAnswer])
+    //   .then(() => {
+    //     console.log('added new objective');
+    //     client.end();
+    //   });
     break;
 
   case 'delete':
