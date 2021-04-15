@@ -1,16 +1,25 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Objectives</title>
+  <title>New Objective</title>
+  <%- include('include/_head.ejs') %>
 </head>
 <body>
-<form>
-  <label for="description">Question</label>
-  <input id="description" type="text"></input>
+  <%- include('include/_header.ejs') %>
+  <form action="/new" method="POST">
+  <label for="type">Type</label>
+  <select id="type" name="type">
+    <option value="learning">Learning</option>
+    <option value="performance">Performance</option>
+  </select>
+  <label for="question">Question</label>
+  <input id="question" name="question" type="text"></input>
   <label for="answer">Answer</label>
-  <input id="answer" type="text"></input>
+  <input id="answer" name="answer" type="text"></input>
+  <label for="sort">Sort</label>
+  <input id="sort" name="sort" type="text"></input>
+  <label for="day_id">Day</label>
+  <input id="day_id" name="day_id" type="text"></input>
   <input type="submit" name="Save"></input>
 </form>
 </body>

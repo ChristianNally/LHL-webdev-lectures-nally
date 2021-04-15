@@ -1,11 +1,11 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Objectives</title>
+  <%- include('include/_head.ejs') %>
 </head>
 <body>
+  <%- include('include/_header.ejs') %>
 <table>
   <tr>
     <th>id</th>
@@ -15,7 +15,7 @@
     <th>sort</th>
     <th>day_id</th>
   </tr>
-  <% for(var i=0; i<objectives.length; i++) { %>
+  <% for(var i=0; i < objectives.length; i++) { %>
     <tr>
       <td><%= objectives[i].id %></td>
       <td><%= objectives[i].type %></td>
@@ -26,9 +26,6 @@
     </tr>
   <% } %>
 </table>
-
-<br/>
-Enter a new objective <a href="/new">here</a>.
 
 </body>
 </html>

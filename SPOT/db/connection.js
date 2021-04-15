@@ -1,4 +1,5 @@
 const pg = require('pg');
+require('dotenv').config();
 
 const Client = pg.Client;
 
@@ -10,8 +11,12 @@ const configObj = {
   port: process.env.DB_PORT
 };
 
+console.log('db config:',configObj);
+
 const client = new Client(configObj);
 
-client.connect();
+client.connect()
+.then(() => console.log('db connected'))
+.catch(err => console.error('db connection error', err.stack));
 
 module.exports = client;
