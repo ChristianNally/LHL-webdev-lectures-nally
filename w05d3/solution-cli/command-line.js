@@ -11,10 +11,13 @@ const configObj = {
   password: process.env.DB_PASS,
   port: process.env.DB_PORT
 };
+console.log('db connection info:',configObj);
 
 const client = new Client(configObj);
 
-client.connect();
+client.connect()
+.then(() => console.log('db connected'))
+.catch(err => console.error('db connection error', err.stack));
 
 const verb = process.argv[2];
 let id;
