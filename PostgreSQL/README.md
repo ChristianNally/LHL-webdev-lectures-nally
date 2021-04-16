@@ -65,3 +65,10 @@ GRANT <rolename> TO <username>;
 #
 
 SHOW data_directory; 
+
+
+#
+# A really great commandline and other cheatsheet
+#
+https://gist.github.com/Kartones/dd3ff5ec5ea238d4c546
+
