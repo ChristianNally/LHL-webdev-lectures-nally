@@ -1,0 +1,22 @@
+{
+  "name": "w03d4",
+  "version": "1.0.0",
+  "description": "### To Do - [] Storing passwords - [] Encrypted cookies - [] HTTP Secure (HTTPS) - [] REST - [] More HTTP methods - [] Method Override [Stretch]",
+  "main": "hash.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "bcrypt": "^5.0.1",
+    "cookie-parser": "^1.4.5",
+    "cookie-session": "^1.4.0",
+    "ejs": "^3.1.6",
+    "express": "^4.17.1",
+    "method-override": "^3.0.0",
+    "morgan": "^1.10.0"
+  }
+}
