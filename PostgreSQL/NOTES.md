@@ -57,3 +57,11 @@ ALTER DEFAULT PRIVILEGES IN SCHEMA app_schema GRANT SELECT ON TABLES TO read_onl
 
 CREATE USER <username> WITH PASSWORD 'secret_password';
 GRANT <rolename> TO <username>;
+
+
+
+#
+# The Data Directory
+#
+
+SHOW data_directory; 
