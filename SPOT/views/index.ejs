@@ -24,7 +24,7 @@
       <td><%= objectives[i].question %></td>
       <td><%= objectives[i].answer %></td>
       <!-- <td><%= objectives[i].sort %></td> -->
-      <td><%= objectives[i].day_id %></td>
+      <td><a href="/days/<%= objectives[i].day_id %>"><%= objectives[i].day_id %></a></td>
     </tr>
   <% } %>
 </table>
