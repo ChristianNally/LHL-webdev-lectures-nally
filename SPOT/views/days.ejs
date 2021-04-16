@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Days</title>
+    <%- include('include/_head.ejs') %>
+  </head>
+  <body>
+    <%- include('include/_header.ejs') %>
+    <table>
+      <tr>
+        <th>Day</th>
+      </tr>
+      <% for(var i=0; i < days.length; i++) { %>
+      <tr>
+        <td>
+          <a href="/days/<%= days[i].day_mnemonic %>"><%= days[i].day_mnemonic %></a>
+        </td>
+      </tr>
+      <% } %>
+    </table>
+  </body>
+</html>

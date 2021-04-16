@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <title>Objectives</title>
+  <title>Objectives for <%= day_mnemonic %></title>
   <%- include('include/_head.ejs') %>
 </head>
 <body>
@@ -13,8 +13,8 @@
     <th>type</th>
     <th>question</th>
     <th>answer</th>
-    <!-- <th>sort</th> -->
-    <th>day_id</th>
+    <th>sort</th>
+    <!-- <th>day_id</th> -->
   </tr>
   <% for(var i=0; i < objectives.length; i++) { %>
     <tr>
@@ -23,8 +23,8 @@
       <td><%= objectives[i].type %></td>
       <td><%= objectives[i].question %></td>
       <td><%= objectives[i].answer %></td>
-      <!-- <td><%= objectives[i].sort %></td> -->
-      <td><%= objectives[i].day_id %></td>
+      <td><%= objectives[i].sort %></td>
+      <!-- <td><%= objectives[i].day_id %></td> -->
     </tr>
   <% } %>
 </table>

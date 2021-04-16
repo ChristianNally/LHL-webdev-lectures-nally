@@ -1,13 +1,44 @@
 const client = require("./connection");
 
+//
+// Days
+//
+const getAllDays = (cb) => {
+  client
+    .query(
+      "SELECT day_mnemonic FROM days ORDER BY day_mnemonic;"
+    )
+    .then((response) => {
+      cb(response.rows);
+    })
+    .catch((err) => {
+      console.log("getAllDays query error:", err);
+    });
+};
+
+const getDay = (day_mnemonic, cb) => {
+  return client
+    .query(
+      "SELECT id,type,question,answer,sort,day_id FROM objectives WHERE day_id = $1 ORDER BY sort;",
+      [day_mnemonic]
+    )
+    .then((response) => {
+      return cb(response.rows);
+    })
+    .catch((err) => {
+      console.log("getDay query error:", err);
+    });
+};
+
+//
+// Objectives
+//
 const getAllObjectives = (cb) => {
   client
     .query(
       "SELECT id,type,question,answer,sort,day_id FROM objectives ORDER BY id;"
     )
     .then((response) => {
-//      console.log("getAllObjectives query success:", response.rows);
-      console.log("getAllObjectives query success");
       cb(response.rows);
     })
     .catch((err) => {
@@ -43,8 +74,25 @@ const insertObjective = (newObj) => {
   });
 }
 
+const deleteObjective = (id) => {
+  return client
+    .query(
+      "DELETE FROM objectives WHERE id = $1;",
+      [id]
+    )
+    .then(() => {
+      return;
+    })
+    .catch((err) => {
+      console.log("deleteObjective query error:", err);
+    });
+};
+
 module.exports = {
   getAllObjectives,
   getObjectiveById,
-  insertObjective
+  insertObjective,
+  deleteObjective,
+  getAllDays,
+  getDay
 };

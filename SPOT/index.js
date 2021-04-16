@@ -1,5 +1,6 @@
 const express = require('express');
-var bodyParser = require('body-parser')
+const morgan = require('morgan');
+var bodyParser = require('body-parser');
 
 const app = express();
 app.set('view engine', 'ejs');
@@ -11,14 +12,32 @@ const dbFns = require('./db/queries');
 //
 app.use(express.static('public'));
 app.use(bodyParser.urlencoded({ extended: false }))
+app.use(morgan('dev'));
+
 //
-// "BREAD" ROUTES
+// ROUTES for Days
 //
 
 // BROWSE
+app.get('/days', (req, res) => {
+  dbFns.getAllDays((rows) => {
+    res.render('days',{days: rows});
+  });
+});
+
+// READ
+app.get('/days/:id', (req, res) => {
+  dbFns.getDay(req.params.id, (rows) => {
+    res.render('day',{day_mnemonic: req.params.id, objectives: rows});
+  });
+});
+
 //
+// "BREAD" ROUTES for Objectives
+//
+
+// BROWSE
 app.get('/', (req, res) => {
-  console.log("entered get#/");
   dbFns.getAllObjectives((rows) => {
     const templateVars = {objectives: rows};
     res.render('index',templateVars);
@@ -26,13 +45,10 @@ app.get('/', (req, res) => {
 });
 
 // READ
-// getObjectiveById
 
 // EDIT
-//
 
 // ADD
-//
 app.get('/new', (req, res) => {
   res.render('new');
 });
@@ -47,6 +63,12 @@ app.post("/new",(req,res)=>{
     day_id: req.body.day_id
   }
   dbFns.insertObjective(newObjective);
+  res.redirect("/");
+});
+
+// DELETE
+app.post("/delete/:id",(req,res) => {
+  dbFns.deleteObjective(req.params.id);
   res.redirect("/");
 });
 

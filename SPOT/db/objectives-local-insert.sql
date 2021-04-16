@@ -1,7 +1,36 @@
---
--- PostgreSQL database dump
---
+DROP TABLE IF EXISTS days;
+CREATE TABLE days (
+    id SERIAL PRIMARY KEY,
+    day_mnemonic VARCHAR(5)
+);
 
+INSERT INTO days (day_mnemonic) VALUES ('w01d1');
+INSERT INTO days (day_mnemonic) VALUES ('w01d2');
+INSERT INTO days (day_mnemonic) VALUES ('w01d3');
+INSERT INTO days (day_mnemonic) VALUES ('w01d4');
+INSERT INTO days (day_mnemonic) VALUES ('w01d5');
+INSERT INTO days (day_mnemonic) VALUES ('w02d1');
+INSERT INTO days (day_mnemonic) VALUES ('w02d2');
+INSERT INTO days (day_mnemonic) VALUES ('w02d3');
+INSERT INTO days (day_mnemonic) VALUES ('w02d4');
+INSERT INTO days (day_mnemonic) VALUES ('w02d5');
+INSERT INTO days (day_mnemonic) VALUES ('w03d1');
+INSERT INTO days (day_mnemonic) VALUES ('w03d2');
+INSERT INTO days (day_mnemonic) VALUES ('w03d3');
+INSERT INTO days (day_mnemonic) VALUES ('w03d4');
+INSERT INTO days (day_mnemonic) VALUES ('w03d5');
+INSERT INTO days (day_mnemonic) VALUES ('w04d1');
+INSERT INTO days (day_mnemonic) VALUES ('w04d2');
+INSERT INTO days (day_mnemonic) VALUES ('w04d3');
+INSERT INTO days (day_mnemonic) VALUES ('w04d4');
+INSERT INTO days (day_mnemonic) VALUES ('w04d5');
+INSERT INTO days (day_mnemonic) VALUES ('w05d1');
+INSERT INTO days (day_mnemonic) VALUES ('w05d2');
+INSERT INTO days (day_mnemonic) VALUES ('w05d3');
+INSERT INTO days (day_mnemonic) VALUES ('w05d4');
+INSERT INTO days (day_mnemonic) VALUES ('w05d5');
+
+DROP TABLE IF EXISTS objectives;
 CREATE TABLE objectives (
     id SERIAL PRIMARY KEY,
     day_id VARCHAR(5),
