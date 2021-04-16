@@ -8,14 +8,23 @@
     <%- include('include/_header.ejs') %>
     <table>
       <tr>
-        <th>Day</th>
+        <th>Week</th>
+        <th>Day 1</th>
+        <th>Day 2</th>
+        <th>Day 3</th>
+        <th>Day 4</th>
+        <th>Day 5</th>
       </tr>
-      <% for(var i=0; i < days.length; i++) { %>
-      <tr>
+      <% for(var i=0; i < days.length; i++) { %> 
+        <% if (i % 5 === 0) { %>
+          <tr><td>Week <%= i/5 + 1 %></td>
+        <% } %>
         <td>
           <a href="/days/<%= days[i].day_mnemonic %>"><%= days[i].day_mnemonic %></a>
         </td>
-      </tr>
+        <% if (i % 5 === 4) { %>
+          </tr>
+        <% } %>
       <% } %>
     </table>
   </body>
