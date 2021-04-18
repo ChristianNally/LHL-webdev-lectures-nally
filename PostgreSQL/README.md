@@ -59,21 +59,21 @@ CREATE USER <username> WITH PASSWORD 'secret_password';
 GRANT <rolename> TO <username>;
 
 
-
-#
 # The Data Directory
-#
 
 SHOW data_directory; 
 
 
-#
 # A really great commandline and other cheatsheet
-#
+
 https://gist.github.com/Kartones/dd3ff5ec5ea238d4c546
 
-#
 # Creating a DB Snapshot Dump
-#
 
 pg_dump --column-inserts --clean <database-name> > db-snapshot.sql
+
+# How to import a snapshot
+
+psql <user/host/password> <database> < db-snapshot.sql
+
+
