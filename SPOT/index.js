@@ -19,7 +19,7 @@ app.use(morgan('dev'));
 //
 
 // BROWSE
-app.get('/days', (req, res) => {
+app.get('/', (req, res) => {
   dbFns.getAllDays((rows) => {
     res.render('days',{days: rows});
   });
@@ -37,16 +37,39 @@ app.get('/days/:id', (req, res) => {
 //
 
 // BROWSE
-app.get('/', (req, res) => {
+app.get('/browse', (req, res) => {
   dbFns.getAllObjectives((rows) => {
     const templateVars = {objectives: rows};
-    res.render('index',templateVars);
+    res.render('browse',templateVars);
   });
 });
 
 // READ
 
 // EDIT
+app.get('/edit/:id', (req, res) => {
+  dbFns.getObjectiveById(req.params.id)
+  .then((result) => {
+    console.log('result:',result);
+    res.render('edit',result);
+    res.end();
+  })
+  .catch((err)=>console.log('getObjectiveById err:',err));
+});
+
+app.post("/edit",(req,res)=>{
+  console.log("req.body:",req.body);
+  const objectiveUpdate = {
+    id: req.body.id,
+    type: req.body.type,
+    question: req.body.question,
+    answer: req.body.answer,
+    sort: req.body.sort,
+    day_id: req.body.day_id
+  }
+  dbFns.updateObjective(objectiveUpdate);
+  res.redirect("/");
+});
 
 // ADD
 app.get('/new', (req, res) => {

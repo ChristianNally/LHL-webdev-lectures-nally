@@ -18,7 +18,8 @@
   </tr>
   <% for(var i=0; i < objectives.length; i++) { %>
     <tr>
-      <td><form action="/delete/<%= objectives[i].id %>" method="POST"><input type="submit" value="Delete"></form></td>
+      <td><form action="/delete/<%= objectives[i].id %>" method="POST"><input type="submit" value="Delete"></form>
+      <form action="/edit/<%= objectives[i].id %>" method="GET"><input type="submit" value="Edit"></form></td>
       <!-- <td><%= objectives[i].id %></td> -->
       <td><%= objectives[i].type %></td>
       <td><%= objectives[i].question %></td>

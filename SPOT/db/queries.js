@@ -74,6 +74,28 @@ const insertObjective = (newObj) => {
   });
 }
 
+// UPDATE table_name.
+// SET column1 = value1,
+// column2 = value2....,
+// columnN = valueN.
+// WHERE.
+// condition;
+
+const updateObjective = (objUpdate) => {
+  return client
+  .query(
+    "UPDATE objectives SET type = $1, question = $2, answer = $3, sort = $4, day_id = $5 WHERE id = $6;",
+    [objUpdate.type,objUpdate.question,objUpdate.answer,objUpdate.sort,objUpdate.day_id,objUpdate.id]
+  )
+  .then((response) => {
+    return true; // TODO can we return the new ID for this new row?
+  })
+  .catch((err) => {
+    console.log("insertObjective query error:", err);
+  });
+}
+
+
 const deleteObjective = (id) => {
   return client
     .query(
@@ -92,6 +114,7 @@ module.exports = {
   getAllObjectives,
   getObjectiveById,
   insertObjective,
+  updateObjective,
   deleteObjective,
   getAllDays,
   getDay
