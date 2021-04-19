@@ -16,7 +16,7 @@
 # Box Model
 
 [] Almost every HTML element can be represented by a box ('Web Developer extension')
-[] The BOX Model fiddle and Dev Tools: https://jsfiddle.net/ChristianNally/rkcs60x7/6/
+[] The BOX Model fiddle and Dev Tools: https://jsfiddle.net/ChristianNally/rkcs60x7
 [] width, height, padding, border, margin
 [] MDN CSS Reference: https://developer.mozilla.org/en-US/docs/Web/CSS/Reference
 [] What is the 'size' of a box? depends on the 'box-sizing' property.
@@ -24,11 +24,11 @@
 
 # Element Layout
 
-[] demonstration: https://jsfiddle.net/ChristianNally/La0dyjk2/57/
+[] demonstration: https://jsfiddle.net/ChristianNally/La0dyjk2/80/
 [] Before Flexbox, floats were used for layout
 [] With floats, elements can be floated left or right
 [] Floated elements are not part of the normal flow of the document
-[] The parent element containing floated elements can be collapsed
+[] The parent element containing floated elements will be collapsed
 [] block elements (like <div>) take the whole width of the container regardless of their content
 [] float: left; is a way of changing that, but it sets the height of the parent to 0.
 (because the content of the parent is being taken out.) The solution is to add 'clearfix' to the parent.
@@ -45,7 +45,7 @@
 [] align-items: 
 [] when working with flexbox, you have a MAIN AXIS and a CROSS AXIS
    (which is horizontal depends on flex-direction)
-[] play around with a jsFiddle https://jsfiddle.net/ChristianNally/6a7y8m0h/12/
+[] play around with a jsFiddle https://jsfiddle.net/ChristianNally/6a7y8m0h/70/
 
 # CSS Specificity
 
