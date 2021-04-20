@@ -167,7 +167,7 @@ INSERT INTO public.objectives (id, day_id, type, question, answer, sort) VALUES 
 INSERT INTO public.objectives (id, day_id, type, question, answer, sort) VALUES (17, 'w04d2', 'learning', 'What is DOM manipulation?', 'DOM manipulation is the ability of client-side javascript to add, remove or change parts of the DOM after the initial page load.', 1);
 INSERT INTO public.objectives (id, day_id, type, question, answer, sort) VALUES (18, 'w04d2', 'learning', 'What is DOM travsersal?', 'DOM traversal is the ability to client-side javascript to wander through the DOM looking for elements that match a certain criteria.', 5);
 INSERT INTO public.objectives (id, day_id, type, question, answer, sort) VALUES (16, 'w04d2', 'learning', 'How do you create a new element using jQuery and dynamically append it to a DOM element?', '$(''<div class="newElement">Text content goes here.</div>'').appendTo($( ".container" ));', 2);
-INSERT INTO public.objectives (id, day_id, type, question, answer, sort) VALUES (20, 'w04d2', NULL, 'How do you traverse the DOM with jQuery?', '$(''.parent'').children().addClass("tagged");', 6);
+INSERT INTO public.objectives (id, day_id, type, question, answer, sort) VALUES (20, 'w04d2', 'performance', 'How do you traverse the DOM with jQuery?', '$(''.parent'').children().addClass("tagged");', 6);
 
 
 --
