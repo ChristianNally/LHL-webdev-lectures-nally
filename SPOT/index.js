@@ -32,6 +32,14 @@ app.get('/days/:id', (req, res) => {
   });
 });
 
+// READ and EDIT
+app.get('/days-edit/:id', (req, res) => {
+  dbFns.getDay(req.params.id, (rows) => {
+    res.render('day-edit',{day_mnemonic: req.params.id, objectives: rows});
+  });
+});
+
+
 //
 // "BREAD" ROUTES for Objectives
 //
@@ -90,10 +98,13 @@ app.post("/new",(req,res)=>{
 });
 
 // DELETE
-app.post("/delete/:id",(req,res) => {
+app.get("/delete/:id",(req,res) => {
   dbFns.deleteObjective(req.params.id);
   res.redirect("/");
 });
+
+// Server Listen Event Handler
+//
 
 const port = process.env.PORT || 7865;
 app.listen(port, () => {

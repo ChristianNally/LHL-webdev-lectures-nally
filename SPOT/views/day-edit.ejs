@@ -1,11 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <title>Objectives</title>
+  <title>Objectives for <%= day_mnemonic %></title>
   <%- include('include/_head.ejs') %>
 </head>
 <body>
   <%- include('include/_header.ejs') %>
+  <h2><%= day_mnemonic %></h2>
+  <a href="/days/<%= day_mnemonic %>">read</a>
 <table>
   <tr>
     <th>Actions</th>
@@ -17,7 +19,7 @@
     <th>sort</th>
   </tr>
   <% for(var i=0; i < objectives.length; i++) { %>
-    <%- include('include/_objectiveRow.ejs',{i}) %>
+    <%- include('include/_objectiveRow-edit.ejs',{i}) %>
   <% } %>
 </table>
 

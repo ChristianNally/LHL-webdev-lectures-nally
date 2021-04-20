@@ -1,0 +1,22 @@
+<tr>
+  <td><a href="/delete/<%= objectives[i].id %>">Delete</a></td>
+  <!-- <td><%= objectives[i].id %></td> -->
+    <form action="/edit" method="POST"><input type="hidden" name="id" value="<%= objectives[i].id %>"></input>
+      <td>
+        <select id="type" name="type">
+          <% if ("learning" == objectives[i].type) { %>
+            <option value="learning" selected>Learning</option>
+            <option value="performance">Performance</option>
+          <% } else { %>
+            <option value="learning">Learning</option>
+            <option value="performance" selected>Performance</option>
+          <% } %>
+        </select>
+      </td>
+      <td><input type="text" name="question" value="<%= objectives[i].question %>"></input></td>
+      <td><input type="text" name="answer" value="<%= objectives[i].answer %>"></input></td>
+      <td><input type="text" name="day_id" value="<%= objectives[i].day_id %>"></input></td>
+      <td><input type="text" name="sort" value="<%= objectives[i].sort %>"></input></td>
+      <td><input type="submit" name="Save"></input></td>
+    </form>
+</tr>
