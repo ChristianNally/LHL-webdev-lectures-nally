@@ -149,7 +149,6 @@ INSERT INTO public.days (id, day_mnemonic) VALUES (25, 'w05d5');
 -- Data for Name: objectives; Type: TABLE DATA; Schema: public; Owner: christian.nally
 --
 
-INSERT INTO public.objectives (id, day_id, type, question, answer, sort) VALUES (1, 'w05d1', 'learning', 'What is a Table?', 'A table is a set of data collected as columns and rows.', 1);
 INSERT INTO public.objectives (id, day_id, type, question, answer, sort) VALUES (2, 'w05d1', 'learning', 'What is a database?', 'A database is a collection of tables. The collection is typically used as a set. A connection to a database is granted via a username and password.', 2);
 INSERT INTO public.objectives (id, day_id, type, question, answer, sort) VALUES (3, 'w05d1', 'learning', 'What is a query?', 'A query is a task executed against a database, table or combination of tables. e.g. SELECT, INSERT, etc.', 3);
 INSERT INTO public.objectives (id, day_id, type, question, answer, sort) VALUES (4, 'w05d1', 'learning', 'What is a WHERE clause?', 'A query can filter or restrict the information that results via a WHERE clause.', 4);
@@ -161,6 +160,14 @@ INSERT INTO public.objectives (id, day_id, type, question, answer, sort) VALUES 
 INSERT INTO public.objectives (id, day_id, type, question, answer, sort) VALUES (10, 'w03d4', 'learning', 'Why would we never want to store passwords as plaintext?', 'To keep the passwords away from prying eyes, like hackers and website employees.', 1);
 INSERT INTO public.objectives (id, day_id, type, question, answer, sort) VALUES (11, 'w03d4', 'learning', 'Rather than storing passwords as plaintext, how should they be stored?', 'Passwords should always be _hashed_', 2);
 INSERT INTO public.objectives (id, day_id, type, question, answer, sort) VALUES (12, 'w03d4', 'learning', 'What is the difference between encryption and hashing?', 'Hashing is one way.', 5);
+INSERT INTO public.objectives (id, day_id, type, question, answer, sort) VALUES (13, 'w04d1', 'learning', 'What is the box model?', 'The box model is how DOM elements are typically rendered to occupy a certain amount of screen real estate, via padding, borders and margins.', 1);
+INSERT INTO public.objectives (id, day_id, type, question, answer, sort) VALUES (14, 'w04d1', 'performance', 'How do I set the preferred box model?', '* { box-sizing: border-box; }', 1);
+INSERT INTO public.objectives (id, day_id, type, question, answer, sort) VALUES (15, 'w04d1', 'learning', 'What is the basic syntax for a CSS ''Rule''?', '[selector] { style: value; ... } ', 0);
+INSERT INTO public.objectives (id, day_id, type, question, answer, sort) VALUES (1, 'w05d1', 'learning', 'What is a table?', 'A table is a set of data collected as columns and rows.', 1);
+INSERT INTO public.objectives (id, day_id, type, question, answer, sort) VALUES (17, 'w04d2', 'learning', 'What is DOM manipulation?', 'DOM manipulation is the ability of client-side javascript to add, remove or change parts of the DOM after the initial page load.', 1);
+INSERT INTO public.objectives (id, day_id, type, question, answer, sort) VALUES (18, 'w04d2', 'learning', 'What is DOM travsersal?', 'DOM traversal is the ability to client-side javascript to wander through the DOM looking for elements that match a certain criteria.', 5);
+INSERT INTO public.objectives (id, day_id, type, question, answer, sort) VALUES (16, 'w04d2', 'learning', 'How do you create a new element using jQuery and dynamically append it to a DOM element?', '$(''<div class="newElement">Text content goes here.</div>'').appendTo($( ".container" ));', 2);
+INSERT INTO public.objectives (id, day_id, type, question, answer, sort) VALUES (20, 'w04d2', NULL, 'How do you traverse the DOM with jQuery?', '$(''.parent'').children().addClass("tagged");', 6);
 
 
 --
@@ -174,7 +181,7 @@ SELECT pg_catalog.setval('public.days_id_seq', 25, true);
 -- Name: objectives_id_seq; Type: SEQUENCE SET; Schema: public; Owner: christian.nally
 --
 
-SELECT pg_catalog.setval('public.objectives_id_seq', 12, true);
+SELECT pg_catalog.setval('public.objectives_id_seq', 20, true);
 
 
 --
