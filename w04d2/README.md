@@ -6,8 +6,11 @@ many lines of code do you think it will take?
 
 # Document Object Model
 
-# Pure Javascript as the Default Client-side Language
+# Javascript, the Default Client-side
 ## ("Selectors, Event Listeners and Chaining, Oh My!")
+
+[x] the console allows you to evaluate JS expressions
+[x] some of the objects that are defined in the browser context: window, document, and navigator
 
 # jQuery 
 ## ("One simple syntax to rule them all!")
