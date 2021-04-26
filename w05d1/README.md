@@ -82,3 +82,30 @@ FULL OUTER JOIN
 ## A Note on Speed
 
 SQL is hyper optimized for speed, and so there is an advantage to doing things all in one query.
+
+# Sample Queries
+
+## count (an aggregate function)
+
+SELECT count(id) 
+FROM objectives;
+
+## a where clause
+
+SELECT question, answer
+FROM objectives
+WHERE type = 'performance';
+
+## a where clause with AND
+
+SELECT question, answer
+FROM objectives
+WHERE type = 'performance' AND sort < 5;
+
+
+## having (... because you cannot use WHERE on an aggregate function)
+
+SELECT count(day_id) 
+FROM objectives 
+GROUP BY day_id 
+HAVING count(day_id) > 3;
