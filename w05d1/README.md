@@ -102,6 +102,10 @@ SELECT question, answer
 FROM objectives
 WHERE type = 'performance' AND sort < 5;
 
+## JOIN
+SELECT day_description, question, answer
+FROM objectives
+JOIN days ON objectives.day_id = days.day_mnemonic;
 
 ## having (... because you cannot use WHERE on an aggregate function)
 
