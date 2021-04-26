@@ -2,13 +2,16 @@
 
 |Question|Answer|
 |--|--|
-|What is a table?   |A table is a set of data collected as columns and rows.|
-|What is a database?|A database is a collection of tables. The collection is typically used as a set. A connection to a database is granted via a username and password.|
-|What is a query?   |A query is a task executed against a database, table or combination of tables. e.g. SELECT, INSERT, etc.|
-|What is a WHERE clause?|A query can filter or restrict the information that results via a WHERE clause.|
-|How do I establish a relationship between tables?|You can establish a relationship between tables by creating a column that tells you, for each row, which row in another table it is related to.|
-|What is a JOIN clause?|The data that a query has access to, can be expanded via JOIN-ing two tables together.|
-|What is an ERD?|In the context of databases, an ERD is a diagram that shows each table as an entity, and also shows the relationships between tables.|
+|What is a table?	|A table is a set of data collected as columns and rows.|	
+|How do I create a table?	|CREATE TABLE objectives\n(\n id bigint,\n day_id character varying(5),\n type character varying(12),\n question text,\n answer text,\n sort smallint\n)|	
+|How do I INSERT rows into a table?	|INSERT INTO objectives(id, type, question, answer, sort)\nVALUES (21, w05d1, "How do I INSERT rows into a table?", "solution goes here",2);|	
+|What is a database?	|A database is a collection of tables. The collection is typically used as a set. A connection to a database is granted via a username and password.|	
+|What is a query?	|A query is a task executed against a database, table or combination of tables. e.g. SELECT, INSERT, etc.|	
+|What are the four types of commands for databases?	|DDL, DML, DCL, and TCL. See: https://stackoverflow.com/questions/2578194/what-are-ddl-and-dml|	
+|What are the queries that correspond to the CRUD actions?	|The CRUD queries are: INSERT, SELECT, UPDATE and DELETE.|	
+|What is a WHERE clause?	|A query can filter or restrict the information that results via a WHERE clause.|	
+|What is a JOIN clause?	|The data that a query has access to, can be expanded via JOIN-ing two tables together.|	
+|What is an ERD?	|In the context of databases, an ERD is a diagram that shows each table as an entity, and also shows the relationships between tables.|	
 
 # How to Actually Do Things
 
