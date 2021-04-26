@@ -6,7 +6,11 @@ const client = require("./connection");
 const getAllDays = (cb) => {
   client
     .query(
-      "SELECT day_mnemonic FROM days ORDER BY day_mnemonic;"
+      `SELECT day_mnemonic, count(question)
+      FROM days 
+      LEFT JOIN objectives ON objectives.day_id = days.day_mnemonic
+      GROUP BY day_mnemonic
+      ORDER BY day_mnemonic;`
     )
     .then((response) => {
       cb(response.rows);
@@ -74,13 +78,6 @@ const insertObjective = (newObj) => {
   });
 }
 
-// UPDATE table_name.
-// SET column1 = value1,
-// column2 = value2....,
-// columnN = valueN.
-// WHERE.
-// condition;
-
 const updateObjective = (objUpdate) => {
   return client
   .query(
@@ -95,6 +92,22 @@ const updateObjective = (objUpdate) => {
   });
 }
 
+// let newOrder = {id: req.body[nameOfArray][key], sort: key};
+// dbFns.setObjectiveSortOrder(newOrder);
+
+const setObjectiveSortOrder = (objUpdate) => {
+  return client
+  .query(
+    "UPDATE objectives SET sort = $1 WHERE id = $2;",
+    [objUpdate.sort,objUpdate.id]
+  )
+  .then((response) => {
+    return true; // 
+  })
+  .catch((err) => {
+    console.log("setObjectiveSortOrder query error:", err);
+  });
+}
 
 const deleteObjective = (id) => {
   return client
@@ -115,6 +128,7 @@ module.exports = {
   getObjectiveById,
   insertObjective,
   updateObjective,
+  setObjectiveSortOrder,
   deleteObjective,
   getAllDays,
   getDay

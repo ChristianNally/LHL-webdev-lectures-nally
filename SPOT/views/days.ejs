@@ -16,12 +16,13 @@
         <th>Day 4</th>
         <th>Day 5</th>
       </tr>
+
       <% for(var i=0; i < days.length; i++) { %> 
         <% if (i % 5 === 0) { %>
           <tr><td>Week <%= i/5 + 1 %></td>
         <% } %>
         <td>
-          <a href="/days/<%= days[i].day_mnemonic %>"><%= days[i].day_mnemonic %></a>
+          <a href="/days/<%= days[i].day_mnemonic %>"><%= days[i].day_mnemonic %></a>(<%= days[i].count %>)
         </td>
         <% if (i % 5 === 4) { %>
           </tr>

@@ -103,6 +103,20 @@ app.get("/delete/:id",(req,res) => {
   res.redirect("/");
 });
 
+// REORDER
+//
+app.post("/neworder",(req,res)=>{
+  console.log("/neworder req.body:",req.body);
+  const nameOfArray = 'objective[]';
+  for (key in req.body[nameOfArray]) {
+    console.log('key::value',key,'::',req.body[nameOfArray][key]);
+    let newOrder = {id: req.body[nameOfArray][key], sort: key};
+    dbFns.setObjectiveSortOrder(newOrder);
+  }
+  res.send("reordered");
+  res.end();
+});
+
 // Server Listen Event Handler
 //
 
