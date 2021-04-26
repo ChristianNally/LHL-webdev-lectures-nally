@@ -6,11 +6,11 @@ const client = require("./connection");
 const getAllDays = (cb) => {
   client
     .query(
-      `SELECT day_mnemonic, count(question)
+      `SELECT day_id, day_mnemonic, count(question)
       FROM days 
-      LEFT JOIN objectives ON objectives.day_id = days.day_mnemonic
-      GROUP BY day_mnemonic
-      ORDER BY day_mnemonic;`
+      LEFT JOIN objectives ON objectives.day_id = days.id
+      GROUP BY objectives.day_id, days.day_mnemonic
+      ORDER BY days.day_mnemonic;`
     )
     .then((response) => {
       cb(response.rows);
@@ -20,11 +20,31 @@ const getAllDays = (cb) => {
     });
 };
 
-const getDay = (day_mnemonic, cb) => {
+const getDay = (day_id, cb) => {
   return client
     .query(
-      "SELECT id,type,question,answer,sort,day_id FROM objectives WHERE day_id = $1 ORDER BY sort;",
-      [day_mnemonic]
+      `SELECT objectives.id,type,question,answer,sort,day_id, day_mnemonic 
+      FROM objectives 
+      LEFT JOIN days ON objectives.day_id = days.id 
+      WHERE day_id = $1 
+      ORDER BY sort;`,
+      [day_id]
+    )
+    .then((response) => {
+      return cb(response.rows);
+    })
+    .catch((err) => {
+      console.log("getDay query error:", err);
+    });
+};
+
+const getDayMnemonic = (day_id, cb) => {
+  return client
+    .query(
+      `SELECT day_mnemonic 
+      FROM days 
+      WHERE id = $1`,
+      [day_id]
     )
     .then((response) => {
       return cb(response.rows);
@@ -131,5 +151,6 @@ module.exports = {
   setObjectiveSortOrder,
   deleteObjective,
   getAllDays,
-  getDay
+  getDay,
+  getDayMnemonic
 };

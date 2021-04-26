@@ -28,14 +28,20 @@ app.get('/', (req, res) => {
 // READ
 app.get('/days/:id', (req, res) => {
   dbFns.getDay(req.params.id, (rows) => {
-    res.render('day',{day_mnemonic: req.params.id, objectives: rows});
+    dbFns.getDayMnemonic(req.params.id, (row) => {
+      console.log('row[0].day_mnemonic:',row[0].day_mnemonic);
+      res.render('day',{day_id: req.params.id, objectives: rows, day_mnemonic: row[0].day_mnemonic});
+    });
   });
 });
 
 // READ and EDIT
 app.get('/days-edit/:id', (req, res) => {
   dbFns.getDay(req.params.id, (rows) => {
-    res.render('day-edit',{day_mnemonic: req.params.id, objectives: rows});
+    dbFns.getDayMnemonic(req.params.id, (row) => {
+      console.log('row[0].day_mnemonic:',row[0].day_mnemonic);
+      res.render('day-edit',{day_id: req.params.id, objectives: rows, day_mnemonic: row[0].day_mnemonic});
+    });
   });
 });
 

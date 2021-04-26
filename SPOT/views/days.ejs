@@ -22,7 +22,7 @@
           <tr><td>Week <%= i/5 + 1 %></td>
         <% } %>
         <td>
-          <a href="/days/<%= days[i].day_mnemonic %>"><%= days[i].day_mnemonic %></a>(<%= days[i].count %>)
+          <a href="/days/<%= days[i].day_id %>"><%= days[i].day_mnemonic %></a>(<%= days[i].count %>)
         </td>
         <% if (i % 5 === 4) { %>
           </tr>
