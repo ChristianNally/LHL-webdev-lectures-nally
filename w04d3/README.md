@@ -3,9 +3,9 @@
 - What is AJAX?
 - What are the pros and cons
 - How it impacts the browser history
-- Learned about CORS
+- CORS
 
-## What is AJAX
+## What is AJAX?
 
 - AJAX calls get data from the server and updates the UI with the new data without reloading the whole web page.
 - Microsoft added a then little-known function called XMLHttpRequest to IE5 in 2005

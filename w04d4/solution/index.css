@@ -6,6 +6,10 @@ body {
   margin: 0;
 }
 
+nav {
+ min-width: 230px;
+}
+
 #main {
   display: flex;
   min-height: calc(60vh);
@@ -55,7 +59,7 @@ p {
 } */
 
 #main .first {
-  font-size: 2rem;
+  font-size: 1rem;
 }
 
 /* .second {
@@ -64,6 +68,10 @@ p {
 
 #main {
   font-size: 2em;
+}
+
+#main .second {
+  font-size: 0.3em;
 }
 
 @media only screen and (max-width: 992px) {

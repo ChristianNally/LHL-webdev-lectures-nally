@@ -1,12 +1,12 @@
 # W04D04 - Responsive Design and SASS
 
 ### To Do
-- [x] Responsive Design
-- [x] Viewport Meta Tag
-- [x] Percentages
-- [x] `max-width` and `min-width`
-- [x] Viewport Height/Width `vh`/`vw`
-- [x] Based on Font-size `em`/`rem`
+- [] Responsive Design
+- [] Viewport Meta Tag
+- [] Percentages
+- [] `max-width` and `min-width`
+- [] Viewport Height/Width `vh`/`vw`
+- [] Based on Font-size `em`/`rem`
 - [] Media Queries
 - [] CSS Preprocessors
 - [] Intro to Sass/SCSS
@@ -121,7 +121,13 @@ p.relative {
 ```scss
 // variables
 $font-color: lightblue;
-$header-color: #0000aa;
+$header-color: #34a51a;
+$body-color: #34a51a;
+$nav-text-color: #34a51a;
+$footer-text-color: #34a51a;
+
+$column-width: 175px;
+
 $font-size: 1.2rem;
 
 p {
