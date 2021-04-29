@@ -6,10 +6,10 @@ const client = require("./connection");
 const getAllDays = (cb) => {
   client
     .query(
-      `SELECT day_id, day_mnemonic, count(question)
+      `SELECT days.id, day_mnemonic, count(question)
       FROM days 
       LEFT JOIN objectives ON objectives.day_id = days.id
-      GROUP BY objectives.day_id, days.day_mnemonic
+      GROUP BY days.id, days.day_mnemonic
       ORDER BY days.day_mnemonic;`
     )
     .then((response) => {
@@ -60,7 +60,9 @@ const getDayMnemonic = (day_id, cb) => {
 const getAllObjectives = (cb) => {
   client
     .query(
-      "SELECT id,type,question,answer,sort,day_id FROM objectives ORDER BY id;"
+      `SELECT id,type,question,answer,sort,day_id 
+      FROM objectives 
+      ORDER BY day_id,sort;`
     )
     .then((response) => {
       cb(response.rows);

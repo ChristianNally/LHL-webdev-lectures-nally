@@ -1,9 +1,12 @@
 <header>
-    <h1>SPOTlight</h1>
-    <h3>The Lighthouse Labs Curriculum Index</h3>
-    <nav>
-    <a href="/">Home</a>
-    <a href="/new">New</a>
+  <h1><a href="/">SPOTlight</a></h1>
+  <h3>The Lighthouse Labs Curriculum Index</h3>
+  <nav>
+    <% if (typeof day_id !== 'undefined') { %>
+      <a href="/new/<%= day_id %>">New</a>
+    <% } else { %>
+      <a href="/new">New</a>
+    <% } %>
     <a href="/browse">Browse</a>
-    </nav>
+  </nav>
 </header>

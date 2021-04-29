@@ -19,7 +19,11 @@
   <label for="sort">Sort</label>
   <input id="sort" name="sort" type="text"></input>
   <label for="day_id">Day</label>
-  <input id="day_id" name="day_id" type="text"></input>
+  <% if (typeof day_id !== 'undefined') { %>
+    <input id="day_id" name="day_id" type="text" value="<%= day_id %>"></input>
+  <% } else { %>
+    <input id="day_id" name="day_id" type="text"></input>
+  <% } %>
   <input type="submit" name="Save"></input>
 </form>
 </body>

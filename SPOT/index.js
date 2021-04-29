@@ -29,7 +29,7 @@ app.get('/', (req, res) => {
 app.get('/days/:id', (req, res) => {
   dbFns.getDay(req.params.id, (rows) => {
     dbFns.getDayMnemonic(req.params.id, (row) => {
-      console.log('row[0].day_mnemonic:',row[0].day_mnemonic);
+//      console.log('row[0].day_mnemonic:',row[0].day_mnemonic);
       res.render('day',{day_id: req.params.id, objectives: rows, day_mnemonic: row[0].day_mnemonic});
     });
   });
@@ -88,6 +88,10 @@ app.post("/edit",(req,res)=>{
 // ADD
 app.get('/new', (req, res) => {
   res.render('new');
+});
+
+app.get('/new/:day_id', (req, res) => {
+  res.render('new',{day_id:req.params.day_id});
 });
 
 app.post("/new",(req,res)=>{
