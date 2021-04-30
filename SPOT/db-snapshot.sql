@@ -144,6 +144,16 @@ INSERT INTO public.days (id, day_mnemonic, day_description) VALUES (22, 'w05d2',
 INSERT INTO public.days (id, day_mnemonic, day_description) VALUES (23, 'w05d3', 'Week 5 Day 3');
 INSERT INTO public.days (id, day_mnemonic, day_description) VALUES (24, 'w05d4', 'Week 5 Day 4');
 INSERT INTO public.days (id, day_mnemonic, day_description) VALUES (25, 'w05d5', 'Week 5 Day 5');
+INSERT INTO public.days (id, day_mnemonic, day_description) VALUES (26, 'w06d1', 'Week 6 Day 1');
+INSERT INTO public.days (id, day_mnemonic, day_description) VALUES (27, 'w06d2', 'Week 6 Day 2');
+INSERT INTO public.days (id, day_mnemonic, day_description) VALUES (28, 'w06d3', 'Week 6 Day 3');
+INSERT INTO public.days (id, day_mnemonic, day_description) VALUES (29, 'w06d4', 'Week 6 Day 4');
+INSERT INTO public.days (id, day_mnemonic, day_description) VALUES (30, 'w06d5', 'Week 6 Day 5');
+INSERT INTO public.days (id, day_mnemonic, day_description) VALUES (31, 'w07d1', 'Week 7 Day 1');
+INSERT INTO public.days (id, day_mnemonic, day_description) VALUES (32, 'w07d2', 'Week 7 Day 2');
+INSERT INTO public.days (id, day_mnemonic, day_description) VALUES (33, 'w07d3', 'Week 7 Day 3');
+INSERT INTO public.days (id, day_mnemonic, day_description) VALUES (34, 'w07d4', 'Week 7 Day 4');
+INSERT INTO public.days (id, day_mnemonic, day_description) VALUES (35, 'w07d5', 'Week 7 Day 5');
 
 
 --
