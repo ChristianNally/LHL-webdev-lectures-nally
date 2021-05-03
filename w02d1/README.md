@@ -2,15 +2,14 @@
 
 ### To Do
 - [] Manual testing
-- [] Making assertions
 - [] Bringing in outside code
+- [] Making assertions
 - [] Exporting our code
 - [] Intro to NPM: a Node package manager
 - [] Mocha test runner
 - [] Ignoring files/folders
-- [] Chai assertion library
 - [] What is TDD?
-- [] Practice unit testing
+- [] Chai assertion library
 
 ### TDD
 - **T**est **D**riven **D**evelopment
