@@ -1,7 +1,15 @@
+setTimeout( ()=>{ console.log("I was scheduled.")  }, 444 );
+
 function sleepFor(sleepDuration) {
-  var now = new Date().getTime();
+  const nowObject = new Date();
+  console.log("nowObject:",JSON.stringify(nowObject));
+  const now = nowObject.getTime();
   while (new Date().getTime() < now + sleepDuration) {
     /* do nothing */
   }
 }
 
+
+console.log("begin");
+sleepFor(5000);
+console.log("end");
