@@ -198,11 +198,12 @@ INSERT INTO public.objectives (id, day_id, type, question, answer, sort) VALUES 
 INSERT INTO public.objectives (id, day_id, type, question, answer, sort) VALUES (1, 21, 'learning', 'What is a table?', 'A table is a set of data collected as columns and rows.', 0);
 INSERT INTO public.objectives (id, day_id, type, question, answer, sort) VALUES (9, 21, 'performance', 'How do I INSERT rows into a table?', 'INSERT INTO objectives(id, type, question, answer, sort)\nVALUES (21, w05d1, "How do I INSERT rows into a table?", "solution goes here",2);', 2);
 INSERT INTO public.objectives (id, day_id, type, question, answer, sort) VALUES (31, 21, 'learning', 'What are the four types of commands for databases?', 'DDL, DML, DCL, and TCL. See: https://stackoverflow.com/questions/2578194/what-are-ddl-and-dml', 5);
-INSERT INTO public.objectives (id, day_id, type, question, answer, sort) VALUES (42, 12, 'performance', 'How do you code EJS templates?', 'npm i ejs, mkdir views, app.set(''view engine'', ''ejs'');', 2);
-INSERT INTO public.objectives (id, day_id, type, question, answer, sort) VALUES (40, 12, 'learning', 'In the context of web programming, what is a template?', 'A template is a file containing mainly HTML, but with syntactic morsels of dynamic content.', 0);
-INSERT INTO public.objectives (id, day_id, type, question, answer, sort) VALUES (41, 12, 'learning', 'What is the main reason to use a templating system?', 'Separating business logic from the presentation layer (separation of concerns), enables specialization of roles for programmers.', 1);
-INSERT INTO public.objectives (id, day_id, type, question, answer, sort) VALUES (43, 12, 'performance', 'How often do you need to restart your web server?', 'Template files are reloaded every time they are rendered, so there is no need to restart your server if you have only changed your EJS template.', 3);
-INSERT INTO public.objectives (id, day_id, type, question, answer, sort) VALUES (44, 12, 'performance', 'How, in NodeJS, do you write a route that accepts a dynamic value as part of the URL?', 'app.get(''/path/:fuzz'', (req,res)=>{ console.log(req.params.fuzz); }); ', 4);
+INSERT INTO public.objectives (id, day_id, type, question, answer, sort) VALUES (42, 12, 'performance', 'How do you code EJS templates?', 'npm i ejs, mkdir views, app.set(''view engine'', ''ejs'');', 3);
+INSERT INTO public.objectives (id, day_id, type, question, answer, sort) VALUES (45, 12, 'learning', 'Does the order that your routes appear in your source code matter?', 'Yes. The order of the routes in your file matters. First matched -> First used.', 0);
+INSERT INTO public.objectives (id, day_id, type, question, answer, sort) VALUES (40, 12, 'learning', 'In the context of web programming, what is a template?', 'A template is a file containing mainly HTML, but with syntactic morsels of dynamic content.', 1);
+INSERT INTO public.objectives (id, day_id, type, question, answer, sort) VALUES (41, 12, 'learning', 'What is the main reason to use a templating system?', 'Separating business logic from the presentation layer (separation of concerns), enables specialization of roles for programmers.', 2);
+INSERT INTO public.objectives (id, day_id, type, question, answer, sort) VALUES (43, 12, 'performance', 'How often do you need to restart your web server?', 'Template files are reloaded every time they are rendered, so there is no need to restart your server if you have only changed your EJS template.', 4);
+INSERT INTO public.objectives (id, day_id, type, question, answer, sort) VALUES (44, 12, 'performance', 'How, in NodeJS, do you write a route that accepts a dynamic value as part of the URL?', 'app.get(''/path/:fuzz'', (req,res)=>{ console.log(req.params.fuzz); }); ', 5);
 
 
 --
@@ -216,7 +217,7 @@ SELECT pg_catalog.setval('public.days_id_seq', 25, true);
 -- Name: objectives_id_seq; Type: SEQUENCE SET; Schema: public; Owner: christian.nally
 --
 
-SELECT pg_catalog.setval('public.objectives_id_seq', 44, true);
+SELECT pg_catalog.setval('public.objectives_id_seq', 45, true);
 
 
 --
