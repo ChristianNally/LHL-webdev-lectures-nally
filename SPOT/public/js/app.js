@@ -32,4 +32,9 @@
 
   }).disableSelection();
 
+  $('.answer').css('color', 'white');;
+  $('.answer').click(function(){
+    $(this).children('span').css('color', 'black');
+  });
+
 }); })(jQuery);

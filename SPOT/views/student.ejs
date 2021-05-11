@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Objectives for <%= day_mnemonic %></title>
+    <%- include('include/_head.ejs') %>
+  </head>
+  <body>
+    <%- include('include/_header.ejs') %>
+    <h2><%= day_mnemonic %></h2>
+    <table>
+      <tr>
+        <!-- <th>Actions</th> -->
+        <!-- <th>id</th> -->
+        <!-- <th>type</th> -->
+        <th>question</th>
+        <th>answer</th>
+        <th>understand?</th>
+        <!-- <th>day_id</th>
+    <th>sort</th> -->
+      </tr>
+      <% for(var i=0; i < objectives.length; i++) { %>
+      <tr id="objective_<%= objectives[i].id %>">
+        <!-- <td><%= objectives[i].id %></td> -->
+        <!-- <td>|<%= objectives[i].type %></td> -->
+        <td class="objective"><%= objectives[i].question %></td>
+        <td class="answer"><span><%= objectives[i].answer %></span></td>
+        <!-- <td><%= objectives[i].day_id %></td>
+      <td><%= objectives[i].sort %></td> -->
+        <td>
+          <select data-id="<%= objectives[i].id %>">
+            <option value="0">understand?</option>
+            <option value="1">confused</option>
+            <option value="2">fair</option>
+            <option value="3">excellent</option>
+          </select>
+        </td>
+      </tr>
+      <% } %>
+    </table>
+    <script>
+      (function($) { $(document).ready(function(){
+        $('select').on('change', function(){
+          let path = '/understanding/' 
+          + $(this).attr('data-id')
+          + '/' + Cookies.get('spot-uid')
+          + '/' + $(this).val();
+          alert(path);
+          $.ajax({url: path});
+        });
+      }); })(jQuery);
+    </script>
+  </body>
+</html>

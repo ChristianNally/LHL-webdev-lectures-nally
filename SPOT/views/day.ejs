@@ -15,13 +15,24 @@
     <th>type</th>
     <th>question</th>
     <th>answer</th>
-    <!-- <th>day_id</th>
-    <th>sort</th> -->
+    <th>Understanding</th>
   </tr>
   <% for(var i=0; i < objectives.length; i++) { %>
-    <%- include('include/_objectiveRow.ejs',{i}) %>
+    <tr id="objective_<%= objectives[i].id %>">
+      <!-- <td><%= objectives[i].id %></td> -->
+      <td><%= objectives[i].type %></td>
+      <td><%= objectives[i].question %></td>
+      <td><%= objectives[i].answer %></td>
+      <td><%= objectives[i].understandString %></td>
+    </tr>
   <% } %>
 </table>
+
+<script>
+  (function($) { $(document).ready(function(){
+    $.ajax();
+  }); })(jQuery);
+</script>
 
 </body>
 </html>

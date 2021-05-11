@@ -7,3 +7,8 @@ header {
     align-items: center;
     justify-content: space-between;
 }
+
+td {
+    border: 1px solid black;
+    padding: 10px;
+}

@@ -10,7 +10,6 @@ of HTTP)
 its way throughout the network by whatever route it can find.
 [x] HTTP Parts of a URL: protocol, domain, port, path, query, anchor
 
-
 ## Networking
 
 Think of the post office analogy, where intermediate stations forward
@@ -130,3 +129,14 @@ and finally the...
 
 Response Body - the content that the client 
 requested. (usually HTML or JSON)
+
+
+#
+                                                    example.com
+----------------                                 -------------------
+client (Browser)                                 server (Web Server)
+laptop on my desktop                             linux server, running Node listen to a port
+                                                 9898
+127.0.0.1                                        123.23.34.54
+
+http://example.com:9898 
