@@ -25,9 +25,9 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(morgan("dev"));
 
 //
-// LOGIN
+// Login
 //
-app.get('/login-student',(req,res)=>{
+app.get('/login',(req,res)=>{
   uid = crypto.randomBytes(20).toString('hex');
   res.cookie("spot-uid", uid);
   res.redirect("/student/12");
