@@ -1,21 +1,22 @@
 //
 // SPOT Back-end
 //
-
-var cookieSession = require('cookie-session');
+const cookieSession = require('cookie-session');
 const express = require("express");
 const morgan = require("morgan");
-const crypto = require("crypto");
+const crypto = require("crypto"); // used to generate random strings
+const bcrypt = require("bcrypt");
 var bodyParser = require("body-parser");
 
+// local require for DB API
+const dbFns = require("./db/queries");
+
+// someone set us up the express app
 const app = express();
 app.set("view engine", "ejs");
 
-const cookieParser = require("cookie-parser");
-app.use(cookieParser());
-
-const dbFns = require("./db/queries");
-
+// this object stores any given cohort's current understanding feedback
+// this data is VERY emphemeral on purpose
 const understanding = {};
 
 //
@@ -42,11 +43,43 @@ app.post('/login',(req,res)=>{
   const candidateEmail = req.body.email;
   const candidatePassword = req.body.password;
 
-  // dbFns.getUserByEmail(candidateEmail, (rows)=>{
-  //   if (typeof rows[0].email !== 'undefined'){
+  dbFns.getUserByEmail(candidateEmail, (rows)=>{
+    if (typeof rows[0].email !== 'undefined'
+        && bcrypt.compare(candidatePassword, rows[0].password)
+    ){
+      // Log the user in by creating a cookie with the email stored in it.
+      req.session.email = candidateEmail;
+      res.redirect("/days");
+      return;
+    }
+  });
 
-  //   }
-  // });    
+});
+
+//
+// Register
+//
+app.get('/register',(req,res)=>{
+  res.render("register");
+});
+
+app.post('/register',(req,res)=>{
+  const newEmail = req.body.email;
+  const newPassword = req.body.password;
+
+  dbFns.getUserByEmail(newEmail, (rows)=>{
+    if (typeof rows[0] !== 'undefined'){
+      res.redirect('/register');
+      return;
+    } else {
+      const newPasswordHashed = bcrypt.hashSync(newPassword,10);
+      const newUser = {email: newEmail, hashedPassword: newPasswordHashed};
+      dbFns.insertUser(newUser);
+      req.session.email = newEmail; // logs the user in.
+      res.redirect('/days');
+      return;
+    }
+  });    
 
 });
 

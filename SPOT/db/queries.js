@@ -1,6 +1,34 @@
 const client = require("./connection");
 
 //
+// Users
+//
+const getUserByEmail = (email,cb) => {
+  client
+  .query('SELECT * FROM users WHERE email = $1;',[email])
+  .then((response) => {
+    cb(response.rows);
+  })
+  .catch((err)=>{
+    console.log("getUserByEmail query error:", err);
+  });
+}
+
+const insertUser = (newObj) => {
+  return client
+  .query(
+    "INSERT INTO users (email,password) VALUES ($1,$2);",
+    [newObj.email,newObj.hashedPassword]
+  )
+  .then((response) => {
+    return true; // TODO can we return the new ID for this new row?
+  })
+  .catch((err) => {
+    console.log("insertUser query error:", err);
+  });
+}
+
+//
 // Days
 //
 const getAllDays = (cb) => {
@@ -146,6 +174,8 @@ const deleteObjective = (id) => {
 };
 
 module.exports = {
+  getUserByEmail,
+  insertUser,
   getAllObjectives,
   getObjectiveById,
   insertObjective,
