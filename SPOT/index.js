@@ -2,6 +2,7 @@
 // SPOT Back-end
 //
 
+var cookieSession = require('cookie-session');
 const express = require("express");
 const morgan = require("morgan");
 const crypto = require("crypto");
@@ -23,6 +24,10 @@ const understanding = {};
 app.use(express.static("public"));
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(morgan("dev"));
+app.use(cookieSession({
+  name: 'session',
+  keys: ['qhd7h3f09js83nnc9', 'aovjhaw48hofgraoh8']
+}));
 
 //
 // Login
@@ -30,7 +35,24 @@ app.use(morgan("dev"));
 app.get('/login',(req,res)=>{
   uid = crypto.randomBytes(20).toString('hex');
   res.cookie("spot-uid", uid);
-  res.redirect("/student/12");
+  res.redirect("/student/14");
+});
+
+app.post('/login',(req,res)=>{
+  const candidateEmail = req.body.email;
+  const candidatePassword = req.body.password;
+
+  // dbFns.getUserByEmail(candidateEmail, (rows)=>{
+  //   if (typeof rows[0].email !== 'undefined'){
+
+  //   }
+  // });    
+
+});
+
+app.get('/logout',(req,res)=>{
+  req.session = null;
+  res.redirect('/');
 });
 
 //
