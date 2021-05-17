@@ -238,11 +238,10 @@ INSERT INTO public.objectives (id, day_id, type, question, answer, sort) VALUES 
 INSERT INTO public.objectives (id, day_id, type, question, answer, sort) VALUES (10, 14, 'learning', 'Why would we never want to store passwords as plaintext?', 'To keep the passwords away from prying eyes, like hackers and website employees.', 7);
 INSERT INTO public.objectives (id, day_id, type, question, answer, sort) VALUES (12, 14, 'learning', 'What is the difference between encryption and hashing?', 'Hashing is one way, so you can''t recover the original text from the hash.', 0);
 INSERT INTO public.objectives (id, day_id, type, question, answer, sort) VALUES (11, 14, 'learning', 'Rather than storing passwords as plaintext, how should they be stored?', 'Passwords should always be _hashed_. There is no need to encrypt them, since you never want to be able to see the password yourself.', 2);
-INSERT INTO public.objectives (id, day_id, type, question, answer, sort) VALUES (17, 17, 'learning', 'What is DOM manipulation?', 'DOM manipulation is the ability of client-side javascript to add, remove or change parts of the DOM after the initial page load.', 0);
 INSERT INTO public.objectives (id, day_id, type, question, answer, sort) VALUES (15, 16, 'learning', 'What is the basic syntax for a CSS ''Rule''?', '[selector] { style: value; ... } ', 3);
 INSERT INTO public.objectives (id, day_id, type, question, answer, sort) VALUES (13, 16, 'learning', 'What is the box model?', 'The box model is how DOM elements are typically rendered to occupy a certain amount of screen real estate, via padding, borders and margins.', 4);
 INSERT INTO public.objectives (id, day_id, type, question, answer, sort) VALUES (14, 16, 'performance', 'How do I set the preferred box model?', '* { box-sizing: border-box; }', 5);
-INSERT INTO public.objectives (id, day_id, type, question, answer, sort) VALUES (16, 17, 'performance', 'How do you create a new element using jQuery and dynamically append it to a DOM element?', '$(''<div class="newElement">Text content goes here.</div>'').appendTo($( ".container" ));', 1);
+INSERT INTO public.objectives (id, day_id, type, question, answer, sort) VALUES (17, 17, 'learning', 'What is DOM manipulation?', 'DOM manipulation is the ability of client-side javascript to add, remove or change parts of the DOM after the initial page load.', 0);
 INSERT INTO public.objectives (id, day_id, type, question, answer, sort) VALUES (20, 17, 'performance', 'How do you traverse the DOM with jQuery?', '$(''.parent'').children().addClass("tagged");', 3);
 INSERT INTO public.objectives (id, day_id, type, question, answer, sort) VALUES (18, NULL, 'learning', 'What is DOM traversal?', 'DOM traversal is the ability of client-side javascript to jump from one node to a parent, sibling or child, step by step throughout the DOM, looking for elements that match a certain criteria.', NULL);
 INSERT INTO public.objectives (id, day_id, type, question, answer, sort) VALUES (47, 13, 'performance', 'How do you set a cookie value from within a NodeJS app?', '```js app.post(''/login'', (req, res) => {   // other authenticatey stuff   res.cookie(''userId'', user.id); // set the cookie''s key and value   res.redirect(''/''); }); ```', 2);
@@ -260,15 +259,17 @@ INSERT INTO public.objectives (id, day_id, type, question, answer, sort) VALUES 
 INSERT INTO public.objectives (id, day_id, type, question, answer, sort) VALUES (60, 16, 'learning', 'What are the three CSS styles most directly related to the box model for any given DOM element?', 'Margin, Border, Padding', 6);
 INSERT INTO public.objectives (id, day_id, type, question, answer, sort) VALUES (61, 16, 'learning', 'For the CSS styles that take 1,2 or 4 length parameters (padding, margin, etc.) how is each number of parameters interpreted?', 'For 1 parameter, all 4 sides of the box get the same value. For 2 parameters, the first is ''top'' and ''bottom'' and the second is ''left'' and ''right''. Four parameters specify each side, top, right, bottom and left, respectively.', 7);
 INSERT INTO public.objectives (id, day_id, type, question, answer, sort) VALUES (48, 13, 'learning', 'What is a web cookie?', 'A cookie is a name/value pair that stores information related to a particular user on their browser by a certain domain.', 0);
-INSERT INTO public.objectives (id, day_id, type, question, answer, sort) VALUES (64, 17, 'learning', 'What are some examples of Javascript objects that are only defined in the browser context?', 'window, navigator, document', 4);
 INSERT INTO public.objectives (id, day_id, type, question, answer, sort) VALUES (49, 13, 'learning', 'How does a web cookie''s value transmit from one computer to another?', 'A webserver sets a cookie value by including the cookie in a response header. After that, every web request that is sent back to that web server by a browswer will include the cookie in the header of those requests.', 1);
 INSERT INTO public.objectives (id, day_id, type, question, answer, sort) VALUES (55, 14, 'learning', 'When is it okay to store plaintext values in cookies?', 'Almost never. Maybe for things like language preferences, no-login shopping carts, and some basic analytics, but probably not.', 1);
 INSERT INTO public.objectives (id, day_id, type, question, answer, sort) VALUES (56, 14, 'learning', 'What is REST?', 'REST is a convention for choosing paths and HTTP verbs for end-point routes.', 3);
+INSERT INTO public.objectives (id, day_id, type, question, answer, sort) VALUES (16, 17, 'performance', 'How do you create a new element using jQuery and dynamically append it to a DOM element?', '$(''<div class="newElement">Text content goes here.</div>'').appendTo($( ".container" ));', 1);
+INSERT INTO public.objectives (id, day_id, type, question, answer, sort) VALUES (65, 17, 'learning', 'What is DOM traversal?', 'DOM travsersal is the ability for client-side Javascript to move from one node of the DOM to another.', 2);
 INSERT INTO public.objectives (id, day_id, type, question, answer, sort) VALUES (57, 14, 'learning', 'How can you use verbs other than GET and POST in your HTML, given that you''re using a NodeJS back-end?', 'The method-override package: https://www.npmjs.com/package/method-override', 4);
 INSERT INTO public.objectives (id, day_id, type, question, answer, sort) VALUES (58, 14, 'learning', 'What package is available to help you implemented encrypted cookie values?', 'cookie-session: http://expressjs.com/en/resources/middleware/cookie-session.html', 5);
 INSERT INTO public.objectives (id, day_id, type, question, answer, sort) VALUES (54, 14, 'learning', 'What is HTTPS?', 'HTTP Secure is the encrypted version of HTTP. Using it means that the traffic between your computer and its destination cannot be read by any server or public wifi system in the delivery path.', 6);
 INSERT INTO public.objectives (id, day_id, type, question, answer, sort) VALUES (59, 16, 'learning', 'What is a Single Page App?', 'An SPA is an app that leverages AJAX to prevent page reloads. Instead it changes page content by manipulating the DOM directly, using front-end javascript.', 0);
 INSERT INTO public.objectives (id, day_id, type, question, answer, sort) VALUES (62, 16, 'learning', 'What is the difference between a block element and an inline element?', 'A block element (e.g. <div> or display: block;) occupies the entire width of its container, whereas an inline element (e.g. <span> or display: inline;) will flow, by default from left to right within the container.', 1);
+INSERT INTO public.objectives (id, day_id, type, question, answer, sort) VALUES (64, 17, 'learning', 'What are some examples of Javascript objects that are only defined in the browser context?', 'window, navigator, document', 4);
 
 
 --
@@ -289,7 +290,7 @@ SELECT pg_catalog.setval('public.days_id_seq', 25, true);
 -- Name: objectives_id_seq; Type: SEQUENCE SET; Schema: public; Owner: christian.nally
 --
 
-SELECT pg_catalog.setval('public.objectives_id_seq', 64, true);
+SELECT pg_catalog.setval('public.objectives_id_seq', 65, true);
 
 
 --
