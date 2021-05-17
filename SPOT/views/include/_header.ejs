@@ -1,11 +1,15 @@
 <header>
-  <h1><a href="/days">SPOTlight</a></h1>
+  <h1><a id="logo" href="/days">SPOTlight</a></h1>
   <h3>The Lighthouse Labs Curriculum Index</h3>
-  <form action="/login" method="POST">
-    <input type="email" name="email" placeholder="email"/>
-    <input type="password" name="password" placeholder="password"/>
-    <input type="submit" name="submit" value="Login"/>
-  </form>
+  <% if ('undefined' !== typeof email){ %>
+    <%= email %>&nbsp;<a href="/logout">logout</a>
+  <% } else { %>
+    <form action="/login" method="POST">
+      <input type="email" name="email" placeholder="email"/>
+      <input type="password" name="password" placeholder="password"/>
+      <input type="submit" name="submit" value="Login"/>
+    </form>
+  <% } %>
   <nav>
     <% if (typeof day_id !== 'undefined') { %>
       <a href="/new/<%= day_id %>">New</a>

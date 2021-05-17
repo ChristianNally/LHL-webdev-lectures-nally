@@ -33,12 +33,30 @@ app.use(cookieSession({
 //
 // Login
 //
+
+function loggedInEmail(req){
+  if (req.session.email){
+    return req.session.email;
+  }
+  return false;
+}
+
+// Here's how to use loggedInEmail
+// const userEmail = loggedInEmail(req);
+// if(userEmail){
+//   // DO PROTECTED STUFF IN HERE
+//   return;
+// }
+// res.redirect('/register');
+
+
 app.get('/login',(req,res)=>{
   uid = crypto.randomBytes(20).toString('hex');
   res.cookie("spot-uid", uid);
-  res.redirect("/student/14");
+  res.redirect("/student/16");
 });
 
+// currently targeted by the form in the header
 app.post('/login',(req,res)=>{
   const candidateEmail = req.body.email;
   const candidatePassword = req.body.password;
@@ -83,8 +101,13 @@ app.post('/register',(req,res)=>{
 
 });
 
+//
+// Logout
+//
 app.get('/logout',(req,res)=>{
-  req.session = null;
+  if(loggedInEmail(req)){
+    req.session = null;
+  }
   res.redirect('/');
 });
 
@@ -96,6 +119,9 @@ app.get("/understanding", (req, res) => {
   res.json(understanding);
 });
 
+//
+// Here is how an individual submits their feedback
+//
 app.get("/understanding/:objective_id/:user_id/:understanding_id",(req,res)=>{
   const objective_id = req.params.objective_id;
   const user_id = req.params.user_id;
@@ -121,9 +147,14 @@ app.get("/", (req, res) => {
 
 // Browse Days
 app.get("/days", (req, res) => {
-  dbFns.getAllDays((rows) => {
-    res.render("days", { days: rows });
-  });
+  const userEmail = loggedInEmail(req);
+  if(userEmail){
+    dbFns.getAllDays((rows) => {
+      res.render("days", { days: rows, email: userEmail });
+    });
+    return;
+  }
+  res.redirect('/register');
 });
 
 // STUDENT READ
@@ -166,32 +197,48 @@ function understandString(id){
 
 // ADMIN READ
 app.get("/days/:id", (req, res) => {
-  dbFns.getDay(req.params.id, (rows) => {
-    rows.forEach((obj)=>{ obj.understandString = understandString(obj.id); });
-    console.log('rows:',rows);
-    dbFns.getDayMnemonic(req.params.id, (row) => {
-      //      console.log('row[0].day_mnemonic:',row[0].day_mnemonic);
-      res.render("day", {
-        day_id: req.params.id,
-        objectives: rows,
-        day_mnemonic: row[0].day_mnemonic,
+  const userEmail = loggedInEmail(req);
+  if(userEmail){
+    dbFns.getDay(req.params.id, (rows) => {
+      rows.forEach((obj)=>{ obj.understandString = understandString(obj.id); });
+      console.log('rows:',rows);
+      dbFns.getDayMnemonic(req.params.id, (row) => {
+        //      console.log('row[0].day_mnemonic:',row[0].day_mnemonic);
+        res.render("day", {
+          day_id: req.params.id,
+          objectives: rows,
+          day_mnemonic: row[0].day_mnemonic,
+          email: userEmail
+        });
       });
     });
-  });
+    return;
+  } else { // not logged in
+    res.redirect('/register');
+    return;
+  }
 });
 
 // READ and EDIT
 app.get("/days-edit/:id", (req, res) => {
-  dbFns.getDay(req.params.id, (rows) => {
-    dbFns.getDayMnemonic(req.params.id, (row) => {
-      console.log("row[0].day_mnemonic:", row[0].day_mnemonic);
-      res.render("day-edit", {
-        day_id: req.params.id,
-        objectives: rows,
-        day_mnemonic: row[0].day_mnemonic,
+  const userEmail = loggedInEmail(req);
+  if(userEmail){
+    dbFns.getDay(req.params.id, (rows) => {
+      dbFns.getDayMnemonic(req.params.id, (row) => {
+        console.log("row[0].day_mnemonic:", row[0].day_mnemonic);
+        res.render("day-edit", {
+          day_id: req.params.id,
+          objectives: rows,
+          day_mnemonic: row[0].day_mnemonic,
+          email: userEmail
+        });
       });
     });
-  });
+    return;
+  } else { // not logged in
+    res.redirect('/register');
+    return;
+  }
 });
 
 //
@@ -200,10 +247,15 @@ app.get("/days-edit/:id", (req, res) => {
 
 // BROWSE
 app.get("/browse", (req, res) => {
-  dbFns.getAllObjectives((rows) => {
-    const templateVars = { objectives: rows };
-    res.render("browse", templateVars);
-  });
+  const userEmail = loggedInEmail(req);
+  if(userEmail){
+    dbFns.getAllObjectives((rows) => {
+      const templateVars = { objectives: rows, email: userEmail };
+      res.render("browse", templateVars);
+    });
+    return;
+  }
+  res.redirect('/register');
 });
 
 // READ
@@ -236,24 +288,40 @@ app.post("/edit", (req, res) => {
 
 // ADD
 app.get("/new", (req, res) => {
-  res.render("new");
+  const userEmail = loggedInEmail(req);
+  if(userEmail){
+    res.render("new",{email: userEmail});
+    return;
+  }
+  res.redirect('/register');
 });
 
 app.get("/new/:day_id", (req, res) => {
-  res.render("new", { day_id: req.params.day_id });
+  const userEmail = loggedInEmail(req);
+  if(userEmail){
+    res.render("new", { day_id: req.params.day_id });
+    return;
+  }
+  res.redirect('/register');
 });
 
 app.post("/new", (req, res) => {
-  console.log("req.body:", req.body);
-  const newObjective = {
-    type: req.body.type,
-    question: req.body.question,
-    answer: req.body.answer,
-    sort: req.body.sort,
-    day_id: req.body.day_id,
-  };
-  dbFns.insertObjective(newObjective);
-  res.redirect("/");
+
+  const userEmail = loggedInEmail(req);
+  if(userEmail){
+    console.log("req.body:", req.body);
+    const newObjective = {
+      type: req.body.type,
+      question: req.body.question,
+      answer: req.body.answer,
+      sort: req.body.sort,
+      day_id: req.body.day_id,
+    };
+    dbFns.insertObjective(newObjective);
+    res.redirect("/days");
+    return;
+  }
+  res.redirect('/register');
 });
 
 // DELETE

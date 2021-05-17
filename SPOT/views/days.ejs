@@ -22,7 +22,9 @@
           <tr><td>Week <%= i/5 + 1 %></td>
         <% } %>
         <td>
-          <a href="/days/<%= days[i].id %>">Admin</a>(<%= days[i].count %>)<a href="/student/<%= days[i].id %>">Student</a>
+          <a href="/days/<%= days[i].id %>">Admin</a>
+          (<%= days[i].count %>)
+          <a href="/student/<%= days[i].id %>">[feedback]</a>
         </td>
         <% if (i % 5 === 4) { %>
           </tr>
