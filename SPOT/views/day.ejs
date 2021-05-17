@@ -7,7 +7,10 @@
 <body>
   <%- include('include/_header.ejs') %>
   <h2><%= day_mnemonic %></h2>
+  <h2><%= title %></h2>
   <a href="/days-edit/<%= day_id %>">edit</a>
+  <a href="/new/<%= day_id %>">new</a>
+  <a href="/student/<%= day_id %>">student view</a>
 <table>
   <tr>
     <!-- <th>Actions</th> -->
@@ -15,7 +18,7 @@
     <th>type</th>
     <th>question</th>
     <th>answer</th>
-    <th>Understanding</th>
+    <th>Feedback<br/>confused:fair:excellent</th>
   </tr>
   <% for(var i=0; i < objectives.length; i++) { %>
     <tr id="objective_<%= objectives[i].id %>">

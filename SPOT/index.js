@@ -160,7 +160,7 @@ app.get("/days", (req, res) => {
 // STUDENT READ
 app.get("/student/:id", (req, res) => {
   dbFns.getDay(req.params.id, (rows) => {
-    dbFns.getDayMnemonic(req.params.id, (row) => {
+    dbFns.getDayDetails(req.params.id, (row) => {
       //      console.log('row[0].day_mnemonic:',row[0].day_mnemonic);
       res.render("student", {
         day_id: req.params.id,
@@ -191,7 +191,7 @@ function understandString(id){
 //    console.log("understanding[id]",understanding[id]);
     return `${totalOne}::${totalTwo}::${totalThree}`;
   } else {
-    return "blah";
+    return "none";
   }
 }
 
@@ -202,12 +202,13 @@ app.get("/days/:id", (req, res) => {
     dbFns.getDay(req.params.id, (rows) => {
       rows.forEach((obj)=>{ obj.understandString = understandString(obj.id); });
       console.log('rows:',rows);
-      dbFns.getDayMnemonic(req.params.id, (row) => {
+      dbFns.getDayDetails(req.params.id, (row) => {
         //      console.log('row[0].day_mnemonic:',row[0].day_mnemonic);
         res.render("day", {
           day_id: req.params.id,
           objectives: rows,
           day_mnemonic: row[0].day_mnemonic,
+          title: row[0].title,
           email: userEmail
         });
       });
@@ -224,12 +225,13 @@ app.get("/days-edit/:id", (req, res) => {
   const userEmail = loggedInEmail(req);
   if(userEmail){
     dbFns.getDay(req.params.id, (rows) => {
-      dbFns.getDayMnemonic(req.params.id, (row) => {
+      dbFns.getDayDetails(req.params.id, (row) => {
         console.log("row[0].day_mnemonic:", row[0].day_mnemonic);
         res.render("day-edit", {
           day_id: req.params.id,
           objectives: rows,
           day_mnemonic: row[0].day_mnemonic,
+          title: row[0].title,
           email: userEmail
         });
       });
@@ -239,6 +241,17 @@ app.get("/days-edit/:id", (req, res) => {
     res.redirect('/register');
     return;
   }
+});
+
+app.post("/day-edit", (req, res) => {
+  console.log("req.body:", req.body);
+  const dayUpdate = {
+    id: req.body.id,
+    day_mnemonic: req.body.day_mnemonic,
+    title: req.body.title
+  };
+  dbFns.updateDay(dayUpdate);
+  res.redirect("/");
 });
 
 //
@@ -282,8 +295,9 @@ app.post("/edit", (req, res) => {
     sort: req.body.sort,
     day_id: req.body.day_id,
   };
+  console.log("objectiveUpdate:",objectiveUpdate);
   dbFns.updateObjective(objectiveUpdate);
-  res.redirect("/");
+  res.redirect("/days");
 });
 
 // ADD

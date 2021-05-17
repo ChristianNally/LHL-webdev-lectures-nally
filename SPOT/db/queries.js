@@ -17,10 +17,11 @@ const getUserByEmail = (email,cb) => {
 const insertUser = (newObj) => {
   return client
   .query(
-    "INSERT INTO users (email,password) VALUES ($1,$2);",
+    "INSERT INTO users (email,password) VALUES ($1,$2) RETURNING id;",
     [newObj.email,newObj.hashedPassword]
   )
   .then((response) => {
+    console.log("response.rows[0]",response.rows[0]);
     return true; // TODO can we return the new ID for this new row?
   })
   .catch((err) => {
@@ -66,10 +67,10 @@ const getDay = (day_id, cb) => {
     });
 };
 
-const getDayMnemonic = (day_id, cb) => {
+const getDayDetails = (day_id, cb) => {
   return client
     .query(
-      `SELECT day_mnemonic 
+      `SELECT id, day_mnemonic, title 
       FROM days 
       WHERE id = $1`,
       [day_id]
@@ -81,6 +82,21 @@ const getDayMnemonic = (day_id, cb) => {
       console.log("getDay query error:", err);
     });
 };
+
+const updateDay = (dayUpdate) => {
+  const query = "UPDATE days SET day_mnemonic = $2, title = $3 WHERE id = $1;";
+  const valuesArray = [dayUpdate.id,dayUpdate.day_mnemonic,dayUpdate.title];
+  console.log('query debug:',query + '::' + valuesArray);
+  return client
+  .query(query,valuesArray)
+  .then((response) => {
+    console.log("response",response);
+    return true; // TODO can we return the new ID for this new row?
+  })
+  .catch((err) => {
+    console.log("insertObjective query error:", err);
+  });
+}
 
 //
 // Objectives
@@ -184,5 +200,6 @@ module.exports = {
   deleteObjective,
   getAllDays,
   getDay,
-  getDayMnemonic
+  getDayDetails,
+  updateDay
 };
