@@ -38,7 +38,8 @@ SET default_table_access_method = heap;
 CREATE TABLE public.days (
     id integer NOT NULL,
     day_mnemonic character varying(5),
-    day_description character varying(20)
+    day_description character varying(20),
+    title text
 );
 
 
@@ -164,54 +165,47 @@ ALTER TABLE ONLY public.users ALTER COLUMN id SET DEFAULT nextval('public.users_
 -- Data for Name: days; Type: TABLE DATA; Schema: public; Owner: christian.nally
 --
 
-INSERT INTO public.days (id, day_mnemonic, day_description) VALUES (1, 'w01d1', 'Week 1 Day 1');
-INSERT INTO public.days (id, day_mnemonic, day_description) VALUES (2, 'w01d2', 'Week 1 Day 2');
-INSERT INTO public.days (id, day_mnemonic, day_description) VALUES (3, 'w01d3', 'Week 1 Day 3');
-INSERT INTO public.days (id, day_mnemonic, day_description) VALUES (4, 'w01d4', 'Week 1 Day 4');
-INSERT INTO public.days (id, day_mnemonic, day_description) VALUES (5, 'w01d5', 'Week 1 Day 5');
-INSERT INTO public.days (id, day_mnemonic, day_description) VALUES (6, 'w02d1', 'Week 2 Day 1');
-INSERT INTO public.days (id, day_mnemonic, day_description) VALUES (7, 'w02d2', 'Week 2 Day 2');
-INSERT INTO public.days (id, day_mnemonic, day_description) VALUES (8, 'w02d3', 'Week 2 Day 3');
-INSERT INTO public.days (id, day_mnemonic, day_description) VALUES (9, 'w02d4', 'Week 2 Day 4');
-INSERT INTO public.days (id, day_mnemonic, day_description) VALUES (10, 'w02d5', 'Week 2 Day 5');
-INSERT INTO public.days (id, day_mnemonic, day_description) VALUES (11, 'w03d1', 'Week 3 Day 1');
-INSERT INTO public.days (id, day_mnemonic, day_description) VALUES (12, 'w03d2', 'Week 3 Day 2');
-INSERT INTO public.days (id, day_mnemonic, day_description) VALUES (13, 'w03d3', 'Week 3 Day 3');
-INSERT INTO public.days (id, day_mnemonic, day_description) VALUES (14, 'w03d4', 'Week 3 Day 4');
-INSERT INTO public.days (id, day_mnemonic, day_description) VALUES (15, 'w03d5', 'Week 3 Day 5');
-INSERT INTO public.days (id, day_mnemonic, day_description) VALUES (16, 'w04d1', 'Week 4 Day 1');
-INSERT INTO public.days (id, day_mnemonic, day_description) VALUES (17, 'w04d2', 'Week 4 Day 2');
-INSERT INTO public.days (id, day_mnemonic, day_description) VALUES (18, 'w04d3', 'Week 4 Day 3');
-INSERT INTO public.days (id, day_mnemonic, day_description) VALUES (19, 'w04d4', 'Week 4 Day 4');
-INSERT INTO public.days (id, day_mnemonic, day_description) VALUES (20, 'w04d5', 'Week 4 Day 5');
-INSERT INTO public.days (id, day_mnemonic, day_description) VALUES (21, 'w05d1', 'Week 5 Day 1');
-INSERT INTO public.days (id, day_mnemonic, day_description) VALUES (22, 'w05d2', 'Week 5 Day 2');
-INSERT INTO public.days (id, day_mnemonic, day_description) VALUES (23, 'w05d3', 'Week 5 Day 3');
-INSERT INTO public.days (id, day_mnemonic, day_description) VALUES (24, 'w05d4', 'Week 5 Day 4');
-INSERT INTO public.days (id, day_mnemonic, day_description) VALUES (25, 'w05d5', 'Week 5 Day 5');
-INSERT INTO public.days (id, day_mnemonic, day_description) VALUES (26, 'w06d1', 'Week 6 Day 1');
-INSERT INTO public.days (id, day_mnemonic, day_description) VALUES (27, 'w06d2', 'Week 6 Day 2');
-INSERT INTO public.days (id, day_mnemonic, day_description) VALUES (28, 'w06d3', 'Week 6 Day 3');
-INSERT INTO public.days (id, day_mnemonic, day_description) VALUES (29, 'w06d4', 'Week 6 Day 4');
-INSERT INTO public.days (id, day_mnemonic, day_description) VALUES (30, 'w06d5', 'Week 6 Day 5');
-INSERT INTO public.days (id, day_mnemonic, day_description) VALUES (31, 'w07d1', 'Week 7 Day 1');
-INSERT INTO public.days (id, day_mnemonic, day_description) VALUES (32, 'w07d2', 'Week 7 Day 2');
-INSERT INTO public.days (id, day_mnemonic, day_description) VALUES (33, 'w07d3', 'Week 7 Day 3');
-INSERT INTO public.days (id, day_mnemonic, day_description) VALUES (34, 'w07d4', 'Week 7 Day 4');
-INSERT INTO public.days (id, day_mnemonic, day_description) VALUES (35, 'w07d5', 'Week 7 Day 5');
+INSERT INTO public.days (id, day_mnemonic, day_description, title) VALUES (1, 'w01d1', 'Week 1 Day 1', NULL);
+INSERT INTO public.days (id, day_mnemonic, day_description, title) VALUES (2, 'w01d2', 'Week 1 Day 2', NULL);
+INSERT INTO public.days (id, day_mnemonic, day_description, title) VALUES (3, 'w01d3', 'Week 1 Day 3', NULL);
+INSERT INTO public.days (id, day_mnemonic, day_description, title) VALUES (4, 'w01d4', 'Week 1 Day 4', NULL);
+INSERT INTO public.days (id, day_mnemonic, day_description, title) VALUES (5, 'w01d5', 'Week 1 Day 5', NULL);
+INSERT INTO public.days (id, day_mnemonic, day_description, title) VALUES (6, 'w02d1', 'Week 2 Day 1', NULL);
+INSERT INTO public.days (id, day_mnemonic, day_description, title) VALUES (7, 'w02d2', 'Week 2 Day 2', NULL);
+INSERT INTO public.days (id, day_mnemonic, day_description, title) VALUES (8, 'w02d3', 'Week 2 Day 3', NULL);
+INSERT INTO public.days (id, day_mnemonic, day_description, title) VALUES (9, 'w02d4', 'Week 2 Day 4', NULL);
+INSERT INTO public.days (id, day_mnemonic, day_description, title) VALUES (10, 'w02d5', 'Week 2 Day 5', NULL);
+INSERT INTO public.days (id, day_mnemonic, day_description, title) VALUES (11, 'w03d1', 'Week 3 Day 1', NULL);
+INSERT INTO public.days (id, day_mnemonic, day_description, title) VALUES (12, 'w03d2', 'Week 3 Day 2', NULL);
+INSERT INTO public.days (id, day_mnemonic, day_description, title) VALUES (13, 'w03d3', 'Week 3 Day 3', NULL);
+INSERT INTO public.days (id, day_mnemonic, day_description, title) VALUES (14, 'w03d4', 'Week 3 Day 4', NULL);
+INSERT INTO public.days (id, day_mnemonic, day_description, title) VALUES (15, 'w03d5', 'Week 3 Day 5', NULL);
+INSERT INTO public.days (id, day_mnemonic, day_description, title) VALUES (17, 'w04d2', 'Week 4 Day 2', NULL);
+INSERT INTO public.days (id, day_mnemonic, day_description, title) VALUES (18, 'w04d3', 'Week 4 Day 3', NULL);
+INSERT INTO public.days (id, day_mnemonic, day_description, title) VALUES (19, 'w04d4', 'Week 4 Day 4', NULL);
+INSERT INTO public.days (id, day_mnemonic, day_description, title) VALUES (20, 'w04d5', 'Week 4 Day 5', NULL);
+INSERT INTO public.days (id, day_mnemonic, day_description, title) VALUES (21, 'w05d1', 'Week 5 Day 1', NULL);
+INSERT INTO public.days (id, day_mnemonic, day_description, title) VALUES (22, 'w05d2', 'Week 5 Day 2', NULL);
+INSERT INTO public.days (id, day_mnemonic, day_description, title) VALUES (23, 'w05d3', 'Week 5 Day 3', NULL);
+INSERT INTO public.days (id, day_mnemonic, day_description, title) VALUES (24, 'w05d4', 'Week 5 Day 4', NULL);
+INSERT INTO public.days (id, day_mnemonic, day_description, title) VALUES (25, 'w05d5', 'Week 5 Day 5', NULL);
+INSERT INTO public.days (id, day_mnemonic, day_description, title) VALUES (26, 'w06d1', 'Week 6 Day 1', NULL);
+INSERT INTO public.days (id, day_mnemonic, day_description, title) VALUES (27, 'w06d2', 'Week 6 Day 2', NULL);
+INSERT INTO public.days (id, day_mnemonic, day_description, title) VALUES (28, 'w06d3', 'Week 6 Day 3', NULL);
+INSERT INTO public.days (id, day_mnemonic, day_description, title) VALUES (29, 'w06d4', 'Week 6 Day 4', NULL);
+INSERT INTO public.days (id, day_mnemonic, day_description, title) VALUES (30, 'w06d5', 'Week 6 Day 5', NULL);
+INSERT INTO public.days (id, day_mnemonic, day_description, title) VALUES (31, 'w07d1', 'Week 7 Day 1', NULL);
+INSERT INTO public.days (id, day_mnemonic, day_description, title) VALUES (32, 'w07d2', 'Week 7 Day 2', NULL);
+INSERT INTO public.days (id, day_mnemonic, day_description, title) VALUES (33, 'w07d3', 'Week 7 Day 3', NULL);
+INSERT INTO public.days (id, day_mnemonic, day_description, title) VALUES (34, 'w07d4', 'Week 7 Day 4', NULL);
+INSERT INTO public.days (id, day_mnemonic, day_description, title) VALUES (35, 'w07d5', 'Week 7 Day 5', NULL);
+INSERT INTO public.days (id, day_mnemonic, day_description, title) VALUES (16, 'w04d1', 'Week 4 Day 1', 'Intro to CSS');
 
 
 --
 -- Data for Name: objectives; Type: TABLE DATA; Schema: public; Owner: christian.nally
 --
 
-INSERT INTO public.objectives (id, day_id, type, question, answer, sort) VALUES (13, 16, 'learning', 'What is the box model?', 'The box model is how DOM elements are typically rendered to occupy a certain amount of screen real estate, via padding, borders and margins.', 1);
-INSERT INTO public.objectives (id, day_id, type, question, answer, sort) VALUES (14, 16, 'performance', 'How do I set the preferred box model?', '* { box-sizing: border-box; }', 1);
-INSERT INTO public.objectives (id, day_id, type, question, answer, sort) VALUES (15, 16, 'learning', 'What is the basic syntax for a CSS ''Rule''?', '[selector] { style: value; ... } ', 0);
-INSERT INTO public.objectives (id, day_id, type, question, answer, sort) VALUES (17, 17, 'learning', 'What is DOM manipulation?', 'DOM manipulation is the ability of client-side javascript to add, remove or change parts of the DOM after the initial page load.', 1);
-INSERT INTO public.objectives (id, day_id, type, question, answer, sort) VALUES (20, 17, 'performance', 'How do you traverse the DOM with jQuery?', '$(''.parent'').children().addClass("tagged");', 6);
-INSERT INTO public.objectives (id, day_id, type, question, answer, sort) VALUES (16, 17, 'performance', 'How do you create a new element using jQuery and dynamically append it to a DOM element?', '$(''<div class="newElement">Text content goes here.</div>'').appendTo($( ".container" ));', 2);
-INSERT INTO public.objectives (id, day_id, type, question, answer, sort) VALUES (18, 17, 'learning', 'What is DOM traversal?', 'DOM traversal is the ability to client-side javascript to wander through the DOM looking for elements that match a certain criteria.', 5);
 INSERT INTO public.objectives (id, day_id, type, question, answer, sort) VALUES (21, 19, 'learning', 'What is responsive web design?', 'Responsive Web Design is a set of practices that allows web pages to alter their layout and appearance to suit different screen widths and resolutions.', 1);
 INSERT INTO public.objectives (id, day_id, type, question, answer, sort) VALUES (22, 19, 'performance', 'How do you set a minimum width on HTML elements?', '.these_elements { min-width: 135px; }', 20);
 INSERT INTO public.objectives (id, day_id, type, question, answer, sort) VALUES (23, 19, 'performance', 'How do you set a maximum width on HTML elements?', '.these_elements { max-width: 135px; }', 21);
@@ -243,7 +237,14 @@ INSERT INTO public.objectives (id, day_id, type, question, answer, sort) VALUES 
 INSERT INTO public.objectives (id, day_id, type, question, answer, sort) VALUES (42, 12, 'performance', 'How do you code EJS templates?', 'npm i ejs, mkdir views, app.set(''view engine'', ''ejs'');', 8);
 INSERT INTO public.objectives (id, day_id, type, question, answer, sort) VALUES (10, 14, 'learning', 'Why would we never want to store passwords as plaintext?', 'To keep the passwords away from prying eyes, like hackers and website employees.', 7);
 INSERT INTO public.objectives (id, day_id, type, question, answer, sort) VALUES (12, 14, 'learning', 'What is the difference between encryption and hashing?', 'Hashing is one way, so you can''t recover the original text from the hash.', 0);
-INSERT INTO public.objectives (id, day_id, type, question, answer, sort) VALUES (11, 14, 'learning', 'Rather than storing passwords as plaintext, how should they be stored?', 'Passwords should always be _hashed_', 2);
+INSERT INTO public.objectives (id, day_id, type, question, answer, sort) VALUES (11, 14, 'learning', 'Rather than storing passwords as plaintext, how should they be stored?', 'Passwords should always be _hashed_. There is no need to encrypt them, since you never want to be able to see the password yourself.', 2);
+INSERT INTO public.objectives (id, day_id, type, question, answer, sort) VALUES (17, 17, 'learning', 'What is DOM manipulation?', 'DOM manipulation is the ability of client-side javascript to add, remove or change parts of the DOM after the initial page load.', 0);
+INSERT INTO public.objectives (id, day_id, type, question, answer, sort) VALUES (15, 16, 'learning', 'What is the basic syntax for a CSS ''Rule''?', '[selector] { style: value; ... } ', 3);
+INSERT INTO public.objectives (id, day_id, type, question, answer, sort) VALUES (13, 16, 'learning', 'What is the box model?', 'The box model is how DOM elements are typically rendered to occupy a certain amount of screen real estate, via padding, borders and margins.', 4);
+INSERT INTO public.objectives (id, day_id, type, question, answer, sort) VALUES (14, 16, 'performance', 'How do I set the preferred box model?', '* { box-sizing: border-box; }', 5);
+INSERT INTO public.objectives (id, day_id, type, question, answer, sort) VALUES (16, 17, 'performance', 'How do you create a new element using jQuery and dynamically append it to a DOM element?', '$(''<div class="newElement">Text content goes here.</div>'').appendTo($( ".container" ));', 1);
+INSERT INTO public.objectives (id, day_id, type, question, answer, sort) VALUES (20, 17, 'performance', 'How do you traverse the DOM with jQuery?', '$(''.parent'').children().addClass("tagged");', 3);
+INSERT INTO public.objectives (id, day_id, type, question, answer, sort) VALUES (18, NULL, 'learning', 'What is DOM traversal?', 'DOM traversal is the ability of client-side javascript to jump from one node to a parent, sibling or child, step by step throughout the DOM, looking for elements that match a certain criteria.', NULL);
 INSERT INTO public.objectives (id, day_id, type, question, answer, sort) VALUES (47, 13, 'performance', 'How do you set a cookie value from within a NodeJS app?', '```js app.post(''/login'', (req, res) => {   // other authenticatey stuff   res.cookie(''userId'', user.id); // set the cookie''s key and value   res.redirect(''/''); }); ```', 2);
 INSERT INTO public.objectives (id, day_id, type, question, answer, sort) VALUES (46, 13, 'performance', 'How do you read a cookie value that arrives at a NodeJS program in the web request?', '```js app.get(''/protected'', (req, res) => {   const userId = req.cookies.userId;   // do something with the userId }); ```', 3);
 INSERT INTO public.objectives (id, day_id, type, question, answer, sort) VALUES (51, 12, 'learning', 'What does CRUD stand for?', 'Create. Read. Update. Delete.', 0);
@@ -255,19 +256,26 @@ INSERT INTO public.objectives (id, day_id, type, question, answer, sort) VALUES 
 INSERT INTO public.objectives (id, day_id, type, question, answer, sort) VALUES (43, 12, 'performance', 'How often do you need to restart your web server?', 'Template files are reloaded every time they are rendered, so there is no need to restart your server if you have only changed your EJS template.', 6);
 INSERT INTO public.objectives (id, day_id, type, question, answer, sort) VALUES (45, 12, 'learning', 'Does the order that your routes appear in your source code matter?', 'Yes. The order of the routes in your file matters. First matched -> First used.', 7);
 INSERT INTO public.objectives (id, day_id, type, question, answer, sort) VALUES (53, 13, 'learning', 'What does it mean to say that HTTP is ''stateless''?', 'The HTTP protocol itself is unable to associate one request with another. Each request starts from scratch. Cookies are a payload within the headers of a request that enable a server to identify the browser.', 4);
+INSERT INTO public.objectives (id, day_id, type, question, answer, sort) VALUES (63, 16, 'learning', 'What does it mean to say that with version 5, HTML became more ''semantic''?', 'The tags introduced in HTML 5 provide ways of describing the purpose and meaning of parts of a page. This is useful for developers, as well as crawlers and bots that are trying to find specific parts of a page to highlight.', 2);
+INSERT INTO public.objectives (id, day_id, type, question, answer, sort) VALUES (60, 16, 'learning', 'What are the three CSS styles most directly related to the box model for any given DOM element?', 'Margin, Border, Padding', 6);
+INSERT INTO public.objectives (id, day_id, type, question, answer, sort) VALUES (61, 16, 'learning', 'For the CSS styles that take 1,2 or 4 length parameters (padding, margin, etc.) how is each number of parameters interpreted?', 'For 1 parameter, all 4 sides of the box get the same value. For 2 parameters, the first is ''top'' and ''bottom'' and the second is ''left'' and ''right''. Four parameters specify each side, top, right, bottom and left, respectively.', 7);
 INSERT INTO public.objectives (id, day_id, type, question, answer, sort) VALUES (48, 13, 'learning', 'What is a web cookie?', 'A cookie is a name/value pair that stores information related to a particular user on their browser by a certain domain.', 0);
+INSERT INTO public.objectives (id, day_id, type, question, answer, sort) VALUES (64, 17, 'learning', 'What are some examples of Javascript objects that are only defined in the browser context?', 'window, navigator, document', 4);
 INSERT INTO public.objectives (id, day_id, type, question, answer, sort) VALUES (49, 13, 'learning', 'How does a web cookie''s value transmit from one computer to another?', 'A webserver sets a cookie value by including the cookie in a response header. After that, every web request that is sent back to that web server by a browswer will include the cookie in the header of those requests.', 1);
 INSERT INTO public.objectives (id, day_id, type, question, answer, sort) VALUES (55, 14, 'learning', 'When is it okay to store plaintext values in cookies?', 'Almost never. Maybe for things like language preferences, no-login shopping carts, and some basic analytics, but probably not.', 1);
 INSERT INTO public.objectives (id, day_id, type, question, answer, sort) VALUES (56, 14, 'learning', 'What is REST?', 'REST is a convention for choosing paths and HTTP verbs for end-point routes.', 3);
 INSERT INTO public.objectives (id, day_id, type, question, answer, sort) VALUES (57, 14, 'learning', 'How can you use verbs other than GET and POST in your HTML, given that you''re using a NodeJS back-end?', 'The method-override package: https://www.npmjs.com/package/method-override', 4);
 INSERT INTO public.objectives (id, day_id, type, question, answer, sort) VALUES (58, 14, 'learning', 'What package is available to help you implemented encrypted cookie values?', 'cookie-session: http://expressjs.com/en/resources/middleware/cookie-session.html', 5);
 INSERT INTO public.objectives (id, day_id, type, question, answer, sort) VALUES (54, 14, 'learning', 'What is HTTPS?', 'HTTP Secure is the encrypted version of HTTP. Using it means that the traffic between your computer and its destination cannot be read by any server or public wifi system in the delivery path.', 6);
+INSERT INTO public.objectives (id, day_id, type, question, answer, sort) VALUES (59, 16, 'learning', 'What is a Single Page App?', 'An SPA is an app that leverages AJAX to prevent page reloads. Instead it changes page content by manipulating the DOM directly, using front-end javascript.', 0);
+INSERT INTO public.objectives (id, day_id, type, question, answer, sort) VALUES (62, 16, 'learning', 'What is the difference between a block element and an inline element?', 'A block element (e.g. <div> or display: block;) occupies the entire width of its container, whereas an inline element (e.g. <span> or display: inline;) will flow, by default from left to right within the container.', 1);
 
 
 --
 -- Data for Name: users; Type: TABLE DATA; Schema: public; Owner: christian.nally
 --
 
+INSERT INTO public.users (id, email, password) VALUES (4, 'christian.nally@lighthouselabs.com', '$2b$10$dVC5hUmx8chM3YSWnvjax.qL9Fg/KoDoVUQMwr.4EzO9ZNTFqQ9HS');
 
 
 --
@@ -281,14 +289,14 @@ SELECT pg_catalog.setval('public.days_id_seq', 25, true);
 -- Name: objectives_id_seq; Type: SEQUENCE SET; Schema: public; Owner: christian.nally
 --
 
-SELECT pg_catalog.setval('public.objectives_id_seq', 58, true);
+SELECT pg_catalog.setval('public.objectives_id_seq', 64, true);
 
 
 --
 -- Name: users_id_seq; Type: SEQUENCE SET; Schema: public; Owner: christian.nally
 --
 
-SELECT pg_catalog.setval('public.users_id_seq', 3, true);
+SELECT pg_catalog.setval('public.users_id_seq', 4, true);
 
 
 --
