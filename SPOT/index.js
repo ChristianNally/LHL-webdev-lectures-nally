@@ -53,7 +53,7 @@ function loggedInEmail(req){
 app.get('/login',(req,res)=>{
   uid = crypto.randomBytes(20).toString('hex');
   res.cookie("spot-uid", uid);
-  res.redirect("/student/16");
+  res.redirect("/student/18");
 });
 
 // currently targeted by the form in the header
