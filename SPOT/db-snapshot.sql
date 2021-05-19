@@ -263,13 +263,30 @@ INSERT INTO public.objectives (id, day_id, type, question, answer, sort) VALUES 
 INSERT INTO public.objectives (id, day_id, type, question, answer, sort) VALUES (55, 14, 'learning', 'When is it okay to store plaintext values in cookies?', 'Almost never. Maybe for things like language preferences, no-login shopping carts, and some basic analytics, but probably not.', 1);
 INSERT INTO public.objectives (id, day_id, type, question, answer, sort) VALUES (56, 14, 'learning', 'What is REST?', 'REST is a convention for choosing paths and HTTP verbs for end-point routes.', 3);
 INSERT INTO public.objectives (id, day_id, type, question, answer, sort) VALUES (16, 17, 'performance', 'How do you create a new element using jQuery and dynamically append it to a DOM element?', '$(''<div class="newElement">Text content goes here.</div>'').appendTo($( ".container" ));', 1);
-INSERT INTO public.objectives (id, day_id, type, question, answer, sort) VALUES (65, 17, 'learning', 'What is DOM traversal?', 'DOM travsersal is the ability for client-side Javascript to move from one node of the DOM to another.', 2);
 INSERT INTO public.objectives (id, day_id, type, question, answer, sort) VALUES (57, 14, 'learning', 'How can you use verbs other than GET and POST in your HTML, given that you''re using a NodeJS back-end?', 'The method-override package: https://www.npmjs.com/package/method-override', 4);
 INSERT INTO public.objectives (id, day_id, type, question, answer, sort) VALUES (58, 14, 'learning', 'What package is available to help you implemented encrypted cookie values?', 'cookie-session: http://expressjs.com/en/resources/middleware/cookie-session.html', 5);
 INSERT INTO public.objectives (id, day_id, type, question, answer, sort) VALUES (54, 14, 'learning', 'What is HTTPS?', 'HTTP Secure is the encrypted version of HTTP. Using it means that the traffic between your computer and its destination cannot be read by any server or public wifi system in the delivery path.', 6);
 INSERT INTO public.objectives (id, day_id, type, question, answer, sort) VALUES (59, 16, 'learning', 'What is a Single Page App?', 'An SPA is an app that leverages AJAX to prevent page reloads. Instead it changes page content by manipulating the DOM directly, using front-end javascript.', 0);
 INSERT INTO public.objectives (id, day_id, type, question, answer, sort) VALUES (62, 16, 'learning', 'What is the difference between a block element and an inline element?', 'A block element (e.g. <div> or display: block;) occupies the entire width of its container, whereas an inline element (e.g. <span> or display: inline;) will flow, by default from left to right within the container.', 1);
 INSERT INTO public.objectives (id, day_id, type, question, answer, sort) VALUES (64, 17, 'learning', 'What are some examples of Javascript objects that are only defined in the browser context?', 'window, navigator, document', 4);
+INSERT INTO public.objectives (id, day_id, type, question, answer, sort) VALUES (65, 17, 'learning', 'What is DOM traversal?', 'DOM travsersal is the ability for client-side Javascript to move from one node of the DOM to another. Test.', 2);
+INSERT INTO public.objectives (id, day_id, type, question, answer, sort) VALUES (66, 18, 'performance', 'How do you invoke an AJAX request from jQuery?', '$.ajax({
+  url: url,
+  method: "GET", 
+})
+.then((result) => {
+  console.log(''result:'',result);
+})
+.catch(err => {
+  console.log(err); // related error
+});', 4);
+INSERT INTO public.objectives (id, day_id, type, question, answer, sort) VALUES (67, 18, 'learning', 'What is CORS and how might you deal with it as an app developer?', 'Cross Origin Resource Sharing (CORS) is a policy that some APIs use to prevent vulnerabilities to certain kinds of hacking.
+
+For a development deployment only, you might choose to install a browser extension that disables your own browser from checking an API''s CORS policy, or you might send your API requests via a proxy that does something similar.
+
+See https://developer.mozilla.org/en-US/docs/Web/HTTP/CORS and 
+https://medium.com/@dtkatz/3-ways-to-fix-the-cors-error-and-how-access-control-allow-origin-works-d97d55946d9', 5);
+INSERT INTO public.objectives (id, day_id, type, question, answer, sort) VALUES (68, 18, 'learning', 'What are the implications of using AJAX calls on the browser history?', 'An AJAX call in an of itself does not add any locations to the browser history. If it is important that the history be updated to a URL that can return a user to a certain state of the app, then it is the front-end codes responsibility to call the History API to make changes to the browser history.', 6);
 
 
 --
@@ -290,7 +307,7 @@ SELECT pg_catalog.setval('public.days_id_seq', 25, true);
 -- Name: objectives_id_seq; Type: SEQUENCE SET; Schema: public; Owner: christian.nally
 --
 
-SELECT pg_catalog.setval('public.objectives_id_seq', 65, true);
+SELECT pg_catalog.setval('public.objectives_id_seq', 68, true);
 
 
 --
