@@ -224,9 +224,6 @@ INSERT INTO public.objectives (id, day_id, type, question, answer, sort) VALUES 
 INSERT INTO public.objectives (id, day_id, type, question, answer, sort) VALUES (4, 21, 'learning', 'What is a WHERE clause?', 'A query can filter or restrict the information that results via a WHERE clause.', 7);
 INSERT INTO public.objectives (id, day_id, type, question, answer, sort) VALUES (6, 21, 'learning', 'What is a JOIN clause?', 'The data that a query has access to, can be expanded via JOIN-ing two tables together.', 8);
 INSERT INTO public.objectives (id, day_id, type, question, answer, sort) VALUES (7, 21, 'learning', 'What is an ERD?', 'In the context of databases, an ERD is a diagram that shows each table as an entity, and also shows the relationships between tables.', 9);
-INSERT INTO public.objectives (id, day_id, type, question, answer, sort) VALUES (37, 18, 'learning', 'What is AJAX?', 'Asynchronous Javascript and XML is a different paradigm of web request, where smaller amounts of data, or small parts of a webpage are sent and recieved in requests that do not result in page a refresh.', 0);
-INSERT INTO public.objectives (id, day_id, type, question, answer, sort) VALUES (38, 18, 'learning', 'What are some advantages of AJAX?', 'No page reloads, faster page renders, improved response times, client side rendering reduces network load.', 1);
-INSERT INTO public.objectives (id, day_id, type, question, answer, sort) VALUES (39, 18, 'learning', 'What are some disadvantages of AJAX?', 'Creating dynamic content is tricky, asynchronous programming patterns are more complex to code, it requires js and XMLHTTPRequest support, history is not automatically updated.', 2);
 INSERT INTO public.objectives (id, day_id, type, question, answer, sort) VALUES (33, 23, 'performance', 'How do you connect to a Postgres DB from within Javascript?', 'const pg = require(''pg'');  const config = {     user: ''<user name>'',     password: ''<password>'',     database: ''<db>'',     host: ''<host>'' };  const client = new pg.Client(config);', 0);
 INSERT INTO public.objectives (id, day_id, type, question, answer, sort) VALUES (34, 23, 'performance', 'How, given a postgres client object, do you submit queries to the database from back-end javascript?', 'client.connect(); client   .query(''SELECT * FROM <table>'')   .then((result) => console.log(result));', 1);
 INSERT INTO public.objectives (id, day_id, type, question, answer, sort) VALUES (35, 23, 'learning', 'What is a SQL injection attack?', 'A malicious user crafts input for a form submission that will be mistakenly input directly into a database. That input might be any SQL query, including dropping tables or deleting rows. ', 3);
@@ -245,6 +242,8 @@ INSERT INTO public.objectives (id, day_id, type, question, answer, sort) VALUES 
 INSERT INTO public.objectives (id, day_id, type, question, answer, sort) VALUES (20, 17, 'performance', 'How do you traverse the DOM with jQuery?', '$(''.parent'').children().addClass("tagged");', 3);
 INSERT INTO public.objectives (id, day_id, type, question, answer, sort) VALUES (18, NULL, 'learning', 'What is DOM traversal?', 'DOM traversal is the ability of client-side javascript to jump from one node to a parent, sibling or child, step by step throughout the DOM, looking for elements that match a certain criteria.', NULL);
 INSERT INTO public.objectives (id, day_id, type, question, answer, sort) VALUES (47, 13, 'performance', 'How do you set a cookie value from within a NodeJS app?', '```js app.post(''/login'', (req, res) => {   // other authenticatey stuff   res.cookie(''userId'', user.id); // set the cookie''s key and value   res.redirect(''/''); }); ```', 2);
+INSERT INTO public.objectives (id, day_id, type, question, answer, sort) VALUES (39, 18, 'learning', 'What are some disadvantages of AJAX?', 'Creating dynamic content is tricky, asynchronous programming patterns are more complex to code, it requires js and XMLHTTPRequest support, history is not automatically updated.', 2);
+INSERT INTO public.objectives (id, day_id, type, question, answer, sort) VALUES (38, 18, 'learning', 'What are some advantages of AJAX?', 'No page reloads, faster page renders, improved response times, client side rendering reduces network load.', 1);
 INSERT INTO public.objectives (id, day_id, type, question, answer, sort) VALUES (46, 13, 'performance', 'How do you read a cookie value that arrives at a NodeJS program in the web request?', '```js app.get(''/protected'', (req, res) => {   const userId = req.cookies.userId;   // do something with the userId }); ```', 3);
 INSERT INTO public.objectives (id, day_id, type, question, answer, sort) VALUES (51, 12, 'learning', 'What does CRUD stand for?', 'Create. Read. Update. Delete.', 0);
 INSERT INTO public.objectives (id, day_id, type, question, answer, sort) VALUES (52, 12, 'learning', 'What does BREAD stand for?', 'Browse. Read. Edit. Add. Delete.', 1);
@@ -270,6 +269,15 @@ INSERT INTO public.objectives (id, day_id, type, question, answer, sort) VALUES 
 INSERT INTO public.objectives (id, day_id, type, question, answer, sort) VALUES (62, 16, 'learning', 'What is the difference between a block element and an inline element?', 'A block element (e.g. <div> or display: block;) occupies the entire width of its container, whereas an inline element (e.g. <span> or display: inline;) will flow, by default from left to right within the container.', 1);
 INSERT INTO public.objectives (id, day_id, type, question, answer, sort) VALUES (64, 17, 'learning', 'What are some examples of Javascript objects that are only defined in the browser context?', 'window, navigator, document', 4);
 INSERT INTO public.objectives (id, day_id, type, question, answer, sort) VALUES (65, 17, 'learning', 'What is DOM traversal?', 'DOM travsersal is the ability for client-side Javascript to move from one node of the DOM to another. Test.', 2);
+INSERT INTO public.objectives (id, day_id, type, question, answer, sort) VALUES (67, 18, 'learning', 'What is CORS and how might you deal with it as an app developer?', 'Cross Origin Resource Sharing (CORS) is a policy that some APIs use to prevent vulnerabilities to certain kinds of hacking.
+
+For a development deployment only, you might choose to install a browser extension that disables your own browser from checking an API''s CORS policy, or you might send your API requests via a proxy that does something similar.
+
+See https://developer.mozilla.org/en-US/docs/Web/HTTP/CORS and 
+https://medium.com/@dtkatz/3-ways-to-fix-the-cors-error-and-how-access-control-allow-origin-works-d97d55946d9', 4);
+INSERT INTO public.objectives (id, day_id, type, question, answer, sort) VALUES (69, 19, 'learning', 'What is the advantage of mobile first design?', 'Mobile First Design forces stakeholders to choose the very most important elements for any given webpage. Scaling pages sizes up from there results in a design that retains that focus and affords reasonable value to empty space. This approach is most compatible with the typical tensions associated with the desire to put as much up as possible. Overcrowding a webpage cheapens it, in a design sense.', 9);
+INSERT INTO public.objectives (id, day_id, type, question, answer, sort) VALUES (68, 18, 'learning', 'What are the implications of using AJAX calls on the browser history?', 'An AJAX call in and of itself does not add any locations to the browser history. If it is important that the history be updated to a URL that can return a user to a certain state of the app, then it is the front-end code''s responsibility to call the History API to make changes to the browser history.', 5);
+INSERT INTO public.objectives (id, day_id, type, question, answer, sort) VALUES (37, 18, 'learning', 'What is AJAX?', 'Asynchronous Javascript and XML is a different paradigm of web request, where smaller amounts of data, or small parts of a webpage are sent and recieved in requests that do not result in page a refresh.', 0);
 INSERT INTO public.objectives (id, day_id, type, question, answer, sort) VALUES (66, 18, 'performance', 'How do you invoke an AJAX request from jQuery?', '$.ajax({
   url: url,
   method: "GET", 
@@ -279,14 +287,7 @@ INSERT INTO public.objectives (id, day_id, type, question, answer, sort) VALUES 
 })
 .catch(err => {
   console.log(err); // related error
-});', 4);
-INSERT INTO public.objectives (id, day_id, type, question, answer, sort) VALUES (67, 18, 'learning', 'What is CORS and how might you deal with it as an app developer?', 'Cross Origin Resource Sharing (CORS) is a policy that some APIs use to prevent vulnerabilities to certain kinds of hacking.
-
-For a development deployment only, you might choose to install a browser extension that disables your own browser from checking an API''s CORS policy, or you might send your API requests via a proxy that does something similar.
-
-See https://developer.mozilla.org/en-US/docs/Web/HTTP/CORS and 
-https://medium.com/@dtkatz/3-ways-to-fix-the-cors-error-and-how-access-control-allow-origin-works-d97d55946d9', 5);
-INSERT INTO public.objectives (id, day_id, type, question, answer, sort) VALUES (68, 18, 'learning', 'What are the implications of using AJAX calls on the browser history?', 'An AJAX call in an of itself does not add any locations to the browser history. If it is important that the history be updated to a URL that can return a user to a certain state of the app, then it is the front-end codes responsibility to call the History API to make changes to the browser history.', 6);
+});', 3);
 
 
 --
@@ -307,7 +308,7 @@ SELECT pg_catalog.setval('public.days_id_seq', 25, true);
 -- Name: objectives_id_seq; Type: SEQUENCE SET; Schema: public; Owner: christian.nally
 --
 
-SELECT pg_catalog.setval('public.objectives_id_seq', 68, true);
+SELECT pg_catalog.setval('public.objectives_id_seq', 69, true);
 
 
 --
