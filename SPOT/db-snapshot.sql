@@ -165,28 +165,10 @@ ALTER TABLE ONLY public.users ALTER COLUMN id SET DEFAULT nextval('public.users_
 -- Data for Name: days; Type: TABLE DATA; Schema: public; Owner: christian.nally
 --
 
-INSERT INTO public.days (id, day_mnemonic, day_description, title) VALUES (1, 'w01d1', 'Week 1 Day 1', NULL);
-INSERT INTO public.days (id, day_mnemonic, day_description, title) VALUES (2, 'w01d2', 'Week 1 Day 2', NULL);
-INSERT INTO public.days (id, day_mnemonic, day_description, title) VALUES (3, 'w01d3', 'Week 1 Day 3', NULL);
-INSERT INTO public.days (id, day_mnemonic, day_description, title) VALUES (4, 'w01d4', 'Week 1 Day 4', NULL);
 INSERT INTO public.days (id, day_mnemonic, day_description, title) VALUES (5, 'w01d5', 'Week 1 Day 5', NULL);
-INSERT INTO public.days (id, day_mnemonic, day_description, title) VALUES (6, 'w02d1', 'Week 2 Day 1', NULL);
-INSERT INTO public.days (id, day_mnemonic, day_description, title) VALUES (7, 'w02d2', 'Week 2 Day 2', NULL);
-INSERT INTO public.days (id, day_mnemonic, day_description, title) VALUES (8, 'w02d3', 'Week 2 Day 3', NULL);
-INSERT INTO public.days (id, day_mnemonic, day_description, title) VALUES (9, 'w02d4', 'Week 2 Day 4', NULL);
 INSERT INTO public.days (id, day_mnemonic, day_description, title) VALUES (10, 'w02d5', 'Week 2 Day 5', NULL);
-INSERT INTO public.days (id, day_mnemonic, day_description, title) VALUES (11, 'w03d1', 'Week 3 Day 1', NULL);
-INSERT INTO public.days (id, day_mnemonic, day_description, title) VALUES (12, 'w03d2', 'Week 3 Day 2', NULL);
-INSERT INTO public.days (id, day_mnemonic, day_description, title) VALUES (13, 'w03d3', 'Week 3 Day 3', NULL);
-INSERT INTO public.days (id, day_mnemonic, day_description, title) VALUES (14, 'w03d4', 'Week 3 Day 4', NULL);
 INSERT INTO public.days (id, day_mnemonic, day_description, title) VALUES (15, 'w03d5', 'Week 3 Day 5', NULL);
-INSERT INTO public.days (id, day_mnemonic, day_description, title) VALUES (17, 'w04d2', 'Week 4 Day 2', NULL);
-INSERT INTO public.days (id, day_mnemonic, day_description, title) VALUES (18, 'w04d3', 'Week 4 Day 3', NULL);
-INSERT INTO public.days (id, day_mnemonic, day_description, title) VALUES (19, 'w04d4', 'Week 4 Day 4', NULL);
 INSERT INTO public.days (id, day_mnemonic, day_description, title) VALUES (20, 'w04d5', 'Week 4 Day 5', NULL);
-INSERT INTO public.days (id, day_mnemonic, day_description, title) VALUES (21, 'w05d1', 'Week 5 Day 1', NULL);
-INSERT INTO public.days (id, day_mnemonic, day_description, title) VALUES (22, 'w05d2', 'Week 5 Day 2', NULL);
-INSERT INTO public.days (id, day_mnemonic, day_description, title) VALUES (23, 'w05d3', 'Week 5 Day 3', NULL);
 INSERT INTO public.days (id, day_mnemonic, day_description, title) VALUES (24, 'w05d4', 'Week 5 Day 4', NULL);
 INSERT INTO public.days (id, day_mnemonic, day_description, title) VALUES (25, 'w05d5', 'Week 5 Day 5', NULL);
 INSERT INTO public.days (id, day_mnemonic, day_description, title) VALUES (26, 'w06d1', 'Week 6 Day 1', NULL);
@@ -200,18 +182,30 @@ INSERT INTO public.days (id, day_mnemonic, day_description, title) VALUES (33, '
 INSERT INTO public.days (id, day_mnemonic, day_description, title) VALUES (34, 'w07d4', 'Week 7 Day 4', NULL);
 INSERT INTO public.days (id, day_mnemonic, day_description, title) VALUES (35, 'w07d5', 'Week 7 Day 5', NULL);
 INSERT INTO public.days (id, day_mnemonic, day_description, title) VALUES (16, 'w04d1', 'Week 4 Day 1', 'Intro to CSS');
+INSERT INTO public.days (id, day_mnemonic, day_description, title) VALUES (21, 'w05d1', 'Week 5 Day 1', 'SQL Intro');
+INSERT INTO public.days (id, day_mnemonic, day_description, title) VALUES (22, 'w05d2', 'Week 5 Day 2', 'Database Design');
+INSERT INTO public.days (id, day_mnemonic, day_description, title) VALUES (23, 'w05d3', 'Week 5 Day 3', 'SQL from our Apps');
+INSERT INTO public.days (id, day_mnemonic, day_description, title) VALUES (6, 'w02d1', 'Week 2 Day 1', 'TDD with Mocha & Chai ');
+INSERT INTO public.days (id, day_mnemonic, day_description, title) VALUES (7, 'w02d2', 'Week 2 Day 2', 'Asynchronous Control Flow ');
+INSERT INTO public.days (id, day_mnemonic, day_description, title) VALUES (8, 'w02d3', 'Week 2 Day 3', 'Networking with TCP and HTTP ');
+INSERT INTO public.days (id, day_mnemonic, day_description, title) VALUES (9, 'w02d4', 'Week 2 Day 4', 'Promises');
+INSERT INTO public.days (id, day_mnemonic, day_description, title) VALUES (11, 'w03d1', 'Week 3 Day 1', 'Web Servers 101');
+INSERT INTO public.days (id, day_mnemonic, day_description, title) VALUES (12, 'w03d2', 'Week 3 Day 2', 'CRUD with Express');
+INSERT INTO public.days (id, day_mnemonic, day_description, title) VALUES (13, 'w03d3', 'Week 3 Day 3', 'HTTP Cookies & User Authentication ');
+INSERT INTO public.days (id, day_mnemonic, day_description, title) VALUES (14, 'w03d4', 'Week 3 Day 4', 'Security and Real World HTTP Servers ');
+INSERT INTO public.days (id, day_mnemonic, day_description, title) VALUES (17, 'w04d2', 'Week 4 Day 2', 'Client Side JavaScript & jQuery ');
+INSERT INTO public.days (id, day_mnemonic, day_description, title) VALUES (18, 'w04d3', 'Week 4 Day 3', 'AJAX');
+INSERT INTO public.days (id, day_mnemonic, day_description, title) VALUES (19, 'w04d4', 'Week 4 Day 4', 'Responsive Design and SASS');
+INSERT INTO public.days (id, day_mnemonic, day_description, title) VALUES (1, 'w01d1', 'Week 1 Day 1', 'Welcome and Introductions');
+INSERT INTO public.days (id, day_mnemonic, day_description, title) VALUES (2, 'w01d2', 'Week 1 Day 2', 'The Dev Workflow');
+INSERT INTO public.days (id, day_mnemonic, day_description, title) VALUES (3, 'w01d3', 'Week 1 Day 3', 'Objects in Javascript');
+INSERT INTO public.days (id, day_mnemonic, day_description, title) VALUES (4, 'w01d4', 'Week 1 Day 4', 'Callbacks');
 
 
 --
 -- Data for Name: objectives; Type: TABLE DATA; Schema: public; Owner: christian.nally
 --
 
-INSERT INTO public.objectives (id, day_id, type, question, answer, sort) VALUES (21, 19, 'learning', 'What is responsive web design?', 'Responsive Web Design is a set of practices that allows web pages to alter their layout and appearance to suit different screen widths and resolutions.', 1);
-INSERT INTO public.objectives (id, day_id, type, question, answer, sort) VALUES (22, 19, 'performance', 'How do you set a minimum width on HTML elements?', '.these_elements { min-width: 135px; }', 20);
-INSERT INTO public.objectives (id, day_id, type, question, answer, sort) VALUES (23, 19, 'performance', 'How do you set a maximum width on HTML elements?', '.these_elements { max-width: 135px; }', 21);
-INSERT INTO public.objectives (id, day_id, type, question, answer, sort) VALUES (24, 19, 'performance', 'How should we set the web browser''s viewport?', '<meta name="viewport" content="width=device-width, initial-scale=1.0">', 22);
-INSERT INTO public.objectives (id, day_id, type, question, answer, sort) VALUES (25, 19, 'learning', 'What are the absolute length units available in CSS?', 'mm, cm, in, px, pt, pc (1 pc = 12 pt)', 30);
-INSERT INTO public.objectives (id, day_id, type, question, answer, sort) VALUES (26, 19, 'learning', 'What are the relative length units available in CSS?', 'em, ex, ch, rem, vw, vh, vmin, vmax, %', 31);
 INSERT INTO public.objectives (id, day_id, type, question, answer, sort) VALUES (5, 22, 'learning', 'How do I establish a relationship between tables?', 'You can establish a relationship between tables by creating a column that tells you, for each row, which row in another table it is related to.', 5);
 INSERT INTO public.objectives (id, day_id, type, question, answer, sort) VALUES (27, 22, 'learning', 'What are the features required of a primary key?', 'A Primary Key must be unique (within the table) and can never be null.', 6);
 INSERT INTO public.objectives (id, day_id, type, question, answer, sort) VALUES (28, 22, 'learning', 'What is the most common data type for a Primary Key?', 'A Primary Key''s data type is usually auto-incrementing integer (INTEGER or BIGINT).', 7);
@@ -243,7 +237,13 @@ INSERT INTO public.objectives (id, day_id, type, question, answer, sort) VALUES 
 INSERT INTO public.objectives (id, day_id, type, question, answer, sort) VALUES (18, NULL, 'learning', 'What is DOM traversal?', 'DOM traversal is the ability of client-side javascript to jump from one node to a parent, sibling or child, step by step throughout the DOM, looking for elements that match a certain criteria.', NULL);
 INSERT INTO public.objectives (id, day_id, type, question, answer, sort) VALUES (47, 13, 'performance', 'How do you set a cookie value from within a NodeJS app?', '```js app.post(''/login'', (req, res) => {   // other authenticatey stuff   res.cookie(''userId'', user.id); // set the cookie''s key and value   res.redirect(''/''); }); ```', 2);
 INSERT INTO public.objectives (id, day_id, type, question, answer, sort) VALUES (39, 18, 'learning', 'What are some disadvantages of AJAX?', 'Creating dynamic content is tricky, asynchronous programming patterns are more complex to code, it requires js and XMLHTTPRequest support, history is not automatically updated.', 2);
+INSERT INTO public.objectives (id, day_id, type, question, answer, sort) VALUES (24, 19, 'performance', 'How should we set the web browser''s viewport?', '<meta name="viewport" content="width=device-width, initial-scale=1.0">', 4);
 INSERT INTO public.objectives (id, day_id, type, question, answer, sort) VALUES (38, 18, 'learning', 'What are some advantages of AJAX?', 'No page reloads, faster page renders, improved response times, client side rendering reduces network load.', 1);
+INSERT INTO public.objectives (id, day_id, type, question, answer, sort) VALUES (26, 19, 'learning', 'What are the relative length units available in CSS?', 'em, ex, ch, rem, vw, vh, vmin, vmax, %', 5);
+INSERT INTO public.objectives (id, day_id, type, question, answer, sort) VALUES (25, 19, 'learning', 'What are the absolute length units available in CSS?', 'mm, cm, in, px, pt, pc (1 pc = 12 pt)', 6);
+INSERT INTO public.objectives (id, day_id, type, question, answer, sort) VALUES (21, 19, 'learning', 'What is responsive web design?', 'Responsive Web Design is a set of practices that allows web pages to alter their layout and appearance to suit different screen widths and resolutions.', 0);
+INSERT INTO public.objectives (id, day_id, type, question, answer, sort) VALUES (22, 19, 'performance', 'How do you set a minimum width on HTML elements?', '.these_elements { min-width: 135px; }', 2);
+INSERT INTO public.objectives (id, day_id, type, question, answer, sort) VALUES (23, 19, 'performance', 'How do you set a maximum width on HTML elements?', '.these_elements { max-width: 135px; }', 3);
 INSERT INTO public.objectives (id, day_id, type, question, answer, sort) VALUES (46, 13, 'performance', 'How do you read a cookie value that arrives at a NodeJS program in the web request?', '```js app.get(''/protected'', (req, res) => {   const userId = req.cookies.userId;   // do something with the userId }); ```', 3);
 INSERT INTO public.objectives (id, day_id, type, question, answer, sort) VALUES (51, 12, 'learning', 'What does CRUD stand for?', 'Create. Read. Update. Delete.', 0);
 INSERT INTO public.objectives (id, day_id, type, question, answer, sort) VALUES (52, 12, 'learning', 'What does BREAD stand for?', 'Browse. Read. Edit. Add. Delete.', 1);
@@ -275,7 +275,6 @@ For a development deployment only, you might choose to install a browser extensi
 
 See https://developer.mozilla.org/en-US/docs/Web/HTTP/CORS and 
 https://medium.com/@dtkatz/3-ways-to-fix-the-cors-error-and-how-access-control-allow-origin-works-d97d55946d9', 4);
-INSERT INTO public.objectives (id, day_id, type, question, answer, sort) VALUES (69, 19, 'learning', 'What is the advantage of mobile first design?', 'Mobile First Design forces stakeholders to choose the very most important elements for any given webpage. Scaling pages sizes up from there results in a design that retains that focus and affords reasonable value to empty space. This approach is most compatible with the typical tensions associated with the desire to put as much up as possible. Overcrowding a webpage cheapens it, in a design sense.', 9);
 INSERT INTO public.objectives (id, day_id, type, question, answer, sort) VALUES (68, 18, 'learning', 'What are the implications of using AJAX calls on the browser history?', 'An AJAX call in and of itself does not add any locations to the browser history. If it is important that the history be updated to a URL that can return a user to a certain state of the app, then it is the front-end code''s responsibility to call the History API to make changes to the browser history.', 5);
 INSERT INTO public.objectives (id, day_id, type, question, answer, sort) VALUES (37, 18, 'learning', 'What is AJAX?', 'Asynchronous Javascript and XML is a different paradigm of web request, where smaller amounts of data, or small parts of a webpage are sent and recieved in requests that do not result in page a refresh.', 0);
 INSERT INTO public.objectives (id, day_id, type, question, answer, sort) VALUES (66, 18, 'performance', 'How do you invoke an AJAX request from jQuery?', '$.ajax({
@@ -288,6 +287,9 @@ INSERT INTO public.objectives (id, day_id, type, question, answer, sort) VALUES 
 .catch(err => {
   console.log(err); // related error
 });', 3);
+INSERT INTO public.objectives (id, day_id, type, question, answer, sort) VALUES (70, 19, 'learning', 'How do you define ''variables'' in SASS?', '$main-size: 2em;
+$background-color: purple;', 7);
+INSERT INTO public.objectives (id, day_id, type, question, answer, sort) VALUES (69, 19, 'learning', 'What is the advantage of mobile first design?', 'Mobile First Design forces stakeholders to choose the very most important elements for any given webpage. Scaling pages sizes up from there results in a design that retains that focus and affords reasonable value to empty space. This approach is most compatible with the typical tensions associated with the desire to put as much up as possible. Overcrowding a webpage cheapens it, in a design sense.', 1);
 
 
 --
@@ -308,7 +310,7 @@ SELECT pg_catalog.setval('public.days_id_seq', 25, true);
 -- Name: objectives_id_seq; Type: SEQUENCE SET; Schema: public; Owner: christian.nally
 --
 
-SELECT pg_catalog.setval('public.objectives_id_seq', 69, true);
+SELECT pg_catalog.setval('public.objectives_id_seq', 70, true);
 
 
 --
