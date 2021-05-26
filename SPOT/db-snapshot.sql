@@ -165,12 +165,8 @@ ALTER TABLE ONLY public.users ALTER COLUMN id SET DEFAULT nextval('public.users_
 -- Data for Name: days; Type: TABLE DATA; Schema: public; Owner: christian.nally
 --
 
-INSERT INTO public.days (id, day_mnemonic, day_description, title) VALUES (5, 'w01d5', 'Week 1 Day 5', NULL);
 INSERT INTO public.days (id, day_mnemonic, day_description, title) VALUES (10, 'w02d5', 'Week 2 Day 5', NULL);
 INSERT INTO public.days (id, day_mnemonic, day_description, title) VALUES (15, 'w03d5', 'Week 3 Day 5', NULL);
-INSERT INTO public.days (id, day_mnemonic, day_description, title) VALUES (20, 'w04d5', 'Week 4 Day 5', NULL);
-INSERT INTO public.days (id, day_mnemonic, day_description, title) VALUES (24, 'w05d4', 'Week 5 Day 4', NULL);
-INSERT INTO public.days (id, day_mnemonic, day_description, title) VALUES (25, 'w05d5', 'Week 5 Day 5', NULL);
 INSERT INTO public.days (id, day_mnemonic, day_description, title) VALUES (26, 'w06d1', 'Week 6 Day 1', NULL);
 INSERT INTO public.days (id, day_mnemonic, day_description, title) VALUES (27, 'w06d2', 'Week 6 Day 2', NULL);
 INSERT INTO public.days (id, day_mnemonic, day_description, title) VALUES (28, 'w06d3', 'Week 6 Day 3', NULL);
@@ -200,6 +196,10 @@ INSERT INTO public.days (id, day_mnemonic, day_description, title) VALUES (1, 'w
 INSERT INTO public.days (id, day_mnemonic, day_description, title) VALUES (2, 'w01d2', 'Week 1 Day 2', 'The Dev Workflow');
 INSERT INTO public.days (id, day_mnemonic, day_description, title) VALUES (3, 'w01d3', 'Week 1 Day 3', 'Objects in Javascript');
 INSERT INTO public.days (id, day_mnemonic, day_description, title) VALUES (4, 'w01d4', 'Week 1 Day 4', 'Callbacks');
+INSERT INTO public.days (id, day_mnemonic, day_description, title) VALUES (24, 'w05d4', 'Week 5 Day 4', 'TEST');
+INSERT INTO public.days (id, day_mnemonic, day_description, title) VALUES (5, 'w01d5', 'Week 1 Day 5', 'TEST');
+INSERT INTO public.days (id, day_mnemonic, day_description, title) VALUES (20, 'w04d5', 'Week 4 Day 5', 'TEST');
+INSERT INTO public.days (id, day_mnemonic, day_description, title) VALUES (25, 'w05d5', 'Week 5 Day 5', 'Midterms Kickoff');
 
 
 --
@@ -211,20 +211,6 @@ INSERT INTO public.objectives (id, day_id, type, question, answer, sort) VALUES 
 INSERT INTO public.objectives (id, day_id, type, question, answer, sort) VALUES (28, 22, 'learning', 'What is the most common data type for a Primary Key?', 'A Primary Key''s data type is usually auto-incrementing integer (INTEGER or BIGINT).', 7);
 INSERT INTO public.objectives (id, day_id, type, question, answer, sort) VALUES (29, 22, 'learning', 'What is a Foreign Key?', 'A Foreign Key is a column on a second table, where the value in a given row indicates an association with a row from the first table. The Foreign Key value on the second table matches the Primary Key value from the first table.', 8);
 INSERT INTO public.objectives (id, day_id, type, question, answer, sort) VALUES (32, 22, 'learning', 'What is an ERD?', 'ERD; an Entity Relationship Diagram is a diagram that shows the relationships established between entities within a system. For databases, this is more often with regard to relationships between tables.', 0);
-INSERT INTO public.objectives (id, day_id, type, question, answer, sort) VALUES (8, 21, 'performance', 'How do I create a table?', 'CREATE TABLE objectives\n(\n    id bigint,\n    day_id character varying(5),\n    type character varying(12),\n    question text,\n    answer text,\n    sort smallint\n)', 1);
-INSERT INTO public.objectives (id, day_id, type, question, answer, sort) VALUES (2, 21, 'learning', 'What is a database?', 'A database is a collection of tables. The collection is typically used as a set. A connection to a database is granted via a username and password.', 3);
-INSERT INTO public.objectives (id, day_id, type, question, answer, sort) VALUES (3, 21, 'learning', 'What is a query?', 'A query is a task executed against a database, table or combination of tables. e.g. SELECT, INSERT, etc.', 4);
-INSERT INTO public.objectives (id, day_id, type, question, answer, sort) VALUES (30, 21, 'learning', 'What are the queries that correspond to the CRUD actions?', 'The CRUD queries are: INSERT, SELECT, UPDATE and DELETE.', 6);
-INSERT INTO public.objectives (id, day_id, type, question, answer, sort) VALUES (4, 21, 'learning', 'What is a WHERE clause?', 'A query can filter or restrict the information that results via a WHERE clause.', 7);
-INSERT INTO public.objectives (id, day_id, type, question, answer, sort) VALUES (6, 21, 'learning', 'What is a JOIN clause?', 'The data that a query has access to, can be expanded via JOIN-ing two tables together.', 8);
-INSERT INTO public.objectives (id, day_id, type, question, answer, sort) VALUES (7, 21, 'learning', 'What is an ERD?', 'In the context of databases, an ERD is a diagram that shows each table as an entity, and also shows the relationships between tables.', 9);
-INSERT INTO public.objectives (id, day_id, type, question, answer, sort) VALUES (33, 23, 'performance', 'How do you connect to a Postgres DB from within Javascript?', 'const pg = require(''pg'');  const config = {     user: ''<user name>'',     password: ''<password>'',     database: ''<db>'',     host: ''<host>'' };  const client = new pg.Client(config);', 0);
-INSERT INTO public.objectives (id, day_id, type, question, answer, sort) VALUES (34, 23, 'performance', 'How, given a postgres client object, do you submit queries to the database from back-end javascript?', 'client.connect(); client   .query(''SELECT * FROM <table>'')   .then((result) => console.log(result));', 1);
-INSERT INTO public.objectives (id, day_id, type, question, answer, sort) VALUES (35, 23, 'learning', 'What is a SQL injection attack?', 'A malicious user crafts input for a form submission that will be mistakenly input directly into a database. That input might be any SQL query, including dropping tables or deleting rows. ', 3);
-INSERT INTO public.objectives (id, day_id, type, question, answer, sort) VALUES (36, 23, 'performance', 'How do we prevent a SQL Injection attack?', '```js client   .query(''SELECT * FROM <table> WHERE id = $1'', [<id>])   .then((result) => console.log(result)); ```', 4);
-INSERT INTO public.objectives (id, day_id, type, question, answer, sort) VALUES (1, 21, 'learning', 'What is a table?', 'A table is a set of data collected as columns and rows.', 0);
-INSERT INTO public.objectives (id, day_id, type, question, answer, sort) VALUES (9, 21, 'performance', 'How do I INSERT rows into a table?', 'INSERT INTO objectives(id, type, question, answer, sort)\nVALUES (21, w05d1, "How do I INSERT rows into a table?", "solution goes here",2);', 2);
-INSERT INTO public.objectives (id, day_id, type, question, answer, sort) VALUES (31, 21, 'learning', 'What are the four types of commands for databases?', 'DDL, DML, DCL, and TCL. See: https://stackoverflow.com/questions/2578194/what-are-ddl-and-dml', 5);
 INSERT INTO public.objectives (id, day_id, type, question, answer, sort) VALUES (42, 12, 'performance', 'How do you code EJS templates?', 'npm i ejs, mkdir views, app.set(''view engine'', ''ejs'');', 8);
 INSERT INTO public.objectives (id, day_id, type, question, answer, sort) VALUES (10, 14, 'learning', 'Why would we never want to store passwords as plaintext?', 'To keep the passwords away from prying eyes, like hackers and website employees.', 7);
 INSERT INTO public.objectives (id, day_id, type, question, answer, sort) VALUES (12, 14, 'learning', 'What is the difference between encryption and hashing?', 'Hashing is one way, so you can''t recover the original text from the hash.', 0);
@@ -240,10 +226,25 @@ INSERT INTO public.objectives (id, day_id, type, question, answer, sort) VALUES 
 INSERT INTO public.objectives (id, day_id, type, question, answer, sort) VALUES (24, 19, 'performance', 'How should we set the web browser''s viewport?', '<meta name="viewport" content="width=device-width, initial-scale=1.0">', 4);
 INSERT INTO public.objectives (id, day_id, type, question, answer, sort) VALUES (38, 18, 'learning', 'What are some advantages of AJAX?', 'No page reloads, faster page renders, improved response times, client side rendering reduces network load.', 1);
 INSERT INTO public.objectives (id, day_id, type, question, answer, sort) VALUES (26, 19, 'learning', 'What are the relative length units available in CSS?', 'em, ex, ch, rem, vw, vh, vmin, vmax, %', 5);
+INSERT INTO public.objectives (id, day_id, type, question, answer, sort) VALUES (2, 21, 'learning', 'What is a database?', 'A database is a collection of tables. The collection is typically used as a set. A connection to a database is granted via a username and password.', 2);
 INSERT INTO public.objectives (id, day_id, type, question, answer, sort) VALUES (25, 19, 'learning', 'What are the absolute length units available in CSS?', 'mm, cm, in, px, pt, pc (1 pc = 12 pt)', 6);
 INSERT INTO public.objectives (id, day_id, type, question, answer, sort) VALUES (21, 19, 'learning', 'What is responsive web design?', 'Responsive Web Design is a set of practices that allows web pages to alter their layout and appearance to suit different screen widths and resolutions.', 0);
 INSERT INTO public.objectives (id, day_id, type, question, answer, sort) VALUES (22, 19, 'performance', 'How do you set a minimum width on HTML elements?', '.these_elements { min-width: 135px; }', 2);
 INSERT INTO public.objectives (id, day_id, type, question, answer, sort) VALUES (23, 19, 'performance', 'How do you set a maximum width on HTML elements?', '.these_elements { max-width: 135px; }', 3);
+INSERT INTO public.objectives (id, day_id, type, question, answer, sort) VALUES (31, 21, 'learning', 'What are the four types of commands for databases?', 'DDL, DML, DCL, and TCL. See: https://stackoverflow.com/questions/2578194/what-are-ddl-and-dml', 5);
+INSERT INTO public.objectives (id, day_id, type, question, answer, sort) VALUES (9, 21, 'performance', 'How do I INSERT rows into a table?', 'INSERT INTO objectives(id, type, question, answer, sort)\nVALUES (21, w05d1, "How do I INSERT rows into a table?", "solution goes here",2);', 7);
+INSERT INTO public.objectives (id, day_id, type, question, answer, sort) VALUES (8, 21, 'performance', 'How do I create a table?', 'CREATE TABLE objectives\n(\n    id bigint,\n    day_id character varying(5),\n    type character varying(12),\n    question text,\n    answer text,\n    sort smallint\n)', 0);
+INSERT INTO public.objectives (id, day_id, type, question, answer, sort) VALUES (3, 21, 'learning', 'What is a query?', 'A query is a task executed against a database, table or combination of tables. e.g. SELECT, INSERT, etc.', 6);
+INSERT INTO public.objectives (id, day_id, type, question, answer, sort) VALUES (6, 21, 'learning', 'What is a JOIN clause?', 'The data that a query has access to, can be expanded via JOIN-ing two tables together.', 9);
+INSERT INTO public.objectives (id, day_id, type, question, answer, sort) VALUES (1, 21, 'learning', 'What is a table?', 'A table is a set of data collected as columns and rows.', 1);
+INSERT INTO public.objectives (id, day_id, type, question, answer, sort) VALUES (30, 21, 'learning', 'What are the queries that correspond to the CRUD actions?', 'The CRUD queries are: INSERT, SELECT, UPDATE and DELETE.', 8);
+INSERT INTO public.objectives (id, day_id, type, question, answer, sort) VALUES (7, 21, 'learning', 'What is an ERD?', 'In the context of databases, an ERD is a diagram that shows each table as an entity, and also shows the relationships between tables.', 4);
+INSERT INTO public.objectives (id, day_id, type, question, answer, sort) VALUES (4, 21, 'learning', 'What is a WHERE clause?', 'A query can filter or restrict the information that results via a WHERE clause.', 3);
+INSERT INTO public.objectives (id, day_id, type, question, answer, sort) VALUES (36, 23, 'performance', 'How do we prevent a SQL Injection attack?', 'client.query(''SELECT * FROM <table> WHERE id = $1'', [<id>])   
+.then((result) => console.log(result));', 4);
+INSERT INTO public.objectives (id, day_id, type, question, answer, sort) VALUES (35, 23, 'learning', 'What is a SQL injection attack?', 'A malicious user crafts input for a form submission that will be mistakenly input directly into a database. That input might be any SQL query, including dropping tables or deleting rows. ', 3);
+INSERT INTO public.objectives (id, day_id, type, question, answer, sort) VALUES (34, 23, 'performance', 'How, given a postgres client object, do you submit queries to the database from back-end javascript?', 'client.query(''SELECT * FROM <table>'')
+   .then((result) => console.log(result));', 2);
 INSERT INTO public.objectives (id, day_id, type, question, answer, sort) VALUES (46, 13, 'performance', 'How do you read a cookie value that arrives at a NodeJS program in the web request?', '```js app.get(''/protected'', (req, res) => {   const userId = req.cookies.userId;   // do something with the userId }); ```', 3);
 INSERT INTO public.objectives (id, day_id, type, question, answer, sort) VALUES (51, 12, 'learning', 'What does CRUD stand for?', 'Create. Read. Update. Delete.', 0);
 INSERT INTO public.objectives (id, day_id, type, question, answer, sort) VALUES (52, 12, 'learning', 'What does BREAD stand for?', 'Browse. Read. Edit. Add. Delete.', 1);
@@ -290,6 +291,17 @@ INSERT INTO public.objectives (id, day_id, type, question, answer, sort) VALUES 
 INSERT INTO public.objectives (id, day_id, type, question, answer, sort) VALUES (70, 19, 'learning', 'How do you define ''variables'' in SASS?', '$main-size: 2em;
 $background-color: purple;', 7);
 INSERT INTO public.objectives (id, day_id, type, question, answer, sort) VALUES (69, 19, 'learning', 'What is the advantage of mobile first design?', 'Mobile First Design forces stakeholders to choose the very most important elements for any given webpage. Scaling pages sizes up from there results in a design that retains that focus and affords reasonable value to empty space. This approach is most compatible with the typical tensions associated with the desire to put as much up as possible. Overcrowding a webpage cheapens it, in a design sense.', 1);
+INSERT INTO public.objectives (id, day_id, type, question, answer, sort) VALUES (71, 23, 'learning', 'Coffee or Naan?', '"Confused = Coffee", "Fair = Don''t Care", "Excellent = Naan"', 0);
+INSERT INTO public.objectives (id, day_id, type, question, answer, sort) VALUES (33, 23, 'performance', 'How do you connect to a Postgres DB from within Javascript?', 'const pg = require(''pg'');
+const config = { 
+  user: ''<user name>'',
+  password: ''<password>'',
+  database: ''<db>'',
+  host: ''<host>'' };
+const client = new pg.Client(config);
+client.connect()
+.then(() => console.log(''db connected''))
+.catch(err => console.error(''db connection error'', err.stack));', 1);
 
 
 --
@@ -310,7 +322,7 @@ SELECT pg_catalog.setval('public.days_id_seq', 25, true);
 -- Name: objectives_id_seq; Type: SEQUENCE SET; Schema: public; Owner: christian.nally
 --
 
-SELECT pg_catalog.setval('public.objectives_id_seq', 70, true);
+SELECT pg_catalog.setval('public.objectives_id_seq', 71, true);
 
 
 --
