@@ -34,7 +34,7 @@
 
   $('.answer').css('color', 'white');;
   $('.answer').click(function(){
-    $(this).children('span').css('color', 'black');
+    $(this).children('.answer').css('color', 'black');
   });
 
 }); })(jQuery);

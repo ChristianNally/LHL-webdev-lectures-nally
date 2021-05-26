@@ -49,11 +49,10 @@ function loggedInEmail(req){
 // }
 // res.redirect('/register');
 
-
 app.get('/login',(req,res)=>{
   uid = crypto.randomBytes(20).toString('hex');
   res.cookie("spot-uid", uid);
-  res.redirect("/student/18");
+  res.redirect("/student/22");
 });
 
 // currently targeted by the form in the header
@@ -251,7 +250,7 @@ app.post("/day-edit", (req, res) => {
     title: req.body.title
   };
   dbFns.updateDay(dayUpdate);
-  res.redirect("/");
+  res.redirect("/days-edit/"+dayUpdate.id);
 });
 
 //

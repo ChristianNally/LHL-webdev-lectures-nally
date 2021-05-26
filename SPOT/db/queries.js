@@ -35,7 +35,7 @@ const insertUser = (newObj) => {
 const getAllDays = (cb) => {
   client
     .query(
-      `SELECT days.id, day_mnemonic, count(question)
+      `SELECT days.title, days.id, day_mnemonic, count(question)
       FROM days 
       LEFT JOIN objectives ON objectives.day_id = days.id
       GROUP BY days.id, days.day_mnemonic
