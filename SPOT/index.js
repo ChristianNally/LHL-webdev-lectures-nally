@@ -50,9 +50,10 @@ function loggedInEmail(req){
 // res.redirect('/register');
 
 app.get('/login',(req,res)=>{
+  console.log("IP:",req.connection.remoteAddress);
   uid = crypto.randomBytes(20).toString('hex');
   res.cookie("spot-uid", uid);
-  res.redirect("/student/22");
+  res.redirect("/student/6");
 });
 
 // currently targeted by the form in the header

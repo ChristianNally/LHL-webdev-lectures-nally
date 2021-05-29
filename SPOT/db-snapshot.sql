@@ -302,6 +302,26 @@ const client = new pg.Client(config);
 client.connect()
 .then(() => console.log(''db connected''))
 .catch(err => console.error(''db connection error'', err.stack));', 1);
+INSERT INTO public.objectives (id, day_id, type, question, answer, sort) VALUES (72, 6, 'learning', 'What is Test Driven Development?', 'Tests are written before the code. The tests make the expectations of the code explicit. Red - Green - Refactor are the stages of code development. You make the code work (pass the tests!) and then you can refactor the code, safe in the knowledge that the code is relatively easily testable.', 0);
+INSERT INTO public.objectives (id, day_id, type, question, answer, sort) VALUES (73, 6, 'learning', 'What is Mocha?', 'Mocha is a testing framework. It looks for test files to run in the ./test/ folder.', 1);
+INSERT INTO public.objectives (id, day_id, type, question, answer, sort) VALUES (74, 6, 'learning', 'What is Chai?', 'Chai is an assertion library. It defines a large number of assertions useful for testing.', 2);
+INSERT INTO public.objectives (id, day_id, type, question, answer, sort) VALUES (75, 6, 'performance', 'How do you export things from any given Javascript file?', 'module.exports = <AN EXPRESSION WITH A VALUE THAT REQUIRE WILL PICK UP>;
+
+e.g. 
+
+module.exports = {
+  myFunc,
+  myOtherFunc
+};', 3);
+INSERT INTO public.objectives (id, day_id, type, question, answer, sort) VALUES (76, 6, 'learning', 'How do you bring in things that are exported from another Javascript file?', 'const thing = require("./path/to/javascript-file");', 4);
+INSERT INTO public.objectives (id, day_id, type, question, answer, sort) VALUES (77, 6, 'performance', 'How do you prevent files from being stored in your git repository?', 'Create a file named .gitignore
+
+Inside that file put a list of filenames (wildcards allowed) where if the line matches a name, it won''t be ''seen'' by git.
+
+e.g.
+
+See: https://git-scm.com/docs/gitignore
+', 5);
 
 
 --
@@ -322,7 +342,7 @@ SELECT pg_catalog.setval('public.days_id_seq', 25, true);
 -- Name: objectives_id_seq; Type: SEQUENCE SET; Schema: public; Owner: christian.nally
 --
 
-SELECT pg_catalog.setval('public.objectives_id_seq', 71, true);
+SELECT pg_catalog.setval('public.objectives_id_seq', 77, true);
 
 
 --
