@@ -165,15 +165,11 @@ ALTER TABLE ONLY public.users ALTER COLUMN id SET DEFAULT nextval('public.users_
 -- Data for Name: days; Type: TABLE DATA; Schema: public; Owner: christian.nally
 --
 
-INSERT INTO public.days (id, day_mnemonic, day_description, title) VALUES (10, 'w02d5', 'Week 2 Day 5', NULL);
-INSERT INTO public.days (id, day_mnemonic, day_description, title) VALUES (15, 'w03d5', 'Week 3 Day 5', NULL);
 INSERT INTO public.days (id, day_mnemonic, day_description, title) VALUES (26, 'w06d1', 'Week 6 Day 1', NULL);
 INSERT INTO public.days (id, day_mnemonic, day_description, title) VALUES (27, 'w06d2', 'Week 6 Day 2', NULL);
 INSERT INTO public.days (id, day_mnemonic, day_description, title) VALUES (28, 'w06d3', 'Week 6 Day 3', NULL);
 INSERT INTO public.days (id, day_mnemonic, day_description, title) VALUES (29, 'w06d4', 'Week 6 Day 4', NULL);
 INSERT INTO public.days (id, day_mnemonic, day_description, title) VALUES (30, 'w06d5', 'Week 6 Day 5', NULL);
-INSERT INTO public.days (id, day_mnemonic, day_description, title) VALUES (31, 'w07d1', 'Week 7 Day 1', NULL);
-INSERT INTO public.days (id, day_mnemonic, day_description, title) VALUES (32, 'w07d2', 'Week 7 Day 2', NULL);
 INSERT INTO public.days (id, day_mnemonic, day_description, title) VALUES (33, 'w07d3', 'Week 7 Day 3', NULL);
 INSERT INTO public.days (id, day_mnemonic, day_description, title) VALUES (34, 'w07d4', 'Week 7 Day 4', NULL);
 INSERT INTO public.days (id, day_mnemonic, day_description, title) VALUES (35, 'w07d5', 'Week 7 Day 5', NULL);
@@ -200,6 +196,10 @@ INSERT INTO public.days (id, day_mnemonic, day_description, title) VALUES (24, '
 INSERT INTO public.days (id, day_mnemonic, day_description, title) VALUES (5, 'w01d5', 'Week 1 Day 5', 'TEST');
 INSERT INTO public.days (id, day_mnemonic, day_description, title) VALUES (20, 'w04d5', 'Week 4 Day 5', 'TEST');
 INSERT INTO public.days (id, day_mnemonic, day_description, title) VALUES (25, 'w05d5', 'Week 5 Day 5', 'Midterms Kickoff');
+INSERT INTO public.days (id, day_mnemonic, day_description, title) VALUES (10, 'w02d5', 'Week 2 Day 5', 'TEST');
+INSERT INTO public.days (id, day_mnemonic, day_description, title) VALUES (15, 'w03d5', 'Week 3 Day 5', 'TEST');
+INSERT INTO public.days (id, day_mnemonic, day_description, title) VALUES (31, 'w07d1', 'Week 7 Day 1', 'Component-Based UI w/ React');
+INSERT INTO public.days (id, day_mnemonic, day_description, title) VALUES (32, 'w07d2', 'Week 7 Day 2', 'Immutable Update Patterns');
 
 
 --
@@ -302,6 +302,18 @@ const client = new pg.Client(config);
 client.connect()
 .then(() => console.log(''db connected''))
 .catch(err => console.error(''db connection error'', err.stack));', 1);
+INSERT INTO public.objectives (id, day_id, type, question, answer, sort) VALUES (85, 32, 'learning', 'Why is it important to leave the original version of our state unchanged when we are updating state?', 'React compares the old and new values of state before deciding which DOM elements to update. A significant speed increase results from using React because it only chooses to update the DOM elements with changed states.
+
+This means that when we are updating state, we need to create a new (deep) copy of the state (at least the parts that will change within a given event listener) and leave the original state data structure untouched.
+
+Javascript''s basic operations are often reference values. For example, the = operator will copy the reference to an object, rather than instantiating a new object.
+
+For this reason, you will often need to use the spread operator (new in ES6) to make a copy of an object, like so:
+
+const copy = {
+  ...originalObject,
+  keyWithAChangedValue: ''newValue''
+};', 6);
 INSERT INTO public.objectives (id, day_id, type, question, answer, sort) VALUES (72, 6, 'learning', 'What is Test Driven Development?', 'Tests are written before the code. The tests make the expectations of the code explicit. Red - Green - Refactor are the stages of code development. You make the code work (pass the tests!) and then you can refactor the code, safe in the knowledge that the code is relatively easily testable.', 0);
 INSERT INTO public.objectives (id, day_id, type, question, answer, sort) VALUES (73, 6, 'learning', 'What is Mocha?', 'Mocha is a testing framework. It looks for test files to run in the ./test/ folder.', 1);
 INSERT INTO public.objectives (id, day_id, type, question, answer, sort) VALUES (74, 6, 'learning', 'What is Chai?', 'Chai is an assertion library. It defines a large number of assertions useful for testing.', 2);
@@ -322,6 +334,69 @@ e.g.
 
 See: https://git-scm.com/docs/gitignore
 ', 5);
+INSERT INTO public.objectives (id, day_id, type, question, answer, sort) VALUES (78, 31, 'learning', 'What is React''s Virtual DOM?', 'The virtual DOM is a copy of the DOM that it kept in memory. React does most of its work there, and then as a final step patches the actual DOM, but only where needed.', 0);
+INSERT INTO public.objectives (id, day_id, type, question, answer, sort) VALUES (79, 31, 'performance', 'How do you create a boilerplate React app?', 'On the terminal:
+
+$> npx create-react-app name-of-app-goes-here
+', 1);
+INSERT INTO public.objectives (id, day_id, type, question, answer, sort) VALUES (80, 31, 'learning', 'What is JSX?', 'JSX is a syntax that combines Javascript and HTML. For example, here is a line of valid JSX.
+
+const simple = <h1>Hello, World!</h1>;
+
+When you''re inside some markup, and want to include some Javascript, you need to enclose it in braces, thusly.
+
+const simple = <h1>Hello, {planetNameVariable}!</h1>;
+
+Adjacent HTML tags must have a parent.', 4);
+INSERT INTO public.objectives (id, day_id, type, question, answer, sort) VALUES (81, 31, 'performance', 'How do you make your own HTML Tags using JSX?', 'In JSX, a new component can be made by creating a function that returns HTML.
+
+function Button(props){
+  return (
+    <button>{props.text}</button>
+  );
+}
+
+The following two ways of executing that function from within HTML are equivalent:
+
+<Button text="click me"></Button>
+
+or
+
+{Button({text: ''click me''});', 5);
+INSERT INTO public.objectives (id, day_id, type, question, answer, sort) VALUES (83, 32, 'learning', 'What is the difference between props and state?', 'Props are values that are handed down into a component, as attributes on the custom HTML tag associated with that component''s being called.
+
+State is controlled data that springs into existance when the useState function is called.', 2);
+INSERT INTO public.objectives (id, day_id, type, question, answer, sort) VALUES (84, 32, 'learning', 'When updating state on a component, what might cause an infinite loop?', 'If your component has an event handler that updates state (and certainly, there are many events that should update state), then if your onClick or onChange etc. directly calls your function that updates state, that by itself will trigger a rerendering of the component, which starts the process all over again.
+
+To avoid that infinite loop, your event handler can be set to be a callback function. Then when the component rerenders, it will only establish that callback rather than invoking the state setter again. This breaks what would otherwise start an infinite loop of rendering/stateSetting/etc.', 3);
+INSERT INTO public.objectives (id, day_id, type, question, answer, sort) VALUES (82, 32, 'learning', 'What are the two ways to set state on a React Component??', 'Let''s say you have some state set up thusly:
+
+const [numVisitors, setNumVisitors] = useState(0);
+
+Setting state involves calling the state''s associated setter function (setNumVisitors in this case).
+
+That function can either take the new value for that state, like so:
+
+setNumVisitors(5);
+
+OR...
+
+... it can take a callback as a parameter, like so:
+
+setNumVisitors(currentValue => 5);
+
+This second method is the preferred method for setting state.
+
+Remember that all of the following are equivalent definitions of a function. The input parameter is ignored every time.
+
+function (currentValue){
+  return 5;
+}
+
+(currentValue) => { return 5; } 
+
+currentValue => 5;
+', 0);
 
 
 --
@@ -342,7 +417,7 @@ SELECT pg_catalog.setval('public.days_id_seq', 25, true);
 -- Name: objectives_id_seq; Type: SEQUENCE SET; Schema: public; Owner: christian.nally
 --
 
-SELECT pg_catalog.setval('public.objectives_id_seq', 77, true);
+SELECT pg_catalog.setval('public.objectives_id_seq', 85, true);
 
 
 --
