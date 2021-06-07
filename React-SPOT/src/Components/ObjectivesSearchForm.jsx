@@ -1,5 +1,6 @@
-const ObjectivesSearchForm = () => {
-  console.log("ObjectivesSearchForm function executed.");
+const ObjectivesSearchForm = (props) => {
+  console.log("ObjectivesSearchForm function executed: props=",props);
+
   return (
     <div className="ObjectivesSearchForm">
       <form>
@@ -31,7 +32,9 @@ const ObjectivesSearchForm = () => {
           <option>Performance Objectives</option>
         </select>
 
-        <input type="text" size="30" placeholder="keywords or search strings" />
+        <input onChange={()=>props.setSearchDetails({monkey: 'fuzz'})} type="text" size="30" placeholder="keywords or search strings" />
+
+        <button type="reset">Reset</button>
 
       </form>
     </div>

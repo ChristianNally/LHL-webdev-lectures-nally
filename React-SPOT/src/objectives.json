@@ -664,6 +664,38 @@
   "day_id": 32
   },
   {
+  "id": 86,
+  "type": "learning",
+  "question": "What are some common side-effects that, if you needed to do them, would make a pure function impure?",
+  "answer": "Writing to standard out (eg. console.log)\r\n\r\nModifying the DOM directly (instead of relying on React)\r\n\r\nEstablishing socket connections (eg. ws or Socket.io)\r\n\r\nRetrieving data from an API (eg. axios, jQuery, or the fetch API)\r\n\r\nSetting timers or intervals",
+  "sort": 1,
+  "day_id": 33
+  },
+  {
+  "id": 87,
+  "type": "learning",
+  "question": "How can you prevent a useEffect hook from running, for instance, if that particular call is not relevant?",
+  "answer": "The second parameter to the useEffect call is a 'dependency array'. That array contains values that React will check for changes.\r\n\r\nSo for the following...\r\n\r\nconst [numVisitors, setNumVisitors] = useState(0);\r\n\r\nuseEffect(callback, [numVisitors]);\r\n\r\n... the callback will only be called if numVisitors changes.",
+  "sort": 3,
+  "day_id": 33
+  },
+  {
+  "id": 88,
+  "type": "learning",
+  "question": "What would happen if your use of useEffect depended on a variable called numVisitors changing, and then went ahead and changed numVisitors itself?",
+  "answer": "This would cause an infinite loop, where React would see that numVisitors had changed, call the useEffect again, which would cause numVisitors to change, and so on, ad infinitum.\r\n\r\nFor this reason, you need to be careful that your useEffect calls don't change the state values that they depend on.",
+  "sort": 4,
+  "day_id": 33
+  },
+  {
+  "id": 89,
+  "type": "learning",
+  "question": "How would you ensure that a useEffect callback is called once and only once?",
+  "answer": "To ensure that a useEffect callback is called only on the initial run, set the second parameter to that call to a blank dependency array. This is how you set up a useEffect that does not depend on anything.\r\n\r\nLike so...\r\n\r\nuseEffect(callback, []);",
+  "sort": 5,
+  "day_id": 33
+  },
+  {
   "id": 18,
   "type": "learning",
   "question": "What is DOM traversal?",

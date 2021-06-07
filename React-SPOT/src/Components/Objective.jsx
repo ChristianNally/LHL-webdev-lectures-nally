@@ -3,11 +3,13 @@ const Objective = (props) => {
 
   return (
     <tr className="Objective">
-      <td>{props.obj.type}</td>
-      <td>{props.obj.question}</td>
-      <td>{props.obj.answer}</td>
+      <td>{props.id}</td>
+      <td>{props.day_id}</td>
+      <td>{props.type}</td>
+      <td>{props.question}</td>
+      <td>{props.answer}</td>
     </tr>
   );
-  };
+};
 
 export default Objective;

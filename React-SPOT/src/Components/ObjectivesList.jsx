@@ -9,7 +9,7 @@ const ObjectivesList = (props) => {
           props.objectives.map( (obj,index) => {
             return <Objective 
               key={obj.id} 
-              obj={obj}
+              {...obj}
             />
           })
         }
