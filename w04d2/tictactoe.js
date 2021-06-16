@@ -1,16 +1,17 @@
-$("document").ready(function(){
-  let nextPlay = "X";
+$(document).ready(function(){  
 
-  //
-  // STEP THREE: is there a winner yet?
-  //
+  function checkForVictory(){
+    return false;
+  }
 
-  //
-  // STEP TWO: toggle which player clicks next
-  // 
+  $('td').on('click',function(event){
+    // Set the square to this player's symbol
 
-  //
-  // STEP ONE: on each turn, this event handler will run
-  //
-
+    // Is there a winner yet?
+    if (checkForVictory()) {
+      // someone has won!
+    } else {
+      // Toggle which player clicks next
+    }
+  });
 });

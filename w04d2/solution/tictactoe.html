@@ -1,33 +1,27 @@
 <html>
   <head>
     <title>TicTacToe</title>
-    <link rel="stylesheet" href="tictactoe.css">
+    <link rel="stylesheet" href="tictactoe.css" />
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <!-- Here is how to include JS when using the jQuery solution -->
-    <!-- <script src="tictactoe-jquery.js"></script> -->
+    <script src="tictactoe-jquery.js"></script>
   </head>
   <body>
     <h1>TicTacToe</h1>
-    <h2>Next Play is <span id="nextPlay">X</span></h2>
+    <h2>The current player is <span id="currentPlayer">X</span></h2>
 
-      <table id="board">
-        <tr class="row">
-            <td class="square"></td>
-            <td class="square"></td>
-            <td class="square"></td>
-        </tr>
-        <tr class="row">
-            <td class="square"></td>
-            <td class="square"></td>
-            <td class="square"></td>
-        </tr>
-        <tr class="row">
-            <td class="square"></td>
-            <td class="square"></td>
-            <td class="square"></td>
-        </tr>
+    <table>
+      <tr>
+        <td></td><td></td><td></td>
+      </tr>
+      <tr>
+        <td></td><td></td><td></td>
+      </tr>
+      <tr>
+        <td></td><td></td><td></td>
+      </tr>
     </table>
     <!-- This is how you must include the JS if using the vanilla JS solution -->
-    <script src="tictactoe-vanilla.js"></script>
-</body>
+    <!-- <script src="tictactoe-vanilla.js"></script> -->
+  </body>
 </html>

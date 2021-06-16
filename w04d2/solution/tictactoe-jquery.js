@@ -1,85 +1,85 @@
-$("document").ready(function(){
-  let nextPlay = "X";
+$(document).ready(function(){  
 
-  //
-  // STEP THREE: is there a winner yet?
-  //
-  function checkForVictory(newSquare) {
-    // each type of victory defaults to true
-    // any contrary evidence flips that fragile state
-    // so that the conclusion can be returned at the end
-    // after checking all possibilities
+  function checkForVictory(newSquare){
 
-    let rowWin = true;
-    // only need to check the row this new square is in
-    $(newSquare).siblings().each(function( index ){
-      if (!$(this).hasClass(nextPlay)){
+    const currentPlayer = $('#currentPlayer').html();
+
+    let rowWin = true; // this is fragile state
+    // if any sibling in this row is NOT owned by the current player
+    // then there is no win in this row.
+    $(newSquare).siblings().each(function(index){
+      if (  !$(this).hasClass(currentPlayer)   ) {
         rowWin = false;
-      };
+      }
     });
 
-    let columnWin = true;
+    let columnWin = true; // this is fragile state
     // only need to check the column this new square is in
-    let columnNum = $(newSquare).index() + 1;
-    $(".row")
-      .children(".square:nth-of-type(" + columnNum + ")")
-      .each(function( index ){
-      if (!$(this).hasClass(nextPlay)){
+    const columnNum = $(newSquare).index() + 1;
+    console.log(`columnNum:${columnNum}`);
+
+    // the next jquery selector returns all three rows, so 
+    // the .children call will select from the children of each
+    // row in succession
+    $("tr").children("td:nth-of-type(" + columnNum + ")").each(function( index ){
+      if (!$(this).hasClass(currentPlayer)){
         columnWin = false;
       };
     });
 
-    // check first diagonal
-    // TODO clean up with .children.eq(0).hasClass();
-    let firstDiagonalWin = true;
-    if ( !$(".row:nth-of-type(" + 1 + ")").children('.square:nth-of-type(' + 1 + ')').hasClass(nextPlay)
-    || !$(".row:nth-of-type(" + 2 + ")").children('.square:nth-of-type(' + 2 + ')').hasClass(nextPlay)
-    || !$(".row:nth-of-type(" + 3 + ")").children('.square:nth-of-type(' + 3 + ')').hasClass(nextPlay)
-    ){ // upper-left to lower-right lacks nextPlay
-      firstDiagonalWin = false;
+    const rowNum = $(newSquare).parent().index() + 1;
+    console.log(`rowNum:${rowNum}`);
+
+    let backSlashDiagonalWin = false;
+    // if newSquare is on the backslash \ diagonal, check the backslash diagonal.
+    if (rowNum === columnNum){
+      console.log('backslash diagonal');
+      if ( $("tr:nth-child(1) td:nth-child(1)").hasClass(currentPlayer) 
+        && $("tr:nth-child(2) td:nth-child(2)").hasClass(currentPlayer)
+        && $("tr:nth-child(3) td:nth-child(3)").hasClass(currentPlayer)
+      ){
+        backSlashDiagonalWin = true;
+      }
     }
 
-    let otherDiagonalWin = true;
-    if ( !$(".row:nth-of-type(" + 1 + ")").children('.square:nth-of-type(' + 3 + ')').hasClass(nextPlay)
-    || !$(".row:nth-of-type(" + 2 + ")").children('.square:nth-of-type(' + 2 + ')').hasClass(nextPlay)
-    || !$(".row:nth-of-type(" + 3 + ")").children('.square:nth-of-type(' + 1 + ')').hasClass(nextPlay)
-    ){ // upper-right to lower-left has any non-nextPlay
-      otherDiagonalWin = false;
+    let forwardSlashDiagonalWin = false;
+    // if newSquare is on the forward slash / diagonal, check it.
+    if ( (rowNum + columnNum) === 4){
+      console.log('forwardslash diagonal');
+      if ( $("tr:nth-child(1) td:nth-child(3)").hasClass(currentPlayer) 
+        && $("tr:nth-child(2) td:nth-child(2)").hasClass(currentPlayer)
+        && $("tr:nth-child(3) td:nth-child(1)").hasClass(currentPlayer)
+      ){
+        forwardSlashDiagonalWin = true;
+      }
     }
 
-    // if any victory type is true, return true
-    return ( rowWin === true 
-      || columnWin === true
-      || firstDiagonalWin === true
-      || otherDiagonalWin === true
-      );
+    // if any victory type is still true, return true
+    console.log(`rowWin:${rowWin} columnWin:${columnWin} backSlashDiagonalWin:${backSlashDiagonalWin} forwardSlashDiagonalWin:${forwardSlashDiagonalWin}`);
+    return ( rowWin || columnWin || backSlashDiagonalWin || forwardSlashDiagonalWin );
   }
 
-  //
-  // STEP TWO: toggle which player clicks next
-  // 
+  $('td').on('click',function(event){
 
-  function toggleNextPlay() {
-    if ("X" === nextPlay) {
-      nextPlay = "O";
-    } else {
-      nextPlay = "X";
-    }
-    $("#nextPlay").html(nextPlay);
-  }
+    // Set the square to this player's symbol
+    const currentPlayer = $('#currentPlayer').html();
+    $(this).addClass(currentPlayer);
 
-  //
-  // STEP ONE: on each turn, this event handler will run
-  //
-
-  $(".square").on("click", function (event) {
-    $(this).addClass(nextPlay);
+    // Is there a winner yet?
     if (checkForVictory(this)) {
-      $("#nextPlay").html(' <a href="">Play Again.</a>');
-      $(".square").off("click");
+      // someone has won!
+      $('h2').html(`${currentPlayer} won! <a href="">Play Again.</a>`);
+      $('td').off('click');
     } else {
-      toggleNextPlay();
-      $(this).off("click");
+      $(this).off('click');
+      // Toggle which player clicks next
+      if ('X' === currentPlayer){
+        $('#currentPlayer').html('O');
+      } else {
+        $('#currentPlayer').html('X');
+      }
     }
+
   });
+
 });

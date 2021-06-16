@@ -1,4 +1,4 @@
-let nextPlay = "X";
+let currentPlayer = "X";
 
 //
 // STEP THREE: is there a winner yet?
@@ -29,24 +29,24 @@ function checkForVictory(newSquare) {
 // 
 
 function toggleNextPlay() {
-  if ("X" === nextPlay) {
-    nextPlay = "O";
+  if ("X" === currentPlayer) {
+    currentPlayer = "O";
   } else {
-    nextPlay = "X";
+    currentPlayer = "X";
   }
-  document.getElementById("nextPlay").innerHTML = nextPlay
+  document.getElementById("currentPlayer").innerHTML = currentPlayer;
 }
 
 //
 // STEP ONE: on each turn, this event handler will run
 //
 
-document.querySelectorAll('.square').forEach(item => {
+document.querySelectorAll('td').forEach(item => {
   item.addEventListener('click', event => {
     console.log(event);
-    event.srcElement.classList.add(nextPlay);
+    event.srcElement.classList.add(currentPlayer);
     if (checkForVictory(this)) {
-      document.getElementById("nextPlay").innerHTML(' <a href="">Play Again.</a>');
+      document.getElementById("currentPlayer").innerHTML(' <a href="">Play Again.</a>');
     // TODO: remove the event listeners from all .square elements
     // see https://stackoverflow.com/questions/48414382/removing-all-eventlisteners-by-class
     } else {
