@@ -53,7 +53,7 @@ app.get('/login',(req,res)=>{
   console.log("IP:",req.connection.remoteAddress);
   uid = crypto.randomBytes(20).toString('hex');
   res.cookie("spot-uid", uid);
-  res.redirect("/student/6");
+  res.redirect("/student/22");
 });
 
 // currently targeted by the form in the header
@@ -201,7 +201,7 @@ app.get("/days/:id", (req, res) => {
   if(userEmail){
     dbFns.getDay(req.params.id, (rows) => {
       rows.forEach((obj)=>{ obj.understandString = understandString(obj.id); });
-      console.log('rows:',rows);
+//      console.log('rows:',rows);
       dbFns.getDayDetails(req.params.id, (row) => {
         //      console.log('row[0].day_mnemonic:',row[0].day_mnemonic);
         res.render("day", {
@@ -269,6 +269,16 @@ app.get("/browse", (req, res) => {
     return;
   }
   res.redirect('/register');
+});
+
+app.get("/json",(req,res)=>{
+  const userEmail = loggedInEmail(req);
+  if(userEmail){
+    dbFns.getAllObjectives((rows) => {
+      res.json(rows);
+    });
+    return;
+  }
 });
 
 // READ
