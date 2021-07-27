@@ -2,21 +2,13 @@
 
 // TODO
 //
-// 1) add planets via mouse. 
+// add planets via mouse. 
 // - click start position,
 // - drag to make velocity vector, 
 // - vector color changes while dragging,
 // - where white vector equals escape velocity
 //
-// 2) change unit to be closer to physical reality
-// 
-// 3) make the deltaT something proportional to the setTimeout delay 
-//
-// 4) investigate using something other than first order 
-// numerical integration (for improved accuracy)
-//
-// 5) add controls for deltaT, speed of time evolution, etc.
-//
+// change unit to be closer to physical reality
 
 const DELTA = 100; // time-step in milliseconds
 const MASS_SIZE = 20; // ratio of pixel size to mass
