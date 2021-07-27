@@ -1,0 +1,18 @@
+div#universe {
+  width: 500px;
+  height: 500px;
+  background-color: black;
+}
+
+.planet {
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+}
+
+#Earth {
+  background-color: blue;
+  position: absolute;
+  top: 50px;
+  left: 50px;
+}
