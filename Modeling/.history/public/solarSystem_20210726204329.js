@@ -116,9 +116,9 @@ class Planet {
       );
 
       if (this.trail){
-        const timeStamp = Date.now();;
-        console.log('timeStamp:',timeStamp);
-        const newName = `trail${timeStamp}`;
+        const currentUTCMilliseconds = new Date().getUTCMilliseconds();
+        console.log('currentUTCMilliseconds:',currentUTCMilliseconds);
+        const newName = `trail${currentUTCMilliseconds}`;
         const trail = new Planet({name: newName,
           x: this.x,
           y: this.y,

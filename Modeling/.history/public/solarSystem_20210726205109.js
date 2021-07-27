@@ -116,7 +116,7 @@ class Planet {
       );
 
       if (this.trail){
-        const timeStamp = Date.now();;
+        const timeStamp = new Date().now();
         console.log('timeStamp:',timeStamp);
         const newName = `trail${timeStamp}`;
         const trail = new Planet({name: newName,

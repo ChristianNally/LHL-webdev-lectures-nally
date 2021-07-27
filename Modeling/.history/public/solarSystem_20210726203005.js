@@ -49,16 +49,6 @@ class Planet {
       console.log('a trail is being made');
     }
 
-    if (this.name === 'Earth'){
-      console.log('an earth is being made');
-    }
-
-    if (this.class == 'planet' || this.class == 'trail'){
-      // do nothing
-    } else {
-      console.log('creating orphan trail');
-    }
-
     if (this.dynamic) {
       this.updatePosition(); // set the physical parameters before showing
     }
@@ -115,19 +105,17 @@ class Planet {
         `${this.name}: x=${this.x} y=${this.y} CSSleft=${CSSleft} CSStop=${CSStop} Vx=${this.Vx} Vy=${this.Vy} mass=${this.mass}`
       );
 
-      if (this.trail){
-        const timeStamp = Date.now();;
-        console.log('timeStamp:',timeStamp);
-        const newName = `trail${timeStamp}`;
-        const trail = new Planet({name: newName,
-          x: this.x,
-          y: this.y,
-          mass: 0,
-          color: 'gray',
-          class: 'trail',
-          dynamic: false,
-          zIndex: -98});
-      }
+      const currentUTCMilliseconds = new Date().getUTCMilliseconds();
+      console.log('currentUTCMilliseconds:',currentUTCMilliseconds);
+      const newName = `trail${currentUTCMilliseconds}`;
+      const trail = new Planet({name: newName,
+        x: this.x,
+        y: this.y,
+        mass: 0,
+        color: 'gray',
+        class: 'trail',
+        dynamic: false,
+        zIndex: -98});
       $(`#${this.name}`).animate({ top: `${CSStop}`, left: `${CSSleft}` }, 0);
     }
     setTimeout(() => {
