@@ -2,7 +2,7 @@
 
 const DELTA = 100; // time-step in milliseconds
 const MASS_SIZE = 20; // ratio of pixel size to mass
-const UNIVERSE_SIZE = 666; // in pixels
+const UNIVERSE_SIZE = 700; // in pixels
 
 class Planet {
   constructor(configObject) {
@@ -138,6 +138,6 @@ $(document).ready(function () {
 
   const earth = new Planet({name:'Earth', x:100, y:100, Vx:-3, Vy:4.4, mass:1, color:'blue', dynamic: true});
   const mars = new Planet({name:'Mars', x:120, y:120, Vx:-3, Vy:4.4, mass:1, color:'red', dynamic: true, trail: true});
-  const y = new Planet({ name: "Sun", mass: 2.5, dynamic: false, zIndex: -99 });
+  const y = new Planet({ name: "Sun", mass: 3, dynamic: false, zIndex: -99 });
 
 });
