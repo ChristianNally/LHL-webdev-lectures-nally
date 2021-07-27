@@ -40,7 +40,6 @@ class Planet {
     const [CSSleft, CSStop] = this.getCSSCoords([this.x, this.y, this.mass]);
     $(`#${this.name}`).css("top", CSStop);
     $(`#${this.name}`).css("left", CSSleft);
-    $(`#${this.name}`).addClass(this.class);
     if (this.mass < 0.001){
       $(`#${this.name}`).css("height", 1);
       $(`#${this.name}`).css("width", 1);  
@@ -129,7 +128,7 @@ $(document).ready(function () {
   });
 
   $("#cleartracks").click(function () {
-    $('.trail').remove();
+    $('').
   });
 
   $("div#universe").css("width", `${UNIVERSE_SIZE}px`);

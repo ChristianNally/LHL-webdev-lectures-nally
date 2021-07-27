@@ -129,7 +129,7 @@ $(document).ready(function () {
   });
 
   $("#cleartracks").click(function () {
-    $('.trail').remove();
+    $('').
   });
 
   $("div#universe").css("width", `${UNIVERSE_SIZE}px`);
