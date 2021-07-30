@@ -84,7 +84,7 @@ function App() {
         (item.type === searchDetails.type || searchDetails.type === "all") &&
         (parseInt(item.day_id) % 5 === parseInt(searchDetails.day, 10) ||
           parseInt(searchDetails.day) === 0) &&
-        (calculatedWeek === specifiedWeek || parseInt(searchDetails.week) === 0)
+        (calculatedWeek === specifiedWeek || searchDetails.week === 0)
       ) {
         return true;
       }

@@ -26,7 +26,6 @@ function App() {
   // Utility callback for onChange to call
   //
   const newSearchDetails = (details) => {
-    console.log('executing newSearchDetails');
     setSearchDetails({ ...details });
   };
 
@@ -76,15 +75,15 @@ function App() {
 
   // a hook for whenever these change: [sourceObjectives, searchDetails] 
   useEffect(() => {
-    console.log('searchDetails inside useEffect:',searchDetails);
     const newObjectivesArray = sourceObjectives.filter((item) => {
-      const calculatedWeek = Math.floor(parseInt(item.day_id) / 5) + 1;
+      console.log('searchDetails:',searchDetails);
+      const calculatedWeek = Math.floor(item.day_id / 5) + 1;
       const specifiedWeek = parseInt(searchDetails.week, 10);
       if (
         (item.type === searchDetails.type || searchDetails.type === "all") &&
-        (parseInt(item.day_id) % 5 === parseInt(searchDetails.day, 10) ||
-          parseInt(searchDetails.day) === 0) &&
-        (calculatedWeek === specifiedWeek || parseInt(searchDetails.week) === 0)
+        (item.day_id % 5 === parseInt(searchDetails.day, 10) ||
+          searchDetails.day === 0) &&
+        (calculatedWeek === specifiedWeek || searchDetails.week === 0)
       ) {
         return true;
       }
