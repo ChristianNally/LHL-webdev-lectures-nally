@@ -5,10 +5,10 @@ const ObjectivesList = (props) => {
   return (
     <table>
       <colgroup>
-      <col style={{width: 10 + '%'}}/>
-      <col style={{width: 10 + '%'}}/>
-      <col style={{width: 40 + '%'}}/>
-      <col style={{width: 40 + '%'}}/>
+      <col style="width:10%"/>
+      <col style="width:10%"/>
+      <col style="width:40%"/>
+      <col style="width:40%"/>
       </colgroup>
       <tbody>
         {

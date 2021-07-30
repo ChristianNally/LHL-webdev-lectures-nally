@@ -9,6 +9,6 @@ tr:nth-child(even) {
   background-color: #ddd;
 }
 
-td {
-  padding: 10px;
+tr {
+  padding: 5px;
 }

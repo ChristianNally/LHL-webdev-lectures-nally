@@ -3,12 +3,8 @@ body {
 }
 
 tr:nth-child(odd) {
-  background-color: #ccc;
+  color: #777;
 }
 tr:nth-child(even) {
-  background-color: #ddd;
-}
-
-td {
-  padding: 10px;
+  color: blue;
 }

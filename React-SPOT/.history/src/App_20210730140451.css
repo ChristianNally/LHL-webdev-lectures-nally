@@ -8,7 +8,3 @@ tr:nth-child(odd) {
 tr:nth-child(even) {
   background-color: #ddd;
 }
-
-td {
-  padding: 10px;
-}

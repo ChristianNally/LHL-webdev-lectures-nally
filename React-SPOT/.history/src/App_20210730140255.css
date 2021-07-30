@@ -1,0 +1,13 @@
+body {
+  background-color: lightgrey;
+}
+
+td {
+  color: black;
+}
+td:nth-child(odd) {
+  color: #777;
+}
+td:nth-child(even) {
+  color: blue;
+}
