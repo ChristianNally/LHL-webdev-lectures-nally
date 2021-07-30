@@ -34,7 +34,7 @@ const ObjectivesSearchForm = (props) => {
 
         <input name="search" onChange={(event)=>props.newSearchDetails({...props.searchDetails, search: event.target.value})} type="text" size="30" placeholder="keywords or search strings" />
 
-        <button type="reset" onClick={()=>props.newSearchDetails({
+        <button type="reset" onClick={(event)=>props.newSearchDetails({
           week: 0,
           day: 0,
           type: "all",

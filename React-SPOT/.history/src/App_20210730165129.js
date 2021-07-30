@@ -80,11 +80,12 @@ function App() {
     const newObjectivesArray = sourceObjectives.filter((item) => {
       const calculatedWeek = Math.floor(parseInt(item.day_id) / 5) + 1;
       const specifiedWeek = parseInt(searchDetails.week, 10);
+      console.log('item.search:',item.search);
       if (
         (item.type === searchDetails.type || searchDetails.type === "all") 
         && (parseInt(item.day_id) % 5 === parseInt(searchDetails.day, 10) || parseInt(searchDetails.day) === 0) 
         && (calculatedWeek === specifiedWeek || parseInt(searchDetails.week) === 0)
-        && (searchDetails.search === undefined || (item.question.includes(searchDetails.search)))
+        && ( (item.search !== "" && item.search.includes(searchDetails.search)) || searchDetails.search === "")
       ) {
         return true;
       }

@@ -32,7 +32,7 @@ const ObjectivesSearchForm = (props) => {
           <option value="performance">Performance Objectives</option>
         </select>
 
-        <input name="search" onChange={(event)=>props.newSearchDetails({...props.searchDetails, search: event.target.value})} type="text" size="30" placeholder="keywords or search strings" />
+        <input name="search" onChange={()=>props.newSearchDetails({monkey: 'fuzz'})} type="text" size="30" placeholder="keywords or search strings" />
 
         <button type="reset" onClick={()=>props.newSearchDetails({
           week: 0,
