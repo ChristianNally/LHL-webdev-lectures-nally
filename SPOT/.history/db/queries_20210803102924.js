@@ -33,11 +33,18 @@ const insertUser = (newObj) => {
 // Understanding
 //
 
+const newUnderstanding = {
+  user_id: user_id,
+  objective_id: objective_id,
+  understanding_id: understanding_id
+};
+dbFns.insertUnderstanding(newUnderstanding);
+
 const insertUnderstanding = (newObj) => {
   return client
   .query(
-    "INSERT INTO understandings (user_id, obj_id, level) VALUES ($1,$2,$3);",
-    [newObj.user_id, newObj.objective_id, newObj.understanding_id]
+    "INSERT INTO understandings (user_id, obj_id, day_id) VALUES ($1,$2,$3);",
+    [newObj.user_id, newObj.obj_id, newObj.day_id]
   )
   .then((response) => {
     return true; // TODO can we return the new ID for this new row?
@@ -46,6 +53,11 @@ const insertUnderstanding = (newObj) => {
     console.log("insertObjective query error:", err);
   });
 };
+
+
+const insertObjective = (newObj) => {
+
+}
 
 //
 // Days
@@ -217,7 +229,6 @@ module.exports = {
   updateObjective,
   setObjectiveSortOrder,
   deleteObjective,
-  insertUnderstanding,
   getAllDays,
   getDay,
   getDayDetails,

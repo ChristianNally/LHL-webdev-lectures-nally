@@ -36,8 +36,8 @@ const insertUser = (newObj) => {
 const insertUnderstanding = (newObj) => {
   return client
   .query(
-    "INSERT INTO understandings (user_id, obj_id, level) VALUES ($1,$2,$3);",
-    [newObj.user_id, newObj.objective_id, newObj.understanding_id]
+    "INSERT INTO understandings (user_id, obj_id, day_id) VALUES ($1,$2,$3);",
+    [newObj.user_id, newObj.obj_id, newObj.day_id]
   )
   .then((response) => {
     return true; // TODO can we return the new ID for this new row?
