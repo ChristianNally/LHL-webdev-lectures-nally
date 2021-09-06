@@ -1,0 +1,11 @@
+Review of React
+
+[] npx create-react-app client
+[] create a basic TodoList component
+[] edit App.js to refer to the new component
+[] refactor the TodoList component to take props
+[] add some state (items) to App.js
+[] initialize that state
+[] axios
+[] useEffect
+[] stretch: delete a TodoListItem by passing in a helper function as a prop
