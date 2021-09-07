@@ -18,7 +18,7 @@
 // 5) add controls for deltaT, speed of time evolution, etc.
 //
 
-const DELTA = 1; // time-step in milliseconds
+const DELTA = 100; // time-step in milliseconds
 const MASS_SIZE = 20; // ratio of pixel size to mass
 const UNIVERSE_SIZE = 666; // in pixels
 
@@ -80,8 +80,6 @@ class Planet {
       $(`#${this.name}`).css("height", this.mass * MASS_SIZE);
       $(`#${this.name}`).css("width", this.mass * MASS_SIZE);  
     }
-    $('#vector_universe').append(`<circle cx="${CSSleft}" cy="${CSStop}" r="${this.mass}" stroke="black" stroke-width="3" fill="red" />`);
-    $("body").html($("body").html());
   }
 
   getCSSCoords([a, b, m]) {
@@ -172,7 +170,7 @@ $(document).ready(function () {
   $("div#universe").css("height", `${UNIVERSE_SIZE}px`);
   $("div#universe").css("background-color", "black");
 
-  const earth = new Planet({name:'Earth', x:100, y:100, Vx:-3, Vy:4.4, mass:1, color:'blue', dynamic: true, trail: true});
+  const earth = new Planet({name:'Earth', x:100, y:100, Vx:-3, Vy:4.4, mass:1, color:'blue', dynamic: true});
   const mars = new Planet({name:'Mars', x:120, y:120, Vx:-3, Vy:4.4, mass:1, color:'red', dynamic: true, trail: true});
   const other = new Planet({name:'Other', x:200, y:200, Vx:-3, Vy:4.4, mass:1, color:'green', dynamic: true, trail: true});
   const y = new Planet({ name: "Sun", mass: 2.5, dynamic: false, zIndex: -99 });

@@ -18,7 +18,7 @@
 // 5) add controls for deltaT, speed of time evolution, etc.
 //
 
-const DELTA = 1; // time-step in milliseconds
+const DELTA = 10; // time-step in milliseconds
 const MASS_SIZE = 20; // ratio of pixel size to mass
 const UNIVERSE_SIZE = 666; // in pixels
 
@@ -80,8 +80,6 @@ class Planet {
       $(`#${this.name}`).css("height", this.mass * MASS_SIZE);
       $(`#${this.name}`).css("width", this.mass * MASS_SIZE);  
     }
-    $('#vector_universe').append(`<circle cx="${CSSleft}" cy="${CSStop}" r="${this.mass}" stroke="black" stroke-width="3" fill="red" />`);
-    $("body").html($("body").html());
   }
 
   getCSSCoords([a, b, m]) {

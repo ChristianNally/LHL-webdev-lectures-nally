@@ -66,6 +66,8 @@ class Planet {
   }
 
   append() {
+    $('#vector_universe').append(`<circle cx="${this.x}" cy="${this.y}" r="40" stroke="black" stroke-width="3" fill="red" />`);
+
     $("#universe").append(`<div id="${this.name}"></div>`);
     $(`#${this.name}`).css("position", "absolute");
     $(`#${this.name}`).css("background-color", this.color);
@@ -80,8 +82,6 @@ class Planet {
       $(`#${this.name}`).css("height", this.mass * MASS_SIZE);
       $(`#${this.name}`).css("width", this.mass * MASS_SIZE);  
     }
-    $('#vector_universe').append(`<circle cx="${CSSleft}" cy="${CSStop}" r="${this.mass}" stroke="black" stroke-width="3" fill="red" />`);
-    $("body").html($("body").html());
   }
 
   getCSSCoords([a, b, m]) {
