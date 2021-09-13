@@ -22,7 +22,7 @@ CREATE TABLE sample_table
     id bigint,
     day_id character varying(5),
     type character varying(12),
-    description text,
+    question text,
     answer text,
     sort smallint
 );
