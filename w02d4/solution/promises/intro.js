@@ -1,16 +1,16 @@
 const monkeyfuzz = require('./promise-generator');
-
 const returnPromise = monkeyfuzz.returnPromise;
 
 const promise = returnPromise('first promise', 4444);
-console.log(promise);
+console.log('promise:',promise);
 
+console.log('first');
+console.log('second');
 
 // Not the best way to do this
-
 // setTimeout(()=>{
-//   console.log(promise);
-// },5000);
+//   console.log('3 seconds later:',promise);
+// },3000);
 
 //
 // The RIGHT way to do this
@@ -18,11 +18,9 @@ console.log(promise);
 
 promise
   .then((data) => {
-    console.log(data);
-    return 'another thing';
-  })
-  .then((data) => {
-    console.log("monkeyfuzz",data);
+    console.log('first');
+    console.log('second');
+    const newData = 'another thing';
+    console.log("newData:",newData);
+    console.log('data:', data);
   });
-
-  
