@@ -18,11 +18,11 @@
 // 5) add controls for deltaT, speed of time evolution, etc.
 //
 
-const DELTA = 30; // time-step in milliseconds
+const DELTA = 1; // time-step in milliseconds
 const MASS_SIZE = 20; // ratio of pixel size to mass
 const UNIVERSE_SIZE = 666; // in pixels
 
-const listOfPlanets = [];
+const listOfDynamicPlanets = [];
 
 const debugLog = function(message1,message2,message3){
   console.log(message1,message2,message3);
@@ -42,7 +42,7 @@ class Planet {
       this.mass = configObject.mass;
     }
     this.color = configObject.color || "white";
-    this.planet = configObject.planet; // set false to create a fixed point
+    this.dynamic = configObject.dynamic; // set false to create a fixed point
     this.zIndex = configObject.zIndex || 0;
 
     if ('undefined' === typeof configObject.trail){
@@ -51,24 +51,24 @@ class Planet {
       this.trail = configObject.trail;
     }
 
-    // the following code could be replaced by a single debug report that shows all values
-    // if (this.trail){
-    //   debugLog('a trail is being made');
-    // }
-    // if (this.name === 'Earth'){
-    //   debugLog('an earth is being made');
-    // }
-    // if (this.class == 'planet' || this.class == 'trail'){
-    //   // do nothing
-    // } else {
-    //   debugLog('creating orphan trail');
-    // }
-
-    if (this.planet) {
-      this.updatePosition(); // set the physical parameters before showing
-      listOfPlanets.push(this); // insert this onto the list of planets
+    if (this.trail){
+      debugLog('a trail is being made');
     }
-    this.append(); // show the new object in the universe
+
+    if (this.name === 'Earth'){
+      debugLog('an earth is being made');
+    }
+
+    if (this.class == 'planet' || this.class == 'trail'){
+      // do nothing
+    } else {
+      debugLog('creating orphan trail');
+    }
+
+    if (this.dynamic) {
+      this.updatePosition(); // set the physical parameters before showing
+    }
+    this.append(); // show the new planet on the universe
   }
 
   append() {
@@ -100,7 +100,7 @@ class Planet {
   }
 
   updatePosition() {
-    if ($("#state").html() === "Moving" && this.planet) {
+    if ($("#state").html() === "Moving" && this.dynamic) {
       const [Fx, Fy] = this.calcGravity();
 
       // F=MA therefore...
@@ -133,17 +133,14 @@ class Planet {
           mass: 0,
           color: 'gray',
           class: 'trail',
-          planet: false,
+          dynamic: false,
           zIndex: -98});
       }
       $(`#${this.name}`).animate({ top: `${CSStop}`, left: `${CSSleft}` }, 0);
-      debugLog('now=',Date.now());
-      setTimeout(() => {
-        this.updatePosition();
-      }, DELTA);
     }
-    // if (this.planet){
-    // }
+    setTimeout(() => {
+      this.updatePosition();
+    }, DELTA);
   }
 
   calcGravity() {
@@ -174,9 +171,6 @@ $(document).ready(function () {
       $("#state").html("Stopped");
     } else {
       $("#state").html("Moving");
-      listOfPlanets.forEach(element => {
-        element.updatePosition();
-      });
     }
   });
 
@@ -190,17 +184,9 @@ $(document).ready(function () {
 
   $("div#universe").click(handleClick);
 
-  const earth = new Planet({
-    name:'Earth', x:100, y:100, Vx:-3, Vy:4.4, mass:1, color:'blue', planet: true, trail: true
-  });
-  const mars = new Planet({
-    name:'Mars',  x:120, y:120, Vx:-3, Vy:4.4, mass:1, color:'red', planet: true, trail: true
-  });
-  const other = new Planet({
-    name:'Other', x:200, y:200, Vx:-3, Vy:4.4, mass:1, color:'green', planet: true, trail: true
-  });
-  const y = new Planet({ 
-    name: "Sun", mass: 2.5, planet: false, zIndex: -99 
-  });
+  const earth = new Planet({name:'Earth', x:100, y:100, Vx:-3, Vy:4.4, mass:1, color:'blue', dynamic: true, trail: true});
+  const mars = new Planet({name:'Mars', x:120, y:120, Vx:-3, Vy:4.4, mass:1, color:'red', dynamic: true, trail: true});
+  const other = new Planet({name:'Other', x:200, y:200, Vx:-3, Vy:4.4, mass:1, color:'green', dynamic: true, trail: true});
+  const y = new Planet({ name: "Sun", mass: 2.5, dynamic: false, zIndex: -99 });
 
 });

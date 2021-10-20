@@ -137,13 +137,13 @@ class Planet {
           zIndex: -98});
       }
       $(`#${this.name}`).animate({ top: `${CSStop}`, left: `${CSSleft}` }, 0);
+    }
+    if (this.planet){
       debugLog('now=',Date.now());
       setTimeout(() => {
         this.updatePosition();
-      }, DELTA);
+      }, DELTA);  
     }
-    // if (this.planet){
-    // }
   }
 
   calcGravity() {
@@ -174,9 +174,6 @@ $(document).ready(function () {
       $("#state").html("Stopped");
     } else {
       $("#state").html("Moving");
-      listOfPlanets.forEach(element => {
-        element.updatePosition();
-      });
     }
   });
 

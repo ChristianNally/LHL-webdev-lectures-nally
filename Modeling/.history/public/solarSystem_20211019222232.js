@@ -18,7 +18,7 @@
 // 5) add controls for deltaT, speed of time evolution, etc.
 //
 
-const DELTA = 30; // time-step in milliseconds
+const DELTA = 60; // time-step in milliseconds
 const MASS_SIZE = 20; // ratio of pixel size to mass
 const UNIVERSE_SIZE = 666; // in pixels
 
@@ -137,13 +137,13 @@ class Planet {
           zIndex: -98});
       }
       $(`#${this.name}`).animate({ top: `${CSStop}`, left: `${CSSleft}` }, 0);
+    }
+    if (this.planet){
       debugLog('now=',Date.now());
       setTimeout(() => {
         this.updatePosition();
-      }, DELTA);
+      }, DELTA);  
     }
-    // if (this.planet){
-    // }
   }
 
   calcGravity() {
@@ -174,9 +174,6 @@ $(document).ready(function () {
       $("#state").html("Stopped");
     } else {
       $("#state").html("Moving");
-      listOfPlanets.forEach(element => {
-        element.updatePosition();
-      });
     }
   });
 

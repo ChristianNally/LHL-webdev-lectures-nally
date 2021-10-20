@@ -18,11 +18,11 @@
 // 5) add controls for deltaT, speed of time evolution, etc.
 //
 
-const DELTA = 30; // time-step in milliseconds
+const DELTA = 1; // time-step in milliseconds
 const MASS_SIZE = 20; // ratio of pixel size to mass
 const UNIVERSE_SIZE = 666; // in pixels
 
-const listOfPlanets = [];
+const listOfDynamicPlanets = [];
 
 const debugLog = function(message1,message2,message3){
   console.log(message1,message2,message3);
@@ -51,24 +51,24 @@ class Planet {
       this.trail = configObject.trail;
     }
 
-    // the following code could be replaced by a single debug report that shows all values
-    // if (this.trail){
-    //   debugLog('a trail is being made');
-    // }
-    // if (this.name === 'Earth'){
-    //   debugLog('an earth is being made');
-    // }
-    // if (this.class == 'planet' || this.class == 'trail'){
-    //   // do nothing
-    // } else {
-    //   debugLog('creating orphan trail');
-    // }
+    if (this.trail){
+      debugLog('a trail is being made');
+    }
+
+    if (this.name === 'Earth'){
+      debugLog('an earth is being made');
+    }
+
+    if (this.class == 'planet' || this.class == 'trail'){
+      // do nothing
+    } else {
+      debugLog('creating orphan trail');
+    }
 
     if (this.planet) {
       this.updatePosition(); // set the physical parameters before showing
-      listOfPlanets.push(this); // insert this onto the list of planets
     }
-    this.append(); // show the new object in the universe
+    this.append(); // show the new planet on the universe
   }
 
   append() {
@@ -137,13 +137,12 @@ class Planet {
           zIndex: -98});
       }
       $(`#${this.name}`).animate({ top: `${CSStop}`, left: `${CSSleft}` }, 0);
-      debugLog('now=',Date.now());
+    }
+    if (this.planet){
       setTimeout(() => {
         this.updatePosition();
-      }, DELTA);
+      }, DELTA);  
     }
-    // if (this.planet){
-    // }
   }
 
   calcGravity() {
@@ -174,9 +173,6 @@ $(document).ready(function () {
       $("#state").html("Stopped");
     } else {
       $("#state").html("Moving");
-      listOfPlanets.forEach(element => {
-        element.updatePosition();
-      });
     }
   });
 

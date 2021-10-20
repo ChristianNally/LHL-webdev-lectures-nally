@@ -174,9 +174,6 @@ $(document).ready(function () {
       $("#state").html("Stopped");
     } else {
       $("#state").html("Moving");
-      listOfPlanets.forEach(element => {
-        element.updatePosition();
-      });
     }
   });
 
