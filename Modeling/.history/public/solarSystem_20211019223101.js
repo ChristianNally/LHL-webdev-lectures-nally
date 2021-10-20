@@ -18,7 +18,7 @@
 // 5) add controls for deltaT, speed of time evolution, etc.
 //
 
-let DELTA_T = 50; // time-step in milliseconds
+const DELTA = 10; // time-step in milliseconds
 const MASS_SIZE = 20; // ratio of pixel size to mass
 const UNIVERSE_SIZE = 666; // in pixels
 
@@ -140,7 +140,7 @@ class Planet {
       debugLog('now=',Date.now());
       setTimeout(() => {
         this.updatePosition();
-      }, DELTA_T);
+      }, DELTA);
     }
     // if (this.planet){
     // }
@@ -182,12 +182,6 @@ $(document).ready(function () {
 
   $("#cleartracks").click(function () {
     $('.trail').remove();
-  });
-
-  $("#deltat").on("click", function(event){
-    console.log('deltat event fired:',event);
-    $('#deltat-value').html(event.target.value);
-    DELTA_T = event.target.value;
   });
 
   $("div#universe").css("width", `${UNIVERSE_SIZE}px`);

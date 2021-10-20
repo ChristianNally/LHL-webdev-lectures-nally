@@ -18,7 +18,7 @@
 // 5) add controls for deltaT, speed of time evolution, etc.
 //
 
-let DELTA_T = 50; // time-step in milliseconds
+const DELTA_T = 100; // time-step in milliseconds
 const MASS_SIZE = 20; // ratio of pixel size to mass
 const UNIVERSE_SIZE = 666; // in pixels
 
@@ -187,7 +187,6 @@ $(document).ready(function () {
   $("#deltat").on("click", function(event){
     console.log('deltat event fired:',event);
     $('#deltat-value').html(event.target.value);
-    DELTA_T = event.target.value;
   });
 
   $("div#universe").css("width", `${UNIVERSE_SIZE}px`);
@@ -197,13 +196,13 @@ $(document).ready(function () {
   $("div#universe").click(handleClick);
 
   const earth = new Planet({
-    name:'Earth', x:100, y:100, Vx:-3, Vy:4.4, mass:1, color:'blue', planet: true, trail: true
+    name:'Earth', x:100, y:100, Vx:-3, Vy:4.4, mass:1, color:'blue', planet: true, trail: false
   });
   const mars = new Planet({
-    name:'Mars',  x:120, y:120, Vx:-3, Vy:4.4, mass:1, color:'red', planet: true, trail: true
+    name:'Mars',  x:120, y:120, Vx:-3, Vy:4.4, mass:1, color:'red', planet: true, trail: false
   });
   const other = new Planet({
-    name:'Other', x:200, y:200, Vx:-3, Vy:4.4, mass:1, color:'green', planet: true, trail: true
+    name:'Other', x:200, y:200, Vx:-3, Vy:4.4, mass:1, color:'green', planet: true, trail: false
   });
   const y = new Planet({ 
     name: "Sun", mass: 2.5, planet: false, zIndex: -99 
