@@ -137,7 +137,7 @@ class Planet {
           zIndex: -98});
       }
       $(`#${this.name}`).animate({ top: `${CSStop}`, left: `${CSSleft}` }, 0);
-      debugLog('now=',Date.now() - beginningOfTime);
+      debugLog('now=',Date.now());
       setTimeout(() => {
         this.updatePosition();
       }, DELTA_T);
