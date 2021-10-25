@@ -30,54 +30,48 @@
 // // // OBJECT LITERALS
 // // //
 
-let voter = {
-  name: 'Lefty Larry',
-  age: 49,
-  theyDidVote: false,
-  sin_number: 123456789,
-};
-console.log('typeof voter:',typeof voter);
-console.log('voter:',voter);
+// let voter = {
+//   name: 'Lefty Larry',
+//   age: 49,
+//   theyDidVote: false,
+//   sin_number: 123456789,
+// };
+// console.log('typeof voter:',typeof voter);
+// console.log('voter:',voter);
 
-// // dot notation
-// console.log("voter.theyDidVote:",voter.theyDidVote);
+// // // dot notation
+// // console.log("voter.theyDidVote:",voter.theyDidVote);
 
-// // update a value on an object
-voter.age += 1;
-console.log("voter after update:",voter);
+// // // update a value on an object
+// voter.age += 1;
+// console.log("voter after update:",voter);
 
-// square brackets notation
-const nameOfProperty = 'age';
-console.log("voter[nameOfProperty]:",voter[nameOfProperty]);
-console.log("voter['age']:",voter['age']);
+// // square brackets notation
+// const nameOfProperty = 'age';
+// console.log("voter[nameOfProperty]:",voter[nameOfProperty]);
+// console.log("voter['age']:",voter['age']);
 
-// square brackets notation is useful when your key name is stored in a variable.
-const key = 'name';
-console.log("voter[key]:",voter[key]);
+// // square brackets notation is useful when your key name is stored in a variable.
+// const key = 'name';
+// console.log("voter[key]:",voter[key]);
 
-// typeof operator evaluates to the type of the expression... check out this type:
-console.log('typeof voter:',typeof voter);
+// // typeof operator evaluates to the type of the expression... check out this type:
+// console.log('typeof voter:',typeof voter);
 
 // // //
 // // // An Array of Objects
 // // //
-const voters = [];
+// const voters = [];
 
-voters.push(voter);
-voters.push({name: 'Peter',age: 45, sin_number: 123456789});
-voters.push({name: 'Paul',age: 46, sin_number: 987654321});
-voters.push({name: 'Mary',age: 47, sin_number: 246813579});
+// voters.push(voter);
+// voters.push({name: 'Peter',age: 45, sin_number: 123456789});
+// voters.push({name: 'Paul',age: 46, sin_number: 987654321});
+// voters.push({name: 'Mary',age: 47, sin_number: 246813579});
 
-voters.forEach(
-  (item)=>{
-    console.log('item:',item);
-    console.log('item.age:',item.age);
-  }
-);
-
-
-console.log("monkeyfuzz2(voters[2].age):",     voters[2].age   );
-
+// voters.forEach((item)=>{
+//     console.log('item:',item);
+//     console.log('item.age:',item.age);
+//   });
 
 // // //
 // // // Functions defined on objects (a.k.a. METHODS)
@@ -117,4 +111,3 @@ console.log("monkeyfuzz2(voters[2].age):",     voters[2].age   );
 // console.log("MonkeyFuzz!");
 
 console.log("console:",console);
-

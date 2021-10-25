@@ -118,3 +118,4 @@ console.log("monkeyfuzz2(voters[2].age):",     voters[2].age   );
 
 console.log("console:",console);
 
+console.clear();

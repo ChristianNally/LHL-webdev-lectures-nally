@@ -75,10 +75,6 @@ voters.forEach(
   }
 );
 
-
-console.log("monkeyfuzz2(voters[2].age):",     voters[2].age   );
-
-
 // // //
 // // // Functions defined on objects (a.k.a. METHODS)
 // // //
@@ -118,3 +114,4 @@ console.log("monkeyfuzz2(voters[2].age):",     voters[2].age   );
 
 console.log("console:",console);
 
+console.clear();
