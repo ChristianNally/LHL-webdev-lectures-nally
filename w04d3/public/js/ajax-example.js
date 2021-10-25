@@ -1,6 +1,6 @@
 $(document).ready(function () {
 
-  function resultTurnedIntoHTML(data){
+  function resultTurnedIntoDOM(data){
     const $elementsForDisplay = $('<div class="canada-covid-data"></div>');
     const $infected = $('<div class="infected">Infected: ' + data.infected + '</div>');
     $elementsForDisplay.append($infected);
@@ -25,7 +25,9 @@ $(document).ready(function () {
       </tr>
       `);
     });
+
     $regions.appendTo($elementsForDisplay);
+    // Same As: $elementsForDisplay.append($regions);
 
     return $elementsForDisplay;
   }
@@ -42,7 +44,7 @@ $(document).ready(function () {
     .then((result) => {
       console.log('ajax callback called');
       console.log('result:',result);
-      $('#display').html(resultTurnedIntoHTML(result));
+      $('#display').html(resultTurnedIntoDOM(result));
       history.pushState(null,"Stats Retrieved",'/#data');
     })
     .catch(err => {
