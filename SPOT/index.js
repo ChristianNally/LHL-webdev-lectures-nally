@@ -53,7 +53,7 @@ app.get('/login',(req,res)=>{
   console.log("IP:",req.connection.remoteAddress);
   uid = crypto.randomBytes(20).toString('hex');
   res.cookie("spot-uid", uid);
-  res.redirect("/student/22");
+  res.redirect("/student/23");
 });
 
 // currently targeted by the form in the header
@@ -127,12 +127,18 @@ app.get("/understanding/:objective_id/:user_id/:understanding_id",(req,res)=>{
   const user_id = req.params.user_id;
   const understanding_id = req.params.understanding_id;
   console.log('understanding before:',understanding);
-  if ('undefined' !== typeof understanding[objective_id]){
-    understanding[objective_id][user_id] = understanding_id;
-  } else {
+
+  if ( !('undefined' !== typeof understanding[objective_id]) ){
     understanding[objective_id] = {};
-    understanding[objective_id][user_id] = understanding_id;
   }
+
+  understanding[objective_id][user_id] = understanding_id;
+  const newUnderstanding = {
+    user_id: user_id,
+    objective_id: objective_id,
+    understanding_id: understanding_id
+  };
+  dbFns.insertUnderstanding(newUnderstanding);
 
   console.log('understanding after:',understanding);
   res.json(understanding);
