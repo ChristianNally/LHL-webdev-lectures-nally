@@ -1,0 +1,738 @@
+[
+  {
+  "id": 72,
+  "type": "learning",
+  "question": "What is Test Driven Development?",
+  "answer": "Tests are written before the code. The tests make the expectations of the code explicit. Red - Green - Refactor are the stages of code development. You make the code work (pass the tests!) and then you can refactor the code, safe in the knowledge that the code is relatively easily testable.",
+  "sort": 0,
+  "day_id": 6
+  },
+  {
+  "id": 73,
+  "type": "learning",
+  "question": "What is Mocha?",
+  "answer": "Mocha is a testing framework. It looks for test files to run in the ./test/ folder.",
+  "sort": 1,
+  "day_id": 6
+  },
+  {
+  "id": 74,
+  "type": "learning",
+  "question": "What is Chai?",
+  "answer": "Chai is an assertion library. It defines a large number of assertions useful for testing.",
+  "sort": 2,
+  "day_id": 6
+  },
+  {
+  "id": 75,
+  "type": "performance",
+  "question": "How do you export things from any given Javascript file?",
+  "answer": "module.exports = <AN EXPRESSION WITH A VALUE THAT REQUIRE WILL PICK UP>;\r\n\r\ne.g. \r\n\r\nmodule.exports = {\r\n  myFunc,\r\n  myOtherFunc\r\n};",
+  "sort": 3,
+  "day_id": 6
+  },
+  {
+  "id": 76,
+  "type": "learning",
+  "question": "How do you bring in things that are exported from another Javascript file?",
+  "answer": "const thing = require(\"./path/to/javascript-file\");",
+  "sort": 4,
+  "day_id": 6
+  },
+  {
+  "id": 77,
+  "type": "performance",
+  "question": "How do you prevent files from being stored in your git repository?",
+  "answer": "Create a file named .gitignore\r\n\r\nInside that file put a list of filenames (wildcards allowed) where if the line matches a name, it won't be 'seen' by git.\r\n\r\ne.g.\r\n\r\nSee: https://git-scm.com/docs/gitignore\r\n",
+  "sort": 5,
+  "day_id": 6
+  },
+  {
+  "id": 51,
+  "type": "learning",
+  "question": "What does CRUD stand for?",
+  "answer": "Create. Read. Update. Delete.",
+  "sort": 0,
+  "day_id": 12
+  },
+  {
+  "id": 52,
+  "type": "learning",
+  "question": "What does BREAD stand for?",
+  "answer": "Browse. Read. Edit. Add. Delete.",
+  "sort": 1,
+  "day_id": 12
+  },
+  {
+  "id": 44,
+  "type": "performance",
+  "question": "How, in NodeJS, do you write a route that accepts a dynamic value as part of the URL?",
+  "answer": "app.get('/path/:fuzz', (req,res)=>{ console.log(req.params.fuzz); }); ",
+  "sort": 2,
+  "day_id": 12
+  },
+  {
+  "id": 40,
+  "type": "learning",
+  "question": "In the context of web programming, what is a template?",
+  "answer": "A template is a file containing mainly HTML, but with syntactic morsels of dynamic content.",
+  "sort": 3,
+  "day_id": 12
+  },
+  {
+  "id": 41,
+  "type": "learning",
+  "question": "What is the main reason to use a templating system?",
+  "answer": "Separating business logic from the presentation layer (separation of concerns), enables specialization of roles for programmers.",
+  "sort": 4,
+  "day_id": 12
+  },
+  {
+  "id": 50,
+  "type": "performance",
+  "question": "How, in NodeJS, do you write a route that accepts dynamic values from an HTML <form>?",
+  "answer": "app.post('/path', (req,res)=>{ console.log(req.body.fuzz); }); ",
+  "sort": 5,
+  "day_id": 12
+  },
+  {
+  "id": 43,
+  "type": "performance",
+  "question": "How often do you need to restart your web server?",
+  "answer": "Template files are reloaded every time they are rendered, so there is no need to restart your server if you have only changed your EJS template.",
+  "sort": 6,
+  "day_id": 12
+  },
+  {
+  "id": 45,
+  "type": "learning",
+  "question": "Does the order that your routes appear in your source code matter?",
+  "answer": "Yes. The order of the routes in your file matters. First matched -> First used.",
+  "sort": 7,
+  "day_id": 12
+  },
+  {
+  "id": 42,
+  "type": "performance",
+  "question": "How do you code EJS templates?",
+  "answer": "npm i ejs, mkdir views, app.set('view engine', 'ejs');",
+  "sort": 8,
+  "day_id": 12
+  },
+  {
+  "id": 48,
+  "type": "learning",
+  "question": "What is a web cookie?",
+  "answer": "A cookie is a name/value pair that stores information related to a particular user on their browser by a certain domain.",
+  "sort": 0,
+  "day_id": 13
+  },
+  {
+  "id": 49,
+  "type": "learning",
+  "question": "How does a web cookie's value transmit from one computer to another?",
+  "answer": "A webserver sets a cookie value by including the cookie in a response header. After that, every web request that is sent back to that web server by a browswer will include the cookie in the header of those requests.",
+  "sort": 1,
+  "day_id": 13
+  },
+  {
+  "id": 47,
+  "type": "performance",
+  "question": "How do you set a cookie value from within a NodeJS app?",
+  "answer": "```js app.post('/login', (req, res) => {   // other authenticatey stuff   res.cookie('userId', user.id); // set the cookie's key and value   res.redirect('/'); }); ```",
+  "sort": 2,
+  "day_id": 13
+  },
+  {
+  "id": 46,
+  "type": "performance",
+  "question": "How do you read a cookie value that arrives at a NodeJS program in the web request?",
+  "answer": "```js app.get('/protected', (req, res) => {   const userId = req.cookies.userId;   // do something with the userId }); ```",
+  "sort": 3,
+  "day_id": 13
+  },
+  {
+  "id": 53,
+  "type": "learning",
+  "question": "What does it mean to say that HTTP is 'stateless'?",
+  "answer": "The HTTP protocol itself is unable to associate one request with another. Each request starts from scratch. Cookies are a payload within the headers of a request that enable a server to identify the browser.",
+  "sort": 4,
+  "day_id": 13
+  },
+  {
+  "id": 12,
+  "type": "learning",
+  "question": "What is the difference between encryption and hashing?",
+  "answer": "Hashing is one way, so you can't recover the original text from the hash.",
+  "sort": 0,
+  "day_id": 14
+  },
+  {
+  "id": 55,
+  "type": "learning",
+  "question": "When is it okay to store plaintext values in cookies?",
+  "answer": "Almost never. Maybe for things like language preferences, no-login shopping carts, and some basic analytics, but probably not.",
+  "sort": 1,
+  "day_id": 14
+  },
+  {
+  "id": 11,
+  "type": "learning",
+  "question": "Rather than storing passwords as plaintext, how should they be stored?",
+  "answer": "Passwords should always be _hashed_. There is no need to encrypt them, since you never want to be able to see the password yourself.",
+  "sort": 2,
+  "day_id": 14
+  },
+  {
+  "id": 56,
+  "type": "learning",
+  "question": "What is REST?",
+  "answer": "REST is a convention for choosing paths and HTTP verbs for end-point routes.",
+  "sort": 3,
+  "day_id": 14
+  },
+  {
+  "id": 57,
+  "type": "learning",
+  "question": "How can you use verbs other than GET and POST in your HTML, given that you're using a NodeJS back-end?",
+  "answer": "The method-override package: https://www.npmjs.com/package/method-override",
+  "sort": 4,
+  "day_id": 14
+  },
+  {
+  "id": 58,
+  "type": "learning",
+  "question": "What package is available to help you implemented encrypted cookie values?",
+  "answer": "cookie-session: http://expressjs.com/en/resources/middleware/cookie-session.html",
+  "sort": 5,
+  "day_id": 14
+  },
+  {
+  "id": 54,
+  "type": "learning",
+  "question": "What is HTTPS?",
+  "answer": "HTTP Secure is the encrypted version of HTTP. Using it means that the traffic between your computer and its destination cannot be read by any server or public wifi system in the delivery path.",
+  "sort": 6,
+  "day_id": 14
+  },
+  {
+  "id": 10,
+  "type": "learning",
+  "question": "Why would we never want to store passwords as plaintext?",
+  "answer": "To keep the passwords away from prying eyes, like hackers and website employees.",
+  "sort": 7,
+  "day_id": 14
+  },
+  {
+  "id": 59,
+  "type": "learning",
+  "question": "What is a Single Page App?",
+  "answer": "An SPA is an app that leverages AJAX to prevent page reloads. Instead it changes page content by manipulating the DOM directly, using front-end javascript.",
+  "sort": 0,
+  "day_id": 16
+  },
+  {
+  "id": 62,
+  "type": "learning",
+  "question": "What is the difference between a block element and an inline element?",
+  "answer": "A block element (e.g. <div> or display: block;) occupies the entire width of its container, whereas an inline element (e.g. <span> or display: inline;) will flow, by default from left to right within the container.",
+  "sort": 1,
+  "day_id": 16
+  },
+  {
+  "id": 63,
+  "type": "learning",
+  "question": "What does it mean to say that with version 5, HTML became more 'semantic'?",
+  "answer": "The tags introduced in HTML 5 provide ways of describing the purpose and meaning of parts of a page. This is useful for developers, as well as crawlers and bots that are trying to find specific parts of a page to highlight.",
+  "sort": 2,
+  "day_id": 16
+  },
+  {
+  "id": 15,
+  "type": "learning",
+  "question": "What is the basic syntax for a CSS 'Rule'?",
+  "answer": "[selector] { style: value; ... } ",
+  "sort": 3,
+  "day_id": 16
+  },
+  {
+  "id": 13,
+  "type": "learning",
+  "question": "What is the box model?",
+  "answer": "The box model is how DOM elements are typically rendered to occupy a certain amount of screen real estate, via padding, borders and margins.",
+  "sort": 4,
+  "day_id": 16
+  },
+  {
+  "id": 14,
+  "type": "performance",
+  "question": "How do I set the preferred box model?",
+  "answer": "* { box-sizing: border-box; }",
+  "sort": 5,
+  "day_id": 16
+  },
+  {
+  "id": 60,
+  "type": "learning",
+  "question": "What are the three CSS styles most directly related to the box model for any given DOM element?",
+  "answer": "Margin, Border, Padding",
+  "sort": 6,
+  "day_id": 16
+  },
+  {
+  "id": 61,
+  "type": "learning",
+  "question": "For the CSS styles that take 1,2 or 4 length parameters (padding, margin, etc.) how is each number of parameters interpreted?",
+  "answer": "For 1 parameter, all 4 sides of the box get the same value. For 2 parameters, the first is 'top' and 'bottom' and the second is 'left' and 'right'. Four parameters specify each side, top, right, bottom and left, respectively.",
+  "sort": 7,
+  "day_id": 16
+  },
+  {
+  "id": 17,
+  "type": "learning",
+  "question": "What is DOM manipulation?",
+  "answer": "DOM manipulation is the ability of client-side javascript to add, remove or change parts of the DOM after the initial page load.",
+  "sort": 0,
+  "day_id": 17
+  },
+  {
+  "id": 16,
+  "type": "performance",
+  "question": "How do you create a new element using jQuery and dynamically append it to a DOM element?",
+  "answer": "$('<div class=\"newElement\">Text content goes here.</div>').appendTo($( \".container\" ));",
+  "sort": 1,
+  "day_id": 17
+  },
+  {
+  "id": 65,
+  "type": "learning",
+  "question": "What is DOM traversal?",
+  "answer": "DOM travsersal is the ability for client-side Javascript to move from one node of the DOM to another. Test.",
+  "sort": 2,
+  "day_id": 17
+  },
+  {
+  "id": 20,
+  "type": "performance",
+  "question": "How do you traverse the DOM with jQuery?",
+  "answer": "$('.parent').children().addClass(\"tagged\");",
+  "sort": 3,
+  "day_id": 17
+  },
+  {
+  "id": 64,
+  "type": "learning",
+  "question": "What are some examples of Javascript objects that are only defined in the browser context?",
+  "answer": "window, navigator, document",
+  "sort": 4,
+  "day_id": 17
+  },
+  {
+  "id": 37,
+  "type": "learning",
+  "question": "What is AJAX?",
+  "answer": "Asynchronous Javascript and XML is a different paradigm of web request, where smaller amounts of data, or small parts of a webpage are sent and recieved in requests that do not result in page a refresh.",
+  "sort": 0,
+  "day_id": 18
+  },
+  {
+  "id": 38,
+  "type": "learning",
+  "question": "What are some advantages of AJAX?",
+  "answer": "No page reloads, faster page renders, improved response times, client side rendering reduces network load.",
+  "sort": 1,
+  "day_id": 18
+  },
+  {
+  "id": 39,
+  "type": "learning",
+  "question": "What are some disadvantages of AJAX?",
+  "answer": "Creating dynamic content is tricky, asynchronous programming patterns are more complex to code, it requires js and XMLHTTPRequest support, history is not automatically updated.",
+  "sort": 2,
+  "day_id": 18
+  },
+  {
+  "id": 66,
+  "type": "performance",
+  "question": "How do you invoke an AJAX request from jQuery?",
+  "answer": "$.ajax({\r\n  url: url,\r\n  method: \"GET\", \r\n})\r\n.then((result) => {\r\n  console.log('result:',result);\r\n})\r\n.catch(err => {\r\n  console.log(err); // related error\r\n});",
+  "sort": 3,
+  "day_id": 18
+  },
+  {
+  "id": 67,
+  "type": "learning",
+  "question": "What is CORS and how might you deal with it as an app developer?",
+  "answer": "Cross Origin Resource Sharing (CORS) is a policy that some APIs use to prevent vulnerabilities to certain kinds of hacking.\r\n\r\nFor a development deployment only, you might choose to install a browser extension that disables your own browser from checking an API's CORS policy, or you might send your API requests via a proxy that does something similar.\r\n\r\nSee https://developer.mozilla.org/en-US/docs/Web/HTTP/CORS and \r\nhttps://medium.com/@dtkatz/3-ways-to-fix-the-cors-error-and-how-access-control-allow-origin-works-d97d55946d9",
+  "sort": 4,
+  "day_id": 18
+  },
+  {
+  "id": 68,
+  "type": "learning",
+  "question": "What are the implications of using AJAX calls on the browser history?",
+  "answer": "An AJAX call in and of itself does not add any locations to the browser history. If it is important that the history be updated to a URL that can return a user to a certain state of the app, then it is the front-end code's responsibility to call the History API to make changes to the browser history.",
+  "sort": 5,
+  "day_id": 18
+  },
+  {
+  "id": 21,
+  "type": "learning",
+  "question": "What is responsive web design?",
+  "answer": "Responsive Web Design is a set of practices that allows web pages to alter their layout and appearance to suit different screen widths and resolutions.",
+  "sort": 0,
+  "day_id": 19
+  },
+  {
+  "id": 69,
+  "type": "learning",
+  "question": "What is the advantage of mobile first design?",
+  "answer": "Mobile First Design forces stakeholders to choose the very most important elements for any given webpage. Scaling pages sizes up from there results in a design that retains that focus and affords reasonable value to empty space. This approach is most compatible with the typical tensions associated with the desire to put as much up as possible. Overcrowding a webpage cheapens it, in a design sense.",
+  "sort": 1,
+  "day_id": 19
+  },
+  {
+  "id": 22,
+  "type": "performance",
+  "question": "How do you set a minimum width on HTML elements?",
+  "answer": ".these_elements { min-width: 135px; }",
+  "sort": 2,
+  "day_id": 19
+  },
+  {
+  "id": 23,
+  "type": "performance",
+  "question": "How do you set a maximum width on HTML elements?",
+  "answer": ".these_elements { max-width: 135px; }",
+  "sort": 3,
+  "day_id": 19
+  },
+  {
+  "id": 24,
+  "type": "performance",
+  "question": "How should we set the web browser's viewport?",
+  "answer": "<meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">",
+  "sort": 4,
+  "day_id": 19
+  },
+  {
+  "id": 26,
+  "type": "learning",
+  "question": "What are the relative length units available in CSS?",
+  "answer": "em, ex, ch, rem, vw, vh, vmin, vmax, %",
+  "sort": 5,
+  "day_id": 19
+  },
+  {
+  "id": 25,
+  "type": "learning",
+  "question": "What are the absolute length units available in CSS?",
+  "answer": "mm, cm, in, px, pt, pc (1 pc = 12 pt)",
+  "sort": 6,
+  "day_id": 19
+  },
+  {
+  "id": 70,
+  "type": "learning",
+  "question": "How do you define 'variables' in SASS?",
+  "answer": "$main-size: 2em;\r\n$background-color: purple;",
+  "sort": 7,
+  "day_id": 19
+  },
+  {
+  "id": 8,
+  "type": "performance",
+  "question": "How do I create a table?",
+  "answer": "CREATE TABLE objectives\\n(\\n    id bigint,\\n    day_id character varying(5),\\n    type character varying(12),\\n    question text,\\n    answer text,\\n    sort smallint\\n)",
+  "sort": 0,
+  "day_id": 21
+  },
+  {
+  "id": 1,
+  "type": "learning",
+  "question": "What is a table?",
+  "answer": "A table is a set of data collected as columns and rows.",
+  "sort": 1,
+  "day_id": 21
+  },
+  {
+  "id": 2,
+  "type": "learning",
+  "question": "What is a database?",
+  "answer": "A database is a collection of tables. The collection is typically used as a set. A connection to a database is granted via a username and password.",
+  "sort": 2,
+  "day_id": 21
+  },
+  {
+  "id": 4,
+  "type": "learning",
+  "question": "What is a WHERE clause?",
+  "answer": "A query can filter or restrict the information that results via a WHERE clause.",
+  "sort": 3,
+  "day_id": 21
+  },
+  {
+  "id": 7,
+  "type": "learning",
+  "question": "What is an ERD?",
+  "answer": "In the context of databases, an ERD is a diagram that shows each table as an entity, and also shows the relationships between tables.",
+  "sort": 4,
+  "day_id": 21
+  },
+  {
+  "id": 31,
+  "type": "learning",
+  "question": "What are the four types of commands for databases?",
+  "answer": "DDL, DML, DCL, and TCL. See: https://stackoverflow.com/questions/2578194/what-are-ddl-and-dml",
+  "sort": 5,
+  "day_id": 21
+  },
+  {
+  "id": 3,
+  "type": "learning",
+  "question": "What is a query?",
+  "answer": "A query is a task executed against a database, table or combination of tables. e.g. SELECT, INSERT, etc.",
+  "sort": 6,
+  "day_id": 21
+  },
+  {
+  "id": 9,
+  "type": "performance",
+  "question": "How do I INSERT rows into a table?",
+  "answer": "INSERT INTO objectives(id, type, question, answer, sort)\\nVALUES (21, w05d1, \"How do I INSERT rows into a table?\", \"solution goes here\",2);",
+  "sort": 7,
+  "day_id": 21
+  },
+  {
+  "id": 30,
+  "type": "learning",
+  "question": "What are the queries that correspond to the CRUD actions?",
+  "answer": "The CRUD queries are: INSERT, SELECT, UPDATE and DELETE.",
+  "sort": 8,
+  "day_id": 21
+  },
+  {
+  "id": 6,
+  "type": "learning",
+  "question": "What is a JOIN clause?",
+  "answer": "The data that a query has access to, can be expanded via JOIN-ing two tables together.",
+  "sort": 9,
+  "day_id": 21
+  },
+  {
+  "id": 32,
+  "type": "learning",
+  "question": "What is an ERD?",
+  "answer": "ERD; an Entity Relationship Diagram is a diagram that shows the relationships established between entities within a system. For databases, this is more often with regard to relationships between tables.",
+  "sort": 0,
+  "day_id": 22
+  },
+  {
+  "id": 5,
+  "type": "learning",
+  "question": "How do I establish a relationship between tables?",
+  "answer": "You can establish a relationship between tables by creating a column that tells you, for each row, which row in another table it is related to.",
+  "sort": 5,
+  "day_id": 22
+  },
+  {
+  "id": 27,
+  "type": "learning",
+  "question": "What are the features required of a primary key?",
+  "answer": "A Primary Key must be unique (within the table) and can never be null.",
+  "sort": 6,
+  "day_id": 22
+  },
+  {
+  "id": 28,
+  "type": "learning",
+  "question": "What is the most common data type for a Primary Key?",
+  "answer": "A Primary Key's data type is usually auto-incrementing integer (INTEGER or BIGINT).",
+  "sort": 7,
+  "day_id": 22
+  },
+  {
+  "id": 29,
+  "type": "learning",
+  "question": "What is a Foreign Key?",
+  "answer": "A Foreign Key is a column on a second table, where the value in a given row indicates an association with a row from the first table. The Foreign Key value on the second table matches the Primary Key value from the first table.",
+  "sort": 8,
+  "day_id": 22
+  },
+  {
+  "id": 71,
+  "type": "learning",
+  "question": "Coffee or Naan?",
+  "answer": "\"Confused = Coffee\", \"Fair = Don't Care\", \"Excellent = Naan\"",
+  "sort": 0,
+  "day_id": 23
+  },
+  {
+  "id": 33,
+  "type": "performance",
+  "question": "How do you connect to a Postgres DB from within Javascript?",
+  "answer": "const pg = require('pg');\r\nconst config = { \r\n  user: '<user name>',\r\n  password: '<password>',\r\n  database: '<db>',\r\n  host: '<host>' };\r\nconst client = new pg.Client(config);\r\nclient.connect()\r\n.then(() => console.log('db connected'))\r\n.catch(err => console.error('db connection error', err.stack));",
+  "sort": 1,
+  "day_id": 23
+  },
+  {
+  "id": 34,
+  "type": "performance",
+  "question": "How, given a postgres client object, do you submit queries to the database from back-end javascript?",
+  "answer": "client.query('SELECT * FROM <table>')\r\n   .then((result) => console.log(result));",
+  "sort": 2,
+  "day_id": 23
+  },
+  {
+  "id": 35,
+  "type": "learning",
+  "question": "What is a SQL injection attack?",
+  "answer": "A malicious user crafts input for a form submission that will be mistakenly input directly into a database. That input might be any SQL query, including dropping tables or deleting rows. ",
+  "sort": 3,
+  "day_id": 23
+  },
+  {
+  "id": 36,
+  "type": "performance",
+  "question": "How do we prevent a SQL Injection attack?",
+  "answer": "client.query('SELECT * FROM <table> WHERE id = $1', [<id>])   \r\n.then((result) => console.log(result));",
+  "sort": 4,
+  "day_id": 23
+  },
+  {
+  "id": 78,
+  "type": "learning",
+  "question": "What is React's Virtual DOM?",
+  "answer": "The virtual DOM is a copy of the DOM that it kept in memory. React does most of its work there, and then as a final step patches the actual DOM, but only where needed.",
+  "sort": 0,
+  "day_id": 31
+  },
+  {
+  "id": 79,
+  "type": "performance",
+  "question": "How do you create a boilerplate React app?",
+  "answer": "On the terminal:\r\n\r\n$> npx create-react-app name-of-app-goes-here\r\n",
+  "sort": 1,
+  "day_id": 31
+  },
+  {
+  "id": 80,
+  "type": "learning",
+  "question": "What is JSX?",
+  "answer": "JSX is a syntax that combines Javascript and HTML. For example, here is a line of valid JSX.\r\n\r\nconst simple = <h1>Hello, World!</h1>;\r\n\r\nWhen you're inside some markup, and want to include some Javascript, you need to enclose it in braces, thusly.\r\n\r\nconst simple = <h1>Hello, {planetNameVariable}!</h1>;\r\n\r\nAdjacent HTML tags must have a parent.",
+  "sort": 4,
+  "day_id": 31
+  },
+  {
+  "id": 81,
+  "type": "performance",
+  "question": "How do you make your own HTML Tags using JSX?",
+  "answer": "In JSX, a new component can be made by creating a function that returns HTML.\r\n\r\nfunction Button(props){\r\n  return (\r\n    <button>{props.text}</button>\r\n  );\r\n}\r\n\r\nThe following two ways of executing that function from within HTML are equivalent:\r\n\r\n<Button text=\"click me\"></Button>\r\n\r\nor\r\n\r\n{Button({text: 'click me'});",
+  "sort": 5,
+  "day_id": 31
+  },
+  {
+  "id": 90,
+  "type": "learning",
+  "question": "When returning a multi-line value from a function, what do parentheses achieve for you?",
+  "answer": "When returning a multi-line value via a return statement, parentheses enable you to avoid 'automatic semicolon insertion'.\r\n\r\nreturn ( // without this parenthesis, JS would insert a ;\r\n<div>\r\n  <h1>Text Goes Here</h1>\r\n</div>\r\n);\r\n",
+  "sort": 0,
+  "day_id": 32
+  },
+  {
+  "id": 82,
+  "type": "learning",
+  "question": "What are the two ways to set state on a React Component??",
+  "answer": "Let's say you have some state set up thusly:\r\n\r\nconst [numVisitors, setNumVisitors] = useState(0);\r\n\r\nSetting state involves calling the state's associated setter function (setNumVisitors in this case).\r\n\r\nThat function can either take the new value for that state, like so:\r\n\r\nsetNumVisitors(5);\r\n\r\nOR...\r\n\r\n... it can take a callback as a parameter, like so:\r\n\r\nsetNumVisitors(currentValue => 5);\r\n\r\nThis second method is the preferred method for setting state.\r\n\r\nRemember that all of the following are equivalent definitions of a function. The input parameter is ignored every time.\r\n\r\nfunction (currentValue){\r\n  return 5;\r\n}\r\n\r\n(currentValue) => { return 5; } \r\n\r\ncurrentValue => 5;\r\n",
+  "sort": 1,
+  "day_id": 32
+  },
+  {
+  "id": 83,
+  "type": "learning",
+  "question": "What is the difference between props and state?",
+  "answer": "Props are values that are handed down into a component, as attributes on the custom HTML tag associated with that component's being called.\r\n\r\nState is controlled data that springs into existance when the useState function is called.",
+  "sort": 2,
+  "day_id": 32
+  },
+  {
+  "id": 85,
+  "type": "learning",
+  "question": "Why is it important to leave the original version of our state unchanged when we are updating state?",
+  "answer": "React compares the old and new values of state before deciding which DOM elements to update. A significant speed increase results from using React because it only chooses to update the DOM elements with changed states.\r\n\r\nThis means that when we are updating state, we need to create a new (deep) copy of the state (at least the parts that will change within a given event listener) and leave the original state data structure untouched.\r\n\r\nJavascript's basic operations are often reference values. For example, the = operator will copy the reference to an object, rather than instantiating a new object.\r\n\r\nFor this reason, you will often need to use the spread operator (new in ES6) to make a copy of an object, like so:\r\n\r\nconst copy = {\r\n  ...originalObject,\r\n  keyWithAChangedValue: 'newValue'\r\n};",
+  "sort": 3,
+  "day_id": 32
+  },
+  {
+  "id": 84,
+  "type": "learning",
+  "question": "When updating state on a component, what might cause an infinite loop?",
+  "answer": "If your component has an event handler that updates state (and certainly, there are many events that should update state), then if your onClick or onChange etc. directly calls your function that updates state, that by itself will trigger a rerendering of the component, which starts the process all over again.\r\n\r\nTo avoid that infinite loop, your event handler can be set to be a callback function. Then when the component rerenders, it will only establish that callback rather than invoking the state setter again. This breaks what would otherwise start an infinite loop of rendering/stateSetting/etc.",
+  "sort": 4,
+  "day_id": 32
+  },
+  {
+  "id": 91,
+  "type": "learning",
+  "question": "What is a pure function?",
+  "answer": "1) The function only depends on its input parameters to return a value\r\n\r\n2) Given the same input, the function returns the same output\r\n\r\n3) It doesn't produce changes beyond its scope (side-effect)",
+  "sort": 0,
+  "day_id": 33
+  },
+  {
+  "id": 86,
+  "type": "learning",
+  "question": "What are some common side-effects that, if you needed to do them, would make a function impure?",
+  "answer": "Writing to standard out (eg. console.log)\r\n\r\nModifying the DOM directly (instead of relying on React)\r\n\r\nEstablishing socket connections (eg. ws or Socket.io)\r\n\r\nRetrieving data from an API (eg. axios, jQuery, or the fetch API)\r\n\r\nSetting timers or intervals",
+  "sort": 1,
+  "day_id": 33
+  },
+  {
+  "id": 87,
+  "type": "learning",
+  "question": "How can you prevent a useEffect hook from running, for instance, if that particular call is not relevant?",
+  "answer": "The second parameter to the useEffect call is a 'dependency array'. That array contains values that React will check for changes.\r\n\r\nSo for the following...\r\n\r\nconst [numVisitors, setNumVisitors] = useState(0);\r\n\r\nuseEffect(callback, [numVisitors]);\r\n\r\n... the callback will only be called if numVisitors changes.",
+  "sort": 3,
+  "day_id": 33
+  },
+  {
+  "id": 92,
+  "type": "learning",
+  "question": "Why would you choose to put code into a useEffect hook, rather than at the top level of a component?",
+  "answer": "Code that needs to ensure that it is running after the component is rendered should be put inside a useEffect hook.",
+  "sort": 3,
+  "day_id": 33
+  },
+  {
+  "id": 88,
+  "type": "learning",
+  "question": "What would happen if your use of useEffect depended on a variable called numVisitors changing, and then went ahead and changed numVisitors itself?",
+  "answer": "This would cause an infinite loop, where React would see that numVisitors had changed, call the useEffect again, which would cause numVisitors to change, and so on, ad infinitum.\r\n\r\nFor this reason, you need to be careful that your useEffect calls don't change the state values that they depend on.",
+  "sort": 4,
+  "day_id": 33
+  },
+  {
+  "id": 89,
+  "type": "learning",
+  "question": "What are the implications of the three options for the dependency array for a hook? (none included, an empty one included, or a filled one included)",
+  "answer": "If your hook does not depend on any state, you can choose to have an empty dependency array.\r\n\r\nuseEffect(callback, []);\r\n\r\nThis would make sure that the hook is called only once, just after the first render.\r\n\r\nHaving no dependency array at all means that the hook should be called when ANY state changes.\r\n\r\nHaving a dependency array with state values in it means that the hook will only be called when that state value changes.",
+  "sort": 5,
+  "day_id": 33
+  },
+  {
+  "id": 93,
+  "type": "learning",
+  "question": "How do you establish a clean-up function for a useEffect call?",
+  "answer": "You establish a clean-up function by returning a function definition from a useEffect call.",
+  "sort": 7,
+  "day_id": 33
+  },
+  {
+  "id": 18,
+  "type": "learning",
+  "question": "What is DOM traversal?",
+  "answer": "DOM traversal is the ability of client-side javascript to jump from one node to a parent, sibling or child, step by step throughout the DOM, looking for elements that match a certain criteria.",
+  "sort": null,
+  "day_id": null
+  }
+  ]
