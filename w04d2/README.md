@@ -27,3 +27,8 @@ many lines of code do you think it will take?
 ## ("Moving around the DOM tree in style.")
 
 [x] win testing (rows only)
+
+
+# Useful Links
+Side by side comparison: http://youmightnotneedjquery.com/
+
