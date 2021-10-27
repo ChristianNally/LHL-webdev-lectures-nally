@@ -30,37 +30,37 @@
 // // // OBJECT LITERALS
 // // //
 
-let voter = {
-  name: 'Lefty Larry',
-  age: 49,
-  theyDidVote: false,
-  sin_number: 123456789,
-};
-console.log('typeof voter:',typeof voter);
-console.log('voter:',voter);
+// let voter = {
+//   name: 'Lefty Larry',
+//   age: 49,
+//   theyDidVote: false,
+//   sin_number: 123456789,
+// };
+// console.log('typeof voter:',typeof voter);
+// console.log('voter:',voter);
 
 // // dot notation
 // console.log("voter.theyDidVote:",voter.theyDidVote);
 
 // // update a value on an object
-voter.age += 1;
-console.log("voter after update:",voter);
+// voter.age += 1;
+// console.log("voter after update:",voter);
 
-// square brackets notation
-const nameOfProperty = 'age';
-console.log("voter[nameOfProperty]:",voter[nameOfProperty]);
-console.log("voter['age']:",voter['age']);
+// // square brackets notation
+// const nameOfProperty = 'age';
+// console.log("voter[nameOfProperty]:",voter[nameOfProperty]);
+// console.log("voter['age']:",voter['age']);
 
-// square brackets notation is useful when your key name is stored in a variable.
-const key = 'name';
-console.log("voter[key]:",voter[key]);
+// // square brackets notation is useful when your key name is stored in a variable.
+// const key = 'name';
+// console.log("voter[key]:",voter[key]);
 
-// typeof operator evaluates to the type of the expression... check out this type:
-console.log('typeof voter:',typeof voter);
+// // typeof operator evaluates to the type of the expression... check out this type:
+// console.log('typeof voter:',typeof voter);
 
-// // //
-// // // An Array of Objects
-// // //
+// //
+// // An Array of Objects
+// //
 // const voters = [];
 
 // voters.push(voter);
@@ -68,15 +68,19 @@ console.log('typeof voter:',typeof voter);
 // voters.push({name: 'Paul',age: 46, sin_number: 987654321});
 // voters.push({name: 'Mary',age: 47, sin_number: 246813579});
 
-// voters.forEach((item)=>{
+// voters.forEach(
+//   (item)=>{
 //     console.log('item:',item);
 //     console.log('item.age:',item.age);
-//   });
+//   }
+// );
 
-// // //
-// // // Functions defined on objects (a.k.a. METHODS)
-// // //
 
+// console.log("monkeyfuzz2(voters[2].age):",     voters[2].age   );
+
+
+
+// // Functions defined on objects (a.k.a. METHODS)
 // voter = {
 //   name: 'Lefty Larry',
 //   age: 49,
@@ -105,11 +109,8 @@ console.log('typeof voter:',typeof voter);
 
 // // console.log("console:",console);
 
-// // // http://pythontutor.com/visualize.html#code=let%20object1%20%3D%20%7Bname%3A%20'Christian%20Nally',%20age%3A%2050%7D%3B%0Alet%20object2%20%3D%20object1%3B%0A%0Aobject2%5B'age'%5D%20%3D%2053%3B%0A%0Aconsole.log%28%22object1%3A%22,object1%29%3B%0Aconsole.log%28%22object2%3A%22,object2%29%3B%0A&cumulative=false&curInstr=5&heapPrimitives=nevernest&mode=display&origin=opt-frontend.js&py=js&rawInputLstJSON=%5B%5D&textReferences=false
-
+// http://pythontutor.com/visualize.html#code=let%20object1%20%3D%20%7Bname%3A%20'Christian%20Nally',%20age%3A%2050%7D%3B%0Alet%20object2%20%3D%20object1%3B%0A%0Aobject2%5B'age'%5D%20%3D%2053%3B%0A%0Aconsole.log%28%22object1%3A%22,object1%29%3B%0Aconsole.log%28%22object2%3A%22,object2%29%3B%0A&cumulative=false&curInstr=5&heapPrimitives=nevernest&mode=display&origin=opt-frontend.js&py=js&rawInputLstJSON=%5B%5D&textReferences=false
 
 // console.log("MonkeyFuzz!");
 
-console.log("console:",console);
-
-console.clear();
+// console.log("console:",console);
