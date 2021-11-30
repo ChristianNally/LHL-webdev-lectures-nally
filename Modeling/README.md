@@ -108,3 +108,14 @@ sometimes quite rapidly!
 
 # TODO
 
+# REFERENCES
+
+Rocket Science, Computers, Simulations, The Lunar Landing:
+https://www.youtube.com/watch?v=B1J2RMorJXM
+
+The github repository that contains the Lunar Landing Program:
+https://github.com/chrislgarry/Apollo-11
+
+Margaret Hamilton:
+https://www.smithsonianmag.com/smithsonian-institution/margaret-hamilton-led-nasa-software-team-landed-astronauts-moon-180971575/
+
