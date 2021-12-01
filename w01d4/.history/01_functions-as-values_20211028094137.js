@@ -19,10 +19,6 @@ const putTheReturnValueInHere = sayHello(' to my little friend.');
 const myOtherVar = sayHello;
 
 myOtherVar.something = 'something else';
-
-
-console.log("REALLY??!", myOtherVar.something );
-
 console.log('myOtherVar("monkey fuzz!")', myOtherVar('monkey fuzz!'));
 
 const addTwo = function(num) {

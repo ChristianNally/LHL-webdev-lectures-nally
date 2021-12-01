@@ -30,24 +30,20 @@ const arrayOfFunctions = [func1, func2, func3];
 
 
 
+
+
 function processor(listOfActions, data){
 
-
- listOfActions.forEach( (eachFunction)=>{  eachFunction(data)  } );
-
-
-//
-
-
-  for (let ii = 0; ii < arrayOfFunctions.length; ii++){
-    listOfActions[ii](data);
-  }
-
-
-
-
+  listOfActions.forEach( (eachFunction)=>{  eachFunction(data)  } );
 
 }
+
+
+
+
+
+
+
 
 
 

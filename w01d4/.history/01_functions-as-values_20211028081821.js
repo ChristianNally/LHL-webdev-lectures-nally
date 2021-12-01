@@ -1,28 +1,24 @@
 
-// function sayHello(name) {
-//   let x = name;
-//   const output = `hello there ${name}`;
-//   console.log('output:',output);
-//   return output;
-// }
+function sayHello(name) {
+  let x = name;
+  const output = `hello there ${name}`;
+  console.log('output:',output);
+  return output;
+}
 
 let age = 50;
 
-const sayHello = function(string) {
-  const output = `hello there ${string}`;
-  console.log('output:',output);
-  return output;
-};
+// const sayHello = function(string) {
+//   const output = `hello there ${string}`;
+//   console.log('output:',output);
+//   return output;
+// };
 
 const putTheReturnValueInHere = sayHello(' to my little friend.');
 
 const myOtherVar = sayHello;
 
-myOtherVar.something = 'something else';
-
-
-console.log("REALLY??!", myOtherVar.something );
-
+// myOtherVar.something = 'something else';
 console.log('myOtherVar("monkey fuzz!")', myOtherVar('monkey fuzz!'));
 
 const addTwo = function(num) {

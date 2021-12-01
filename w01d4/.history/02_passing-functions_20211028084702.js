@@ -7,14 +7,43 @@
 // // a function that accepts another function as an argument
 
 
-function processor(arg1, callback){
-  // does some stuff
 
-  callback();
 
-}
 
-processor(1);
+
+
+
+
+
+
+
+const runMe = function(eliser) {
+  // console.log(eliser.toString());
+  let gimme = eliser('Elise'); // executing the callback
+};
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -22,14 +51,9 @@ processor(1);
 //   console.log(`hello there ${name}`);
 // };
 
-
-
 const sayHello2 = function(name) {
   console.log("sayHello2 logs:",`hola!! ${name}`);
 };
-
-
-
 
 
 // const addTwo = function(num) {

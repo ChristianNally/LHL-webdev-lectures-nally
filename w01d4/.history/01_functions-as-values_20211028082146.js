@@ -18,11 +18,7 @@ const putTheReturnValueInHere = sayHello(' to my little friend.');
 
 const myOtherVar = sayHello;
 
-myOtherVar.something = 'something else';
-
-
-console.log("REALLY??!", myOtherVar.something );
-
+// myOtherVar.something = 'something else';
 console.log('myOtherVar("monkey fuzz!")', myOtherVar('monkey fuzz!'));
 
 const addTwo = function(num) {
@@ -30,7 +26,7 @@ const addTwo = function(num) {
   return num + 2;
 };
 
-const myFuncs = [ addTwo, sayHello ];
+const myFuncs = [ addTwo, sayHello('blah') ];
 
 // const thisIsAnObject = {first: 'a', second: 'b'};
 // const thisIsAnArray = ['all','manner',544,TRUE];
