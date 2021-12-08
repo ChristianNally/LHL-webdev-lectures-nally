@@ -7,9 +7,17 @@
   </head>
   <body>
     <table>
-      <tr><th>Actions</th><th>Question</th><th>Answer</th></tr>
-      <% for (let objective in lo) { %> <!-- this is how to include JS in your template -->
-        <tr><td><form method="POST" action="/objectives/<%= objective %>/delete"><input type="submit" value="Delete"></form></td><td><%= lo[objective].question %></td><td><%= lo[objective].answer %></td></tr>
+      <tr>
+        <th>Actions</th>
+        <th>Question</th>
+        <th>Answer</th>
+      </tr>
+      <% for ( let objective in listOfObjectives ) { %> <!-- this is how to include JS in your template -->
+        <tr>
+          <td><a href="/objectives/<%= objective %>/delete">X</a></td>
+          <td><a href="/objectives/<%= objective %>"><%= listOfObjectives[objective].question %></a></td>
+          <td><%= listOfObjectives[objective].answer %></td>
+        </tr>
       <% } %>  
     </table>
   </body>

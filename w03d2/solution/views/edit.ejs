@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="/styles.css">
+    <title>Edit Objective</title>
+  </head>
+  <body>
+    <form method="POST" action="/objectives/<%= id %>">
+      <label for="question">Question</label>
+      <input id="question" type="text" name="question" size="60" value="<%= objective.question %>"/>
+      <br/>
+      <br/>
+      <label for="answer">Answer</label>
+      <input id="answer" type="text" name="answer" size="60" value="<%= objective.answer %>"/>
+      <br/>
+      <br/>
+      <input id="pinkme" type="submit" name="edit" value="Submit" />
+    </form>
+  </body>
+</html>

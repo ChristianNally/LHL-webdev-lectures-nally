@@ -1,4 +1,4 @@
-const PORT = 8080;
+const PORT = 8086;
 const express = require("express");
 const morgan = require("morgan");
 const bodyParser = require("body-parser");
@@ -6,23 +6,23 @@ const bodyParser = require("body-parser");
 const app = express();
 app.set('view engine', 'ejs');
 
-
 //
 // Here are the resources we will be managing: "Learning Objectives"
 //
 
-const objectives = {
-  1: {question: "Why EJS Templates?", answer: "We use templates to separate business logic from the presentation layer."},
-  2: {question: "How do we implement EJS Templates?", answer: "npm i ejs, mkdir views, app.set('view engine', 'ejs');"},
-  3: {question: "What does CRUD stand for?", answer: "Create, Read, Update, Delete"},
-  4: {question: "Where are URL parameters stored?", answer: "req.params"},
-  5: {question: "Where are <form> values stored?", answer: "req.body"}
-}
+const objectives = [
+  {question: "Why EJS Templates?", answer: "We use templates to separate business logic from the presentation layer."},
+  {question: "How do we implement EJS Templates?", answer: "npm i ejs, mkdir views, app.set('view engine', 'ejs');"},
+  {question: "What does CRUD stand for?", answer: "Create, Read, Update, Delete"},
+  {question: "Where are URL parameters stored?", answer: "req.params"},
+  {question: "Where are <form> values stored?", answer: "req.body"}
+];
 
-//
-//  MIDDLEWARE
-//
+// //
+// //  MIDDLEWARE
+// //
 
+app.use(express.static('public'));
 app.use(morgan("dev"));
 app.use(bodyParser.urlencoded({extended: false}));
 
@@ -35,9 +35,9 @@ app.get("/", (req, res) => {
     res.redirect('/objectives');
 });
 
-//
-// CREATE
-//
+// //
+// // CREATE
+// //
 
 // this route must come first to avoid new = :id below
 app.get("/objectives/new",(req,res)=>{ 
@@ -45,46 +45,77 @@ app.get("/objectives/new",(req,res)=>{
 });
 
 app.post("/objectives",(req,res)=>{
-  const keys = Object.keys(objectives).map(x=>+x);
-  let last_element = keys[keys.length - 1];
-  // console.log("keys",keys);
-  // console.log("last_element",last_element);
-  // console.log("req.body",req.body);
-  objectives[++last_element] = {
-    question: req.body.question,
-    answer: req.body.answer
-  }
+
+  const newQuestion = req.body.question;
+  const newAnswer = req.body.answer;
+
+  objectives.push({question: newQuestion, answer: newAnswer});
+
+  // const keys = Object.keys(objectives).map(x=>+x);
+  // let last_element = keys[keys.length - 1];
+  // // console.log("keys",keys);
+  // // console.log("last_element",last_element);
+  // // console.log("req.body",req.body);
+  // objectives[++last_element] = {
+  //   question: req.body.question,
+  //   answer: req.body.answer
+  // }
   res.redirect("/objectives");
 });
 
 //
 // READ (show all the objectives)
 //
-app.get("/objectives",(req,res)=>{
-  const templateVars = {lo: objectives};
+
+app.get("/objectives", (req,res) => {
+  const templateVars = {
+    listOfObjectives: objectives,
+    blah: "foobar" 
+  };
   res.render('index', templateVars);
 });
 
-//
-// READ (show an individual objective)
-//
-app.get("/objectives/:id",(req,res)=>{
-  const templateVars = {id: req.params.id, lo: objectives[req.params.id]};
-  res.render('objective', templateVars);
-});
+// //
+// // READ (show an individual objective)
+// //
+// app.get("/objectives/:id",(req,res)=>{
+//   const templateVars = {id: req.params.id, lo: objectives[req.params.id]};
+//   res.render('objective', templateVars);
+// });
 
 //
 // UPDATE (edit aspects of an objective)
 //
+
+app.get('/objectives/:id', (req,res) => {
+
+  const id = req.params.id;
+  const objective = objectives[id];
+  const templateVars = {
+    id, // id: id,
+    objective // objective: objective
+  };
+
+  res.render('edit', templateVars);
+});
+
 app.post("/objectives/:id",(req,res)=>{
-  const templateVars = {id: req.params.id, lo: objectives[req.params.id]};
-  res.render('objective', templateVars);
+  const id = req.params.id; // URL tokens are stored in req.params
+
+  const newQuestion = req.body.question;
+  const newAnswer = req.body.answer;
+
+  objectives[id] = {
+    question: newQuestion,
+    answer: newAnswer
+  };
+  res.redirect('/objectives');
 });
 
 //
 // DELETE (delete an individual objective)
 //
-app.post("/objectives/:id/delete",(req,res)=>{
+app.get("/objectives/:id/delete",(req,res)=>{
   const idToDelete = req.params.id;
   delete objectives[idToDelete];
   res.redirect("/objectives");
