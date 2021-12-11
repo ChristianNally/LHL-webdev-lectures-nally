@@ -1,0 +1,33 @@
+body {
+  background-color: lightgrey;
+}
+
+tr:nth-child(odd) {
+  background-color: #ccc;
+}
+tr:nth-child(even) {
+  background-color: #ddd;
+}
+
+td {
+  padding: 10px;
+}
+
+table pre {
+  white-space: pre-wrap;
+}
+
+nav ul {
+  list-style: none;
+  display: flex;
+}
+
+nav ul li {
+  margin: 0px 10px;
+}
+
+
+td.actions {
+  display: flex;
+  align-content: flex-end;
+}

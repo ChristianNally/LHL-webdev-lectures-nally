@@ -20,7 +20,7 @@ const ObjectiveBrowser = () => {
   //
   const newSearchDetails = (details) => {
     console.log('executing newSearchDetails');
-    setSearchDetails({ ...details }); // as-is the incoming details array must set all values
+    setSearchDetails({ ...details });
   };
 
   // hook that fires only after the initial render, to load the source objectives
@@ -74,13 +74,11 @@ const ObjectiveBrowser = () => {
     const newObjectivesArray = sourceObjectives.filter((item) => {
       const calculatedWeek = Math.floor(parseInt(item.day_id) / 5) + 1;
       const specifiedWeek = parseInt(searchDetails.week, 10);
-      const lowerCaseStringToSearch = item.question.toLowerCase() + item.answer.toLowerCase();
-
       if (
         (item.type === searchDetails.type || searchDetails.type === "all") 
         && (parseInt(item.day_id) % 5 === parseInt(searchDetails.day, 10) || parseInt(searchDetails.day) === 0) 
         && (calculatedWeek === specifiedWeek || parseInt(searchDetails.week) === 0)
-        && (searchDetails.search === undefined || (lowerCaseStringToSearch.includes(searchDetails.search.toLowerCase())))
+        && (searchDetails.search === undefined || (item.question.includes(searchDetails.search)))
       ) {
         return true;
       }

@@ -74,7 +74,11 @@ const ObjectiveBrowser = () => {
     const newObjectivesArray = sourceObjectives.filter((item) => {
       const calculatedWeek = Math.floor(parseInt(item.day_id) / 5) + 1;
       const specifiedWeek = parseInt(searchDetails.week, 10);
-      const lowerCaseStringToSearch = item.question.toLowerCase() + item.answer.toLowerCase();
+      let lowerCaseStringToSearch = [item.question,item.answer];
+
+      lowerCaseStringToSearch.filter((str) => {
+        return str.toLowerCase();
+      });
 
       if (
         (item.type === searchDetails.type || searchDetails.type === "all") 
