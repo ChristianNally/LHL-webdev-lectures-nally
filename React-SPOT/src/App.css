@@ -25,3 +25,9 @@ nav ul {
 nav ul li {
   margin: 0px 10px;
 }
+
+/* this isn't working yet */
+td.actions {
+  display: flex;
+  align-content: space-around;
+}

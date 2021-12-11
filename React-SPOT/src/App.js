@@ -3,8 +3,16 @@ import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
 import ObjectiveBrowser from "./Components/ObjectiveBrowser";
 import InstructorView from "./Components/InstructorView";
 import StudentView from "./Components/StudentView";
+import Login from "./Components/Login/Login";
+import useToken from "./hooks/useToken";
 
 function App() {
+  const { token, setToken } = useToken();
+
+  if(!token) {
+    return <Login setToken={setToken} />
+  }
+
   return (
     <div className="App">
       <h2>SPOTlight Lecture Organizer</h2>

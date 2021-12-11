@@ -43,7 +43,10 @@ const ObjectivesSearchForm = (props) => {
             size="30" 
           />
         </td>
-        <td></td>
+        <td className="actions">
+          <button>Hide All</button>
+          <button>Reveal All</button>
+        </td>
         <td>
           <button type="reset" onClick={()=>props.newSearchDetails({
             week: 0,
