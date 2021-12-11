@@ -13,10 +13,7 @@ const ObjectivesList = (props) => {
       <col style={{width: 10 + '%'}}/>
       </colgroup>
       <tbody>
-      <ObjectivesSearchForm
-        searchDetails={props.searchDetails}
-        newSearchDetails={props.newSearchDetails}
-      />
+        <ObjectivesSearchForm />
         {
           props.objectives.map( (obj,index) => {
             return <Objective 

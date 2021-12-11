@@ -2,10 +2,10 @@ const ObjectivesSearchForm = (props) => {
   console.log("ObjectivesSearchForm function executed: props=",props);
 
   return (
-      <tr className="ObjectivesSearchForm">
+    // <div className="ObjectivesSearchForm">
+      <tr>
         <td>
-          <select id="week" name="week" 
-            onChange={(event)=>props.newSearchDetails({...props.searchDetails, week: event.target.value})}>
+          <select id="week" name="week" onChange={(event)=>props.newSearchDetails({...props.searchDetails, week: event.target.value})}>
             <option value="0">All</option>
             <option value="1">W1</option>
             <option value="2">W2</option>
@@ -16,8 +16,7 @@ const ObjectivesSearchForm = (props) => {
             <option value="7">W7</option>
             <option value="8">W8</option>
           </select>
-          <select id="day" name="day"  
-            onChange={(event)=>props.newSearchDetails({...props.searchDetails, day: event.target.value})}>
+          <select id="day" name="day"  onChange={(event)=>props.newSearchDetails({...props.searchDetails, day: event.target.value})}>
             <option value="0">All</option>
             <option value="1">D1</option>
             <option value="2">D2</option>
@@ -27,23 +26,16 @@ const ObjectivesSearchForm = (props) => {
           </select>
         </td>
         <td>
-          <select id="type" name="type" 
-            onChange={(event)=>props.newSearchDetails({...props.searchDetails, type: event.target.value})}>
-            <option value="all">All</option>
-            <option value="learning">Theory</option>
-            <option value="performance">Coding</option>
+          <select id="type" name="type" onChange={(event)=>props.newSearchDetails({...props.searchDetails, type: event.target.value})}>
+            <option value="all">All Objective Types</option>
+            <option value="learning">Learning (Theory) Objectives</option>
+            <option value="performance">Performance (Practical Coding) Objectives</option>
           </select>
         </td>
-        <td>
-          <input
-            placeholder="keywords or search strings" 
-            name="search" 
-            onChange={(event)=>props.newSearchDetails({...props.searchDetails, search: event.target.value})} 
-            type="text" 
-            size="30" 
-          />
-        </td>
         <td></td>
+        <td>
+          <input name="search" onChange={(event)=>props.newSearchDetails({...props.searchDetails, search: event.target.value})} type="text" size="30" placeholder="keywords or search strings" />
+        </td>
         <td>
           <button type="reset" onClick={()=>props.newSearchDetails({
             week: 0,
@@ -52,8 +44,8 @@ const ObjectivesSearchForm = (props) => {
             search: "",
           })}>Reset</button>
         </td>
-        <td></td>
       </tr>
+    // </div>
   );
 };
 

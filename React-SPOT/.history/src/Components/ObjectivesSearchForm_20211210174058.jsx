@@ -35,13 +35,8 @@ const ObjectivesSearchForm = (props) => {
           </select>
         </td>
         <td>
-          <input
-            placeholder="keywords or search strings" 
-            name="search" 
-            onChange={(event)=>props.newSearchDetails({...props.searchDetails, search: event.target.value})} 
-            type="text" 
-            size="30" 
-          />
+          <input name="search" 
+            onChange={(event)=>props.newSearchDetails({...props.searchDetails, search: event.target.value})} type="text" size="30" placeholder="keywords or search strings" />
         </td>
         <td></td>
         <td>

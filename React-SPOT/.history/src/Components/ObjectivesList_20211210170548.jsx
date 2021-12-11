@@ -14,8 +14,8 @@ const ObjectivesList = (props) => {
       </colgroup>
       <tbody>
       <ObjectivesSearchForm
-        searchDetails={props.searchDetails}
-        newSearchDetails={props.newSearchDetails}
+        searchDetails={searchDetails}
+        newSearchDetails={newSearchDetails}
       />
         {
           props.objectives.map( (obj,index) => {

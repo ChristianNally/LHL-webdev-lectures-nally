@@ -2,15 +2,15 @@ const Objective = (props) => {
 //  console.log("Objective function executed. props=" + JSON.stringify(props));
 
   const typeDisplay = (type) => {
-    let typeText = "Theory";
+    let typeText = "L";
     if (type === 'performance'){
-      typeText = "Coding";
+      typeText = "P";
     }
     return typeText;
   };
 
   const dayDisplay = (description) => {
-    return description.replace("Week ","W").replace(" Day ","D");
+    return description.replace("Week ","W");
   };
 
   return (
@@ -20,7 +20,7 @@ const Objective = (props) => {
       <td>{typeDisplay(props.type)}</td>
       <td><b>{props.question}</b></td>
       <td><pre>{props.answer}</pre></td>
-      <td className="understand">
+      <td class="understand">
         <select data-id="32">
           <option value="0">understand?</option>
           <option value="1">confused</option>
@@ -28,10 +28,6 @@ const Objective = (props) => {
           <option value="3">excellent</option>
         </select>
       </td>
-      <td>
-        <span>••••</span><span>.........</span><br/>
-        <span>==</span><span>---</span><br/>
-        <span>####</span><span>+++</span></td>
     </tr>
   );
 };

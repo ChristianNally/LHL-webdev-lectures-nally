@@ -1,5 +1,4 @@
 import Objective from "./Objective";
-import ObjectivesSearchForm from "./ObjectivesSearchForm";
 
 const ObjectivesList = (props) => {
   console.log("ObjectivesList function executed. props.objectives.length=" + props.objectives.length);
@@ -13,10 +12,6 @@ const ObjectivesList = (props) => {
       <col style={{width: 10 + '%'}}/>
       </colgroup>
       <tbody>
-      <ObjectivesSearchForm
-        searchDetails={props.searchDetails}
-        newSearchDetails={props.newSearchDetails}
-      />
         {
           props.objectives.map( (obj,index) => {
             return <Objective 

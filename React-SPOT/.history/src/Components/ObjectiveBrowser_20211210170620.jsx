@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react';
+import ObjectivesSearchForm from "./ObjectivesSearchForm";
 import ObjectivesList from "./ObjectivesList";
 import axios from 'axios';
 
@@ -88,7 +89,11 @@ const ObjectiveBrowser = () => {
 
   return (
     <div>
-      <ObjectivesList objectives={filteredObjectives} searchDetails={searchDetails} newSearchDetails={newSearchDetails} />
+      <ObjectivesSearchForm
+        searchDetails={searchDetails}
+        newSearchDetails={newSearchDetails}
+      />
+      <ObjectivesList objectives={filteredObjectives} />
     </div>
   );
 };
