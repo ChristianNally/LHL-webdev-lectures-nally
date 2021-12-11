@@ -48,12 +48,6 @@ app.use(cookieSession({
 }));
 app.use(cors());
 
-app.use('/logintoken', (req, res) => {
-  res.send({
-    token: 'test123'
-  });
-});
-
 //
 // Login
 //

@@ -1,6 +1,11 @@
 Features Roadmap for SPOT
 -------------------------
 
+-1) Right now there is a /logintoken route that returns JSON. We need to switch the /login POST route to 
+return something similar... AND figure out how to make the token user specific. Subsequent API requests 
+should check for a valid user identifying token. For now the API is entirely open. But how will the correct 
+UID be submitted? I think there is a session cookie that holds their email address.
+
 0) Automatically include the 'coffee vs. naan' question in all Days. (play precedes innovation!) which will 
 provide a single place to edit when new break-videos come online. [2 hours]
 
