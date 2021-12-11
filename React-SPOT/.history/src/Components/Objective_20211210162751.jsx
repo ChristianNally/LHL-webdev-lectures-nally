@@ -6,7 +6,7 @@ const Objective = (props) => {
     if (type === 'performance'){
       typeText = "P";
     }
-    return typeText;
+    return type;
   };
 
   return (

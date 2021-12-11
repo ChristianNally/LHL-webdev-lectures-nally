@@ -7,8 +7,8 @@ const ObjectivesList = (props) => {
       <colgroup>
       <col style={{width: 10 + '%'}}/>
       <col style={{width: 3 + '%'}}/>
-      <col style={{width: 20 + '%'}}/>
-      <col style={{width: 56 + '%'}}/>
+      <col style={{width: 38 + '%'}}/>
+      <col style={{width: 38 + '%'}}/>
       <col style={{width: 11 + '%'}}/>
       </colgroup>
       <tbody>

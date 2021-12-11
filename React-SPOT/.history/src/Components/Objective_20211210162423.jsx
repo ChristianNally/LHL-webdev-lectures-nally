@@ -1,19 +1,11 @@
 const Objective = (props) => {
 //  console.log("Objective function executed. props=" + JSON.stringify(props));
 
-  const typeDisplay = (type) => {
-    let typeText = "L";
-    if (type === 'performance'){
-      typeText = "P";
-    }
-    return typeText;
-  };
-
   return (
     <tr className="Objective">
       {/* <td>{props.id}</td> */}
       <td>{props.day_description}</td>
-      <td>{typeDisplay(props.type)}</td>
+      <td>{props.type === 'Learning'}</td>
       <td><b>{props.question}</b></td>
       <td><pre>{props.answer}</pre></td>
       <td class="understand">

@@ -21,7 +21,3 @@ nav ul {
   list-style: none;
   display: flex;
 }
-
-nav ul li {
-  margin: 0px 10px;
-}

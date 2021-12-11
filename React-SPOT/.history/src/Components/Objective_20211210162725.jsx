@@ -3,7 +3,7 @@ const Objective = (props) => {
 
   const typeDisplay = (type) => {
     let typeText = "L";
-    if (type === 'performance'){
+    if (type === 'Performance'){
       typeText = "P";
     }
     return typeText;

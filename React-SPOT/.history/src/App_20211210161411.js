@@ -7,7 +7,6 @@ import StudentView from "./Components/StudentView";
 function App() {
   return (
     <div className="App">
-      <h2>SPOTlight</h2>
       <Router>
         <nav>
           <ul>

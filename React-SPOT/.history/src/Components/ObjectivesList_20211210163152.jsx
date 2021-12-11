@@ -6,10 +6,10 @@ const ObjectivesList = (props) => {
     <table>
       <colgroup>
       <col style={{width: 10 + '%'}}/>
-      <col style={{width: 3 + '%'}}/>
-      <col style={{width: 20 + '%'}}/>
-      <col style={{width: 56 + '%'}}/>
-      <col style={{width: 11 + '%'}}/>
+      <col style={{width: 5 + '%'}}/>
+      <col style={{width: 35 + '%'}}/>
+      <col style={{width: 35 + '%'}}/>
+      <col style={{width: 10 + '%'}}/>
       </colgroup>
       <tbody>
         {

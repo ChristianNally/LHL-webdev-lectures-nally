@@ -1,13 +1,10 @@
 import "./App.css";
 import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
 import ObjectiveBrowser from "./Components/ObjectiveBrowser";
-import InstructorView from "./Components/InstructorView";
-import StudentView from "./Components/StudentView";
 
 function App() {
   return (
     <div className="App">
-      <h2>SPOTlight</h2>
       <Router>
         <nav>
           <ul>
@@ -16,10 +13,16 @@ function App() {
             <li><Link to="/student">Student's View</Link></li>
           </ul>
         </nav>
+
+        {/* <Routes> looks through its children <Route>s and
+            renders the first one that matches the current URL. */}
         <Routes>
-          <Route path="/instructor" element={<InstructorView/>}></Route>
-          <Route path="/student" element={<StudentView/>}></Route>
-          <Route path="/" element={<ObjectiveBrowser/>}></Route>
+          <Route path="/instructor" element={<h2>Instructor View</h2>}>
+          </Route>
+          <Route path="/student" element={<h2>Student View</h2>}>
+          </Route>
+          <Route path="/" element={<ObjectiveBrowser/>}>
+          </Route>
         </Routes>
       </Router>
     </div>

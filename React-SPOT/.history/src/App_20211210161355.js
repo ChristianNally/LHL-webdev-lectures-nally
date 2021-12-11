@@ -2,12 +2,10 @@ import "./App.css";
 import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
 import ObjectiveBrowser from "./Components/ObjectiveBrowser";
 import InstructorView from "./Components/InstructorView";
-import StudentView from "./Components/StudentView";
 
 function App() {
   return (
     <div className="App">
-      <h2>SPOTlight</h2>
       <Router>
         <nav>
           <ul>

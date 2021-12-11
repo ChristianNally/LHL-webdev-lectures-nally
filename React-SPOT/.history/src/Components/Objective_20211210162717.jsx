@@ -2,8 +2,8 @@ const Objective = (props) => {
 //  console.log("Objective function executed. props=" + JSON.stringify(props));
 
   const typeDisplay = (type) => {
-    let typeText = "L";
-    if (type === 'performance'){
+    const typeText = "L";
+    if (type === 'Performance'){
       typeText = "P";
     }
     return typeText;
