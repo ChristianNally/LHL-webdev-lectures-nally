@@ -25,7 +25,7 @@ logger.level = "debug"; // default level is OFF - which means no logs at all.
 // this data is VERY emphemeral on purpose
 const understandingLOL = {};
 
-// get all of the understanding table // is it better to keep a copy in memory?
+// get all of the understanding table
 dbFns.getAllUnderstandings((rows)=>{
   rows.forEach((row) => {
     if ( !( 'undefined' !== typeof understandingLOL[row.objective_id] ) ){

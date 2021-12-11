@@ -49,6 +49,7 @@
         $('select').on('change', function(){
           let path = '/understanding/' 
           + $(this).attr('data-id')
+          + '/' + Cookies.get('spot-uid')
           + '/' + $(this).val();
           $.ajax({url: path});
         });

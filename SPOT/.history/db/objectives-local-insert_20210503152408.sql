@@ -1,24 +1,3 @@
-DROP TABLE IF EXISTS understandings;
-CREATE TABLE understandings (
-    id SERIAL PRIMARY KEY,
-    user_id INTEGER NOT NULL,
-    objective_id INTEGER NOT NULL,
-    level INTEGER NOT NULL,
-    CONSTRAINT fk_user
-      FOREIGN KEY(user_id) 
-	  REFERENCES users(id),
-    CONSTRAINT fk_objective
-      FOREIGN KEY(objective_id) 
-	  REFERENCES objectives(id)      
-);
-
-DROP TABLE IF EXISTS users;
-CREATE TABLE users (
-    id SERIAL PRIMARY KEY,
-    email VARCHAR(256) UNIQUE NOT NULL,
-    password VARCHAR(256) NOT NULL
-);
-
 DROP TABLE IF EXISTS days;
 CREATE TABLE days (
     id SERIAL PRIMARY KEY,

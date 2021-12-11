@@ -1,9 +1,8 @@
-DROP TABLE IF EXISTS understandings;
+DROP TABLE IF EXISTS understanding;
 CREATE TABLE understandings (
     id SERIAL PRIMARY KEY,
     user_id INTEGER NOT NULL,
     objective_id INTEGER NOT NULL,
-    level INTEGER NOT NULL,
     CONSTRAINT fk_user
       FOREIGN KEY(user_id) 
 	  REFERENCES users(id),

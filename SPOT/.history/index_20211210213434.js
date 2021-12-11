@@ -19,21 +19,10 @@ app.set("view engine", "ejs");
 // logging helper
 const logger = log4js.getLogger();
 logger.level = "debug"; // default level is OFF - which means no logs at all.
-// ALL < TRACE < DEBUG < INFO < WARN < ERROR < FATAL < MARK
 
 // this object stores any given cohort's current understanding feedback
 // this data is VERY emphemeral on purpose
-const understandingLOL = {};
-
-// get all of the understanding table // is it better to keep a copy in memory?
-dbFns.getAllUnderstandings((rows)=>{
-  rows.forEach((row) => {
-    if ( !( 'undefined' !== typeof understandingLOL[row.objective_id] ) ){
-      understandingLOL[row.objective_id] = {};
-    }
-    understandingLOL[row.objective_id][row.user_id] = row.level;  
-  });
-});
+const understanding = {};
 
 //
 // Middleware
@@ -129,38 +118,39 @@ app.get('/logout',(req,res)=>{
 // BREAD ROUTES for understanding
 //
 app.get("/understanding", (req, res) => {
-  console.log('understanding:',understandingLOL);
-  res.json(understandingLOL);
+  console.log('understanding:',understanding);
+  res.json(understanding);
 });
 
 //
 // Here is how an individual submits their feedback
 //
-app.get("/understanding/:objective_id/:level",(req,res)=>{
+app.get("/understanding/:objective_id/:understanding_id",(req,res)=>{
   const objective_id = req.params.objective_id;
   const email = req.session.email;
 
   dbFns.getUserByEmail(email, (rows)=>{
-    if (rows.length && typeof rows[0].email !== 'undefined'){
+    if (typeof rows[0].email !== 'undefined'){
       console.log("rows[0]",rows[0]);
       // we have a valid user
       const user_id = rows[0].id;
-      const level = req.params.level;
+      const understanding_id = req.params.understanding_id;
+      console.log('understanding before:',understanding);
     
-      if ( !( 'undefined' !== typeof understandingLOL[objective_id] ) ){
-        understandingLOL[objective_id] = {};
+      if ( !('undefined' !== typeof understanding[objective_id]) ){
+        understanding[objective_id] = {};
       }
     
-      understandingLOL[objective_id][user_id] = level;
+      understanding[objective_id][user_id] = understanding_id;
       const newUnderstanding = {
         user_id: user_id,
         objective_id: objective_id,
-        understanding_id: level
+        understanding_id: understanding_id
       };
       dbFns.insertUnderstanding(newUnderstanding);
     
-      console.log('understanding after:',understandingLOL);
-      res.json(understandingLOL);
+      console.log('understanding after:',understanding);
+      res.json(understanding);
       return;
     } else {
       console.log('user not logged in. no understanding permitted.');
@@ -205,16 +195,16 @@ function understandString(id){
   let totalOne = 0;
   let totalTwo = 0;
   let totalThree = 0;
-  if ('undefined' !== typeof understandingLOL[id] ){
-    for (const property in understandingLOL[id]) {
+  if ('undefined' !== typeof understanding[id] ){
+    for (const property in understanding[id]) {
 //      console.log(`${property}: ${understanding[id][property]}`);
-      if ("1" === understandingLOL[id][property]){
+      if ("1" === understanding[id][property]){
         totalOne += 1;
       }
-      if ("2" === understandingLOL[id][property]){
+      if ("2" === understanding[id][property]){
         totalTwo += 1;
       }
-      if ("3" === understandingLOL[id][property]){
+      if ("3" === understanding[id][property]){
         totalThree += 1;
       }
 }

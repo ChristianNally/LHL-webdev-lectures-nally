@@ -25,16 +25,6 @@ logger.level = "debug"; // default level is OFF - which means no logs at all.
 // this data is VERY emphemeral on purpose
 const understandingLOL = {};
 
-// get all of the understanding table // is it better to keep a copy in memory?
-dbFns.getAllUnderstandings((rows)=>{
-  rows.forEach((row) => {
-    if ( !( 'undefined' !== typeof understandingLOL[row.objective_id] ) ){
-      understandingLOL[row.objective_id] = {};
-    }
-    understandingLOL[row.objective_id][row.user_id] = row.level;  
-  });
-});
-
 //
 // Middleware
 //
@@ -136,7 +126,7 @@ app.get("/understanding", (req, res) => {
 //
 // Here is how an individual submits their feedback
 //
-app.get("/understanding/:objective_id/:level",(req,res)=>{
+app.get("/understanding/:objective_id/:understanding_id",(req,res)=>{
   const objective_id = req.params.objective_id;
   const email = req.session.email;
 
@@ -145,17 +135,17 @@ app.get("/understanding/:objective_id/:level",(req,res)=>{
       console.log("rows[0]",rows[0]);
       // we have a valid user
       const user_id = rows[0].id;
-      const level = req.params.level;
+      const understanding_id = req.params.understanding_id;
     
       if ( !( 'undefined' !== typeof understandingLOL[objective_id] ) ){
         understandingLOL[objective_id] = {};
       }
     
-      understandingLOL[objective_id][user_id] = level;
+      understandingLOL[objective_id][user_id] = understanding_id;
       const newUnderstanding = {
         user_id: user_id,
         objective_id: objective_id,
-        understanding_id: level
+        understanding_id: understanding_id
       };
       dbFns.insertUnderstanding(newUnderstanding);
     

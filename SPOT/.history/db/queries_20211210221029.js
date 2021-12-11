@@ -33,24 +33,34 @@ const insertUser = (newObj) => {
 // Understanding
 //
 
-const insertUnderstanding = (newObj) => {
+const getAllUnderstandings = (cb) => {
   return client
   .query(
-    "INSERT INTO understandings (user_id, obj_id, day_id) VALUES ($1,$2,$3);",
-    [newObj.user_id, newObj.obj_id, newObj.day_id]
+    "SELECT user_id, objective_id, level FROM understandings;"
   )
   .then((response) => {
-    return true; // TODO can we return the new ID for this new row?
+    console.log('response',response);
+    cb(response.rows);
   })
   .catch((err) => {
     console.log("insertObjective query error:", err);
   });
 };
 
-
-const insertObjective = (newObj) => {
-
-}
+const insertUnderstanding = (newObj) => {
+  return client
+  .query(
+    "INSERT INTO understandings (user_id, objective_id, level) VALUES ($1,$2,$3) RETURNING *;",
+    [newObj.user_id, newObj.objective_id, newObj.understanding_id]
+  )
+  .then((response) => {
+    console.log('inserting understanding into the understandings table',response);
+    return true; // TODO can we return the new ID for this new row?
+  })
+  .catch((err) => {
+    console.log("insertObjective query error:", err);
+  });
+};
 
 //
 // Days
@@ -222,6 +232,8 @@ module.exports = {
   updateObjective,
   setObjectiveSortOrder,
   deleteObjective,
+  getAllUnderstandings,
+  insertUnderstanding,
   getAllDays,
   getDay,
   getDayDetails,

@@ -25,14 +25,9 @@ logger.level = "debug"; // default level is OFF - which means no logs at all.
 // this data is VERY emphemeral on purpose
 const understandingLOL = {};
 
-// get all of the understanding table // is it better to keep a copy in memory?
-dbFns.getAllUnderstandings((rows)=>{
-  rows.forEach((row) => {
-    if ( !( 'undefined' !== typeof understandingLOL[row.objective_id] ) ){
-      understandingLOL[row.objective_id] = {};
-    }
-    understandingLOL[row.objective_id][row.user_id] = row.level;  
-  });
+// get all of the understanding table
+dbFns.getAllUnderstandings(()=>{
+
 });
 
 //

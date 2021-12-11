@@ -4,6 +4,7 @@
 const cookieSession = require('cookie-session');
 const express = require("express");
 const morgan = require("morgan");
+const log4js = require("log4js");
 const crypto = require("crypto"); // used to generate random strings
 const bcrypt = require("bcrypt");
 var bodyParser = require("body-parser");
@@ -11,9 +12,13 @@ var bodyParser = require("body-parser");
 // local require for DB API
 const dbFns = require("./db/queries");
 
-// someone set us up the express app
+// someone set us up the parts
 const app = express();
 app.set("view engine", "ejs");
+
+// logging helper
+const logger = log4js.getLogger();
+logger.level = "debug"; // default level is OFF - which means no logs at all.
 
 // this object stores any given cohort's current understanding feedback
 // this data is VERY emphemeral on purpose
@@ -33,27 +38,26 @@ app.use(cookieSession({
 //
 // Login
 //
-
 function loggedInEmail(req){
+  // Here's how to use loggedInEmail
+  // const userEmail = loggedInEmail(req);
+  // if(userEmail){
+  //   // DO PROTECTED STUFF IN HERE
+  //   return;
+  // }
+  // res.redirect('/register');
   if (req.session.email){
+    logger.debug(`${req.session.email} has logged in.`);
     return req.session.email;
   }
   return false;
 }
 
-// Here's how to use loggedInEmail
-// const userEmail = loggedInEmail(req);
-// if(userEmail){
-//   // DO PROTECTED STUFF IN HERE
-//   return;
-// }
-// res.redirect('/register');
-
 app.get('/login',(req,res)=>{
   console.log("IP:",req.connection.remoteAddress);
   uid = crypto.randomBytes(20).toString('hex');
-  res.cookie("spot-uid", uid);
-  res.redirect("/student/22");
+  // res.cookie("spot-uid", uid);
+  res.redirect("/student/32");
 });
 
 // currently targeted by the form in the header
@@ -71,7 +75,6 @@ app.post('/login',(req,res)=>{
       return;
     }
   });
-
 });
 
 //
@@ -122,20 +125,38 @@ app.get("/understanding", (req, res) => {
 //
 // Here is how an individual submits their feedback
 //
-app.get("/understanding/:objective_id/:user_id/:understanding_id",(req,res)=>{
+app.get("/understanding/:objective_id/:understanding_id",(req,res)=>{
   const objective_id = req.params.objective_id;
-  const user_id = req.params.user_id;
-  const understanding_id = req.params.understanding_id;
-  console.log('understanding before:',understanding);
-  if ('undefined' !== typeof understanding[objective_id]){
-    // do nothing
-  } else {
-    understanding[objective_id] = {};
-  }
-  understanding[objective_id][user_id] = understanding_id;
+  const email = req.session.email;
+  dbFns.getUserByEmail(email);
 
-  console.log('understanding after:',understanding);
-  res.json(understanding);
+  dbFns.getUserByEmail(email, (rows)=>{
+    if (typeof rows[0].email !== 'undefined'){
+      console.log("rows[0]",rows[0]);
+      // we have a valid user
+      const user_id = rows[0].id;
+      const understanding_id = req.params.understanding_id;
+      console.log('understanding before:',understanding);
+    
+      if ( !('undefined' !== typeof understanding[objective_id]) ){
+        understanding[objective_id] = {};
+      }
+    
+      understanding[objective_id][user_id] = understanding_id;
+      const newUnderstanding = {
+        user_id: user_id,
+        objective_id: objective_id,
+        understanding_id: understanding_id
+      };
+      dbFns.insertUnderstanding(newUnderstanding);
+    
+      console.log('understanding after:',understanding);
+      res.json(understanding);
+      return;
+    } else {
+      console.log('user not logged in. no understanding permitted.');
+    }
+  });
 });
 
 //
@@ -272,13 +293,13 @@ app.get("/browse", (req, res) => {
 });
 
 app.get("/json",(req,res)=>{
-  const userEmail = loggedInEmail(req);
-  if(userEmail){
+//  const userEmail = loggedInEmail(req);
+//  if(userEmail){
     dbFns.getAllObjectives((rows) => {
       res.json(rows);
     });
     return;
-  }
+//  }
 });
 
 // READ

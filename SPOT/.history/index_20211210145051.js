@@ -4,6 +4,7 @@
 const cookieSession = require('cookie-session');
 const express = require("express");
 const morgan = require("morgan");
+const log4js = require("log4js");
 const crypto = require("crypto"); // used to generate random strings
 const bcrypt = require("bcrypt");
 var bodyParser = require("body-parser");
@@ -11,9 +12,13 @@ var bodyParser = require("body-parser");
 // local require for DB API
 const dbFns = require("./db/queries");
 
-// someone set us up the express app
+// someone set us up the parts
 const app = express();
 app.set("view engine", "ejs");
+
+// logging helper
+const logger = log4js.getLogger();
+logger.level = "debug"; // default level is OFF - which means no logs at all.
 
 // this object stores any given cohort's current understanding feedback
 // this data is VERY emphemeral on purpose
@@ -33,27 +38,26 @@ app.use(cookieSession({
 //
 // Login
 //
-
 function loggedInEmail(req){
+  // Here's how to use loggedInEmail
+  // const userEmail = loggedInEmail(req);
+  // if(userEmail){
+  //   // DO PROTECTED STUFF IN HERE
+  //   return;
+  // }
+  // res.redirect('/register');
   if (req.session.email){
+    logger.debug(`${email} has logged in.`);
     return req.session.email;
   }
   return false;
 }
 
-// Here's how to use loggedInEmail
-// const userEmail = loggedInEmail(req);
-// if(userEmail){
-//   // DO PROTECTED STUFF IN HERE
-//   return;
-// }
-// res.redirect('/register');
-
 app.get('/login',(req,res)=>{
   console.log("IP:",req.connection.remoteAddress);
   uid = crypto.randomBytes(20).toString('hex');
   res.cookie("spot-uid", uid);
-  res.redirect("/student/22");
+  res.redirect("/student/32");
 });
 
 // currently targeted by the form in the header
@@ -71,7 +75,6 @@ app.post('/login',(req,res)=>{
       return;
     }
   });
-
 });
 
 //
@@ -278,13 +281,13 @@ app.get("/browse", (req, res) => {
 });
 
 app.get("/json",(req,res)=>{
-  const userEmail = loggedInEmail(req);
-  if(userEmail){
+//  const userEmail = loggedInEmail(req);
+//  if(userEmail){
     dbFns.getAllObjectives((rows) => {
       res.json(rows);
     });
     return;
-  }
+//  }
 });
 
 // READ
