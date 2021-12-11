@@ -17,3 +17,9 @@ set up:
 
 6 a) the admin link will take you to a page where you can add objectives, or see current feedback.
 6 b) the student link will show you how you can give feedback on your understanding of objectives
+
+
+
+The user authentication for the React portion was derived from this tutorial.
+https://www.digitalocean.com/community/tutorials/how-to-add-login-authentication-to-react-applications
+
