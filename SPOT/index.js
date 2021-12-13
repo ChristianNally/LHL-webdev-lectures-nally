@@ -95,14 +95,6 @@ function loggedInEmail(req){
   return false;
 }
 
-// app.get('/login',(req,res) => {
-//   logger.debug("IP:",req.connection.remoteAddress);
-//   uid = crypto.randomBytes(20).toString('hex');
-//   // res.cookie("spot-uid", uid);
-//   res.render("login");
-// //  res.redirect("/student/16");
-// });
-
 // currently targeted by the form in the header
 app.post('/login',(req,res) => {
   const candidateEmail = req.body.email;
@@ -112,7 +104,9 @@ app.post('/login',(req,res) => {
     if (typeof rows[0] !== 'undefined'){
       if (bcrypt.compare(candidatePassword, rows[0].password)){
         logger.debug('password is correct');
+        logger.debug(`rows[0]=${JSON.stringify(rows[0])}`);
         req.session.email = candidateEmail;
+        req.session.user = rows[0];
         return res.redirect("/student/16");
       } else {
         logger.debug('password is incorrect');
@@ -147,8 +141,7 @@ app.post('/register',(req,res) => {
       const newPasswordHashed = bcrypt.hashSync(newPassword,10);
       const newUser = {email: newEmail, hashedPassword: newPasswordHashed};
       dbFns.insertUser(newUser);
-      req.session.email = newEmail; // logs the user in.
-      res.redirect('/days');
+      res.redirect('/');
       return;
     }
   });    
@@ -170,16 +163,24 @@ app.post('/logout',(req,res) => {
 });
 
 app.get("/loggedInUsers", (req, res) => {
-  logger.debug('loggedInUsers:',loggedInUsers);
-  res.json(loggedInUsers);
+  if (true){
+    logger.debug('loggedInUsers:',loggedInUsers);
+    res.json(loggedInUsers);
+  } else {
+    res.write('permission denied');
+  }
 });
 
 //
 // BREAD ROUTES for understanding
 //
 app.get("/understanding", (req, res) => {
-  logger.debug('understanding:',understandingLOL);
-  res.json(understandingLOL);
+  if (true){
+    logger.debug('understanding:',understandingLOL);
+    res.json(understandingLOL);
+  } else {
+    res.write('permission denied');
+  }
 });
 
 //
@@ -301,8 +302,7 @@ app.get("/days/:id", (req, res) => {
 
 // READ and EDIT
 app.get("/days-edit/:id", (req, res) => {
-  const userEmail = loggedInEmail(req);
-  if(userEmail){
+  if (req.session.user.admin){
     dbFns.getDay(req.params.id, (rows) => {
       dbFns.getDayDetails(req.params.id, (row) => {
         logger.debug("row[0].day_mnemonic:", row[0].day_mnemonic);
@@ -323,14 +323,18 @@ app.get("/days-edit/:id", (req, res) => {
 });
 
 app.post("/day-edit", (req, res) => {
-  logger.debug("req.body:", req.body);
-  const dayUpdate = {
-    id: req.body.id,
-    day_mnemonic: req.body.day_mnemonic,
-    title: req.body.title
-  };
-  dbFns.updateDay(dayUpdate);
-  res.redirect("/days-edit/"+dayUpdate.id);
+  if (req.session.user.admin){
+    logger.debug("req.body:", req.body);
+    const dayUpdate = {
+      id: req.body.id,
+      day_mnemonic: req.body.day_mnemonic,
+      title: req.body.title
+    };
+    dbFns.updateDay(dayUpdate);
+    res.redirect("/days-edit/"+dayUpdate.id);
+  } else {
+    res.write("permission denied");
+  }
 });
 
 //
@@ -361,38 +365,44 @@ app.get("/json",(req,res) => {
 });
 
 // READ
-
 // EDIT
 app.get("/edit/:id", (req, res) => {
-  dbFns
-    .getObjectiveById(req.params.id)
+  if (req.session.user.admin){ 
+    dbFns.getObjectiveById(req.params.id)
     .then((result) => {
       logger.debug("result:", result);
       res.render("edit", result);
       res.end();
     })
     .catch((err) => logger.debug("getObjectiveById err:", err));
+  } else {
+    res.write('permission denied');
+  }
 });
 
 app.post("/edit", (req, res) => {
-  logger.debug("req.body:", req.body);
-  const objectiveUpdate = {
-    id: req.body.id,
-    type: req.body.type,
-    question: req.body.question,
-    answer: req.body.answer,
-    sort: req.body.sort,
-    day_id: req.body.day_id,
-  };
-  logger.debug("objectiveUpdate:",objectiveUpdate);
-  dbFns.updateObjective(objectiveUpdate);
-  res.redirect("/days");
+  if (req.session.user.admin){
+    logger.debug("req.body:", req.body);
+    const objectiveUpdate = {
+      id: req.body.id,
+      type: req.body.type,
+      question: req.body.question,
+      answer: req.body.answer,
+      sort: req.body.sort,
+      day_id: req.body.day_id,
+    };
+    logger.debug("objectiveUpdate:",objectiveUpdate);
+    dbFns.updateObjective(objectiveUpdate);
+    res.redirect("/days");
+  } else {
+    res.write('permission denied');
+  }
 });
 
 // ADD
 app.get("/new", (req, res) => {
-  const userEmail = loggedInEmail(req);
-  if(userEmail){
+  if (req.session.user.admin){
+    const userEmail = loggedInEmail(req);
     res.render("new",{email: userEmail});
     return;
   }
@@ -400,8 +410,8 @@ app.get("/new", (req, res) => {
 });
 
 app.get("/new/:day_id", (req, res) => {
-  const userEmail = loggedInEmail(req);
-  if(userEmail){
+  if (req.session.user.admin){
+    const userEmail = loggedInEmail(req);
     res.render("new", { day_id: req.params.day_id });
     return;
   }
@@ -409,42 +419,53 @@ app.get("/new/:day_id", (req, res) => {
 });
 
 app.post("/new", (req, res) => {
-
-  const userEmail = loggedInEmail(req);
-  if(userEmail){
-    logger.debug("req.body:", req.body);
-    const newObjective = {
-      type: req.body.type,
-      question: req.body.question,
-      answer: req.body.answer,
-      sort: req.body.sort,
-      day_id: req.body.day_id,
-    };
-    dbFns.insertObjective(newObjective);
-    res.redirect("/days");
-    return;
+  if (req.session.user.admin){
+    const userEmail = loggedInEmail(req);
+    if(userEmail){
+      logger.debug("req.body:", req.body);
+      const newObjective = {
+        type: req.body.type,
+        question: req.body.question,
+        answer: req.body.answer,
+        sort: req.body.sort,
+        day_id: req.body.day_id,
+      };
+      dbFns.insertObjective(newObjective);
+      res.redirect("/days");
+      return;
+    }
+    res.redirect('/register');
+  } else {
+    res.write('permission denied');
   }
-  res.redirect('/register');
 });
 
 // DELETE
 app.get("/delete/:id", (req, res) => {
-  dbFns.deleteObjective(req.params.id);
-  res.redirect("/");
+  if (req.session.user.admin){
+    dbFns.deleteObjective(req.params.id);
+    res.redirect("/");
+  } else {
+    res.write('permission denied');
+  }
 });
 
 // REORDER
 //
 app.post("/neworder", (req, res) => {
-  logger.debug("/neworder req.body:", req.body);
-  const nameOfArray = "objective[]";
-  for (key in req.body[nameOfArray]) {
-    logger.debug("key::value", key, "::", req.body[nameOfArray][key]);
-    let newOrder = { id: req.body[nameOfArray][key], sort: key };
-    dbFns.setObjectiveSortOrder(newOrder);
+  if (req.session.user.admin){
+    logger.debug("/neworder req.body:", req.body);
+    const nameOfArray = "objective[]";
+    for (key in req.body[nameOfArray]) {
+      logger.debug("key::value", key, "::", req.body[nameOfArray][key]);
+      let newOrder = { id: req.body[nameOfArray][key], sort: key };
+      dbFns.setObjectiveSortOrder(newOrder);
+    }
+    res.send("reordered");
+    res.end();
+  } else {
+    res.write('permission denied');
   }
-  res.send("reordered");
-  res.end();
 });
 
 // Server Listen Event Handler
