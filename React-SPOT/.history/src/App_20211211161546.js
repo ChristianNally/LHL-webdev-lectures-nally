@@ -16,12 +16,11 @@ function App() {
       axios('http://localhost:7865/loggedInUsers')
       .then((results) => {
         console.log('results.data',results.data);
-        document.getElementById('loggedInCounter').innerHTML = Object.keys(results.data).length;
       })
       .catch((error) => {
         console.log('site polling error',error);
       });
-    },30*1000); // poll the site every n seconds
+    },10*1000);
 
     return () => {
       clearInterval(interval);
@@ -41,7 +40,6 @@ function App() {
             <li><Link to="/instructor">Instructor's View</Link></li>
             <li><Link to="/student">Student's View</Link></li>
             <li><button onClick={() => {setToken({token: null})}}>Logout</button></li>
-            <li># logged in:<span id="loggedInCounter"></span></li>
           </ul>
         </nav>
         <Routes>

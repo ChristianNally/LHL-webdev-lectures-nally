@@ -21,7 +21,7 @@ function App() {
       .catch((error) => {
         console.log('site polling error',error);
       });
-    },30*1000); // poll the site every n seconds
+    },30*1000); // poll the site every 10 seconds
 
     return () => {
       clearInterval(interval);
