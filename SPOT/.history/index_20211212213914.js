@@ -21,8 +21,6 @@ const dbFns = require("./db/queries");
 // someone set us up the parts
 const app = express();
 app.set("view engine", "ejs");
-app.disable('view cache'); // my register page was caching the header email/login form
-app.disable('etag'); // this was suggested here and is NOT working https://stackoverflow.com/questions/18811286/nodejs-express-cache-and-304-status-code
 
 // this object keeps a list of all the currently logged in users
 // a user is added to the list whenever we recieve a request from any user
@@ -61,12 +59,9 @@ app.use('*', (req,res,next) => {
   if (req.session.email) {
     logger.debug("req.session.email",req.session.email);
     if(email = loggedInEmail(req)){
-      logger.debug("email",email);
       loggedInUsers[email] = Date.now();
       logger.debug(loggedInUsers);
     }
-  } else {
-    logger.debug("req.session.email is falsey", req.session.email);
   }
   next();
 });
@@ -89,7 +84,7 @@ function loggedInEmail(req){
   // }
   // res.redirect('/register');
   if (req.session.email){
-    logger.debug(`${req.session.email} is logged in.`);
+    logger.debug(`${req.session.email} has logged in.`);
     return req.session.email;
   }
   return false;
@@ -113,7 +108,7 @@ app.post('/login',(req,res) => {
       if (bcrypt.compare(candidatePassword, rows[0].password)){
         logger.debug('password is correct');
         req.session.email = candidateEmail;
-        return res.redirect("/student/16");
+        return res.redirect("/days");
       } else {
         logger.debug('password is incorrect');
         return res.write('password is incorrect');
@@ -129,10 +124,7 @@ app.post('/login',(req,res) => {
 // Register
 //
 app.get('/register',(req,res) => {
-  const templateVars = {
-    email: loggedInEmail(req)
-  };
-  res.render("register",templateVars);
+  res.render("register");
 });
 
 app.post('/register',(req,res) => {
@@ -158,14 +150,10 @@ app.post('/register',(req,res) => {
 //
 // Logout
 //
-app.post('/logout',(req,res) => {
-  logger.debug('user attempting to log out');
-  let debugValue = loggedInEmail(req);
-  if(debugValue){
-    logger.debug('loggedInEmail(req) returned a truthy value',debugValue);
+app.get('/logout',(req,res) => {
+  if(loggedInEmail(req)){
     req.session = null;
   }
-  logger.debug('about to redirect to homepage');
   res.redirect('/');
 });
 

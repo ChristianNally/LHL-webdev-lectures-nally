@@ -1,7 +1,8 @@
 <header>
   <h1><a id="logo" href="/days">SPOTlight</a></h1>
   <h3>The Lighthouse Labs Curriculum Index</h3>
-  <% if (email){ %>
+  <%= email %>
+  <% if ('undefined' !== typeof email){ %>
     <%= email %>&nbsp;
     <form action="/logout" method="POST">
       <input type="hidden" value="<%= email %>" />

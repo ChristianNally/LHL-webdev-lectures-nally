@@ -3,6 +3,7 @@
   <h3>The Lighthouse Labs Curriculum Index</h3>
   <% if (email){ %>
     <%= email %>&nbsp;
+    <%= typeof email %>&nbsp;
     <form action="/logout" method="POST">
       <input type="hidden" value="<%= email %>" />
       <input type="submit" value="Logout" />

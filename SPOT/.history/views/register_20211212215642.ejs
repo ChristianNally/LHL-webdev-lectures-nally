@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Register for an Account</title>
+  <%- include('include/_head.ejs') %>
+</head>
+<body>
+  <%- include('include/_header.ejs') %>
+  <form action="/register" method="POST">
+    <h2>Register</h2>
+  <input id="email" name="email" type="email" placeholder="email"></input>
+  <input id="password" name="password" type="password" placeholder="password"></input>
+  <input type="submit" name="Save" value="Register"></input>
+</form>
+</body>
+</html>

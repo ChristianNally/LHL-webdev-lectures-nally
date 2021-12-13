@@ -21,8 +21,6 @@ const dbFns = require("./db/queries");
 // someone set us up the parts
 const app = express();
 app.set("view engine", "ejs");
-app.disable('view cache'); // my register page was caching the header email/login form
-app.disable('etag'); // this was suggested here and is NOT working https://stackoverflow.com/questions/18811286/nodejs-express-cache-and-304-status-code
 
 // this object keeps a list of all the currently logged in users
 // a user is added to the list whenever we recieve a request from any user
@@ -59,14 +57,10 @@ app.use(cors());
 // for that user in our list of loggedInUsers
 app.use('*', (req,res,next) => {
   if (req.session.email) {
-    logger.debug("req.session.email",req.session.email);
     if(email = loggedInEmail(req)){
-      logger.debug("email",email);
       loggedInUsers[email] = Date.now();
       logger.debug(loggedInUsers);
     }
-  } else {
-    logger.debug("req.session.email is falsey", req.session.email);
   }
   next();
 });
@@ -89,38 +83,32 @@ function loggedInEmail(req){
   // }
   // res.redirect('/register');
   if (req.session.email){
-    logger.debug(`${req.session.email} is logged in.`);
+    logger.debug(`${req.session.email} has logged in.`);
     return req.session.email;
   }
   return false;
 }
 
-// app.get('/login',(req,res) => {
-//   logger.debug("IP:",req.connection.remoteAddress);
-//   uid = crypto.randomBytes(20).toString('hex');
-//   // res.cookie("spot-uid", uid);
-//   res.render("login");
-// //  res.redirect("/student/16");
-// });
+app.get('/login',(req,res)=>{
+  logger.debug("IP:",req.connection.remoteAddress);
+  uid = crypto.randomBytes(20).toString('hex');
+  // res.cookie("spot-uid", uid);
+  res.redirect("/student/32");
+});
 
 // currently targeted by the form in the header
-app.post('/login',(req,res) => {
+app.post('/login',(req,res)=>{
   const candidateEmail = req.body.email;
   const candidatePassword = req.body.password;
 
-  dbFns.getUserByEmail(candidateEmail, (rows) => {
-    if (typeof rows[0] !== 'undefined'){
-      if (bcrypt.compare(candidatePassword, rows[0].password)){
-        logger.debug('password is correct');
-        req.session.email = candidateEmail;
-        return res.redirect("/student/16");
-      } else {
-        logger.debug('password is incorrect');
-        return res.write('password is incorrect');
-      }
-    } else {
-      logger.debug('no matching email address');
-      return res.redirect("/register");
+  dbFns.getUserByEmail(candidateEmail, (rows)=>{
+    if (typeof rows[0].email !== 'undefined'
+        && bcrypt.compare(candidatePassword, rows[0].password)
+    ){
+      // Log the user in by creating a cookie with the email stored in it.
+      req.session.email = candidateEmail;
+      res.redirect("/days");
+      return;
     }
   });
 });
@@ -128,14 +116,11 @@ app.post('/login',(req,res) => {
 //
 // Register
 //
-app.get('/register',(req,res) => {
-  const templateVars = {
-    email: loggedInEmail(req)
-  };
-  res.render("register",templateVars);
+app.get('/register',(req,res)=>{
+  res.render("register");
 });
 
-app.post('/register',(req,res) => {
+app.post('/register',(req,res)=>{
   const newEmail = req.body.email;
   const newPassword = req.body.password;
 
@@ -158,20 +143,16 @@ app.post('/register',(req,res) => {
 //
 // Logout
 //
-app.post('/logout',(req,res) => {
-  logger.debug('user attempting to log out');
-  let debugValue = loggedInEmail(req);
-  if(debugValue){
-    logger.debug('loggedInEmail(req) returned a truthy value',debugValue);
+app.get('/logout',(req,res)=>{
+  if(loggedInEmail(req)){
     req.session = null;
   }
-  logger.debug('about to redirect to homepage');
   res.redirect('/');
 });
 
-app.get("/loggedInUsers", (req, res) => {
-  logger.debug('loggedInUsers:',loggedInUsers);
-  res.json(loggedInUsers);
+app.get("/loggedIn", (req, res) => {
+  logger.debug('understanding:',understandingLOL);
+  res.json(understandingLOL);
 });
 
 //
@@ -221,7 +202,7 @@ app.get("/understanding/:objective_id/:level",(req,res)=>{
 // BREAD ROUTES for Days
 //
 app.get("/", (req, res) => {
-  res.redirect("/days");
+  res.render("home");
 });
 
 // Browse Days
@@ -350,7 +331,7 @@ app.get("/browse", (req, res) => {
   res.redirect('/register');
 });
 
-app.get("/json",(req,res) => {
+app.get("/json",(req,res)=>{
 //  const userEmail = loggedInEmail(req);
 //  if(userEmail){
     dbFns.getAllObjectives((rows) => {

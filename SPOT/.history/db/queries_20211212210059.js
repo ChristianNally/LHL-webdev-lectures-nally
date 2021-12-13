@@ -60,7 +60,7 @@ const insertUnderstanding = (newObj) => {
     [newObj.user_id, newObj.objective_id, newObj.understanding_id]
   )
   .then((response) => {
-    logger.debug('inserting understanding into the understandings table',response.rows);
+    logger.debug('inserting understanding into the understandings table',response);
     return true; // TODO can we return the new ID for this new row?
   })
   .catch((err) => {

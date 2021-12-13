@@ -113,7 +113,7 @@ app.post('/login',(req,res) => {
       if (bcrypt.compare(candidatePassword, rows[0].password)){
         logger.debug('password is correct');
         req.session.email = candidateEmail;
-        return res.redirect("/student/16");
+        return res.redirect("/days");
       } else {
         logger.debug('password is incorrect');
         return res.write('password is incorrect');

@@ -1,12 +1,13 @@
 <header>
   <h1><a id="logo" href="/days">SPOTlight</a></h1>
   <h3>The Lighthouse Labs Curriculum Index</h3>
-  <% if (email){ %>
+  <% if ('undefined' !== typeof email){ %>
     <%= email %>&nbsp;
     <form action="/logout" method="POST">
       <input type="hidden" value="<%= email %>" />
       <input type="submit" value="Logout" />
     </form>
+
   <% } else { %>
     <form action="/login" method="POST">
       <input type="email" name="email" placeholder="email"/>
