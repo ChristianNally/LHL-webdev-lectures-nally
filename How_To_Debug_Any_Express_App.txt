@@ -1,0 +1,56 @@
+Most web interactions are captured by a transition from one URL to another.
+
+
+1) browser makes a request to a URL
+***
+2) process receives a request
+3) unpacks the 'inputs' to the backend (URL parameters, form input values, cookies, etc.)
+4) inputs are processed
+5) DB connections opened and query results are retrieved
+6) HTML is built in prep for sending back to the client
+7) cookie values (local storage, etc.) are set
+8) response (and the response headers) are sent back: HTML, plus references to CSS and JS
+***
+9) the client loads in the page
+10) the client renders the page with CSS styling
+11) the client runs javascript in the browser, if there is any to run
+12) browser side JS may modify the DOM
+13) browser side JS may have scheduled tasks running on its event loop, waiting for user input (new clicks, etc.)
+***
+14) user clicks or a scheduled timeout occurs which causes a new request  ---> repeat list from the start above
+
+
+
+
+1 a) What URL are you starting from? Does it return valid HTML, just the way you want it? (there are two ways to test this... by just looking at the page or by digging in deeper to look at the HTML as shown in the developer tools.)
+	If so, move on to step 2).
+	If not, look at 1 b).
+
+1 b) Find the back-end route that belongs to the request that you're hoping to make work. Often that will 
+involve i) one function that manifests the route itself, and ii) an EJS template that lets the back-end 
+'calculate' the dynamic HTML that it will eventually send to the front end. So you'll want to be able to 
+see both functions, maybe in editor files opened side by side. console.log all the variables that you 
+expect to be set for your back-end route. Are you seeing those console.logs in the terminal window that's 
+running the back-end server? Do they have the appropriate variable values? If not, think hard about why 
+you're seeing what you're seeing there. If you're seeing the correct values there, but not on the page 
+itself, then your problem may be with how template variables (templateVars) is being populated and sent to 
+the EJS template. Try console.logging your templateVars to see if it's what you are expecting, and that 
+you're passing that variable correctly to the EJS template. Once you're certain that your templateVars 
+values are correct, then look at your EJS template file and first, attempt to get it to show the values 
+you're looking for in a simple way. <%= variablename %>, for instance. Once that works, put that 'aligator 
+clip' tag into the correct part of the HTML that sits in your EJS template file.
+
+
+2. For the valid URL you're looking at, does it present you with the option to click the link you want to 
+so that your app will take the next step? (It should if your HTML on your first page is valid.)
+
+Next... click that link, take that action, etc. when that happens, you should see a new request has been 
+tracked in the "Network" tab of your developer tools. This new request might have been a traditional GET 
+request to a URL from an <a ...> tag in HTML OR it could have been some front-end Javascript (jQuery? 
+Vanilla JS?) that was making an AJAX request. You could look at that new row in those tools to see data 
+about that request. That can help debug what information should be showing up in your express app. That 
+express app will decide which route (if any) matches the new request.
+
+3. After you click that link, does the system produce the valid correct HTML that you hoped you would see? 
+This is essentially the same question that you asked yourself in Step 1 a) above, and at this point in the 
+troubleshooting workflow you can go back to that step and start your debugging over.
