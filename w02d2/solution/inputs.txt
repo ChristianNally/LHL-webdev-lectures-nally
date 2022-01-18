@@ -1,0 +1,5 @@
+walkThroughTheDoor
+openTheDoor
+walk
+getUp
+look
