@@ -1,5 +1,6 @@
 {
   "name": "sample-robot",
+  "type": "module",
   "version": "1.0.0",
   "description": "a demonstration of scheduling messages to be sent to the Event Loop",
   "main": "sample-robot.js",

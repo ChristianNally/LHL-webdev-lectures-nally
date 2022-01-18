@@ -1,6 +1,5 @@
 // const readline = require('readline');
-// import chalk from 'chalk';
-// const chalk = require('chalk');
+import chalk from 'chalk';
 
 const start = Date.now();
 
@@ -9,14 +8,15 @@ const start = Date.now();
 // by scheduling messages to appear when the action is finished
 //
 const doAction = function(name,millisecondsFromNow,nextAction,color = 'blue'){
-  const timeSinceStart = Date.now() - start;
-  console.log((`${timeSinceStart}: ${name} starting. will take ${millisecondsFromNow} milliseconds.`));
+  console.log(chalk[color]('Hello world!'));
+  console.log((Date.now() - start));
+  console.log(`${name} starting :`);
+  console.log('::::: This will take ' + millisecondsFromNow + ' seconds.');
   setTimeout(()=>{
     if (nextAction !== null){
       nextAction();
     }
-    const newTimeSinceStart = Date.now() - start;
-    console.log((`${newTimeSinceStart}: ${name} ended ${millisecondsFromNow} later.`));
+    console.log(`::::: ${name} ended : ${millisecondsFromNow} later`);
   },millisecondsFromNow);
 }
 
@@ -31,21 +31,21 @@ const look = ()=>{
 // Get Up
 //
 const getUp = ()=>{
-  doAction("get up",5000,walk,'red');
+  doAction("get up",5000,walk);
 };
 
 //
 // Walk
 //
 const walk = ()=>{
-  doAction("walk",7000,openTheDoor,'yellow');
+  doAction("walk",7000,openTheDoor);
 };
 
 //
 // openTheDoor
 //
 const openTheDoor = ()=>{
-  doAction("open the door",3000,walkThroughTheDoor,'magenta');
+  doAction("open the door",3000,walkThroughTheDoor);
 };
 
 //
@@ -53,7 +53,7 @@ const openTheDoor = ()=>{
 //
 const walkThroughTheDoor = ()=>{
   look();
-  doAction("walk through the door",4000,null,'green');
+  doAction("walk through the door",4000,null);
 }
 
 setInterval(()=>{
