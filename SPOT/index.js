@@ -9,6 +9,9 @@ const bcrypt = require("bcrypt");
 var bodyParser = require("body-parser");
 const cors = require('cors');
 
+const https = require('https');
+const fs = require('fs');
+
 const log4js = require("log4js");
 // define the logger
 const logger = log4js.getLogger();
@@ -63,7 +66,7 @@ app.use('*', (req,res,next) => {
     if(email = loggedInEmail(req)){
       logger.debug("email",email);
       loggedInUsers[email] = Date.now();
-      logger.debug(loggedInUsers);
+      logger.debug(`loggedInUsers`,loggedInUsers);
     }
   } else {
     logger.debug("req.session.email is falsey", req.session.email);
@@ -88,6 +91,18 @@ function loggedInEmail(req){
   //   return;
   // }
   // res.redirect('/register');
+
+  dbFns.getUserByEmail(req.session.email, (rows) => {
+    if (typeof rows[0] !== 'undefined'){
+      req.session.user = rows[0];
+      logger.debug('req.session.user:' + req.session.user);
+      console.log('req.session.user:',req.session.user);
+    } else {
+      logger.debug('no matching email address');
+      return res.redirect("/register");
+    }
+  });
+
   if (req.session.email){
     logger.debug(`${req.session.email} is logged in.`);
     return req.session.email;
@@ -107,7 +122,7 @@ app.post('/login',(req,res) => {
         logger.debug(`rows[0]=${JSON.stringify(rows[0])}`);
         req.session.email = candidateEmail;
         req.session.user = rows[0];
-        return res.redirect("/student/16");
+        return res.redirect("/student/9");
       } else {
         logger.debug('password is incorrect');
         return res.write('password is incorrect');
@@ -472,6 +487,16 @@ app.post("/neworder", (req, res) => {
 //
 
 const port = process.env.PORT || 7865;
-app.listen(port, () => {
-  logger.debug(`app is listening on port ${port}`);
+
+const httpsOptions = {
+  key: fs.readFileSync('./key.pem'),
+  cert: fs.readFileSync('./cert.pem')
+}
+
+const server = https.createServer(httpsOptions, app).listen(port, () => {
+  console.log('server running at ' + port)
 });
+
+// app.listen(port, () => {
+//   logger.debug(`app is listening on port ${port}`);
+// });

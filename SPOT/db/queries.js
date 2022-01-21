@@ -118,7 +118,7 @@ const getDayDetails = (day_id, cb) => {
       return cb(response.rows);
     })
     .catch((err) => {
-      logger.debug("getDay query error:", err);
+      logger.debug("getDayDetails query error:", err);
     });
 };
 
