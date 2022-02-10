@@ -1,25 +1,23 @@
+First Run Of This Lecture: https://vimeo.com/676075700/d8cce22a61
+
+TODO:
+
+1) Use a Single Consistent Sample Example Relevant to the Students:
+
+salary negotiations?
+negotiating the specifics of a group project?
+
+2) Provide A Worksheet to fill in where the Student Uses Their Own Private Example of a Recent Negotiation
+
+3) Flesh Out The Communication Best Practices
+
+***
+
+
 No Tug of War Image by https://thenounproject.com/leremy/
-
 This file is licensed under the Creative Commons Attribution-Share Alike 4.0 International license.	
-
 https://en.wikipedia.org/wiki/en:Creative_Commons
 https://creativecommons.org/licenses/by-sa/4.0/deed.en
-
-You are free:
-
-to share – to copy, distribute and transmit the work
-
-to remix – to adapt the work
-
-Under the following conditions:
-
-attribution – You must give appropriate credit, provide a link to the license, and indicate if changes were 
-made. You may do so in any reasonable manner, but not in any way that suggests the licensor endorses you or 
-your use.
-
-share alike – If you remix, transform, or build upon the material, you must distribute your contributions 
-under the same or compatible license as the original.
-
 
 ## Summary of the GtY Approach
 
@@ -155,3 +153,13 @@ underlying legitimate interests can be hard work.
 3. When your project is done, give us feedback on how the principles worked, and give us ways to improve 
 this Breakout.
 
+
+## Ask Clarifying Questions
+
+## Hold the Responsibility for Communication
+
+### The initiator of a line of communication holds responsibilty for the clarity of the message
+
+### Focus On Outcomes
+
+### Be Concise 

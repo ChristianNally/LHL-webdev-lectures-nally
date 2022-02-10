@@ -1,0 +1,848 @@
+WEBVTT
+
+00:00:00.000 --> 00:00:00.000
+some slides Can people see the screen share okay.
+
+00:00:00.000 --> 00:00:00.000
+Excellent.
+
+00:00:00.000 --> 00:00:00.000
+to move my meeting controls because they're
+
+00:00:00.000 --> 00:00:03.000
+under a thing.
+
+00:00:03.000 --> 00:00:14.000
+All right, welcome to the inaugural breakout for negotiation and communication for web developers
+
+00:00:14.000 --> 00:00:33.000
+web development is kind of famous for being a field where sometimes people skills are lacking right now people make a career of working with machines all the time and finding, maybe even sometimes solace in not having to deal with human beings right as
+
+00:00:33.000 --> 00:00:40.000
+they're writing out recipes and algorithms and getting deep into the tech bits and pieces of things.
+
+00:00:40.000 --> 00:00:53.000
+I'm here to to bear witness to the fact that some people skills can go a long long way. Yeah, working in computing, and that, in many ways, the field is is lacking for that.
+
+00:00:53.000 --> 00:01:11.000
+And the extent to which you can onboard some people skills, and some negotiation skills, it's going to very much help you throughout your career, and it's a career long endeavor to get better with these things.
+
+00:01:11.000 --> 00:01:23.000
+It's also a great set of skills to bring, not just to your professional life but also to your personal life into your recreation time and everything that you do.
+
+00:01:23.000 --> 00:01:25.000
+When I first got into this stuff.
+
+00:01:25.000 --> 00:01:34.000
+I was astounded at how much of my world is negotiated.
+
+00:01:34.000 --> 00:01:38.000
+How many negotiations are happening, day after day.
+
+00:01:38.000 --> 00:01:47.000
+Yeah. Chris mentions I got my first job at a web agency from a guy I met at a house party. yep, just communicating with people, networking. Right.
+
+00:01:47.000 --> 00:01:50.000
+I mean, my own personal story and this is.
+
+00:01:50.000 --> 00:01:57.000
+I was working at McDonald's Detwiler a space industry, large company.
+
+00:01:57.000 --> 00:02:15.000
+And they had a thing called MDAU and McDonald that Weiler University right there teaching their employees, how to do various things and Getting to Yes, the the book that I'll be using for today's presentation was reading for that bit of schooling and
+
+00:02:15.000 --> 00:02:35.000
+at the time I was going through some pretty difficult situation with regard to my wife, at the time, and I'm as I'm reading through this book and understanding communication and negotiation better, the tagline for the book that will be using is negotiating
+
+00:02:35.000 --> 00:02:42.000
+agreement without giving in right in that relationship I very much felt
+
+00:02:42.000 --> 00:02:58.000
+that I was giving into demands and giving into demand and giving into demands constantly one after the other and that this actually provided a recipe for me to stand my ground on the one hand, but not be a jerk about it on the other hand.
+
+00:02:58.000 --> 00:03:00.000
+Right.
+
+00:03:00.000 --> 00:03:14.000
+And so, let's dig into this you'll see a little bit more of this about what it's all about. And, and how it can be useful in so many areas in your, in your world.
+
+00:03:14.000 --> 00:03:31.000
+So, just as with coding, where we learn frameworks and best practices to get a step ahead to gain on the experience that have come from people before us.
+
+00:03:31.000 --> 00:03:34.000
+Just as it is with computer programming.
+
+00:03:34.000 --> 00:03:43.000
+We can learn frameworks and best practices in these topics of negotiating and communicating.
+
+00:03:43.000 --> 00:03:57.000
+And from these frameworks and best practices, just become aware of options that we might not have thought about or take paths that are going to reduce friction and in arriving at optimal places.
+
+00:03:57.000 --> 00:04:00.000
+Right.
+
+00:04:00.000 --> 00:04:07.000
+So, This book is is pushing 30 years old now.
+
+00:04:07.000 --> 00:04:12.000
+And when it was first released, and written.
+
+00:04:12.000 --> 00:04:25.000
+They identified early on that there were shifts in the way that society was running that society was happening, that the that the collective consciousness of people was moving and changing.
+
+00:04:25.000 --> 00:04:27.000
+Right.
+
+00:04:27.000 --> 00:04:33.000
+Broadly speaking, people are moving away from hierarchy.
+
+00:04:33.000 --> 00:04:38.000
+Organizations are flatter than they used to be.
+
+00:04:38.000 --> 00:04:48.000
+There's a lot of distrust of expertise, I'm sure you'll notice that in the headlines in the news these days right people are very much carving out their own paths.
+
+00:04:48.000 --> 00:04:57.000
+And often to do that well involves negotiation and more negotiated things as we go.
+
+00:04:57.000 --> 00:05:01.000
+People are less likely to accept authority.
+
+00:05:01.000 --> 00:05:11.000
+people want and deserve an increased stake in the outcomes of their invested time, right, power to individuals here.
+
+00:05:11.000 --> 00:05:25.000
+And yet at the same time in the world consolidated power is more common than ever before, especially in the world of the hyper efficient digital world that you may be faced with consolidated power in your world.
+
+00:05:25.000 --> 00:05:28.000
+There are negotiation opportunities everywhere.
+
+00:05:28.000 --> 00:05:45.000
+And I hope that some of what we do today is going to open up your eyes to this. But more importantly, you're about to embark on a final project with a couple of other people in your final project.
+
+00:05:45.000 --> 00:06:04.000
+And a lot of the skills and tips and tricks and ideas that I'll be presenting here are going to be completely useful when it comes to getting along with your group mates in your final script, right, resting on some best practices for communication, some
+
+00:06:04.000 --> 00:06:10.000
+ideas about how to get past an impasse.
+
+00:06:10.000 --> 00:06:18.000
+So, the next four slides are basically a summary of that book. Getting to Yes.
+
+00:06:18.000 --> 00:06:42.000
+That book was written by a group of people from the Harvard negotiation project, and was the tech, the tips and tricks and techniques were based on a larger research project into the kinds of outcomes that resulted from a variety of kinds of negotiation,
+
+00:06:42.000 --> 00:06:54.000
+and the overall goal is to arrive at better outcomes more efficiently, while preserving the relationships of the parties involved.
+
+00:06:54.000 --> 00:06:58.000
+So that you don't leave people feeling with resentment.
+
+00:06:58.000 --> 00:07:03.000
+And that you don't spin your wheels and land on a non optimal solution.
+
+00:07:03.000 --> 00:07:05.000
+For some reason.
+
+00:07:05.000 --> 00:07:19.000
+And the first step is to become aware of a thing called positional bargaining. Right. This is very much like the traditional haggling that's done over say price.
+
+00:07:19.000 --> 00:07:24.000
+And what the technique says is
+
+00:07:24.000 --> 00:07:31.000
+to do your very best not to get suckered into a tug of war over individual parameters.
+
+00:07:31.000 --> 00:07:44.000
+For example, here's Alf and Bert, having a chat, trying to figure out if this job is going to work out says I charge 85 an hour, Bert says I'll pay 50 an hour.
+
+00:07:44.000 --> 00:07:46.000
+I mean, even the grammar of it.
+
+00:07:46.000 --> 00:07:56.000
+I pay 15 hours, it's very final, that's the end of it, it's a position that they've each taken one in 85 and one at 50.
+
+00:07:56.000 --> 00:08:08.000
+Alpha response that's ridiculous 75 an hour is my final offer right you can see what what traditionally goes on is there's a bit of a back and forth with the hope that somewhere they'll meet in the middle.
+
+00:08:08.000 --> 00:08:14.000
+And that somehow that middle ground will end up being fair.
+
+00:08:14.000 --> 00:08:26.000
+The problem is that every time a person gives up on a position, and has to argue for a new position.
+
+00:08:26.000 --> 00:08:34.000
+All of their previous defenses for a previously held position, are now being considered invalid in some way.
+
+00:08:34.000 --> 00:08:52.000
+And you know the person loses face the person's ego is taking hits this back and forth is damaging to relationships. It's damaging to reason that's brought to a negotiation.
+
+00:08:52.000 --> 00:08:59.000
+So we're going to try to take different approaches to this.
+
+00:08:59.000 --> 00:09:07.000
+One of the things that they want us to do straight away, is to separate the people from the problem that you're working on.
+
+00:09:07.000 --> 00:09:22.000
+So for this picture an infographic here for example, the thing that I'm focused on is the fact that we have four people at a table, and they're talking about the thing they're talking about the object of of what they're trying to do, they're talking about
+
+00:09:22.000 --> 00:09:33.000
+the machine they're trying to build. In our case the software that we're trying to build. Right. It's about that thing. it's not about the individuals.
+
+00:09:33.000 --> 00:09:50.000
+And as you work in companies and as you work for people and as you work with other people and on teams, you'll start to recognize when people are laser focused on the outcomes that you're trying to work on together, as opposed to making it about the people
+
+00:09:50.000 --> 00:09:52.000
+like look at Alvin Burke here.
+
+00:09:52.000 --> 00:10:15.000
+That's ridiculous. 75, an hour is my final offer Burt Stop being silly right there, including phrases that are about the other person, not about the essence of of what's going on in this trading of ideas back and forth and changing of positions and whatnot.
+
+00:10:15.000 --> 00:10:23.000
+So instead of positional bargaining. The technique says, focus on interests, not on positions.
+
+00:10:23.000 --> 00:10:28.000
+Right. So, Burt might have in the back of their mind.
+
+00:10:28.000 --> 00:10:39.000
+I have a limited budget and need money to grow my business, not just for this contract but I need to reserve money so that I'm able to afford so many other things.
+
+00:10:39.000 --> 00:10:47.000
+Right, that's fine, that's a legitimate interest for Bert to have as the owner of a business who needs some work done.
+
+00:10:47.000 --> 00:11:01.000
+Alf on the other hand, needs to have their time compensated for fairly. Right, which in and of itself is an entirely valid interest.
+
+00:11:01.000 --> 00:11:02.000
+Right.
+
+00:11:02.000 --> 00:11:13.000
+Bert would agree that Alf needs to have their time compensated for fairly, they may not agree about what fair means.
+
+00:11:13.000 --> 00:11:27.000
+But that's okay. They can each make these statements, and those statements, enter into the conversation as pillars upon which the framework for agreement might happen, right.
+
+00:11:27.000 --> 00:11:45.000
+So, every time you hear in a negotiation, somebody taking a position, encourage yourself to do this. Try to tease out what is the underlying interest in the position that they've taken.
+
+00:11:45.000 --> 00:11:55.000
+And the more complex the thing that you are negotiating over the more complex that relationship is going to be the relationship between positions and interests.
+
+00:11:55.000 --> 00:11:56.000
+Right.
+
+00:11:56.000 --> 00:12:03.000
+Some interests are very legitimate interest, other interests are not as legitimate.
+
+00:12:03.000 --> 00:12:08.000
+And then you start getting into discussions about the nature of the interests.
+
+00:12:08.000 --> 00:12:19.000
+You can see that this is going to inform the kinds of conversations that you're going to be having in the middle of a negotiation. Yeah.
+
+00:12:19.000 --> 00:12:19.000
+Um, any questions that you've seen it from what you've seen so far.
+
+00:12:19.000 --> 00:12:40.000
+Any questions that you've seen it from what you've seen so far. How about examples, I'd like to stop at this moment and just get everybody to think for a little bit about examples of a negotiation that they've been involved in their own life lately.
+
+00:12:40.000 --> 00:12:41.000
+Yeah.
+
+00:12:41.000 --> 00:12:52.000
+Now all the better if you're willing to share it with us in the room, two options for sharing one would be to just type an example, into the chat.
+
+00:12:52.000 --> 00:13:00.000
+And another thing you could do if you're feeling up to it is just to turn off your microphone and then let us know.
+
+00:13:00.000 --> 00:13:11.000
+Can you think of an example of a negotiation that you've been in recently that you're willing to share with us.
+
+00:13:11.000 --> 00:13:21.000
+I will bring an example to what we're talking about today. Straight from boot camp.
+
+00:13:21.000 --> 00:13:24.000
+And so for the example that I want to bring.
+
+00:13:24.000 --> 00:13:39.000
+We had a case recently where finalists group kind of imploded where there were disagreements over design of the project.
+
+00:13:39.000 --> 00:13:48.000
+And it turned out that one of the members was of an experience designer.
+
+00:13:48.000 --> 00:13:58.000
+And on the other hand, one of the members was decidedly against the aesthetic that had been chosen for the project.
+
+00:13:58.000 --> 00:14:05.000
+And so the conversation went in circles for a long time.
+
+00:14:05.000 --> 00:14:07.000
+Here's an interesting thing.
+
+00:14:07.000 --> 00:14:10.000
+Everybody wants to have a fair agreement.
+
+00:14:10.000 --> 00:14:13.000
+By the end of the negotiation.
+
+00:14:13.000 --> 00:14:19.000
+But what fair means is often very different.
+
+00:14:19.000 --> 00:14:30.000
+Right. What does fair mean. So, in the context of boot camp finals projects for example, where you have one person who's actually a professional designer.
+
+00:14:30.000 --> 00:14:37.000
+You might think that it makes sense for that person to be the one who gets to say what happens.
+
+00:14:37.000 --> 00:14:41.000
+Right. That seems fair.
+
+00:14:41.000 --> 00:14:52.000
+Except that would ignore the legitimate interest of the other party who is there to practice learning some design.
+
+00:14:52.000 --> 00:15:00.000
+Now, last Labs is not a design Bootcamp, and the design is actually not core to the thing.
+
+00:15:00.000 --> 00:15:04.000
+Right. And yet, it's very important for a final project.
+
+00:15:04.000 --> 00:15:13.000
+That's the example, that's an example of a kind of disagreement that can need negotiation, where,
+
+00:15:13.000 --> 00:15:25.000
+rather than adopting a position, about I don't think what you're saying should be seen as valid for this design I think instead that I should be able to say what is valid for this design.
+
+00:15:25.000 --> 00:15:30.000
+Okay, those are positions about who's going to pick a thing.
+
+00:15:30.000 --> 00:15:41.000
+But maybe there needs to be a conversation about what the individual interests of the people are in the way that you proceed. Right.
+
+00:15:41.000 --> 00:15:42.000
+Okay.
+
+00:15:42.000 --> 00:16:04.000
+So the other thing about positional bargaining is that it's on a very defined path, right, you've got a very linear. On the left hand side of a line you've got one extreme on the right hand side of the line, you've got another extreme, and you're staying
+
+00:16:04.000 --> 00:16:07.000
+on that line and you're trying to find a solution.
+
+00:16:07.000 --> 00:16:16.000
+Only on that line without any other creativity or other factors being brought in that may very much help.
+
+00:16:16.000 --> 00:16:39.000
+Getting to an agreement. In the end, for example, if the parties involved are willing to sit down and spend some time coming up with creative alternatives that are not
+
+00:16:39.000 --> 00:16:58.000
+solutions that may satisfy both parties, and may satisfy both parties, better then any tug of war would have resulted in. For example, Burt might say, I could split some future revenue.
+
+00:16:58.000 --> 00:17:13.000
+We could make an agreement about future ownership of the company or future profits or profit share something like that, if Burt happens to lack cash that could be of interest to alpha, alpha could say, because they were mostly interested in having their
+
+00:17:13.000 --> 00:17:27.000
+time being compensated for fairly if that was their main underlying interests, they could say, I could act as an advisor for a few hours a week maybe alphas particularly senior knowledgeable and Bert needs that kind of information that kind of influence
+
+00:17:27.000 --> 00:17:30.000
+in their company. Right.
+
+00:17:30.000 --> 00:17:48.000
+And so these are ideas and alternatives that have gotten these two negotiators off of their tug of war and into the area of more creative mutual gain ideas.
+
+00:17:48.000 --> 00:17:53.000
+Okay.
+
+00:17:53.000 --> 00:17:57.000
+Additional and separate to all of that.
+
+00:17:57.000 --> 00:18:09.000
+It helps to seek and include objective criteria as the way by which decisions get made, rather than it being a tug of war.
+
+00:18:09.000 --> 00:18:19.000
+Instead, if both people in a negotiation can find an objective criteria and point to it as being a best practice.
+
+00:18:19.000 --> 00:18:28.000
+All the better. Right now I've tried to pick out some examples that are relevant specifically to the world of computer programming.
+
+00:18:28.000 --> 00:18:30.000
+Right.
+
+00:18:30.000 --> 00:18:36.000
+If you're going to be working on a team, you often makes sense to adopt a style guide.
+
+00:18:36.000 --> 00:18:43.000
+And I mean literally like a written style guide I've got a link here to one by Google for JavaScript.
+
+00:18:43.000 --> 00:18:48.000
+The Google JavaScript style guide. And so, as the code is written.
+
+00:18:48.000 --> 00:18:58.000
+If there are discrepancies between the two ways of coding. Let's use the style guide as a way of deciding how we're going to do this. If both parties can agree.
+
+00:18:58.000 --> 00:19:04.000
+Yeah, it makes sense to code to that particular style guide, then you'll have answers to this.
+
+00:19:04.000 --> 00:19:07.000
+You may not think that this is all that important.
+
+00:19:07.000 --> 00:19:19.000
+And yet, if you're going to be doing, pull requests to bring code into a main branch of a project that you're working on.
+
+00:19:19.000 --> 00:19:37.000
+It's going to cut down tremendously. On the amount on the risk of conflict. Merge conflicts between branches. If you've got different lens settings on the two editors, and someone puts stuff up onto a branch and says yes yeah, we need to bring this over
+
+00:19:37.000 --> 00:19:50.000
+to the main branch. Okay, here's your pull request. Oh, wait a minute, this collides with all the other stuff and the only change is that this isn't camel case and this is not this is not worth my time, and yet that you know it's going to go back and
+
+00:19:50.000 --> 00:20:01.000
+forth between the two editors, it's going to cause friction right by pointing to this objective third party standard that can be avoided. Yeah.
+
+00:20:01.000 --> 00:20:07.000
+Similarly with World Wide Web Standards. This one's an interesting one.
+
+00:20:07.000 --> 00:20:20.000
+It's about a standard for documentation. What, what should be the format and approach of typical documentation. If you can all point to that and say yeah, we agree that that's a good one.
+
+00:20:20.000 --> 00:20:28.000
+We're going to aim for that, then it can solve some disagreements. This one is, is a law.
+
+00:20:28.000 --> 00:20:36.000
+You're speaking of things that that try to be objective and that they are a third party industry standard.
+
+00:20:36.000 --> 00:20:44.000
+This is a law around accessibility standards in Ontario.
+
+00:20:44.000 --> 00:20:55.000
+Turns out it's one of the more fleshed out ones in Canada. Right. And so if you're building a web project, and you're deciding the scope of what counts says acceptable.
+
+00:20:55.000 --> 00:21:03.000
+Right. then a document like this can tell you yeah we need to have these attributes we need to do this. That's going to take this much effort to reach this standard.
+
+00:21:03.000 --> 00:21:04.000
+Right.
+
+00:21:04.000 --> 00:21:13.000
+And so, that may affect if you're going to require that the work be up to standard.
+
+00:21:13.000 --> 00:21:35.000
+then that may mean that you need to because of a budget constraint, not build the rest of the project not build this stretch goal or that stretch goal, but instead focus on meeting this standard, which, you know, has implications in law.
+
+00:21:35.000 --> 00:21:37.000
+Alright.
+
+00:21:37.000 --> 00:21:47.000
+Another one of the topics in this book that is worth coming to grips with
+
+00:21:47.000 --> 00:21:54.000
+is knowing when to step away from the negotiation.
+
+00:21:54.000 --> 00:22:02.000
+And knowing when to to shut down a negotiation and not continue with it. Right.
+
+00:22:02.000 --> 00:22:12.000
+This is especially important when it comes to not giving in and building resentment, after the fact.
+
+00:22:12.000 --> 00:22:15.000
+Right.
+
+00:22:15.000 --> 00:22:19.000
+I'm using an acronym here that comes straight out of the book it's called BATNA.
+
+00:22:19.000 --> 00:22:27.000
+It stands for best alternative to a negotiated agreement.
+
+00:22:27.000 --> 00:22:40.000
+So, imagine for example that you're in a case where you're in salary negotiations for a position.
+
+00:22:40.000 --> 00:22:55.000
+Going into those salary negotiations, where you have a certain that they use it as a word of BATNA right it what are your alternatives to a negotiated agreement.
+
+00:22:55.000 --> 00:22:58.000
+If you get no agreement at all about this.
+
+00:22:58.000 --> 00:23:06.000
+And you have some other job that pays a little less but it's going to be important for you to have at least that amount of pay.
+
+00:23:06.000 --> 00:23:15.000
+Then, you don't need to work extra hard to obtain an agreement.
+
+00:23:15.000 --> 00:23:19.000
+Because you have that alternative.
+
+00:23:19.000 --> 00:23:21.000
+As a fallback option.
+
+00:23:21.000 --> 00:23:24.000
+Say, right.
+
+00:23:24.000 --> 00:23:35.000
+Whereas if you yourself know that your own alternative to a negotiated agreement is nowhere near worth what this new position would be.
+
+00:23:35.000 --> 00:23:46.000
+Then, it sets the very scale of what it is to sacrifice, any given an interest of yours.
+
+00:23:46.000 --> 00:23:54.000
+In exchange for the other good things that would come with that position right now.
+
+00:23:54.000 --> 00:24:00.000
+If there's a tremendous power imbalance between you and a negotiation partner.
+
+00:24:00.000 --> 00:24:21.000
+You may be able to see more clearly. When you think very clearly about what your alternatives are personally, how hard you need to work in order to try to find alternatives that can work for both parties, both parties have legitimate interest legitimate
+
+00:24:21.000 --> 00:24:30.000
+interests are the easiest ones to defend by referring to third party standards. Right.
+
+00:24:30.000 --> 00:24:34.000
+All of that takes work.
+
+00:24:34.000 --> 00:24:45.000
+All of that takes clear thinking, and sometimes you need to step away and then do some soul searching about what your own legitimate interests actually are.
+
+00:24:45.000 --> 00:24:51.000
+Which things that you would consider your non negotiable. For example, Right.
+
+00:24:51.000 --> 00:25:03.000
+And having those things clearly in your mind. In fact, articulating them in an authentic and earnest and open way is going to build trust is going to get you to a certain place, right.
+
+00:25:03.000 --> 00:25:20.000
+It will allow you to fish for creative thinking on the part of the other people that are involved in negotiation, to look for, win, win situations that are outside of the standard kinds of negotiation bits that you're looking at.
+
+00:25:20.000 --> 00:25:39.000
+In the world of employment, it might be flexible work schedule source or stock options or, you know, benefit packages or other things that can be part of the way that a final working agreement can work well.
+
+00:25:39.000 --> 00:25:47.000
+Even though it may not include hourly wage that's, you know, to some other standard that you've decided to relax on.
+
+00:25:47.000 --> 00:26:02.000
+But by knowing your own best alternative to a negotiated agreement that actually sets the scale for how much work you yourself as an individual should be doing when it comes to looking for alternatives.
+
+00:26:02.000 --> 00:26:14.000
+Okay, so here's a really interesting aspect of this approach to negotiating and communicating.
+
+00:26:14.000 --> 00:26:26.000
+Traditional negotiations can often be conducted in a way where you keep your own interests secret.
+
+00:26:26.000 --> 00:26:33.000
+And you're not sharing your interests with your negotiating partner.
+
+00:26:33.000 --> 00:26:43.000
+That does nothing for building trust, and just being plain and simple and straightforward about the kinds of things that you're communicating about right.
+
+00:26:43.000 --> 00:27:01.000
+It turns out that if what you're interested in, is efficiently and amicably arriving at a very optimal solution to a given disagreement or negotiation situation.
+
+00:27:01.000 --> 00:27:09.000
+You can actually share the strategies that you are you yourself are using with the other person.
+
+00:27:09.000 --> 00:27:19.000
+And then they will see you as being open, honest, trustworthy plain, transparent, right, all of those sorts of things.
+
+00:27:19.000 --> 00:27:27.000
+And you can recommend the method to your negotiating partner you can say, Have a look at this.
+
+00:27:27.000 --> 00:27:45.000
+Prescription this recipe for arriving at good agreements, right, we can agree on what the character of a good agreement is right, it's fair to both parties fair by some definition that we'll talk about in detail is not an agreement that's going to leave
+
+00:27:45.000 --> 00:28:08.000
+resentment for either party. right, you can actually agree on those aspects of how the negotiations going to be arrived at and build up a practice around this with people, where you get a certain amount of time with someone, if something's really important
+
+00:28:08.000 --> 00:28:11.000
+to you.
+
+00:28:11.000 --> 00:28:24.000
+Fear not, plow into having discussions about that thing to learn about their perspective to learn about you know what their interests are and and how they're able to build more interesting and better agreements and arrangements for you.
+
+00:28:24.000 --> 00:28:27.000
+Yeah.
+
+00:28:27.000 --> 00:28:34.000
+Is any of this speaking to people's individual examples of negotiation that they've been in.
+
+00:28:34.000 --> 00:28:43.000
+Can you think of a circumstance where you made an agreement with somebody and then were immediately resentful but just kept quiet about it and sold it on.
+
+00:28:43.000 --> 00:28:45.000
+Right.
+
+00:28:45.000 --> 00:29:02.000
+Would there have been times when going a little more slowly and carefully and being open about what your own self interests were and figuring out how legitimate they were and, and how objective Lee reasonable they are and that would have helped that would
+
+00:29:02.000 --> 00:29:18.000
+have helped the creative thinking process for finding solutions can be hard work, but the more you practice it the more the more you'll get better at these things they're a skill for sure.
+
+00:29:18.000 --> 00:29:24.000
+If you're open to this stuff, you will start to see negotiation happening all around you.
+
+00:29:24.000 --> 00:29:39.000
+It's like, it's one of these things it's happening multiple times a day with people in your world, your family, friends, your co workers, right. It happens all the time, and people are not aware of it, they're just like negotiations are flying by they're
+
+00:29:39.000 --> 00:29:41.000
+happening so often, right.
+
+00:29:41.000 --> 00:29:43.000
+I'm.
+
+00:29:43.000 --> 00:29:51.000
+I'm here to encourage you to start to see those negotiations happening to practice.
+
+00:29:51.000 --> 00:30:01.000
+In these situations, trying to identify what are the what are the legitimate interests of the people that I'm speaking with.
+
+00:30:01.000 --> 00:30:16.000
+Are they even able to articulate those interests themselves. Right. Have I fallen into a trap of getting into a tug of war with somebody over one particular number or instead.
+
+00:30:16.000 --> 00:30:25.000
+Could I be thinking of more creative solutions that satisfy the underlying and unspoken legitimate interests.
+
+00:30:25.000 --> 00:30:28.000
+Right.
+
+00:30:28.000 --> 00:30:47.000
+Okay. So, communication, obviously, is an underlying skill set that is a ubiquitous so much communicating going on, not all communication is negotiation, obviously.
+
+00:30:47.000 --> 00:30:54.000
+But negotiating well does require communicating well. Right.
+
+00:30:54.000 --> 00:31:02.000
+In the same way that doing group work and a final project requires good communication. There's something here to be practiced. There's something here to be aware of.
+
+00:31:02.000 --> 00:31:04.000
+Yeah.
+
+00:31:04.000 --> 00:31:17.000
+Um, who here was at my command line tips and tricks breakout early on in the boot camp. I before you get out of this program, go back to it if you haven't seen it.
+
+00:31:17.000 --> 00:31:27.000
+Here's a similar principle that I used from that command line tips and tricks thing, slow down to speed up.
+
+00:31:27.000 --> 00:31:30.000
+If you're methodically careful about what you're doing.
+
+00:31:30.000 --> 00:31:38.000
+That is a route to efficiency, where you won't get trapped on some hamster wheel.
+
+00:31:38.000 --> 00:31:43.000
+Right. And so when it comes to communication,
+
+00:31:43.000 --> 00:31:46.000
+who has, who is guilty of this, right.
+
+00:31:46.000 --> 00:32:06.000
+While you're listening to somebody, especially in, say, a heated emotionally difficult negotiation say that as somebody speaking, you are yourself already formulating a response in the middle of them speaking, who has done that before.
+
+00:32:06.000 --> 00:32:07.000
+It was guilty of that problem, right, I know that I am have been, and I'm you know it's the kind of thing that I work on a lot.
+
+00:32:07.000 --> 00:32:20.000
+that problem, right, I know that I am have been, and I'm you know it's the kind of thing that I work on a lot. The mind is an interesting thing right when your mind is on autopilot.
+
+00:32:20.000 --> 00:32:27.000
+It can be extremely fast and extremely self serving.
+
+00:32:27.000 --> 00:32:28.000
+Right.
+
+00:32:28.000 --> 00:32:45.000
+It takes effort to get yourself out of that habit, and to instead. work on active listening active understanding articulating the positions of the person that you're negotiating with.
+
+00:32:45.000 --> 00:32:47.000
+Right.
+
+00:32:47.000 --> 00:32:55.000
+repeating what they've said in your own words to confirm that you understand what they are saying.
+
+00:32:55.000 --> 00:33:14.000
+When you do that, you're effectively creating a bridge to that person you're inviting them to behave in thinking the same way. Right, so that when you speak, you are understood, and they will get on this, this train of articulating what you're saying
+
+00:33:14.000 --> 00:33:23.000
+and developing a true understanding of each of your interests. Right. Those are good communication skills
+
+00:33:23.000 --> 00:33:33.000
+pauses are good, you know, whether it's a short pause in the conversation just to think about something that was very profound that just happened.
+
+00:33:33.000 --> 00:33:50.000
+Or, it's a hey let's take a break. Let's go get some lunch, let's just, you know, get out of this situation so that we can think sleep on it for a bit, maybe you want to start a particularly tough negotiation, day by saying, no matter what happens, we're
+
+00:33:50.000 --> 00:33:58.000
+not going to make any decisions today about the final outcome. Today is all about generating creative solutions.
+
+00:33:58.000 --> 00:34:00.000
+Yeah.
+
+00:34:00.000 --> 00:34:13.000
+And then you know you got this whole evening and then a chance to sleep on something before coming back to it right, obviously, for more complex things maybe it's going to take more than just today right but you want to make progress toward describing
+
+00:34:13.000 --> 00:34:18.000
+each other's legitimate interests.
+
+00:34:18.000 --> 00:34:24.000
+Another panel on some communication tips. And this is also straight out of the book.
+
+00:34:24.000 --> 00:34:28.000
+Go soft on the people but hard on the issues.
+
+00:34:28.000 --> 00:34:37.000
+Right. This is where you can gain some power in negotiation, without being a jerk about it.
+
+00:34:37.000 --> 00:34:47.000
+Right. The idea here is to separate the people from the problem.
+
+00:34:47.000 --> 00:35:03.000
+It is to be perhaps for example, especially ambitious about, say, stretch goals in the finals project. Yeah, I'm really attached to this stretch goal and this stretch goal and the stretch goal I think they're all super important.
+
+00:35:03.000 --> 00:35:10.000
+I want to discover ways that we can be extra efficient and fast.
+
+00:35:10.000 --> 00:35:18.000
+Because those are very important to me personally, say, compared with.
+
+00:35:18.000 --> 00:35:23.000
+There are other ways of doing things where we don't get to as many stretch goals.
+
+00:35:23.000 --> 00:35:40.000
+Right, even like the choice of which stack you're going to use, right, it's something to be negotiated between people, and it pays to recognize that people may have legitimate interests around some other stack choice, but is that going to slow you down.
+
+00:35:40.000 --> 00:35:57.000
+Right. You can see how it would take some conversation, some understanding of where people are coming from of the skill sets that happened to be president of the end goal of people, remember we're in the final kickoff we were talking about.
+
+00:35:57.000 --> 00:36:06.000
+It's possible to have a successful project, but you haven't achieved your own personal goals. Right. these things do take communication.
+
+00:36:06.000 --> 00:36:07.000
+Yeah.
+
+00:36:07.000 --> 00:36:13.000
+Another point on separating the people from the issues.
+
+00:36:13.000 --> 00:36:19.000
+Try consciously choosing the passive voice about things.
+
+00:36:19.000 --> 00:36:25.000
+Right. This is done in in science labs where historically.
+
+00:36:25.000 --> 00:36:44.000
+It's been philosophically extremely important that bias be removed from a situation that the human influence actually be abstracted away. Right, so you would practice this when you're writing, like experiment lab projects right, the beaker was filled
+
+00:36:44.000 --> 00:36:52.000
+with blah water this much, that right, there's no people in it, it's like the objects and this was happening, right.
+
+00:36:52.000 --> 00:36:58.000
+I'm in the context of a web development project it might be
+
+00:36:58.000 --> 00:37:10.000
+this web system should have the ability to x y Zed for accessibility reasons.
+
+00:37:10.000 --> 00:37:20.000
+Right. We have this much budget, we should distribute our budget across these needs. Yeah.
+
+00:37:20.000 --> 00:37:35.000
+As opposed to, I think that we should do this and I think you should do that right, those are like active imperative kinds of statements, even your language is already making it about the people.
+
+00:37:35.000 --> 00:37:36.000
+Right.
+
+00:37:36.000 --> 00:37:43.000
+Better to split the people out and talk about the individual bits and pieces.
+
+00:37:43.000 --> 00:37:53.000
+Okay, this whole experience is very much a multi track mega kind of thing.
+
+00:37:53.000 --> 00:37:54.000
+Right.
+
+00:37:54.000 --> 00:38:02.000
+You can communicate about the merits of the case you can communicate about the individual pieces.
+
+00:38:02.000 --> 00:38:08.000
+You can also communicate about how you're communicating.
+
+00:38:08.000 --> 00:38:10.000
+Right.
+
+00:38:10.000 --> 00:38:15.000
+You can negotiate the finer points about the individual interests.
+
+00:38:15.000 --> 00:38:35.000
+But you can also negotiate about how and when you're going to be negotiated, which things count as negotiation and which things are just a chance to get on the same page about things in in lighter ways, right.
+
+00:38:35.000 --> 00:38:37.000
+There's the thing itself.
+
+00:38:37.000 --> 00:38:45.000
+And then there's the tug of war that you want to avoid about the process around the thing itself.
+
+00:38:45.000 --> 00:38:53.000
+And both of these things can be going on simultaneously, right, you can see how how complex this can get.
+
+00:38:53.000 --> 00:39:04.000
+And why it does become a lifelong ambition to get better with these things and tips and tricks.
+
+00:39:04.000 --> 00:39:08.000
+Okay that's quarter past two o'clock.
+
+00:39:08.000 --> 00:39:24.000
+These techniques might save you. I can think of a few finalists projects that I've been involved in supporting over the last year or so, where things decidedly did go off the rails, right where there were real problems where people came back to us at
+
+00:39:24.000 --> 00:39:36.000
+lighthouse. The staff the student support coordinators the instructors the mentors, came to us too late, saying, we haven't heard from so and so for three days, what's the problem help.
+
+00:39:36.000 --> 00:39:36.000
+Right.
+
+00:39:36.000 --> 00:39:42.000
+And so they needed help and communicating,
+
+00:39:42.000 --> 00:39:50.000
+give this a shot, give this set of communicating with this project.
+
+00:39:50.000 --> 00:40:10.000
+Give it your best, but then think back through these suggestions of going super easy and super extra supportive on the people that are there, but at the same time, reserving the right to be able to express your own interests that in, In all likelihood
+
+00:40:10.000 --> 00:40:11.000
+of the other people that you are communicating and doing group work with would agree is a legitimate interest.
+
+00:40:11.000 --> 00:40:25.000
+the other people that you are communicating and doing group works with would agree is a legitimate interest. Yeah, and that way you'll be able to efficiently arrive at good solutions for everybody.
+
+00:40:25.000 --> 00:40:49.000
+Thank you very much, do reach out to me with examples of these kinds of things that you're running into. I'm super keen to hear stories about how you may have hit a wall, and then took a step back and thought, aha, okay, how is this done best.
+
+00:40:49.000 --> 00:40:59.000
+Can I bring that tool to this circumstance. And can we get past a disagreement and arrive at a creative solution that works for everybody involved.
+
+00:40:59.000 --> 00:41:00.000
+Yeah.
+
+00:41:00.000 --> 00:41:07.000
+All right, you know what with that let's leave it with, you know, I've got an extra 1015 minutes for questions.
+
+00:41:07.000 --> 00:41:16.000
+And other than that we'll let folks go and feel free to hang around. We'll have a conversation, maybe about some examples.
+
+00:41:16.000 --> 00:41:26.000
+Other than that. Good luck with your finals projects, use good communication skills good negotiation skills. Just as a quick review.
+
+00:41:26.000 --> 00:41:31.000
+This was.
+
+00:41:31.000 --> 00:41:36.000
+Don't bargain over positions don't get stuck in a tug of war.
+
+00:41:36.000 --> 00:41:40.000
+Separate the people from the problem.
+
+00:41:40.000 --> 00:41:55.000
+Focus on interests, not positions, find the underlying interests and talk about those look for a Venn diagram of Win Win situations where both people's interests are met, and be creative.
+
+00:41:55.000 --> 00:42:08.000
+Take some time to invent options that satisfy all the interests right you're looking for this area in here, where all the interests are satisfied.
+
+00:42:08.000 --> 00:42:29.000
+And then seek objective criteria as ways of breaking ties. You know, so that people feel good about the fact that the path it's been taken is at least has worked for others in the path in the past.
+
+00:42:29.000 --> 00:42:33.000
+It's going to give you some power
+
+00:42:33.000 --> 00:42:46.000
+and share these techniques with everybody that you're working with.
+
