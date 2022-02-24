@@ -122,7 +122,7 @@ app.post('/login',(req,res) => {
         logger.debug(`rows[0]=${JSON.stringify(rows[0])}`);
         req.session.email = candidateEmail;
         req.session.user = rows[0];
-        return res.redirect("/student/9");
+        return res.redirect("/student/12");
       } else {
         logger.debug('password is incorrect');
         return res.write('password is incorrect');
