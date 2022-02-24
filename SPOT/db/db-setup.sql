@@ -1,4 +1,0 @@
-DROP USER spot_admin;
-CREATE USER spot_admin WITH PASSWORD 'spot_admin';
-GRANT ALL PRIVILEGES ON ALL TABLES IN SCHEMA public TO spot_admin;
-GRANT ALL PRIVILEGES ON DATABASE spot TO spot_admin;
