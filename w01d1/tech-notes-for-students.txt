@@ -1,0 +1,28 @@
+M1 Vs Vagrant
+--------------
+Everyone has different machines. Some of you are running different OS
+on those machines, and some machines are even different architecture.
+
+Some of you have vagrant installed, some of you do not. This is totally fine!
+Please be aware of instructions that say "For M1" or "For Vagrant", and only do
+it for the appropriate machine. 
+
+VSCode and Live Share
+------------------
+
+We will be using VS code as are editor of choice. Please make sure you have installed correctly.
+For Linux and windows it should be pretty easy to install. For MAC make sure you moved your
+VsCode Icon into The "Application folder"
+
+Node Ver Bump
+-------------------
+FOR VAGRANT MACHINES
+
+Let's bump up versions
+nvm install 12.22.5
+nvm alias default 12.22.5
+
+---------------------
+Discord - A few rules for discord
+Edit Server Profile
+put your first Name and Last name 
