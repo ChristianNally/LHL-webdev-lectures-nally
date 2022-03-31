@@ -1,0 +1,209 @@
+1) ASI (automatic semicolon insertion) WILL run on your code. It WILL NOT put semicolons in your source 
+code. It will terminate "lines" for you though.
+
+2) When will ASI add a semicolon?
+
+RULE 1: For the following two cases, when reading tokens from left to right, if a token doesn't match the 
+grammar rule, then a semicolon is SILENTLY added before it.
+
+case #a] grammar + line terminator gets one ; after that.
+
+this is not so helpful if you forget a comma. e.g. on the first line of this...
+
+var a
+    b =
+    3;
+
+... then it will silently get turned into ...
+
+var a;
+    b =
+    3;
+
+That's an unfortunate side-effect of ASI. So if you want to defend against that particular kind of silent 
+modification of your code's logic, join team semicolon NOW to prevent that kind of bug.
+
+case #b] just before an ending } if you 'forgot' it.
+
+e.g.
+
+function add(a,b){ console.log(`${a + b}`) }
+                                          ^------ there
+
+That case isn't such a big deal.
+
+
+RULE 2: If your file finishes without any parse errors, it will insert a semicolon at the end of the file.
+
+If you had two files and then someone copy/pasted the second one into the first instead of using a require, 
+then this ...
+
+file 1:
+var thisWillWork = "Hello"
+
+file 2:
+[1,2].map(function(num){
+  return num + 1
+})
+
+... would become ...
+
+var thisWillWork = "Hello"
+[1,2].map(function(num){
+  return num + 1
+})
+
+which is valid JS but a nightmare. So yeah for ASI for this case. But why not make your code explicitly correct?
+
+RULE 3: If a line ending is found with a "restricted production", ASI WILL silently try to help by 
+inserting a semicolon.
+
+e.g.
+
+continue
+vs.
+continue LabelIdentifier
+
+
+if you write...
+
+continue
+LabelIdentifier
+
+... what did you mean?
+
+Another example ... 
+
+What should this function return?
+
+function getPerson(){
+  return
+  {
+    fullName: 'Turkover Lefty'
+  }
+}
+
+This will return undefined, not the object you might have been hoping for.
+
+function getPerson(){
+  return <- ASI will insert a semicolon here.
+  {
+    fullName: 'Turkover Lefty'
+  }
+}
+
+
+
+When would semicolons NOT be inserted? i.e. when are semicolons NOT optional.
+
+a) in the head of a for loop. (because there, semicolons separate parameters of the loop, not statements)
+
+e.g. no worry that a semicolon will be added here.
+
+for (let i = 0
+         ; i < 10 
+         ; i++ ) {
+  // do something
+}
+
+b) one is not inserted if the end result would be an empty statement. this means that if you're trying to 
+make a fancy loop with an empty statement, then the following won't work.
+
+for (let i = 0; i < arr.length; arr[i++] = "pup")
+console.log('arr',arr);
+
+You must insert your own semicolon, thusly:
+
+for (let i = 0; i < arr.length; arr[i++] = "pup");   // be honest. it's weird that this works.
+console.log('arr',arr);
+
+
+*** NOTE
+
+Some notes about ASI:
+
+Some statements do not need (and ASI will therefore not insert any) semicolons. Such as:
+
+if () {} else {}
+
+for () {}
+
+while () {}
+
+BTW... putting ; at the end of those three above will result in an extra empty statement.
+
+but...
+
+do {} while (); // does need a semicolon. ASI will insert one here.
+
+
+*** NOTE
+
+Watch out for lines that start with [ or (
+
+// what is intended here?
+
+a = b + c
+(d + e).print()
+
+ASI (which is not optional) has the potential to turn Team ASI code into syntactically correct code with bugs.
+
+
+*** NOTE
+
+Without a semicolon, self-invoking function syntax will get attached to lines before it.
+
+(function(){})()
+
+Check out:
+https://www.youtube.com/watch?v=cB0STl_A4l4
+for a content creator's reasonsing on why HE doesn't use semicolons.
+(It's basically a list of reasons to use them!)
+
+
+*** FINAL NOTES:
+
+Some say that you can do whatever you want because you can let your prettier config clean up and convert 
+your code for you, either way. Does this really matter? Yes if you want to be able to read code from people 
+on your team without your eyes bleeding... say oh... I don't know... on a github pull request.
+
+The argument is analogous to whether to wear a mask or get vaccinated. Using semicolons is like the choice 
+wear masks and get vaccinated. It takes a little extra effort on your part, and it prevents (visual and 
+attentive) harm to others.
+
+Not using semicolons is like arguing that your team mates should all be using prettier. No... your code 
+
+
+
+Some code to consider:
+
+let a = 1
+const b = 2
+const d = 4
+const e = 5
+
+
+  function c(arg){
+    console.log('arg',arg)
+    return [1,2,3]
+  }
+
+//  c = 5;
+
+a = b + c
+
+
+
+(d + e).length ? console.log('true') : console.log('false')
+
+
+
+function getPerson(){
+  return
+  {
+    fullName: 'Turkover Lefty'
+  };
+}
+
+
+console.log('getPerson()',getPerson());
