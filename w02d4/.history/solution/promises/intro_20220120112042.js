@@ -22,7 +22,4 @@ promise
     // const newData = 'another thing';
     // console.log("newData:",newData);
     console.log('data:', data);
-  }) // <--- that is just a function call. no magic there!
-  .then(() => {
-    console.log('it is alive!');
   });

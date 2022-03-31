@@ -5,32 +5,29 @@ const returnRejectedPromise = functions.returnRejectedPromise;
 
 // throw new Error('ooooops');
 
-returnPromise('one',1000)
+returnPromise('one')
   .then((data) => {
     console.log(data);
-    return returnPromise('two',1000);
+    return returnPromise('two');
+  })
+  .then((data) => {
+    console.log(data);
+    return returnPromise('three');
+  })
+  .then((data) => {
+    console.log(data);
+    return returnRejectedPromise('four');
+  })
+  {}
+  .then((data) => {
+    console.log(data);
+    return returnPromise('five');
+  })
+  .then((data) => {
+    console.log(data);
+    return returnPromise('six');
   })
   .catch((err) => {
     // throw err;
-    console.log('different err:',err);
+    console.log(err);
   })
-  .then((data) => {
-    console.log(data);
-    return returnPromise('three',1000);
-  })
-  .then((data) => {
-    console.log(data);
-    return returnRejectedPromise('four',1000);
-  })
-  .then((data) => {
-    console.log(data);
-    return returnPromise('five',1000);
-  })
-  .then((data) => {
-    console.log(data);
-    return returnPromise('six',1000);
-  })
-  .catch((err) => {
-    // throw err;
-    console.log('err:',err);
-  });

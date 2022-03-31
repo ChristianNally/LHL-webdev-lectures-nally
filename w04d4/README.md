@@ -1,5 +1,33 @@
 # W04D04 - Responsive Design and SASS
 
+The context:
+
+Imagine that you are a full-stack web developer, and you're on a team that is building a web app.
+
+You are working with a designer, who has many years of experience with design principles.
+
+Today's lecture is about starting you down the road toward gaining the skills that will let you convert 
+precision design mockups into functional web layouts.
+
+In the spirit of understanding what it is to be a good designer, review lists of web design principles, 
+like this one:
+
+https://cxl.com/blog/universal-web-design-principles/
+
+and this one
+
+https://uxengineer.com/principles-of-design/
+
+You'll find that those principles are somewhat abstract, subjective even. But they objectively result in 
+layouts that people enjoy using more, even if they don't understand why they like them better.
+
+So... let's take a tour of a few website homepages and watch how they behave as you shrink the page.
+
+https://www.dropbox.com/
+https://github.com/
+https://www.shopify.ca/
+
+
 ### To Do
 - [] Responsive Design
 - [] Viewport Meta Tag

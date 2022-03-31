@@ -18,10 +18,6 @@ rlp.questionAsync('What do you think of Node.js? ')
   })
   .then((answer) => {
     answers.push(answer);
-    return rlp.questionAsync('How fuzzy are monkeys? ');
-  })
-  .then((answer) => {
-    answers.push(answer);
     return rlp.questionAsync('What do you listen to while doing that? ');
   })
   .then((answer) => {
@@ -34,8 +30,8 @@ rlp.questionAsync('What do you think of Node.js? ')
   })
   .then((answer) => {
     answers.push(answer);
-    return rlp.questionAsync('Which sport is your absolute favourite? ');
-    // throw "error!";
+//    return rlp.questionAsync('Which sport is your absolute favourite? ');
+    throw "error!";
   })
   .then((answer) => {
     answers.push(answer);

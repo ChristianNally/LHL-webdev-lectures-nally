@@ -10,17 +10,13 @@ returnPromise('one',1000)
     console.log(data);
     return returnPromise('two',1000);
   })
-  .catch((err) => {
-    // throw err;
-    console.log('different err:',err);
-  })
   .then((data) => {
     console.log(data);
     return returnPromise('three',1000);
   })
   .then((data) => {
     console.log(data);
-    return returnRejectedPromise('four',1000);
+    return returnPromise('four',1000);
   })
   .then((data) => {
     console.log(data);

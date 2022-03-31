@@ -55,10 +55,11 @@ It could be argued that there is really only one relationship type: One-to-Many 
 * Extremely useful for reasoning about how the database should be structured
 * Can be created using pen and paper, a whiteboard, or using an online application
 
-# Breakout: Convert Two Spreadsheets
+# Breakout: Build an ERD For Your Own Sample Project
 
-* Gist with instruction
-* Student Suggestion: ???
+[] make tables for entities in your webapp
+[] for many-to-1 relationships, add a FK to one table and have it point to the PK on the other
+[] for many-to-many relationships, add another table and put two FKs on that table
 
 # Useful Links
 

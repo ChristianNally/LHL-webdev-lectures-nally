@@ -8,7 +8,7 @@ const promiseTwo = returnPromise('two', 4000);
 const promiseThree = returnPromise('three', 2000);
 const promiseFour = returnPromise('four', 3000);
 
-const promises = [promiseOne, promiseThree, promiseFour, promiseTwo];
+const promises = [promiseOne, promiseTwo, promiseThree, promiseFour];
 
 Promise.all(promises)
   .then((data) => {
@@ -16,5 +16,4 @@ Promise.all(promises)
   })
   .catch((err) => {
     console.log("something was rejected!:",err);
-  });
-
+  })

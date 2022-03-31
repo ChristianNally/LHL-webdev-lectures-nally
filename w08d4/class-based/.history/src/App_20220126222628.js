@@ -10,7 +10,7 @@ const App = () => {
     <div className="App">
       {/* <UpdateState /> */}
       {/* <Props /> */}
-      {/* <Lifecycle /> */}
+      <Lifecycle />
     </div>
   );
 };

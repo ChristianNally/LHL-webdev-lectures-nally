@@ -1,0 +1,24 @@
+
+
+feature/cookies
+|
+V
+
+GITHUB      <---- Pull Request
+master v15                         feature/user-registration v15
+
+
+
+
+                                        ^^ git push ^^
+VVVV   git pull VVVVVVVVV
+
+
+
+LOCAL
+master  v15                         feature/user-registration v15
+
+                      git checkout feature/user-registration
+                      git merge master    ---->
+
+

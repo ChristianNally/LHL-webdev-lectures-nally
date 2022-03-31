@@ -13,7 +13,7 @@ returnPromise('one',1000)
   .catch((err) => {
     // throw err;
     console.log('different err:',err);
-  })
+  });
   .then((data) => {
     console.log(data);
     return returnPromise('three',1000);
