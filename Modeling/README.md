@@ -119,3 +119,19 @@ https://github.com/chrislgarry/Apollo-11
 Margaret Hamilton:
 https://www.smithsonianmag.com/smithsonian-institution/margaret-hamilton-led-nasa-software-team-landed-astronauts-moon-180971575/
 
+# Citizen Science Projects to Join
+
+From the Gov't of Canada, a whole index:
+https://www.ic.gc.ca/eic/site/063.nsf/eng/h_97169.html
+
+US Government:
+https://www.citizenscience.gov/#
+
+Other:
+https://www.citizencyberlab.org/projects/
+
+A guide on open data:
+https://citizens-guide-open-data.github.io/guide/6-citizen-science
+
+Tons of astronomy ones at the top of this list because, you know, alphabetical order:
+https://en.wikipedia.org/wiki/List_of_citizen_science_projects
