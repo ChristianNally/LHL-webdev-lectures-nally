@@ -7,7 +7,7 @@ body {
 }
 
 nav {
- min-width: 230px;
+ /* min-width: 230px; */
 }
 
 #main {
@@ -17,13 +17,13 @@ nav {
 
 #main > article {
   flex: 1;
-  min-width: 440px;
+  /* min-width: 440px; */
 }
 
 #main > nav,
 #main > aside {
   flex: 0 0 20vw;
-  /* width: 15%; */
+  width: 15%;
   background: beige;
 }
 
@@ -59,7 +59,7 @@ p {
 } */
 
 #main .first {
-  font-size: 1rem;
+  /* font-size: 1rem; */
 }
 
 /* .second {
@@ -67,16 +67,16 @@ p {
 } */
 
 #main {
-  font-size: 2em;
+  /* font-size: 2em; */
 }
 
 #main .second {
-  font-size: 0.3em;
+  /* font-size: 0.3em; */
 }
 
 @media only screen and (max-width: 992px) {
   body {
-    background-color: blue;
+    /* background-color: blue; */
   }
 }
 
@@ -84,6 +84,6 @@ p {
   /* these styles will be applied if the screen width is less than 500px */
   #main > aside {
     /* background-color: green; */
-    display: none;
+    /* display: none; */
   }
 }

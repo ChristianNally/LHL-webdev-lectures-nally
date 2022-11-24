@@ -8,7 +8,7 @@ const connectedClients = [];
 
 const broadcast = function(currentClient,message){
     for (let connectedClient of connectedClients){
-        console.log('testing client named:',connectedclient.name);
+        console.log('testing client named:',connectedClient.name);
         if(connectedClient !== currentClient){
             connectedClient.write(`${currentClient.name} says: ${message}`);
         }
@@ -27,7 +27,7 @@ server.on('connection', function(client){
     client.write("Welcome to my awesome server! ⛵");
 
     client.on('data', function(message){
-        console.log(`Message received from client: ${message}`);
+        console.log(`Message received [${client.name}]: ${message}`);
         if (message.startsWith('setName ')){
             const clientName = message.replace(/setName /, '');
             console.log('setting client name to:',clientName);
