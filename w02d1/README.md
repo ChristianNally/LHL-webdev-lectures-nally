@@ -11,40 +11,6 @@
 - [] What is TDD?
 - [] Chai assertion library
 
-### TDD
-- **T**est **D**riven **D**evelopment
-- Tests are written before the code is written
-- We use a process called Red-Green-Refactor
-- Red: The test is failing
-- Green: The test is passing
-- Refactor: Improve the existing code safe in the knowledge that the functionality is testable
-- BDD: **B**ehaviour **D**riven **D**evelopment
-  - Very similar to TDD, but the focus is more on the end user rather than the quality of the code under test
-
-### Mocha
-- A testing framework
-- By default, looks in the `test` folder for test files to run
-
-### Chai
-- An **assertion** library
-- We can use _assertions_ to describe the desired outcome of our code
-- Chai offers three different interfaces: `should`, `expect`, and `assert`
-- For most uses, choosing which interface to use is a matter of preference
-
-```js
-// should
-myVar.should.be.a('string');
-myVar.should.equal('hello world');
-
-// expect
-expect(myVar).to.be.a('string');
-expect(myVar).to.equal('hello world');
-
-// assert
-assert.typeOf(myVar, 'string');
-assert.equal(myVar, 'hello world');
-```
-
 ### `module.exports` and `require`
 - We can export functions, objects, etc from a file using the `module.exports` object
 - You can add new keys to the `module.exports` object _or_ you can completely overwrite it with a function/object
@@ -87,6 +53,40 @@ my-file.js
 ```
 
 * Using the above file, the `node_modules` folder and the file `my-file.js` will not be tracked by git
+
+### TDD
+- **T**est **D**riven **D**evelopment
+- Tests are written before the code is written
+- We use a process called Red-Green-Refactor
+- Red: The test is failing
+- Green: The test is passing
+- Refactor: Improve the existing code safe in the knowledge that the functionality is testable
+- BDD: **B**ehaviour **D**riven **D**evelopment
+  - Very similar to TDD, but the focus is more on the end user rather than the quality of the code under test
+
+### Mocha
+- A testing framework
+- By default, looks in the `test` folder for test files to run
+
+### Chai
+- An **assertion** library
+- We can use _assertions_ to describe the desired outcome of our code
+- Chai offers three different interfaces: `should`, `expect`, and `assert`
+- For most uses, choosing which interface to use is a matter of preference
+
+```js
+// should
+myVar.should.be.a('string');
+myVar.should.equal('hello world');
+
+// expect
+expect(myVar).to.be.a('string');
+expect(myVar).to.equal('hello world');
+
+// assert
+assert.typeOf(myVar, 'string');
+assert.equal(myVar, 'hello world');
+```
 
 ### Useful Links
 - [Node Modules](https://nodejs.org/docs/latest/api/modules.html)
