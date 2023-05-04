@@ -198,10 +198,13 @@ $(document).ready(function () {
 
   const earth = new Planet({
     name:'Earth', x:100, y:100, Vx:-3, Vy:4.4, mass:1, color:'blue',  planet: true, trail: true  });
+
   const mars = new Planet({
     name:'Mars',  x:120, y:120, Vx:-3, Vy:4.4, mass:1, color:'red',   planet: true, trail: true  });
+
   const other = new Planet({
     name:'Other', x:200, y:200, Vx:-3, Vy:4.4, mass:1, color:'green', planet: true, trail: true  });
+    
   const y = new Planet({ 
     name: "Sun", mass: 2.5, planet: false, zIndex: -99 
   });
