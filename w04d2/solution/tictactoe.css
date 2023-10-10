@@ -1,15 +1,20 @@
 td {
-    width: 75px;
-    height: 75px;
-    background-color: grey;
+    width: 80px;
+    height: 80px;
+    border: 2px solid white;
+}
+
+html {
+    background-color: black;
+    color: white;
+    font-size: 2em;
+}
+
+
+.O {
+    background-color: blue;
 }
 
 .X {
-    /* background-color: red; */
-    background-image: url('./img/tictacex.jpg');
-}
-
-.O {
-    /* background-color: blue; */
-    background-image: url('./img/tictacoh.jpg');
+    background-color: red;
 }

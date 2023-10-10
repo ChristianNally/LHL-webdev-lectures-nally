@@ -1,85 +1,52 @@
-$(document).ready(function(){  
+const checkForVictory = (player) => {
 
-  function checkForVictory(newSquare){
+  const listOfValidVictorySets = [
+    [0, 1, 2],
+    [3, 4, 5],
+    [6, 7, 8],
+    [0, 3, 6],
+    [1, 4, 7],
+    [2, 5, 8],
+    [0, 4, 8],
+    [2, 4, 6]
+  ];
 
-    const currentPlayer = $('#currentPlayer').html();
-
-    let rowWin = true; // this is fragile state
-    // if any sibling in this row is NOT owned by the current player
-    // then there is no win in this row.
-    $(newSquare).siblings().each(function(index){
-      if (  !$(this).hasClass(currentPlayer)   ) {
-        rowWin = false;
-      }
-    });
-
-    let columnWin = true; // this is fragile state
-    // only need to check the column this new square is in
-    const columnNum = $(newSquare).index() + 1;
-    console.log(`columnNum:${columnNum}`);
-
-    // the next jquery selector returns all three rows, so 
-    // the .children call will select from the children of each
-    // row in succession
-    $("tr").children("td:nth-of-type(" + columnNum + ")").each(function( index ){
-      if (!$(this).hasClass(currentPlayer)){
-        columnWin = false;
-      };
-    });
-
-    const rowNum = $(newSquare).parent().index() + 1;
-    console.log(`rowNum:${rowNum}`);
-
-    let backSlashDiagonalWin = false;
-    // if newSquare is on the backslash \ diagonal, check the backslash diagonal.
-    if (rowNum === columnNum){
-      console.log('backslash diagonal');
-      if ( $("tr:nth-child(1) td:nth-child(1)").hasClass(currentPlayer) 
-        && $("tr:nth-child(2) td:nth-child(2)").hasClass(currentPlayer)
-        && $("tr:nth-child(3) td:nth-child(3)").hasClass(currentPlayer)
-      ){
-        backSlashDiagonalWin = true;
+  for (let victorySet of listOfValidVictorySets) {
+    let victory = true;
+    for (let squareId of victorySet) {
+      console.log(`squareId:`, squareId);
+      $elementBeingTested = $(`td[data-cn=${squareId}]`);
+      const checkID = $elementBeingTested.attr('data-cn');
+      console.log('checkID', checkID);
+      if (!$elementBeingTested.hasClass(player)) { // a square does NOT have player as a class then victory => false 
+        victory = false;
       }
     }
-
-    let forwardSlashDiagonalWin = false;
-    // if newSquare is on the forward slash / diagonal, check it.
-    if ( (rowNum + columnNum) === 4){
-      console.log('forwardslash diagonal');
-      if ( $("tr:nth-child(1) td:nth-child(3)").hasClass(currentPlayer) 
-        && $("tr:nth-child(2) td:nth-child(2)").hasClass(currentPlayer)
-        && $("tr:nth-child(3) td:nth-child(1)").hasClass(currentPlayer)
-      ){
-        forwardSlashDiagonalWin = true;
-      }
+    if (victory) {
+      return true;
     }
-
-    // if any victory type is still true, return true
-    console.log(`rowWin:${rowWin} columnWin:${columnWin} backSlashDiagonalWin:${backSlashDiagonalWin} forwardSlashDiagonalWin:${forwardSlashDiagonalWin}`);
-    return ( rowWin || columnWin || backSlashDiagonalWin || forwardSlashDiagonalWin );
   }
+  return false;
+};
 
-  $('td').on('click',function(event){
+$(document).ready(function () {
 
-    // Set the square to this player's symbol
-    const currentPlayer = $('#currentPlayer').html();
-    $(this).addClass(currentPlayer);
+  $('td').on('click', function () {
+    const player = $('#player').html();
+    // alert(`player is ${player}`);
+    $(this).addClass(player);
+    $(this).off();
 
-    // Is there a winner yet?
-    if (checkForVictory(this)) {
-      // someone has won!
-      $('h2').html(`${currentPlayer} won! <a href="">Play Again.</a>`);
-      $('td').off('click');
-    } else {
-      $(this).off('click');
-      // Toggle which player clicks next
-      if ('X' === currentPlayer){
-        $('#currentPlayer').html('O');
+    const playerDidWin = checkForVictory(player);
+    // const playerDidWin = false;
+    if (!playerDidWin) {
+      if (player === 'X') {
+        $('#player').html('O');
       } else {
-        $('#currentPlayer').html('X');
-      }
+        $('#player').html('X');
+      }  
+    } else { // playerDidWin
+      $('#message').html(`Player ${player} has won! Click <a href="">here</a> to play again!`);
     }
-
   });
-
 });
