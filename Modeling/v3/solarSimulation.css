@@ -1,0 +1,21 @@
+.planet {
+	position: absolute;
+	width: 50px;
+	height: 50px;
+	border-radius: 50%;
+	background-color: #fff;
+	box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.5);
+	animation: orbit 5s linear infinite;
+}
+
+#universe {
+	position: relative;
+	width: 800px;
+	height: 800px;
+	background-color: #000;
+	border-radius: 50%;
+}
+
+body {
+	background-color: #111;
+}
